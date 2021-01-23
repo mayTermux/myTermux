@@ -1,0 +1,21 @@
+# jup.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#000000
+color1=#dd006f
+color2=#6fdd00
+color3=#dd6f00
+color4=#006fdd
+color5=#6f00dd
+color6=#00dd6f
+color7=#f2f2f2
+color8=#7d7d7d
+color9=#ff74b9
+color10=#b9ff74
+color11=#ffb974
+color12=#74b9ff
+color13=#b974ff
+color14=#74ffb9
+color15=#ffffff
+background=#758480
+foreground=#23476a
+cursor=#23476a

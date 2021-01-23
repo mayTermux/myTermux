@@ -1,0 +1,21 @@
+# chalk.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#646464
+color1=#F58E8E
+color2=#A9D3AB
+color3=#FED37E
+color4=#7AABD4
+color5=#D6ADD5
+color6=#79D4D5
+color7=#D4D4D4
+color8=#646464
+color9=#F58E8E
+color10=#A9D3AB
+color11=#FED37E
+color12=#7AABD4
+color13=#D6ADD5
+color14=#79D4D5
+color15=#D4D4D4
+background=#2D2D2D
+foreground=#D4D4D4
+cursor=#D4D4D4

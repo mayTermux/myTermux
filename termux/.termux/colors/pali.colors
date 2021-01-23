@@ -1,0 +1,21 @@
+# pali.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#0a0a0a
+color1=#ab8f74
+color2=#74ab8f
+color3=#8fab74
+color4=#8f74ab
+color5=#ab748f
+color6=#748fab
+color7=#F2F2F2
+color8=#5D5D5D
+color9=#FF1D62
+color10=#9cc3af
+color11=#FFD00A
+color12=#af9cc3
+color13=#FF1D62
+color14=#4BB8FD
+color15=#A020F0
+background=#232E37
+foreground=#d9e6f2
+cursor=#d9e6f2

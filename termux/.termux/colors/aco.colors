@@ -1,0 +1,21 @@
+# aco.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#3f3f3f
+color1=#ff0883
+color2=#83ff08
+color3=#ff8308
+color4=#0883ff
+color5=#8308ff
+color6=#08ff83
+color7=#bebebe
+color8=#474747
+color9=#ff1e8e
+color10=#8eff1e
+color11=#ff8e1e
+color12=#1e8eff
+color13=#8e1eff
+color14=#1eff8e
+color15=#c4c4c4
+background=#1f1305
+foreground=#b4e1fd
+cursor=#b4e1fd

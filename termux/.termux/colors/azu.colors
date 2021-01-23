@@ -1,0 +1,21 @@
+# azu.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#000000
+color1=#ac6d74
+color2=#74ac6d
+color3=#aca46d
+color4=#6d74ac
+color5=#a46dac
+color6=#6daca4
+color7=#e6e6e6
+color8=#262626
+color9=#d6b8bc
+color10=#bcd6b8
+color11=#d6d3b8
+color12=#b8bcd6
+color13=#d3b8d6
+color14=#b8d6d3
+color15=#ffffff
+background=#09111a
+foreground=#d9e6f2
+cursor=#d9e6f2

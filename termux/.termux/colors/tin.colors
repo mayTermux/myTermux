@@ -1,0 +1,21 @@
+# tin.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#000000
+color1=#8d534e
+color2=#4e8d53
+color3=#888d4e
+color4=#534e8d
+color5=#8d4e88
+color6=#4e888d
+color7=#ffffff
+color8=#000000
+color9=#b57d78
+color10=#78b57d
+color11=#b0b578
+color12=#7d78b5
+color13=#b578b0
+color14=#78b0b5
+color15=#ffffff
+background=#2e2e35
+foreground=#ffffff
+cursor=#ffffff

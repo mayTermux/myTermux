@@ -1,0 +1,21 @@
+# nep.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#000000
+color1=#dd6f00
+color2=#00dd6f
+color3=#6fdd00
+color4=#6f00dd
+color5=#dd006f
+color6=#006fdd
+color7=#f2f2f2
+color8=#7d7d7d
+color9=#ffb974
+color10=#74ffb9
+color11=#b9ff74
+color12=#b974ff
+color13=#ff74b9
+color14=#74b9ff
+color15=#ffffff
+background=#758480
+foreground=#23476a
+cursor=#23476a

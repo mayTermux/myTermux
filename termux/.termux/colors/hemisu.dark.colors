@@ -1,0 +1,21 @@
+# hemisu.dark.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#444444
+color1=#FF0054
+color2=#B1D630
+color3=#9D895E
+color4=#67BEE3
+color5=#B576BC
+color6=#569A9F
+color7=#EDEDED
+color8=#777777
+color9=#D65E75
+color10=#BAFFAA
+color11=#ECE1C8
+color12=#9FD3E5
+color13=#DEB3DF
+color14=#B6E0E5
+color15=#FFFFFF
+background=#000000
+foreground=#FFFFFF
+cursor=#BAFFAA

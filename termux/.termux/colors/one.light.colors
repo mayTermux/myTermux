@@ -1,0 +1,21 @@
+# one.light.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#000000
+color1=#DA3E39
+color2=#41933E
+color3=#855504
+color4=#315EEE
+color5=#930092
+color6=#0E6FAD
+color7=#8E8F96
+color8=#2A2B32
+color9=#DA3E39
+color10=#41933E
+color11=#855504
+color12=#315EEE
+color13=#930092
+color14=#0E6FAD
+color15=#FFFEFE
+background=#F8F8F8
+foreground=#2A2B32
+cursor=#2A2B32

@@ -1,0 +1,21 @@
+# hybrid.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#282a2e
+color1=#A54242
+color2=#8C9440
+color3=#de935f
+color4=#5F819D
+color5=#85678F
+color6=#5E8D87
+color7=#969896
+color8=#373b41
+color9=#cc6666
+color10=#b5bd68
+color11=#f0c674
+color12=#81a2be
+color13=#b294bb
+color14=#8abeb7
+color15=#c5c8c6
+background=#141414
+foreground=#94a3a5
+cursor=#94a3a5

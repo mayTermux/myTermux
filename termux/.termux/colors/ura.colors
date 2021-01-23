@@ -1,0 +1,21 @@
+# ura.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#000000
+color1=#c21b6f
+color2=#6fc21b
+color3=#c26f1b
+color4=#1b6fc2
+color5=#6f1bc2
+color6=#1bc26f
+color7=#808080
+color8=#808080
+color9=#ee84b9
+color10=#b9ee84
+color11=#eeb984
+color12=#84b9ee
+color13=#b984ee
+color14=#84eeb9
+color15=#e5e5e5
+background=#feffee
+foreground=#23476a
+cursor=#23476a

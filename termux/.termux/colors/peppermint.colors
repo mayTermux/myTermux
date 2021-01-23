@@ -1,0 +1,21 @@
+# peppermint.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#353535
+color1=#E64569
+color2=#89D287
+color3=#DAB752
+color4=#439ECF
+color5=#D961DC
+color6=#64AAAF
+color7=#B3B3B3
+color8=#535353
+color9=#E4859A
+color10=#A2CCA1
+color11=#E1E387
+color12=#6FBBE2
+color13=#E586E7
+color14=#96DCDA
+color15=#DEDEDE
+background=#000000
+foreground=#C7C7C7
+cursor=#BBBBBB

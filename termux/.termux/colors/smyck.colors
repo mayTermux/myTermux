@@ -1,0 +1,21 @@
+# smyck.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#000000
+color1=#C75646
+color2=#8EB33B
+color3=#D0B03C
+color4=#72B3CC
+color5=#C8A0D1
+color6=#218693
+color7=#B0B0B0
+color8=#5D5D5D
+color9=#E09690
+color10=#CDEE69
+color11=#FFE377
+color12=#9CD9F0
+color13=#FBB1F9
+color14=#77DFD8
+color15=#F7F7F7
+background=#242424
+foreground=#F7F7F7
+cursor=#F7F7F7

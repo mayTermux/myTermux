@@ -1,0 +1,21 @@
+# shel.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#2c2423
+color1=#ab2463
+color2=#6ca323
+color3=#ab6423
+color4=#2c64a2
+color5=#6c24a2
+color6=#2ca363
+color7=#918988
+color8=#918988
+color9=#f588b9
+color10=#c2ee86
+color11=#f5ba86
+color12=#8fbaec
+color13=#c288ec
+color14=#8feeb9
+color15=#f5eeec
+background=#2a201f
+foreground=#4882cd
+cursor=#4882cd

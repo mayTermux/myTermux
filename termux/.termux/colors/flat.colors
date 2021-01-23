@@ -1,0 +1,21 @@
+# flat.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#2c3e50
+color1=#c0392b
+color2=#27ae60
+color3=#f39c12
+color4=#2980b9
+color5=#8e44ad
+color6=#16a085
+color7=#bdc3c7
+color8=#34495e
+color9=#e74c3c
+color10=#2ecc71
+color11=#f1c40f
+color12=#3498db
+color13=#9b59b6
+color14=#2AA198
+color15=#ecf0f1
+background=#1F2D3A
+foreground=#1abc9c
+cursor=#1abc9c

@@ -1,0 +1,21 @@
+# solarized.dark.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#073642
+color1=#DC322F
+color2=#859900
+color3=#B58900
+color4=#268BD2
+color5=#D33682
+color6=#2AA198
+color7=#EEE8D5
+color8=#002B36
+color9=#CB4B16
+color10=#586E75
+color11=#657B83
+color12=#839496
+color13=#6C71C4
+color14=#93A1A1
+color15=#FDF6E3
+background=#002B36
+foreground=#839496
+cursor=#F7F7F7

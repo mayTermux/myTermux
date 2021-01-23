@@ -1,0 +1,21 @@
+# sat.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#000000
+color1=#dd0007
+color2=#07dd00
+color3=#ddd600
+color4=#0007dd
+color5=#d600dd
+color6=#00ddd6
+color7=#f2f2f2
+color8=#7d7d7d
+color9=#ff7478
+color10=#78ff74
+color11=#fffa74
+color12=#7478ff
+color13=#fa74ff
+color14=#74fffa
+color15=#ffffff
+background=#758480
+foreground=#23476a
+cursor=#23476a

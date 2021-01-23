@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# Variable Color
+df='\e[39m'
+bl='\e[30m'
+wh='\e[97m'
+rd='\e[31m'
+gn='\e[32m'
+yw='\e[33m'
+bl='\e[34m'
+mg='\e[35m'
+cyn='\e[36m'
+lgy='\e[37m'
+dgy='\e[90m'
+lrd='\e[91m'
+lgn='\e[92m'
+lyw='\e[93m'
+lbl='\e[94m'
+lmg='\e[95m'
+lcyn='\e[96m'
+
+## Oh-My-ZSH Installation
+
+# Oh-My-ZSH Files & Directory
+files=( ".oh-my-zsh" ".termux" ".zshrc" )
+
+# Oh-My-ZSH Packages
+ohpkgs=( "git" "curl" "zsh" "neofetch" "exa" "bat" )
+
+# Oh-My-ZSH Repository Link
+ohrepos=(
+    "git://github.com/robbyrussell/oh-my-zsh.git"
+    "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    "https://github.com/zsh-users/zsh-autosuggestions.git"
+)
+
+# Oh-My-ZSH Repository Name
+ohnames=(
+    "oh-my-zsh" 
+    "zsh-syntax-highlighting" 
+    "zsh-autosuggestions" 
+)
+
+# My Oh-My-ZSH & Termux Files or Directory
+zshfiles=( ".zshrc" "rounded.zsh-theme" ".termux" "neofetch" )
+
+# Powerlevel10k Repo
+p10krepo=( "https://github.com/romkatv/powerlevel10k.git" )
+
+## Standar Installation
+
+# Standar Package
+stanpkgs=( 
+    "openssh" 
+    "sshpass" 
+    "vim" 
+    "neovim" 
+    "mpd" 
+    "ncmpcpp" 
+    "htop-legacy" 
+    "termux-api" 
+    "nmap"  
+    "man" 
+    "python"
+    "ncdu"
+)
+
+# Standar File & Directory
+stanfiles=( ".mpd" ".ncmpcpp" ".local" ".vim" )
+musics=( "mpd" "ncmpcpp" )
+vims=( .vim nvim .vimrc init.vim )
+
+## All Installation
+
+# Private Repository
+privlink=( "https://github.com/xshin404" )
+privrepos=( "gitconsole" "termuxconsole" "random" "math" )

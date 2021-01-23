@@ -1,0 +1,21 @@
+# vag.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#303030
+color1=#a87139
+color2=#39a871
+color3=#71a839
+color4=#7139a8
+color5=#a83971
+color6=#3971a8
+color7=#8a8a8a
+color8=#494949
+color9=#b0763b
+color10=#3bb076
+color11=#76b03b
+color12=#763bb0
+color13=#b03b76
+color14=#3b76b0
+color15=#cfcfcf
+background=#191f1d
+foreground=#d9e6f2
+cursor=#d9e6f2

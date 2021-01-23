@@ -1,0 +1,21 @@
+# cai.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#000000
+color1=#ca274d
+color2=#4dca27
+color3=#caa427
+color4=#274dca
+color5=#a427ca
+color6=#27caa4
+color7=#808080
+color8=#808080
+color9=#e98da3
+color10=#a3e98d
+color11=#e9d48d
+color12=#8da3e9
+color13=#d48de9
+color14=#8de9d4
+color15=#ffffff
+background=#09111a
+foreground=#d9e6f2
+cursor=#d9e6f2

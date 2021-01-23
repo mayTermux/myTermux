@@ -1,0 +1,21 @@
+# mar.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#000000
+color1=#b5407b
+color2=#7bb540
+color3=#b57b40
+color4=#407bb5
+color5=#7b40b5
+color6=#40b57b
+color7=#f8f8f8
+color8=#737373
+color9=#cd73a0
+color10=#a0cd73
+color11=#cda073
+color12=#73a0cd
+color13=#a073cd
+color14=#73cda0
+color15=#ffffff
+background=#ffffff
+foreground=#23476a
+cursor=#23476a
