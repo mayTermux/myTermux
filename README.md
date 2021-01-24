@@ -1,6 +1,6 @@
 <p align="center">
   <a name="top" href="#octocat-hi-there-thanks-for-visiting-">
-     <img alt="owl4ce/dotfiles" height="60%" width="100%" src="https://i.ibb.co/bWzhMZn/window-2021-01-24-10-21-10-removebg-preview.png"/>
+     <img alt="owl4ce/dotfiles" height="60%" width="100%" src="https://i.ibb.co/CHhrkD2/window-2021-01-24-09-47-39-removebg-preview.png"/>
   </a>
 </p>
 
