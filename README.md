@@ -29,11 +29,11 @@ I hope you understand my bad english. :sweat_smile:
 Here are some details about my setup
 - **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework and some plugins ! <kbd>optional</kbd>
 - **Music**                        • [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon) :musical_note: with [ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp) text-mode client for MPD
-- **Color Scheme**                 • [dotfiles](https://github.com/owl4ce/dotfiles/) :art:
-- **Text Editor**                  • [vim](https://www.vim.org/scripts/script.php?script_id=2226) :ledger: + [neovim](https://neovim.io/charter/) extesion of vim and some plugins
-- **System Information**           • [neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
+- **Color Scheme**                 • [Dotfiles](https://github.com/owl4ce/dotfiles/) :art:
+- **Text Editor**                  • [Vim](https://www.vim.org/scripts/script.php?script_id=2226) :ledger: + [Neovim](https://neovim.io/charter/) extesion of vim and some plugins
+- **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
 
-### Installation (dependencies)
+### Installation
 
   <details open>
   <summary>Termux (Android)</summary>
@@ -50,6 +50,7 @@ Here are some details about my setup
   - ```bash
     $ chmod +x install.sh && ./install.sh --options # You can see options with ./install.sh -h or --help
     ```
+  - [help]<p align="center"><img src="https://i.ibb.co/PjDhQ9Z/window-2021-01-25-00-55-23.png" alt=""/></p>
   </details>
 
 
