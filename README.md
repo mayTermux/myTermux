@@ -22,7 +22,7 @@
 ##  
 ### :octocat: Hi, thanks for spending your time visiting this repository ! <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=&color=04f8d5&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
-This is a combined configuration of the most favorite dotfiles and oh-my-zsh on Termux (Linux Emulator) and some packages or applications as well.
+This is a combined configuration of the most favorite dotfiles and oh-my-zsh on Termux (Terminal Emulator Android) and some packages or applications as well.
 
 I hope you understand my bad english. :sweat_smile:
 
