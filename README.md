@@ -1,6 +1,6 @@
 <p align="center">
   <a name="top" href="#octocat-hi-there-thanks-for-visiting-">
-     <img alt="owl4ce/dotfiles" height="60%" width="100%" src="https://i.ibb.co/bWzhMZn/window-2021-01-24-10-21-10-removebg-preview.png"/>
+     <img alt="owl4ce/dotfiles" height="60%" width="100%" src="https://i.ibb.co/CHhrkD2/window-2021-01-24-09-47-39-removebg-preview.png"/>
   </a>
 </p>
 
@@ -8,10 +8,10 @@
   <a href="#rice_scene--setup">
     <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/qk3nSfh/install.png"/>
   </a>
-  <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds">
+  <a href="#">
     <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/xmdtYT8/packages.png"/>
   </a>
-  <a href="https://www.deviantart.com/owl4ce/gallery/76024204/joyful-desktop-v3">
+  <a href="#">
     <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/qJ6BrwX/themes.png"/>
   </a>
   <a href="#memo--notes">
@@ -27,9 +27,30 @@ This is a combined configuration of the most favorite dotfiles and oh-my-zsh on 
 I hope you understand my bad english. :sweat_smile:
 
 Here are some details about my setup
-- **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework! <kbd>optional</kbd>
-- **Music**                        • [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon) :musical_note: with [ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp) client text-mode client for MPD
+- **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework and some plugins ! <kbd>optional</kbd>
+- **Music**                        • [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon) :musical_note: with [ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp) text-mode client for MPD
 - **Color Scheme**                 • [dotfiles](https://github.com/owl4ce/dotfiles/) :art:
-- **Text Editor**                  • [vim](https://www.vim.org/scripts/script.php?script_id=2226):ledger: with [neovim](https://neovim.io/charter/) extesion of vim
+- **Text Editor**                  • [vim](https://www.vim.org/scripts/script.php?script_id=2226):ledger: + [neovim](https://neovim.io/charter/) extesion of vim and some plugins
+- **System Information**           • [neofetch](https://github.com/dylanaraps/neofetch/wiki):gear:
+
+### Installation (dependencies)
+
+  <details open>
+  <summary>Termux (Android)</summary>
+  
+  - ```bash
+    $ pkg install git
+    ```
+  - ```bash
+    $ git clone https://github.com/xshin404/myTermux
+    ```
+  - ```bash
+    $ cd myTermux
+    ```
+  - ```bash
+    $ chmod +x install.sh && ./install.sh --options # You can see options with ./install.sh -h or --help
+    ```
+    ```
+  </details>
 
 
