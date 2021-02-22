@@ -53,7 +53,6 @@ p10krepo=( "https://github.com/romkatv/powerlevel10k.git" )
 stanpkgs=( 
     "openssh" 
     "sshpass" 
-    "vim" 
     "neovim" 
     "mpd" 
     "ncmpcpp" 
@@ -68,7 +67,7 @@ stanpkgs=(
 # Standar File & Directory
 stanfiles=( ".mpd" ".ncmpcpp" ".local" ".vim" )
 musics=( "mpd" "ncmpcpp" )
-vims=( .vim nvim .vimrc init.vim )
+neovims=( "nvim" "init.vim" )
 
 ## All Installation
 
