@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# DISK
+sizehome=$(df -h | grep '/data/media' | awk '{print $2}')
+usedhome=$(df -h | grep '/storage/emulated' | awk '{print $3}')
+availhome=$(df -h | grep '/storage/emulate' | awk '{print $4}')
+usehome=$(df -h | grep '/storage/emulated' | awk '{print $5}')
+mountedhome=$(df -h | grep '/storage/emulated' | awk '{print $6}')
+
+home() {
+	echo -e "home {"
+	echo -e "        Size        :" $sizehome
+	echo -e "        Used        :" $usedhome "/" $sizehome "("$usehome")"
+	echo -e "        Avail       :" $availhome "/" $sizehome "("$usehome")"
+	echo -e "        Use%        :" $usehome
+	echo -e "        Mounted on  :" $mountedhome
+	echo -e "}"
+}
+
+more() {
+	echo -e "Usage : COMMAND [PARAMETER]\n"
+	echo -e "-h		: Show internal partition"
+	echo -e "--help		: Show help"
+}
+
+#logic() {
+
+    if [[ "$1" == "-h" ]]; then
+        home
+    elif [[ "$1" == "--help" ]]; then
+        more
+    else
+        { more; exit 1;  }
+    fi
+#}
+#logic

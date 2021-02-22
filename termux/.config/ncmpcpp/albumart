@@ -1,16 +1,13 @@
 # MPD
-#mpd_host = "127.0.0.1"
-mpd_host = "~/.mpd/mpd.socket"
+mpd_host = "127.0.0.1"
 mpd_port = "6600"
-#mpd_music_dir = "/sdcard/Music/"
-mpd_music_dir = "/storage/emulated/0/music/"
 
 mpd_crossfade_time = 2
 
 # VISUALIZER
 visualizer_in_stereo = "no"
-visualizer_fifo_path = "~/.mpd/mpd.fifo"
-#visualizer_fps = 60
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_fps = 60
 visualizer_output_name = "Visualizer"
 visualizer_type = "wave"
 visualizer_look = "▗"
@@ -31,21 +28,17 @@ autocenter_mode = "yes"
 centered_cursor = "yes"
 user_interface = "classic"
 follow_now_playing_lyrics = "yes"
-locked_screen_width_part = "50"
-startup_slave_screen = "visualizer"
-startup_screen = "playlist"
+locked_screen_width_part = "71"
 ask_for_locked_screen_width_part = "yes"
 display_bitrate = "no"
 external_editor = "nano"
 main_window_color = "default"
-#main_window_color = "5"
+#main_window_highlight_color = 7
 
 # PROGRESSBAR
-#progressbar_look = "━━━"
+progressbar_look = "━━━"
 #progressbar_look = "▃▃▃"
-progressbar_look = "~>•"
-#progressbar_look = "~>"
-progressbar_elapsed_color = "2"
+progressbar_elapsed_color = 5
 progressbar_color = "black"
 
 # UI VISIBILITY
@@ -60,16 +53,18 @@ color1 = "white"
 color2 = "blue"
 
 # UI FORMAT
-#execute_on_song_change="~/.ncmpcpp/ncmpcpp-ueberzug/ncmpcpp_cover_art.sh"
-now_playing_prefix = "$b$8      "
-now_playing_suffix = "$/b$8 $b[ $3$8 ]$/b"
-current_item_prefix = "$/b$b[ $7$8 ]$/b "
-current_item_suffix = "      $8"
+now_playing_prefix = "$b$8               "
+now_playing_suffix = "$/b$8 $b[ $3$8 ]$/b                      "
+current_item_prefix = "$/b$b[ $7$8 ]$/b  "
+current_item_suffix = "             $8"
 
-song_columns_list_format = "(50)[]{t|fr:Title} (45)[magenta]{a}"
+song_columns_list_format = "(35)[]{t|fr:Title} (45)[magenta]{a}"
 
-song_list_format = " {%t $R   $8%a$8}|{%f $R   $8%l$8} $8"
+song_list_format = " {%t $R   $8%a$8}|{%f $R   $8%l$8} $R$8│                            "
 
 song_status_format = "{$b$7[$8      $7] $2 $7$8 %b $7 $8}|{$b$7[$8      $7] $2 $7$8 %t $7 $8}|{$b$7[$8      $7] $2 $7$8 %f $7 $8}"
 
-song_window_title_format = "Music Now Playing . . ."
+song_window_title_format = "Now Playing .."
+
+# EXEC SCRIPT
+execute_on_song_change="bash -c \"$HOME/.ncmpcpp/scripts/album\""

@@ -8,12 +8,12 @@ print_info() {
     info " " model
 #    info " " kernel
     info " " uptime
-#    info " " packages
-    prin " " "$(bash $HOME/.config/neofetch/script.sh --storage | grep Used | awk '{print " "$3"B " $4" " $5"B " $6"B " $7 $8}')"
-    prin "$(bash $HOME/.config/neofetch/script.sh --battery)"
-#    info " " shell
+    info " " packages
+    prin " " "$(bash $HOME/.config/neofetch/script.sh --storage | grep Used | awk '{print " "$3"B " $4" " $5"B " $6}')"
+ #   info " " shell
 #    info " " cpu
 #    info " " memory
+    #prin "Battery" "$(termux-battery-status | grep percentage | awk '{print $2}')"
 
     # info "GPU Driver" gpu_driver  # Linux/macOS only
     # info "CPU Usage" cpu_usage

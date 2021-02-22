@@ -1,34 +1,62 @@
 #!/bin/bash
 
-# DISK
-sizehome=$(df -h | egrep '/data/media' | awk '{print $2}')
-usedhome=$(df -h | egrep '/data/media' | awk '{print $3}')
-availhome=$(df -h | egrep '/data/media' | awk '{print $4}')
-usehome=$(df -h | egrep '/data/media' | awk '{print $5}')
-mountedhome=$(df -h | egrep '/data/media' | awk '{print $6}')
+# Storage
+storage() {
 
-home() {
-	echo -e "home {"
-	echo -e "        Size        :" $sizehome
-	echo -e "        Used        :" $usedhome "/" $sizehome "("$usehome")"
-	echo -e "        Avail       :" $availhome "/" $sizehome "("$usehome")"
-	echo -e "        Use%        :" $usehome
-	echo -e "        Mounted on  :" $mountedhome
-	echo -e "}"
+	# Variable
+	size=$(df -h | grep '/storage/emulated' | awk '{print $2}')
+	used=$(df -h | grep '/storage/emulated' | awk '{print $3}')
+	avail=$(df -h | grep '/storage/emulated' | awk '{print $4}')
+	use=$(df -h | grep '/storage/emulated' | awk '{print $5}')
+	mounted=$(df -h | grep '/storage/emulated' | awk '{print $6}')
+
+	outputStorage() {
+		echo -e "Internal Storage {"
+		echo -e "	Size		:" $size
+		echo -e "	Used		:" $used "/" $size "("$avail $use")"
+		echo -e "	Available	:" $avail "/" $size "("$use")"
+		echo -e "	Use%		:" $use
+		echo -e "	Mounted On	:" $mounted
+		echo -e "}"
+	}
+	outputStorage
 }
 
-more() {
-	echo -e "Usage : COMMAND [PARAMETER]\n"
-	echo -e "-h		: Show internal partition"
-	echo -e "--help		: Show help"
+battery() {
+	percentage=`termux-battery-status | grep percentage | awk '{print $2}' | tr , '%'`
+	status=`termux-battery-status | grep status | awk '{print $2}'`
+	lyw='\e[93m'
+	lgn='\e[92m'
+	df='\e[39m'
+	if [[ $status == '"CHARGING",' ]]; then
+            echo -e $lgn"$df : Charging, (${percentage})"
+	elif [[ $status == '"DISCHARGING",' ]]; then
+            echo -e $lyw"$df : Discharging, (${percentage})"
+	fi
 }
 
-	if [[ "$1" == "-r" ]]; then
-		root
-	elif [[ "$1" == "-h" ]]; then
-        home
-	elif [[ "$1" == "--help" ]]; then
-		more
-    else
-        { home; }
-    fi
+version() {
+	echo -e "neofetch output v.0.2.0"
+}
+
+help() {
+    echo -e "Usage: \n  ./script.sh [options]"
+    echo -e "\nMETA OPTIONS :"
+    echo -e "  -h, --help           Show list of command-line options."
+    echo -e "  -v, --version        Show version of script."
+    echo -e "\nRUN OPTIONS :"
+    echo -e "  -s, --storage        Show Internal Storage."
+    echo -e "  -b, --battery        Show Battery Android (Need Termux-API Insatlled)."
+}
+
+if [[ "$1" == "-s" || "$1" == "--storage" ]]; then
+	storage
+elif [[ "$1" == "-b" || "$1" == "--battery" ]]; then
+	battery
+elif [[ "$1" == "-v" || "$1" == "--version" ]]; then
+	version
+elif [[ "$1" == "-h" || "$1" == "--help" ]]; then
+	help
+else
+	{ help; exit 1; }
+fi

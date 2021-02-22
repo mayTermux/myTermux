@@ -49,19 +49,6 @@ zsh() {
         done
         echo -e $lyt"Preparing to clone repository related on zsh !\n$df"
         sleep 2s
-        # for ohrepo in "${ohrepos[@]}"; do
-        #     echo -e $lyw"[*] Cloning $ohrepo . . .\n$df"
-        #     git clone $ohrepo
-        #     for ohname in "${ohnames[@]}"; do
-        #         mv $ohname $HOME/
-        #         if [[ -d "$HOME/$ohname" ]]; then
-        #             echo -e $lgn"\n[!] Successfully clone $ohname\n$df"
-        #             break
-        #         else
-        #             echo -e $lrd"\n[!] Failed clone $ohname\n$df"
-        #         fi
-        #     done
-        # done
         for ohrepo in "${ohrepos[@]}"; do
             echo -e $lyw"[*] Cloning $ohrepo . . .\n$df"
             git clone $ohrepo
@@ -220,54 +207,23 @@ standar() {
     done
     echo -e $lyw"\nSetup music done !\n$df"
     sleep 2s
-    echo -e "Preparing to setup vim (nvim & plugin) !\n$df"
+    echo -e "Preparing to setup neovim + plugin !\n$df"
     sleep 2s
-    for vim in "${vims[@]}"; do
-        if [[ "$vim" == ".vim" ]]; then
-            cp -R $DIR/termux/$vim $HOME/$vim
-            if [[ -d $HOME/$vim ]]; then
-                echo -e $lgn"[!] Successfully setup $vim $df"
-            else
-                echo -e $lrd"[!] Failed setup $vim $df"
-            fi
-        elif [[ "$vim" == "nvim" ]]; then
-            # mkdir $HOME/.local/share
+    for neovim in "${neovims[@]}"; do
+        if [[ "$neovim" == "nvim" ]]; then
             cp -R $DIR/termux/.local $HOME/
-            if [[ -d $HOME/.local/share/$vim ]]; then
-                echo -e $lgn"[!] Successfully setup $vim $df"
+            if [[ -d $HOME/.local/share/$neovim ]]; then
+                echo -e $lgn"[!] Successfully setup $neovim $df"
             else
-                echo -e $lrd"[!] Failed setup $vim $df"
+                echo -e $lrd"[!] Failed setup $neovim $df"
             fi
-        elif [[ "$vim" == ".vimrc" ]]; then
-            cp $DIR/termux/$vim $HOME/
-            if [[ -f $HOME/$vim ]]; then
-                echo -e $lgn"[!] Successfully setup $vim $df"
-            else
-                echo -e $lrd"[!] Failed setup $vim $df"
-            fi
-        elif [[ "$vim" == "init.vim" ]]; then
-            # if [[ -d $HOME/.config/nvim ]]; then
-            #     cp $DIR/termux/.config/nvim/$vim $HOME/.config/nvim/
-            #     if [[ -f $HOME/.config/nvim/$vim ]]; then
-            #         echo -e $lgn"[!] Successfully setup $vim $df"
-            #     else
-            #         echo -e $lrd"[!] Failed setup $vim $df"
-            #     fi
-            # else
-            #     mkdir $HOME/.config/nvim
-            #     cp $DIR/termux/.config/nvim/$vim $HOME/.config/nvim/
-            #     if [[ -f $HOME/.config/nvim/$vim ]]; then
-            #         echo -e $lgn"[!] Successfully setup $vim $df"
-            #     else
-            #         echo -e $lrd"[!] Failed setup $vim $df"
-            #     fi
-            # fi
+        elif [[ "$neovim" == "init.vim" ]]; then
             mkdir $HOME/.config/nvim/
-            cp $DIR/termux/.config/nvim/$vim $HOME/.config/nvim/
-            if [[ -f $HOME/.config/nvim/$vim ]]; then
-                echo -e $lgn"[!] Successfully setup $vim $df"
+            cp $DIR/termux/.config/nvim/$neovim $HOME/.config/nvim/
+            if [[ -f $HOME/.config/nvim/$neovim ]]; then
+                echo -e $lgn"[!] Successfully setup $neovim $df"
             else
-                echo -e $lrd"[!] Failed setup $vim $df"
+                echo -e $lrd"[!] Failed setup $neovim $df"
             fi
         fi
     done
@@ -294,6 +250,10 @@ all() {
     done
 }
 
+version() {
+    echo -e "myTermux v0.2.0"
+}
+
 help() {
     echo -e "Usage: \n  ./install.sh [options]"
     echo -e "\nMETA OPTIONS :"
@@ -303,10 +263,6 @@ help() {
     echo -e "  -z, --zsh            Just installing Oh-My-ZSH."
     echo -e "  -s, --standar        Oh-My-ZSH + some package like (vim, nvim + plugin, mpd, ncmpcpp, youtube-dl, ncdu & etc), take a lot more storage."
     echo -e "  -a, --all            Installing all my Termux, NOTE ! take a lot more storage & need clone private github repository (Authentication).\n"
-}
-
-version() {
-    echo -e "myTermux v0.1.0"
 }
 
 if [[ $1 == -z || $1 == --zsh ]]; then

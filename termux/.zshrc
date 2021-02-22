@@ -117,14 +117,14 @@ alias q='exit'
 alias u='/data/data/com.termux/files/usr'
 alias b='/data/data/com.termux/files/usr/bin'
 alias t='/data/data/com.termux/files/home/.termux'
-alias deb='bash deb/start-debian.sh'
 alias sd='cd /sdcard'
 alias pg='ping google.com'
 alias n='ncmpcpp'
 alias mkill='mpd --kill'
 alias m="mkill && mpd && n"
-alias neo='neofetch'
-alias mem='df -h | egrep "size|storage" | awk "{print $2}"'
+alias neo='neofetch --ascii_distro android_small'
+alias mem='bash ~/.config/neofetch/script.sh -s'
+alias batt="bash ~/.config/neofetch/script.sh -b"
 alias ls="exa --icons"
 alias la="exa --icons -lgha --group-directories-first"
 alias pf="cd $PREFIX"
@@ -133,11 +133,11 @@ alias pf="cd $PREFIX"
 alias mpdconf="nvim ~/.mpd/mpd.conf"
 alias mpconf="nvim /data/data/com.termux/files/usr/etc/mpd.conf"
 alias cmpdc="cd /data/data/com.termux/files/usr/etc/"
-alias ncmconf="nvim ~/.ncmpcpp/config"
-alias vplug="vim ~/.vimrc"
+alias ncmconf="nvim ~/.config/ncmpcpp/config"
 alias nplug="nvim ~/.config/nvim/init.vim"
 alias zshconf="nvim ~/.zshrc"
 alias neoconf="nvim ~/.config/neofetch/config.conf"
+alias neoscript="nvim ~/.config/neofetch/script.sh"
 
 clear
 neo
