@@ -117,7 +117,7 @@ Here are some details about my setup
 
   |ERROR : Please Setting Up Global Variable First !|Fix|
   |--|--|
-  |![Image](/assets/images/troubleshooting/variable/variable.png)|![Image](/assets/images/troubleshooting/variable/variable2.png)|
+  |![Image](/assets/images/troubleshooting/variable/variable.png)|![Image](/assets/images/troubleshooting/variable/fix.png)|
 
   </details>
 
