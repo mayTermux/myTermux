@@ -57,8 +57,8 @@ Here are some details about my setup
   |Dark Theme Sound Ellipse|Dark Theme Sound Wave Filled|
   |--|--|
   |![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)|
-  |Light Theme Sound Ellipse|Light Theme Sound Wave Filled|
 
+  |Light Theme Sound Ellipse|Light Theme Sound Wave Filled|
   |--|--|
   |![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)|
 
@@ -73,8 +73,8 @@ Here are some details about my setup
   |Neofetch Battery|Neofetch Storage|
   |--|--|
   |![Image](/assets/images/neofetch/neofetch_battery.jpg)|![Image](/assets/images/neofetch/neofetch_output.jpg)|
-  |Neofetch Configuration|Neofetch Script|
 
+  |Neofetch Configuration|Neofetch Script|
   |--|--|
   |![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neoscript.jpg)|
 
