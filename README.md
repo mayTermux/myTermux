@@ -105,6 +105,20 @@ Here are some details about my setup
 ### Troubleshooting
 
   <details open>
+  <summary><strong>exa</strong></summary>
+
+  - **"ls" unknown argument --icons**
+
+  This error because exa old version not support argument --icons, to fix this use exa v.0.9.0. In my case i use the package maintainer's version on first update & upgrade.
+
+  |apt|motd|exa v.0.9.0|
+  |--|--|--|
+  |![Image](/assets/images/troubleshooting/exa/apt.jpg)|![Image](/assets/images/troubleshooting/exa/motd.jpg)|![Image](/assets/images/troubleshooting/exa/exa_version.jpg)
+
+  </details>
+
+
+  <details open>
   <summary><strong>Ncmpcpp</strong></summary>
 
   - **Music doesn't automatic detect**
@@ -122,25 +136,11 @@ Here are some details about my setup
 
   - **Battery & Storage icon not showing**
 
-  If you want Battery icon showing you must install app <strong>Termux-API</strong> and for storage must set to right partition in your Android
+  If you want Battery icon showing you must install app <strong>Termux-API</strong> and for storage you must set to right partition on your Android.
 
   |Termux-API|Storage|
   |--|--|
   |![Image](/assets/images/troubleshooting/neofetch/termux-api.jpg)|![Image](/assets/images/troubleshooting/neofetch/storage.png)
-
-  </details>
-
-
-  <details open>
-  <summary><strong>exa</strong></summary>
-
-  - **"ls" unknown argument --icons**
-
-  This error because exa old version not support argument --icons, to fix this use exa v.0.9.0. In my case i use the package maintainer's version in first update && upgrade.
-
-  |apt|motd|exa v.0.9.0|
-  |--|--|--|
-  |![Image](/assets/images/troubleshooting/exa/apt.jpg)|![Image](/assets/images/troubleshooting/exa/motd.jpg)|![Image](/assets/images/troubleshooting/exa/exa_version.jpg)
 
   </details>
 
@@ -149,7 +149,7 @@ Here are some details about my setup
 
   - **Unable to locate package "..."**
 
-  This error because install before update repository, to fix this run "pkg" or "apt" update to get repository newest and them run again installation script.
+  This error because install before update repository, to fix this run "pkg" or "apt" update to get repository newest and then run again installation script.
 
   |Unable to locate package|Unable to locate package|
   |--|--|
