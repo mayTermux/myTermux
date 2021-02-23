@@ -84,9 +84,9 @@ Here are some details about my setup
   - **Neofetch**
   <details open>
 
-  |Neofetch Battery|Neofetch Storage|Neofetch Configuration|
-  |--|--|--|
-  |![Image](/assets/images/neofetch/neofetch.jpg)|![Image](/assets/images/neofetch/neofetch_script.jpg)|![Image](/assets/images/neofetc/neoconf.jpg)|
+  |Neofetch Battery|Neofetch Storage|Neofetch Configuration|Neofetch Script|
+  |--|--|--|--|
+  |![Image](/assets/images/neofetch/neofetch.jpg)|![Image](/assets/images/neofetch/neofetch_output.jpg)|![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neofetch_script.jpg)|
 
   `~/.config/neofetch/config.conf`
 
