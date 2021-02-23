@@ -47,24 +47,23 @@ Here are some details about my setup
 
 ### User Configuration
 
-  - **Ncmpcpp**
   <details open>
+  <summary><strong>Ncmpcpp</strong></summary>
 
   |Dark Theme Sound Ellipse|Dark Theme Sound Wave Filled|
-  |--|--|--|--|
+  |--|--|
   |![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)|
   |Light Theme Sound Ellipse|Light Theme Sound Wave Filled|
   |--|--|
   |![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)|
 
-
-  `~/.config/ncmpcpp/config`
+  To change configuration Ncmpcpp you can edit file in `~/.config/ncmpcpp/config`
 
   </details>
 
   
-  - **Neofetch**
   <details open>
+  <summary><strong>Neofetch</strong></summary>
 
   |Neofetch Battery|Neofetch Storage|
   |--|--|
@@ -73,23 +72,22 @@ Here are some details about my setup
   |--|--|
   |![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neoscript.jpg)|
 
-  `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
+  To change configuration Neofetch you can edit file in `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
 
   </details>
 
-  - **Neovim**
   <details open>
+  <summary><strong>Neovim</strong></summary>
 
   |Vim Plug|Plug Status|Neovim|
   |--|--|--|
   |![Image](/assets/images/neovim/vimplug.jpg)|![Image](/assets/images/neovim/plugstatus.jpg)|![Image](/assets/images/neovim/neovim_output.jpg)|
 
-  if you want to install the plugin, you can type <strong>:PlugInstall</strong> in Neovim.
+  To change configuration Neovim you can edit file in `~/.config/nvim/init.vim` & `~/.local/share/nvim/site/plug.vim`. If you want to install the plugin, you can type <strong>:PlugInstall</strong> in Neovim.
   </details>
 
-  - **SSH**
   <details>
-  <summary><strong>See</strong></summary>
+  <summary><strong>SSH</strong></summary>
 
   |SSH|
   |--|
