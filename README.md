@@ -22,7 +22,7 @@
 ##  
 ### :octocat: Hi, thanks for spending your time visiting this repository ! <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=&color=04f8d5&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
-This is a combined configuration of the most favorite dotfiles and oh-my-zsh on Termux (Terminal Emulator Android) and some packages or applications as well.
+This is my personal termux configuration, it is the result of a combination of several dotfiles from other people's repositories such as <a href="https://github.com/owl4ce/">owl4ce</a>.
 
 I hope you understand my bad english. :sweat_smile:
 
@@ -58,4 +58,12 @@ Here are some details about my setup
 
   ![Image](/assets/images/help/help.png)
 
+### User Configuration
 
+  <details open>
+  <summary>ncmpcpp</summary>
+
+  ![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)
+  ![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)
+  ![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)
+  ![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)
