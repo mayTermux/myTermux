@@ -250,6 +250,10 @@ all() {
     done
 }
 
+permission() {
+    termux-setup-storage
+}
+
 version() {
     echo -e "myTermux v0.2.0"
 }
@@ -267,10 +271,13 @@ help() {
 
 if [[ "$1" == "-z" || "$1" == "--zsh" ]]; then
     zsh
+    permission
 elif [[ "$1" == "-s" || "$1" == "--standar" ]]; then
     standar
+    permission
 elif [[ "$1" == "-a" || "$1" == "--all" ]]; then
     all
+    permission
 elif [[ "$1" == "-h" || "$1" == "--help" ]]; then
     help
 elif [[ "$1" == "-v" || "$1" == "--version" ]]; then

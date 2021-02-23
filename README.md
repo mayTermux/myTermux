@@ -45,6 +45,10 @@ Here are some details about my setup
 
   </details>
 
+### First Impression
+
+  ![Image](/assets/images/first-impression/first-impression.jpg)
+
 ### User Configuration
 
   <details open>
@@ -54,6 +58,7 @@ Here are some details about my setup
   |--|--|
   |![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)|
   |Light Theme Sound Ellipse|Light Theme Sound Wave Filled|
+
   |--|--|
   |![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)|
 
@@ -61,7 +66,7 @@ Here are some details about my setup
 
   </details>
 
-  
+
   <details open>
   <summary><strong>Neofetch</strong></summary>
 
@@ -69,6 +74,7 @@ Here are some details about my setup
   |--|--|
   |![Image](/assets/images/neofetch/neofetch_battery.jpg)|![Image](/assets/images/neofetch/neofetch_output.jpg)|
   |Neofetch Configuration|Neofetch Script|
+
   |--|--|
   |![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neoscript.jpg)|
 
@@ -143,9 +149,9 @@ Here are some details about my setup
 
   - **Unable to locate package "..."**
 
-  This error because install before update repository, to fix this run "pkg" or "apt" update to get repository newest.
+  This error because install before update repository, to fix this run "pkg" or "apt" update to get repository newest and them run again installation script.
 
-  |Unable to locate package 1|Unable to locate package 2|
+  |Unable to locate package|Unable to locate package|
   |--|--|
   |![Image](/assets/images/troubleshooting/package/package.jpg)|![Image](/assets/images/troubleshooting/package/package2.jpg)|
 
