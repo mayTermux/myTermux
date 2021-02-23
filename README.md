@@ -36,6 +36,10 @@ Here are some details about my setup
     ```
 
   - ```bash
+    $ mv .xshin.var $HOME # For Setup Global Variable
+    ```
+
+  - ```bash
     $ chmod +x install.sh && ./install.sh --options # You can see the options with ./install.sh -h or --help
     ```
 

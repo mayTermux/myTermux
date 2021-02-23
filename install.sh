@@ -2,8 +2,10 @@
 
 DIR=`cd $(dirname $0); pwd`
 
-source $DIR/.xshin.var
+#source $DIR/.xshin.var
+source $HOME/.xshin.var
 
+if [[ -f $HOME/.xshin.var ]]; then
 zsh() {
     echo -e "   ____  __          __  ___         _____  _____ __  __"
     echo -e "  / __ \/ /_        /  |/  /_  __   /__  / / ___// / / /"
@@ -47,6 +49,13 @@ zsh() {
                 echo -e $lrd"\n[!] Failed installed $ohpkg\n$df"
             fi
         done
+        echo -e $lyt"Preparing to setup script check-size-packages v.0.1.0 !\n$df"
+        mv $DIR/termux/.scripts $HOME/
+        if [[ -d $HOME/.scripts ]]; then
+            echo -e $lgn"[!] Successfully setup script check-size-packages v.0.1.0 !\n$df"
+        else
+            echo -e $lrd"[!] Failed setup script check-size-packages v.0.1.0 !\n$df"
+        fi
         echo -e $lyt"Preparing to clone repository related on zsh !\n$df"
         sleep 2s
         for ohrepo in "${ohrepos[@]}"; do
@@ -253,6 +262,10 @@ all() {
 permission() {
     termux-setup-storage
 }
+else
+    echo -e "ERROR : Please Setting Up Global Variable First !"
+    exit 1
+fi
 
 version() {
     echo -e "myTermux v0.2.0"
@@ -272,12 +285,21 @@ help() {
 if [[ "$1" == "-z" || "$1" == "--zsh" ]]; then
     zsh
     permission
+    if [[ -f $HOME/.scripts/list-installed.sh ]]; then
+        bash $HOME/.scripts/list-installed.sh zsh
+    fi
 elif [[ "$1" == "-s" || "$1" == "--standar" ]]; then
     standar
     permission
+    if [[ -f $HOME/.scripts/list-installed.sh ]]; then
+        bash $HOME/.scripts/list-installed.sh standar
+    fi
 elif [[ "$1" == "-a" || "$1" == "--all" ]]; then
     all
     permission
+    if [[ -f $HOME/.scripts/list-installed.sh ]]; then
+        bash $HOME/.scripts/list-installed.sh all
+    fi
 elif [[ "$1" == "-h" || "$1" == "--help" ]]; then
     help
 elif [[ "$1" == "-v" || "$1" == "--version" ]]; then
