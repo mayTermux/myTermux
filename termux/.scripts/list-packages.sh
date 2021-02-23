@@ -27,7 +27,7 @@ version() {
     echo -e "check-size-packages v.0.1.0"
 }
 else
-    echo -e "ERROR ! Please setting Global Variable First."
+    echo -e "ERROR : Please Setting Up Global Variable First."
     exit 1
 fi
 

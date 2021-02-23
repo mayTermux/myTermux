@@ -109,6 +109,20 @@ Here are some details about my setup
 ### Troubleshooting
 
   <details open>
+  <summary><strong>Global Variable</strong></summary>
+
+  - **ERROR : Please Setting Up Global Variable First !**
+
+  This error is due to missing <strong>.xshin.var</strong>. To fix this, run `mv .xshin.var $HOME`
+
+  |ERROR : Please Setting Up Global Variable First !|Fix|
+  |--|--|
+  |![Image](/assets/images/troubleshooting/variable/variable.png)|![Image](/assets/images/troubleshooting/variable/variable2.png)|
+
+  </details>
+
+
+  <details open>
   <summary><strong>exa</strong></summary>
 
   - **"ls" unknown argument --icons**
