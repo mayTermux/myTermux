@@ -50,7 +50,7 @@ zsh() {
             fi
         done
         echo -e $lyt"Preparing to setup script check-size-packages v.0.1.0 !\n$df"
-        mv $DIR/termux/.scripts $HOME/
+        cp -R $DIR/termux/.scripts $HOME/
         if [[ -d $HOME/.scripts ]]; then
             echo -e $lgn"[!] Successfully setup script check-size-packages v.0.1.0 !\n$df"
         else

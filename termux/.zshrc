@@ -133,6 +133,7 @@ alias batt="bash ~/.config/neofetch/script.sh -b"
 alias ls="exa --icons"
 alias la="exa --icons -lgha --group-directories-first"
 alias pf="cd $PREFIX"
+alias listpkg="bash $HOME/.scripts/list-packages.sh $1"
 
 # Configuration
 alias mpdconf="nvim ~/.mpd/mpd.conf"

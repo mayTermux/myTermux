@@ -53,6 +53,12 @@ Here are some details about my setup
 
   ![Image](/assets/images/first-impression/first-impression.jpg)
 
+### Check Packages Installed + Size
+
+   `listpkg --options` for example i installed it with --zsh. So i run `listpkg zsh`
+
+   ![Image](/assets/images/checkpkgs/packages.png)
+
 ### User Configuration
 
   <details open>
