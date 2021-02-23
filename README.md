@@ -69,9 +69,9 @@ Here are some details about my setup
   - **Neofetch**
   <details open>
 
-  |Neofetch Battery|Neofetch Storage|Neofetch Configuration|Neofetch Script|
-  |--|--|--|--|
-  |![Image](/assets/images/neofetch/neofetch_battery.jpg)|![Image](/assets/images/neofetch/neofetch_output.jpg)|![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neoscript.jpg)|
+  |Termux API|Neofetch Battery|Neofetch Storage|Neofetch Configuration|Neofetch Script|
+  |--|--|--|--|--|
+  |![Image](/assets/images/neofetch/termux-api.jpg)|![Image](/assets/images/neofetch/neofetch_battery.jpg)|![Image](/assets/images/neofetch/neofetch_output.jpg)|![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neoscript.jpg)|
 
   `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
 
