@@ -101,5 +101,22 @@ Here are some details about my setup
   |--|--|--|
   |![Image](/assets/images/neovim/vimplug.jpg)|![Image](/assets/images/neovim/plugstatus.jpg)|![Image](/assets/images/neovim/neovim_output.jpg)|
 
+  if you want to insatll the plugin, you can type <strong>:PlugInstall</strong> in Neovim.
+  </details>
+
+  - **SSH**
+  <details>
+  <summary><strong>See</strong></summary>
+
+  |SSH|
+  |--|
+  |![Image](/assets/images/ssh/ssh.jpg)|
 
   </details>
+
+  ## :hearts:  Credits / Thanks
+  - [Harry](https://github.com/owl4ce)
+  - [Rizqi Nur Assyaufi](https://github.com/bandithijo)
+  - [Aditya Shakya](https://github.com/adi1090x)
+  - [Ann](https://github.com/annzc)
+  - All
