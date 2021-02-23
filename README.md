@@ -60,7 +60,7 @@ Here are some details about my setup
 
 ### User Configuration
 
-  - **ncmpcpp**
+  - **Ncmpcpp**
   <details open>
 
   |Dark Theme Ellipse|Dark Theme Wave Filled|Light Theme Ellipse|Light Theme Wave Filled|
@@ -73,8 +73,19 @@ Here are some details about my setup
   
   <details>
   <summary><strong>See</strong></summary>
-  
+
   |PATH Music|
   |--|
   |![Image](/assets/images/ncmpcpp/config_edited.png)|
+
   
+  - **Neofetch**
+  <details open>
+
+  |Neofetch Battery|Neofetch Storage|Neofetch Configuration|
+  |--|--|--|
+  |![Image](/assets/images/neofetch/neofetch.jpg)|![Image](/assets/images/neofetch_script.jpg)|![Image](/assets/images/neoconf.jpg)|
+
+  `~/.config/neofetch/config.conf`
+
+  for battery you need install `<strong>Termux API</strong>`. If script doesn't detect your storage you can change PATH partition in your case
