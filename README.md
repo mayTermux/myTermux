@@ -36,7 +36,7 @@ Here are some details about my setup
     ```
 
   - ```bash
-    $ mv .xshin.var $HOME # For Setup Global Variable
+    $ cp .xshin.var $HOME # For Setup Global Variable
     ```
 
   - ```bash
@@ -113,7 +113,7 @@ Here are some details about my setup
 
   - **ERROR : Please Setting Up Global Variable First !**
 
-  This error is due to missing <strong>.xshin.var</strong>. To fix this, run `mv .xshin.var $HOME`
+  This error is due to missing <strong>.xshin.var</strong>. To fix this, run `cp .xshin.var $HOME`
 
   |ERROR : Please Setting Up Global Variable First !|Fix|
   |--|--|
