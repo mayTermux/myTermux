@@ -86,7 +86,7 @@ Here are some details about my setup
 
   |Neofetch Battery|Neofetch Storage|Neofetch Configuration|Neofetch Script|
   |--|--|--|--|
-  |![Image](/assets/images/neofetch/neofetch.jpg)|![Image](/assets/images/neofetch/neofetch_output.jpg)|![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neofetch_script.jpg)|
+  |![Image](/assets/images/neofetch/neofetch_battery.jpg)|![Image](/assets/images/neofetch/neofetch_output.jpg)|![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neoscript.jpg)|
 
   `~/.config/neofetch/config.conf`
 
