@@ -4,21 +4,6 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="#rice_scene--setup">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/qk3nSfh/install.png"/>
-  </a>
-  <a href="#">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/xmdtYT8/packages.png"/>
-  </a>
-  <a href="#">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/qJ6BrwX/themes.png"/>
-  </a>
-  <a href="#memo--notes">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/tHzTR8D/music.png"/>
-  </a>
-</p>
-
 ##  
 ### :octocat: Hi, thanks for spending your time visiting this repository ! <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=&color=04f8d5&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
