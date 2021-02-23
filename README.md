@@ -66,4 +66,13 @@ Here are some details about my setup
   |Dark Theme Ellipse|Dark Theme Wave Filled|Light Theme Ellipse|White Theme Wave Filled|
   |--|--|--|--|
   |![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)|
+
+  if ncmpcpp doesn't detect music you can change PATH Music in your case, for example in my case Music in directory "/storage/emulated/0/music" or "/sdcard/Music"
+  [`~/.config/ncmpcpp/config`](./.config/neofetch/config.conf`)
+  ```cfg
+  ...
+
+  |PATH Music|
+  |--|
+  |![Image](/assets/images/ncmpcpp/config_edited.png)
   
