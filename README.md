@@ -63,7 +63,7 @@ Here are some details about my setup
   <details open>
   <summary>ncmpcpp</summary>
 
-  ![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)
-  ![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)
-  ![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)
-  ![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)
+  |Dark Theme Ellipse|Dark Theme Wave Filled|Light Theme Ellipse|White Theme Wave Filled|
+  |--|--|--|--|
+  |![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)|
+  
