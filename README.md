@@ -55,7 +55,7 @@ Here are some details about my setup
 
 ### Check Packages Installed + Size
 
-   `listpkg --options` for example i installed it with --zsh. So i run `listpkg zsh`
+   `listpkg --options` for example i installed it with --standar. So i run `listpkg standar`
 
    ![Image](/assets/images/checkpkgs/packages.png)
 
