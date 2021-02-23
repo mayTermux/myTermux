@@ -15,7 +15,7 @@ Here are some details about my setup
 - **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework + plugins
 - **Music**                        • [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon) :musical_note: with [ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp) text-mode client for MPD
 - **Color Scheme**                 • [Dotfiles](https://github.com/owl4ce/dotfiles/) :art:
-- **Text Editor**                  • [Neovim](https://neovim.io/charter/) :ledger: + plugins
+- **Text Editor**                  • [Neovim](https://neovim.io) :ledger: + plugins
 - **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
 
 ### Installation
@@ -95,25 +95,25 @@ Here are some details about my setup
 
 ### Troubleshooting
 
-  - **Ncmpcpp**
-  
   <details open>
-  <summary><strong>Music doesn't automatic detect</strong></summary>
+  <summary><strong>Ncmpcpp</strong></summary>
+
+  - **Music doesn't automatic detect**
 
   This error because the music PATH is not directed to the right one, for example my directory music in "/sdcard/Music" or "/storage/emulated/0/music". You can set to your music folder you want.
 
   |PATH Music Ncmpcpp|
   |--|
-  |![Image](/assets/images/ncmpcpp/config_edited.png)|
+  |![Image](/assets/images/troubleshooting/ncmpcpp/music.png)|
 
   </details>
 
-  - **exa**
-
   <details open>
-  <summary><strong>"ls" unknown argument --icons</strong></summary>
+  <summary><strong>exa</strong></summary>
 
-  This error because exa old version not support argument --icons, to fix this use exa v.0.9.0. In my case i use the package maintainer's version in first update && upgrade
+  - **"ls" unknown argument --icons**
+
+  This error because exa old version not support argument --icons, to fix this use exa v.0.9.0. In my case i use the package maintainer's version in first update && upgrade.
 
   |apt|motd|exa v.0.9.0|
   |--|--|--|
@@ -121,10 +121,33 @@ Here are some details about my setup
 
   </details>
 
+  <details open>
+  <summary><strong>"pkg" or "apt"</strong></summary>
+
+  - **Unable to locate package "..."**
+
+  This error because install before update repository, to fix this run "pkg" or "apt" update to get repository newest.
+
+  |Unable to locate package 1|Unable to locate package 2|
+  |--|--|
+  |![Image](/assets/images/troubleshooting/package/package.jpg)|![Image](/assets/images/troubleshooting/package/package2.jpg)|
+
+  </details>
 
   ## :hearts:  Credits / Thanks
+  - **Inspiration**
   - [Harry](https://github.com/owl4ce)
+  - [adi1090x](https://github.com/adi1090x)
+
+  - **Knowledge**
   - [Rizqi Nur Assyaufi](https://github.com/bandithijo)
-  - [Aditya Shakya](https://github.com/adi1090x)
   - [Ann](https://github.com/annzc)
-  - All
+  
+  - **Other**
+  - [Oh-My-ZSH](https://github.com/ohmyzsh/ohmyzsh)
+  - [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon)
+  - [Ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp)
+  - [Dotfiles](https://github.com/owl4ce/dotfiles)
+  - [Neovim](https://neovim.io)
+  - [Vim Plug](https://github.com/junegunn/vim-plug)
+  - [Neofetch](https://github.com/dylanaraps/neofetch)
