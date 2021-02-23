@@ -50,9 +50,13 @@ Here are some details about my setup
   - **Ncmpcpp**
   <details open>
 
-  |Dark Theme Ellipse|Dark Theme Wave Filled|Light Theme Ellipse|Light Theme Wave Filled|
+  |Dark Theme Sound Ellipse|Dark Theme Sound Wave Filled|
   |--|--|--|--|
-  |![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)|
+  |![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)|
+  |Light Theme Sound Ellipse|Light Theme Sound Wave Filled|
+  |--|--|
+  |![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)|
+
 
   `~/.config/ncmpcpp/config`
 
@@ -62,13 +66,14 @@ Here are some details about my setup
   - **Neofetch**
   <details open>
 
-  |Termux API|Neofetch Battery|Neofetch Storage|Neofetch Configuration|Neofetch Script|
-  |--|--|--|--|--|
-  |![Image](/assets/images/neofetch/termux-api.jpg)|![Image](/assets/images/neofetch/neofetch_battery.jpg)|![Image](/assets/images/neofetch/neofetch_output.jpg)|![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neoscript.jpg)|
+  |Neofetch Battery|Neofetch Storage|
+  |--|--|
+  |![Image](/assets/images/neofetch/neofetch_battery.jpg)|![Image](/assets/images/neofetch/neofetch_output.jpg)|
+  |Neofetch Configuration|Neofetch Script|
+  |--|--|
+  |![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neoscript.jpg)|
 
   `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
-
-  for battery you need install <strong>Termux API</strong>. If script doesn't detect your storage you can change PATH partition in your case
 
   </details>
 
@@ -109,6 +114,20 @@ Here are some details about my setup
   </details>
 
   <details open>
+  <summary><strong>Neofetch</strong></summary>
+
+  - **Battery & Storage icon not showing**
+
+  If you want Battery icon showing you must install app <strong>Termux-API</strong> and for storage must set to right partition in your Android
+
+  |Termux-API|Storage|
+  |--|--|
+  |![Image](/assets/images/troubleshooting/neofetch/termux-api.jpg)|![Image](/assets/images/troubleshooting/neofetch/storage.png)
+
+  </details>
+
+
+  <details open>
   <summary><strong>exa</strong></summary>
 
   - **"ls" unknown argument --icons**
@@ -136,18 +155,20 @@ Here are some details about my setup
 
   ## :hearts:  Credits / Thanks
   - **Inspiration**
-  - [Harry](https://github.com/owl4ce)
-  - [adi1090x](https://github.com/adi1090x)
+    - [Harry](https://github.com/owl4ce)
+    - [adi1090x](https://github.com/adi1090x)
 
   - **Knowledge**
-  - [Rizqi Nur Assyaufi](https://github.com/bandithijo)
-  - [Ann](https://github.com/annzc)
-  
+    - [Rizqi Nur Assyaufi](https://github.com/bandithijo)
+    - [Ann](https://github.com/annzc)
+
   - **Other**
-  - [Oh-My-ZSH](https://github.com/ohmyzsh/ohmyzsh)
-  - [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon)
-  - [Ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp)
-  - [Dotfiles](https://github.com/owl4ce/dotfiles)
-  - [Neovim](https://neovim.io)
-  - [Vim Plug](https://github.com/junegunn/vim-plug)
-  - [Neofetch](https://github.com/dylanaraps/neofetch)
+    - [Ricing Group](https://t.me/dotfiles_id)
+    - [Oh-My-ZSH](https://github.com/ohmyzsh/ohmyzsh)
+    - [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon)
+    - [Ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp)
+    - [Dotfiles](https://github.com/owl4ce/dotfiles)
+    - [Neovim](https://neovim.io)
+    - [Vim Plug](https://github.com/junegunn/vim-plug)
+    - [Neofetch](https://github.com/dylanaraps/neofetch)
+    - [youtube-dl](https://youtube-dl.org)
