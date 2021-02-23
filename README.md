@@ -40,23 +40,22 @@ Here are some details about my setup
   
   - ```bash
     $ pkg install git
-
+    ```
 
   - ```bash
     $ git clone https://github.com/xshin404/myTermux
-
+    ```
 
   - ```bash
     $ cd myTermux
-
+    ```
 
   - ```bash
     $ chmod +x install.sh && ./install.sh --options # You can see options with ./install.sh -h or --help
+    ```
 
+### Help
 
-  - ```bash
-    help
-
-  ![Image](/assets/help/help.png)
+  ![Image](/assets/images/help/help.png)
 
 
