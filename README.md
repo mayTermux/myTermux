@@ -88,8 +88,18 @@ Here are some details about my setup
   |--|--|--|--|
   |![Image](/assets/images/neofetch/neofetch_battery.jpg)|![Image](/assets/images/neofetch/neofetch_output.jpg)|![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neoscript.jpg)|
 
-  `~/.config/neofetch/config.conf`
+  `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
 
   for battery you need install <strong>Termux API</strong>. If script doesn't detect your storage you can change PATH partition in your case
+
+  </details>
+
+  - **Neovim**
+  <details open>
+
+  |Vim Plug|Plug Status|Neovim|
+  |--|--|--|
+  |![Image](/assets/images/neovim/vimplug.jpg)|![Image](/assets/images/neovim/plugstatus.jpg)|![Image](/assets/images/neovim/neovim_output.jpg)|
+
 
   </details>
