@@ -54,8 +54,8 @@ Here are some details about my setup
     $ chmod +x install.sh && ./install.sh --options # You can see options with ./install.sh -h or --help
     ```
 
-  - help
-  <p align="center"><img src="assets/help/help.png" alt=""/></p>
-  </details>
+  - ```bash
+    ![Image](/assets/help/help.png)
+  ```
 
 
