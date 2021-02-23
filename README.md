@@ -36,12 +36,14 @@ Here are some details about my setup
     ```
 
   - ```bash
-    $ chmod +x install.sh && ./install.sh --options # You can see options with ./install.sh -h or --help
+    $ chmod +x install.sh && ./install.sh --options # You can see the options with ./install.sh -h or --help
     ```
 
 ### Help
 
   ![Image](/assets/images/help/help.png)
+
+  </details>
 
 ### User Configuration
 
@@ -53,15 +55,6 @@ Here are some details about my setup
   |![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)|
 
   `~/.config/ncmpcpp/config`
-
-  if ncmpcpp doesn't detect music you can change PATH Music in your case, for example in my case directory music in "/storage/emulated/0/music" or "/sdcard/Music"
-  
-  <details>
-  <summary><strong>See</strong></summary>
-
-  |PATH Music|
-  |--|
-  |![Image](/assets/images/ncmpcpp/config_edited.png)|
 
   </details>
 
@@ -98,6 +91,36 @@ Here are some details about my setup
   |![Image](/assets/images/ssh/ssh.jpg)|
 
   </details>
+
+
+### Troubleshooting
+
+  - **Ncmpcpp*
+  
+  <details open>
+  <sumary><strong>Music doesn't automatic detect</strong></sumary>
+
+  This error because the music PATH is not directed to the right one, for example my directory music in "/sdcard/Music" or "/storage/emulated/0/music". You can set to your music folder you want.
+
+  |PATH Music|
+  |--|
+  |![Image](/assets/images/ncmpcpp/config_edited.png)|
+
+  </details>
+
+  - **exa**
+
+  <details open>
+  <summry><strong>"ls" unknown argument --icons</strong></sumary>
+
+  This error because exa old version not support argument --icons, to fix this use exa v.0.9.0. In my case i use the package maintainer's version in first update && upgrade
+
+  |apt|motd|exa v.0.9.0|
+  |--|--|--|
+  |![Image](/assets/images/troubleshooting/exa/apt.jpg)|![Image](/assets/images/troubleshooting/exa/motd.jpg)|![Image](/assets/images/troubleshooting/exa/exa_version.jpg)
+
+  </details>
+
 
   ## :hearts:  Credits / Thanks
   - [Harry](https://github.com/owl4ce)
