@@ -62,7 +62,7 @@ Here are some details about my setup
 
   - **ncmpcpp**
   <details open>
-  
+
   |Dark Theme Ellipse|Dark Theme Wave Filled|Light Theme Ellipse|Light Theme Wave Filled|
   |--|--|--|--|
   |![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)|
@@ -71,7 +71,9 @@ Here are some details about my setup
 
   if ncmpcpp doesn't detect music you can change PATH Music in your case, for example in my case directory music in "/storage/emulated/0/music" or "/sdcard/Music"
   
-  <details close>
+  <details>
+  <summary><strong>See</strong></summary>
+  
   |PATH Music|
   |--|
   |![Image](/assets/images/ncmpcpp/config_edited.png)|
