@@ -78,14 +78,18 @@ Here are some details about my setup
   |--|
   |![Image](/assets/images/ncmpcpp/config_edited.png)|
 
+  </details>
+
   
   - **Neofetch**
   <details open>
 
   |Neofetch Battery|Neofetch Storage|Neofetch Configuration|
   |--|--|--|
-  |![Image](/assets/images/neofetch/neofetch.jpg)|![Image](/assets/images/neofetch_script.jpg)|![Image](/assets/images/neoconf.jpg)|
+  |![Image](/assets/images/neofetch/neofetch.jpg)|![Image](/assets/images/neofetch/neofetch_script.jpg)|![Image](/assets/images/neofetc/neoconf.jpg)|
 
   `~/.config/neofetch/config.conf`
 
-  for battery you need install `<strong>Termux API</strong>`. If script doesn't detect your storage you can change PATH partition in your case
+  for battery you need install <strong>Termux API</strong>. If script doesn't detect your storage you can change PATH partition in your case
+
+  </details>
