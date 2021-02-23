@@ -79,7 +79,7 @@ Here are some details about my setup
   |--|--|--|
   |![Image](/assets/images/neovim/vimplug.jpg)|![Image](/assets/images/neovim/plugstatus.jpg)|![Image](/assets/images/neovim/neovim_output.jpg)|
 
-  if you want to insatll the plugin, you can type <strong>:PlugInstall</strong> in Neovim.
+  if you want to install the plugin, you can type <strong>:PlugInstall</strong> in Neovim.
   </details>
 
   - **SSH**
@@ -95,14 +95,14 @@ Here are some details about my setup
 
 ### Troubleshooting
 
-  - **Ncmpcpp*
+  - **Ncmpcpp**
   
   <details open>
-  <sumary><strong>Music doesn't automatic detect</strong></sumary>
+  <summary><strong>Music doesn't automatic detect</strong></summary>
 
   This error because the music PATH is not directed to the right one, for example my directory music in "/sdcard/Music" or "/storage/emulated/0/music". You can set to your music folder you want.
 
-  |PATH Music|
+  |PATH Music Ncmpcpp|
   |--|
   |![Image](/assets/images/ncmpcpp/config_edited.png)|
 
@@ -111,7 +111,7 @@ Here are some details about my setup
   - **exa**
 
   <details open>
-  <summry><strong>"ls" unknown argument --icons</strong></sumary>
+  <summary><strong>"ls" unknown argument --icons</strong></summary>
 
   This error because exa old version not support argument --icons, to fix this use exa v.0.9.0. In my case i use the package maintainer's version in first update && upgrade
 
