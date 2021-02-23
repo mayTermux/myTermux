@@ -55,7 +55,8 @@ Here are some details about my setup
     ```
 
   - ```bash
-    ![Image](/assets/help/help.png)
+    help
   ```
+    ![Image](/assets/help/help.png)
 
 
