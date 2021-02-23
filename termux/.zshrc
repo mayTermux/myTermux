@@ -13,6 +13,11 @@ ZSH_THEME="rounded"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+PATH="$PREFIX/bin:$HOME/.local/bin:$PATH"
+export PATH
+LINK="https://github.com/xshin404"
+export LINK
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME

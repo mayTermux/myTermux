@@ -65,7 +65,7 @@ stanpkgs=(
 )
 
 # Standar File & Directory
-stanfiles=( ".mpd" ".ncmpcpp" ".local" ".vim" )
+stanfiles=( ".mpd" ".ncmpcpp" ".local" )
 musics=( "mpd" "ncmpcpp" )
 neovims=( "nvim" "init.vim" )
 

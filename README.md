@@ -27,10 +27,10 @@ This is a combined configuration of the most favorite dotfiles and oh-my-zsh on 
 I hope you understand my bad english. :sweat_smile:
 
 Here are some details about my setup
-- **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework and some plugins ! <kbd>optional</kbd>
+- **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework + plugins
 - **Music**                        • [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon) :musical_note: with [ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp) text-mode client for MPD
 - **Color Scheme**                 • [Dotfiles](https://github.com/owl4ce/dotfiles/) :art:
-- **Text Editor**                  • [Vim](https://www.vim.org/scripts/script.php?script_id=2226) :ledger: + [Neovim](https://neovim.io/charter/) extesion of vim and some plugins
+- **Text Editor**                  • [Neovim](https://neovim.io/charter/) :ledger: + plugins
 - **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
 
 ### Installation
@@ -41,16 +41,21 @@ Here are some details about my setup
   - ```bash
     $ pkg install git
     ```
+
   - ```bash
     $ git clone https://github.com/xshin404/myTermux
     ```
+
   - ```bash
     $ cd myTermux
     ```
+
   - ```bash
     $ chmod +x install.sh && ./install.sh --options # You can see options with ./install.sh -h or --help
     ```
-  - [help]<p align="center"><img src="https://i.ibb.co/PjDhQ9Z/window-2021-01-25-00-55-23.png" alt=""/></p>
+
+  - help
+  <p align="center"><img src="assets/help/help.png" alt=""/></p>
   </details>
 
 

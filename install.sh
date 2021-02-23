@@ -257,23 +257,23 @@ version() {
 help() {
     echo -e "Usage: \n  ./install.sh [options]"
     echo -e "\nMETA OPTIONS :"
-    echo -e "  -h, --help           Show list of command-line options."
-    echo -e "  -v, --version        Show version of script."
+    echo -e "  -h, --help           show list of command-line options."
+    echo -e "  -v, --version        show version of script."
     echo -e "\nRUN OPTIONS :"
-    echo -e "  -z, --zsh            Just installing Oh-My-ZSH."
-    echo -e "  -s, --standar        Oh-My-ZSH + some package like (vim, nvim + plugin, mpd, ncmpcpp, youtube-dl, ncdu & etc), take a lot more storage."
-    echo -e "  -a, --all            Installing all my Termux, NOTE ! take a lot more storage & need clone private github repository (Authentication).\n"
+    echo -e "  -z, --zsh            just installing oh-my-zsh."
+    echo -e "  -s, --standar        oh-my-zsh + some package like (neovim + plugin, mpd, ncmpcpp, youtube-dl, ncdu & etc), take a lot more storage."
+    echo -e "  -a, --all            installing all myTermux, NOTE ! take a lot more storage & need clone private github repository (Authentication).\n"
 }
 
-if [[ $1 == -z || $1 == --zsh ]]; then
+if [[ "$1" == "-z" || "$1" == "--zsh" ]]; then
     zsh
-elif [[ $1 == -s || $1 == --standar ]]; then
+elif [[ "$1" == "-s" || "$1" == "--standar" ]]; then
     standar
-elif [[ $1 == -a || $1 == --all ]]; then
+elif [[ "$1" == "-a" || "$1" == "--all" ]]; then
     all
-elif [[ $1 == -h || $1 == --help ]]; then
+elif [[ "$1" == "-h" || "$1" == "--help" ]]; then
     help
-elif [[ $1 == -v || $1 == --version ]]; then
+elif [[ "$1" == "-v" || "$1" == "--version" ]]; then
     version
 else
     { help; exit 0; }
