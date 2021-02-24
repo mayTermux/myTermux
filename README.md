@@ -44,29 +44,51 @@ Here are some details about my setup
     ```
 
   Make sure you allow Termux to access your storage
+  <details open>
+  <summary>See</summary>
+
   |Termux Permission|
   |--|
   |![Image](/assets/images/permission/storage.png)|
 
+  </details>
+
 ### Help
 
-  ![Image](/assets/images/help/help.png)
+  <details open>
+  <summary>See</summary>
+
+  |Script Help|
+  |--|
+  |![Image](/assets/images/help/help.png)|
+
+  </details>
 
   </details>
 
 ### First Impression
 
+  <details open>
+  <summary>See</summary>
+
   |Views|
   |--|
   ![Image](/assets/images/first-impression/first-impression.jpg)
 
+  </details>
+
 ### Check The Installed Packages + Size
+
+  <details open>
+  <summary>See</summary>
 
   |Packages + Size|
   |--|
   |![Image](/assets/images/checkpkgs/list.png)|
 
   `listpkg --options` for example i installed it with --standar. So i run `listpkg standar`
+
+  </details>
 
 ### User Configuration
 
