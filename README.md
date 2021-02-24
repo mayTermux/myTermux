@@ -43,8 +43,10 @@ Here are some details about my setup
     $ chmod +x install.sh && ./install.sh --options # You can see the options with ./install.sh -h or --help
     ```
 
-  Make sure you allow Termux for storage access
-  ![Image](/assets/images/permission/storage.png)
+  Make sure you allow Termux to access your storage
+  |Termux Permission|
+  |--|
+  |![Image](/assets/images/permission/storage.png)|
 
 ### Help
 
@@ -77,11 +79,11 @@ Here are some details about my setup
 
   |Dark Theme Sound Ellipse|Dark Theme Sound Wave Filled|
   |--|--|
-  |![Image](/assets/images/ncmpcpp/black-1.jpg)|![Image](/assets/images/ncmpcpp/black-2.jpg)|
+  |![Black-1](/assets/images/ncmpcpp/black-1.png)|![Black-2](/assets/images/ncmpcpp/black-2.png)|
 
   |Light Theme Sound Ellipse|Light Theme Sound Wave Filled|
   |--|--|
-  |![Image](/assets/images/ncmpcpp/white-1.jpg)|![Image](/assets/images/ncmpcpp/white-2.jpg)|
+  |![White-1](/assets/images/ncmpcpp/white-1.png)|![White-2](/assets/images/ncmpcpp/white-2.png)|
 
   To change Ncmpcpp configuration you can edit this file `~/.config/ncmpcpp/config`
 
@@ -177,7 +179,7 @@ Here are some details about my setup
 
   |Termux-API|Storage|
   |--|--|
-  |![Image](/assets/images/troubleshooting/neofetch/api.png)|![Image](/assets/images/troubleshooting/neofetch/partition.png)
+  |![Image](/assets/images/troubleshooting/neofetch/api.png)|![Image](/assets/images/troubleshooting/neofetch/partitions.png)
 
   </details>
 
