@@ -58,7 +58,7 @@ Here are some details about my setup
   <details open>
   <summary>See</summary>
 
-  |Script Help|
+  |Installation Help|
   |--|
   |![Image](/assets/images/help/help.png)|
 
