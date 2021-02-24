@@ -5,7 +5,7 @@
 </p>
 
 ##  
-### :octocat: Hi, thanks for spending your time visiting this repository ! <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
+### :octocat: Hi, thanks for spending your tiime visiting this repository ! <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
 This is my personal termux configuration, it is the result of a combination of several dotfiles from other people's repositories such as <a href="https://github.com/owl4ce/">owl4ce</a>.
 
@@ -56,21 +56,17 @@ Here are some details about my setup
 
 ### First Impression
 
-  <details open>
-
+  |Views|
+  |--|
   ![Image](/assets/images/first-impression/first-impression.jpg)
-
-  </details>
 
 ### Check The Installed Packages + Size
 
-  <details open>
+  |Packages + Size|
+  |--|
+  |![Image](/assets/images/checkpkgs/list.png)|
 
   `listpkg --options` for example i installed it with --standar. So i run `listpkg standar`
-
-  ![Image](/assets/images/checkpkgs/list.png)
-
-  </details>
 
 ### User Configuration
 
