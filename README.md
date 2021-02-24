@@ -5,7 +5,7 @@
 </p>
 
 ##  
-### :octocat: Hi, thanks for spending your tiime visiting this repository ! <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/> <img alt="" align="right" src="https://img.shields.io/github/repo-size/xshin404/myTermux?style=flat-square&label=Size&color=373e4d&labelColor=fa74b2"/>
+### :octocat: Hi, thanks for spending your tiime visiting this repository ! <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/> <img alt="" align="right" src="https://img.shields.io/github/repo-size/xshin404/myTermux?style=flat-square&label=Size&color=fa74b2&labelColor=373e4d"/>
 
 This is my personal termux configuration, it is the result of a combination of several dotfiles from other people's repositories such as <a href="https://github.com/owl4ce/">owl4ce</a>.
 
