@@ -164,7 +164,11 @@ Here are some details about my setup
 
   - **"ls" unknown argument --icons**
 
-  This error is because of an old version of `exa` that doesn't support `--icons` argument. To fix this please use `exa v.0.9.0`. <br>In my case, it is because of my old `sources.list`. On the first `pkg update`, you should answer `y` when asked whether you wanna keep your current version or switch to the package maintainer's version. Please switch it to the maintainer's version.
+  This error is because of an old version of `exa` that doesn't support `--icons` argument. To fix this please use `exa ^v.0.9.0`. <br><br>
+  In my case, it is because of my old `sources.list` in `$PREFIX/etc/apt/sources.list` and it actually is packages' server or mirror. 
+  On the first `pkg update`, you should answer `y` when asked whether you wanna keep your current version or switch to the package maintainer's version. Please switch it to the maintainer's version.<br><br>
+  If for any reason you cannot get the right version of `exa`, there is an alternative software which do merely the same as `exa` named `lsd`. <br>
+  * Run `pkg install lsd` to install. Then you need to modify `~/.zshrc` where the `alias ls="exa "` exists and replace it to `alias ls='lsd'` and maybe also `alias la='lsd -a'`.
 
   |apt|motd|exa v.0.9.0|
   |--|--|--|
