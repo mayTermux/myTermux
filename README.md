@@ -53,7 +53,7 @@ Here are some details about my setup
 
   ![Image](/assets/images/first-impression/first-impression.jpg)
 
-### Check Packages Installed + Size
+### Check The Installed Packages + Size
 
    `listpkg --options` for example i installed it with --standar. So i run `listpkg standar`
 
@@ -72,7 +72,7 @@ Here are some details about my setup
   |--|--|
   |![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)|
 
-  To change configuration Ncmpcpp you can edit file in `~/.config/ncmpcpp/config`
+  To change Ncmpcpp configuration you can edit this file `~/.config/ncmpcpp/config`
 
   </details>
 
@@ -88,7 +88,7 @@ Here are some details about my setup
   |--|--|
   |![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neoscript.jpg)|
 
-  To change configuration Neofetch you can edit file in `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
+  To change Neofetch configuration you can edit its config file in `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
 
   </details>
 
@@ -99,7 +99,7 @@ Here are some details about my setup
   |--|--|--|
   |![Image](/assets/images/neovim/vimplug.jpg)|![Image](/assets/images/neovim/plugstatus.jpg)|![Image](/assets/images/neovim/neovim_output.jpg)|
 
-  To change configuration Neovim you can edit file in `~/.config/nvim/init.vim` & `~/.local/share/nvim/site/plug.vim`. If you want to install the plugin, you can type <strong>:PlugInstall</strong> in Neovim.
+  To change the configuration of Neovim you can edit its config file in `~/.config/nvim/init.vim` & `~/.local/share/nvim/site/plug.vim`. <br>Then you can type <strong>`:PlugInstall`</strong> inside Neovim to install plugins (vim-plug).
   </details>
 
   <details>
@@ -133,7 +133,7 @@ Here are some details about my setup
 
   - **"ls" unknown argument --icons**
 
-  This error because exa old version not support argument --icons, to fix this use exa v.0.9.0. In my case i use the package maintainer's version on first update & upgrade.
+  This error is because of an old version of `exa` that doesn't support `--icons` argument. To fix this please use `exa v.0.9.0`. <br>In my case, it is because of my old `sources.list`. On the first `pkg update`, you should answer `y` when asked whether you wanna keep your current version or switch to the package maintainer's version. Please switch it to the maintainer's version.
 
   |apt|motd|exa v.0.9.0|
   |--|--|--|
@@ -147,7 +147,7 @@ Here are some details about my setup
 
   - **Music doesn't automatic detect**
 
-  This error because the music PATH is not directed to the right one, for example my directory music in "/sdcard/Music" or "/storage/emulated/0/music". You can set to your music folder you want.
+  This error is because of the music PATH not directed to the right one. For example my music directory is in `/sdcard/Music` or `/storage/emulated/0/Music`. Please set it up to your own music folder.
 
   |PATH Music Ncmpcpp|
   |--|
@@ -160,7 +160,9 @@ Here are some details about my setup
 
   - **Battery & Storage icon not showing**
 
-  If you want Battery icon showing you must install app <strong>Termux-API</strong> and for storage you must set to right partition on your Android.
+  If you want Battery icon showing you have to install <strong>Termux-API</strong> app from the same source as your installed Termux (whether from PlayStore or F-Droid). Though it is recommended for you to install Termux from F-Droid. <br>For storage info you must set it to the right partition on your Android (e.g `/storage/emulated`).
+  > NOTE:
+  > Please run `df -h` to know where your internal partition is located.
 
   |Termux-API|Storage|
   |--|--|
@@ -173,7 +175,7 @@ Here are some details about my setup
 
   - **Unable to locate package "..."**
 
-  This error because install before update repository, to fix this run "pkg" or "apt" update to get repository newest and then run again installation script.
+  This error is perhaps because of you execute the `install.sh` script before updating the repository. <br>Please make sure to run `pkg update` or `apt update` before you run the installation script. After running `pkg update` now you can run the installation script again.
 
   |Unable to locate package|Unable to locate package|
   |--|--|
