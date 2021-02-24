@@ -2,8 +2,8 @@
 #mpd_host = "127.0.0.1"
 mpd_host = "~/.mpd/mpd.socket"
 mpd_port = "6600"
-#mpd_music_dir = "/sdcard/Music/"
-mpd_music_dir = "/storage/emulated/0/music/"
+mpd_music_dir = "/sdcard/Music/"
+#mpd_music_dir = "~/storage/music"
 
 mpd_crossfade_time = 2
 

@@ -5,7 +5,7 @@
 </p>
 
 ##  
-### :octocat: Hi, thanks for spending your time visiting this repository ! <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=&color=04f8d5&logo=GitHub&logoColor=white&labelColor=373e4d"/>
+### :octocat: Hi, thanks for spending your time visiting this repository ! <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
 This is my personal termux configuration, it is the result of a combination of several dotfiles from other people's repositories such as <a href="https://github.com/owl4ce/">owl4ce</a>.
 
@@ -43,6 +43,9 @@ Here are some details about my setup
     $ chmod +x install.sh && ./install.sh --options # You can see the options with ./install.sh -h or --help
     ```
 
+  Make sure you allow Termux for storage access
+  ![Image](/assets/images/permission/storage.png)
+
 ### Help
 
   ![Image](/assets/images/help/help.png)
@@ -51,13 +54,21 @@ Here are some details about my setup
 
 ### First Impression
 
+  <details open>
+
   ![Image](/assets/images/first-impression/first-impression.jpg)
+
+  </details>
 
 ### Check The Installed Packages + Size
 
-   `listpkg --options` for example i installed it with --standar. So i run `listpkg standar`
+  <details open>
 
-   ![Image](/assets/images/checkpkgs/packages.png)
+  `listpkg --options` for example i installed it with --standar. So i run `listpkg standar`
+
+  ![Image](/assets/images/checkpkgs/list.png)
+
+  </details>
 
 ### User Configuration
 
@@ -66,11 +77,11 @@ Here are some details about my setup
 
   |Dark Theme Sound Ellipse|Dark Theme Sound Wave Filled|
   |--|--|
-  |![Image](/assets/images/ncmpcpp/ncmpcpp_black1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_black2.jpg)|
+  |![Image](/assets/images/ncmpcpp/black-1.jpg)|![Image](/assets/images/ncmpcpp/black-2.jpg)|
 
   |Light Theme Sound Ellipse|Light Theme Sound Wave Filled|
   |--|--|
-  |![Image](/assets/images/ncmpcpp/ncmpcpp_white1.jpg)|![Image](/assets/images/ncmpcpp/ncmpcpp_white2.jpg)|
+  |![Image](/assets/images/ncmpcpp/white-1.jpg)|![Image](/assets/images/ncmpcpp/white-2.jpg)|
 
   To change Ncmpcpp configuration you can edit this file `~/.config/ncmpcpp/config`
 
@@ -82,11 +93,11 @@ Here are some details about my setup
 
   |Neofetch Battery|Neofetch Storage|
   |--|--|
-  |![Image](/assets/images/neofetch/neofetch_battery.jpg)|![Image](/assets/images/neofetch/neofetch_output.jpg)|
+  |![Image](/assets/images/neofetch/battery.png)|![Image](/assets/images/neofetch/storage.png)|
 
   |Neofetch Configuration|Neofetch Script|
   |--|--|
-  |![Image](/assets/images/neofetch/neoconf.jpg)|![Image](/assets/images/neofetch/neoscript.jpg)|
+  |![Image](/assets/images/neofetch/config.png)|![Image](/assets/images/neofetch/script.png)|
 
   To change Neofetch configuration you can edit its config file in `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
 
@@ -95,9 +106,9 @@ Here are some details about my setup
   <details open>
   <summary><strong>Neovim</strong></summary>
 
-  |Vim Plug|Plug Status|Neovim|
+  |Vim Plug|Plugin Status|Neovim View|
   |--|--|--|
-  |![Image](/assets/images/neovim/vimplug.jpg)|![Image](/assets/images/neovim/plugstatus.jpg)|![Image](/assets/images/neovim/neovim_output.jpg)|
+  |![Image](/assets/images/neovim/plug.png)|![Image](/assets/images/neovim/status.png)|![Image](/assets/images/neovim/look.png)|
 
   To change the configuration of Neovim you can edit its config file in `~/.config/nvim/init.vim` & `~/.local/share/nvim/site/plug.vim`. <br>Then you can type <strong>`:PlugInstall`</strong> inside Neovim to install plugins (vim-plug).
   </details>
@@ -105,9 +116,9 @@ Here are some details about my setup
   <details>
   <summary><strong>SSH</strong></summary>
 
-  |SSH|
+  |SSH View|
   |--|
-  |![Image](/assets/images/ssh/ssh.jpg)|
+  |![Image](/assets/images/ssh/look.png)|
 
   </details>
 
@@ -147,11 +158,11 @@ Here are some details about my setup
 
   - **Music doesn't automatic detect**
 
-  This error is because of the music PATH not directed to the right one. For example my music directory is in `/sdcard/Music` or `/storage/emulated/0/Music`. Please set it up to your own music folder.
+  This error is because of the music PATH not directed to the right one. For example my music directory is in `/sdcard/Music/` or `~/storage/music/`. Please set it up to your own music folder.
 
   |PATH Music Ncmpcpp|
   |--|
-  |![Image](/assets/images/troubleshooting/ncmpcpp/music.png)|
+  |![Image](/assets/images/troubleshooting/ncmpcpp/path.png)|
 
   </details>
 
@@ -166,7 +177,7 @@ Here are some details about my setup
 
   |Termux-API|Storage|
   |--|--|
-  |![Image](/assets/images/troubleshooting/neofetch/termux-api.jpg)|![Image](/assets/images/troubleshooting/neofetch/storage.png)
+  |![Image](/assets/images/troubleshooting/neofetch/api.png)|![Image](/assets/images/troubleshooting/neofetch/partition.png)
 
   </details>
 
@@ -179,7 +190,7 @@ Here are some details about my setup
 
   |Unable to locate package|Unable to locate package|
   |--|--|
-  |![Image](/assets/images/troubleshooting/package/package.jpg)|![Image](/assets/images/troubleshooting/package/package2.jpg)|
+  |![Image](/assets/images/troubleshooting/package/error.png)|![Image](/assets/images/troubleshooting/package/error2.png)|
 
   </details>
 
