@@ -62,6 +62,7 @@ stanpkgs=(
     "man" 
     "python"
     "ncdu"
+    "nodejs"
 )
 
 # Standar File & Directory
