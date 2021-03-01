@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ -f $HOME/.xshin.var ]]; then
+if [[ -f $HOME/.xshin.var && -f $PREFIX/bin/tput && -f $PREFIX/bin/bc ]]; then
 
     source $HOME/.xshin.var
 
@@ -697,6 +697,7 @@ else
     echo -e "     Global Variable      make sure you copy .xshin.var to 
                           $HOME/\n"
     echo -e "     tput                 run 'pkg install ncurses-utils' 
-                          to install tput\n"
+                          to install tput"
+    echo -e "     bc                   run 'pkg install bc'\n"
     exit 1
 fi
