@@ -24,6 +24,10 @@ Here are some details about my setup
   <summary>Termux (Android)</summary>
 
   - ```bash
+    $ pkg update && pkg upgrade
+    ```
+
+  - ```bash
     $ pkg install ncurses-utils git
     ```
 
@@ -44,7 +48,7 @@ Here are some details about my setup
     ```
 
   - ```bash
-    $ ./install.sh options # You can see the options with './install.sh help'
+    $ ./install.sh [options] # You can see the options with './install.sh help'
     ```
 
   Make sure you allow Termux to access your storage
@@ -77,7 +81,7 @@ Here are some details about my setup
 
   |Views|
   |--|
-  ![Image](/assets/images/first-impression/first-impression.jpg)
+  ![Image](/assets/images/first-impression/firstlook.jpg)
 
   </details>
 
@@ -87,10 +91,10 @@ Here are some details about my setup
   <summary>See</summary>
 
   |Packages + Size|
-  |--|
-  |![Image](/assets/images/checkpkgs/list.png)|
+  |--|--|
+  |![Image](/assets/images/checkpkgs/full.png)|![Image](/assets/images/checkpkgs/lightweight.jpg)|
 
-  `listpkg --options` for example i installed it with --standar. So i run `listpkg standar`
+  `listpkg [options]` example `listpkg full` or `listpkg lightweight`
 
   </details>
 
@@ -99,15 +103,21 @@ Here are some details about my setup
   <details open>
   <summary><strong>Ncmpcpp</strong></summary>
 
-  |Dark Theme Sound Ellipse|Dark Theme Sound Wave Filled|
+  |Dark Theme|
   |--|--|
-  |![Black-1](/assets/images/ncmpcpp/black-1.png)|![Black-2](/assets/images/ncmpcpp/black-2.png)|
+  |![Dark-1](/assets/images/ncmpcpp/dark-1.jpg)|![Dark-2](/assets/images/ncmpcpp/dark-2.jpg)|
 
-  |Light Theme Sound Ellipse|Light Theme Sound Wave Filled|
+  If you change the color scheme in termux, like this
+  |--|
+  |![Chcolor](/assets/images/ncmpcpp/chcolor.jpg)|
+
+  then ncmpcpp in the color section aslo changes
+
+  |Another Dark Theme|Light Theme|
   |--|--|
-  |![White-1](/assets/images/ncmpcpp/white-1.png)|![White-2](/assets/images/ncmpcpp/white-2.png)|
+  |![Another-Dark](/assets/images/ncmpcpp/xshin.jpg)|![Light](/assets/images/ncmpcpp/light.jpg)|
 
-  To change Ncmpcpp configuration you can edit this file `~/.config/ncmpcpp/config`
+  ncmpcpp configuration PATH in `~/.config/ncmpcpp/config`
 
   </details>
 
