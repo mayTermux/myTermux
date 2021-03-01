@@ -74,6 +74,19 @@ Here are some details about my setup
 
   </details>
 
+### Installation Preview
+
+  <details open>
+
+  |Full Installation|Full Installation|Lightweight Installation|Lightweight Installation|
+  |--|--|--|--|
+  |![Full Installation](/assets/images/preview-install/full-1.jpg)|![Full Installation](/assets/images/preview-install/full-2.jpg)|![Lightweight Installation](/assets/images/preview-install/lightweight-1.jpg)|![Lightweight Installation](/assets/images/preview-install/lightweight-2.jpg)|
+
+
+
+
+  </details>
+
 ### First Impression
 
   <details open>
@@ -141,7 +154,7 @@ Here are some details about my setup
   <details open>
   <summary><strong>Neovim</strong></summary>
 
-  |Full Install|Full Install Plugins|Lightweight not included plugins|
+  |Full Install|Full Install Included Plugins|Lightweight not included plugins|
   |--|--|--|
   |![Image](/assets/images/neovim/full-1.jpg)|![Image](/assets/images/neovim/full-2.jpg)|![Image](/assets/images/neovim/lightweight.jpg)|
 
@@ -203,7 +216,7 @@ Here are some details about my setup
 
   - **Battery & Storage icon not showing**
 
-  If you want Battery icon showing you have to install <strong>Termux-API</strong> app from the same source as your installed Termux (whether from PlayStore or F-Droid). Though it is recommended for you to install Termux from F-Droid. <br>For storage info you must set it to the right partition on your Android (e.g `/storage/emulated`).
+  If you want Battery icon showing you have to install <strong>Termux-API</strong> app from the same source as your installed Termux (whether from PlayStore or F-Droid). Though it is recommended for you to install Termux from F-Droid <strong>Don't forget uncomment battery output in neofetch configuration</strong>. <br>For storage info you must set it to the right partition on your Android (e.g `/storage/emulated`).
   > NOTE:
   > Please run `df -h` to know where your internal partition is located.
 
