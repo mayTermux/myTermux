@@ -98,7 +98,7 @@ Here are some details about my setup
 
   |Before|After|
   |--|--|
-  ![Image](/assets/images/first-impression/before.jpg)![Image](/assets/images/first-impression/after.jpg)|
+  ![Image](/assets/images/first-impression/before.jpg)|![Image](/assets/images/first-impression/after.jpg)|
 
   </details>
 
