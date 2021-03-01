@@ -1,6 +1,6 @@
 <p align="center">
   <a name="top" href="#octocat-hi-there-thanks-for-visiting-">
-     <img alt="owl4ce/dotfiles" height="60%" width="100%" src="https://i.ibb.co/CHhrkD2/window-2021-01-24-09-47-39-removebg-preview.png"/>
+     <img alt="xshin404/myTermux" height="60%" width="100%" src="/assets/images/banner/banner.jpg"/>
   </a>
 </p>
 
@@ -22,10 +22,10 @@ Here are some details about my setup
 
   <details open>
   <summary>Termux (Android)</summary>
-  
+
   - ```bash
-    $ pkg install git
-    ```
+    $ pkg install ncurses-utils git
+  ```
 
   - ```bash
     $ git clone https://github.com/xshin404/myTermux
@@ -36,11 +36,15 @@ Here are some details about my setup
     ```
 
   - ```bash
-    $ cp .xshin.var $HOME # For Setup Global Variable
+    $ cp .xshin.var $HOME # Setup global variable
     ```
 
   - ```bash
-    $ chmod +x install.sh && ./install.sh --options # You can see the options with ./install.sh -h or --help
+    $ chmod +x install.sh
+    ```
+
+  - ```bash
+    $ ./install.sh options # You can see the options with './install.sh help'
     ```
 
   Make sure you allow Termux to access your storage
@@ -60,7 +64,7 @@ Here are some details about my setup
 
   |Installation Help|
   |--|
-  |![Image](/assets/images/help/help.png)|
+  |![Image](/assets/images/help/help.jpg)|
 
   </details>
 

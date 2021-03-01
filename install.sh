@@ -1,309 +1,703 @@
 #!/bin/bash
 
-DIR=`cd $(dirname $0); pwd`
-
-#source $DIR/.xshin.var
-source $HOME/.xshin.var
-
 if [[ -f $HOME/.xshin.var ]]; then
-zsh() {
-    echo -e "   ____  __          __  ___         _____  _____ __  __"
-    echo -e "  / __ \/ /_        /  |/  /_  __   /__  / / ___// / / /"
-    echo -e " / / / / __ \______/ /|_/ / / / /_____/ /  \__ \/ /_/ /"
-    echo -e "/ /_/ / / / /_____/ /  / / /_/ /_____/ /_____/ / __  /"
-    echo -e "\____/_/ /_/     /_/  /_/\__, /     /____/____/_/ /_/"
-    echo -e "                        /____/"
-    echo -e "\n[1] Simple Mode"
-    echo -e "[2] Powerlevel10k Mode\n"
-    read -p "Choose : " ChooseMode
-    simple() {
-        echo -e $lyw"\nPreparing to backup files or directory related on zsh !\n$df"
-        sleep 2s
-        for file in "${files[@]}"; do
-            if [[ -f "$HOME/$file" || -d "$HOME/$file" ]]; then
-                echo -e $lyw"[*] $file found . . ."
-                echo -e "Preparing backup $file to $file.old !$df"
-                sleep 2s
-                { mv -u ${HOME}/${file}{,.old}; }
-                if [[ -f "$HOME/$file.old" || -d "$HOME/$file.old" ]]; then
-                    echo -e $lgn"[*] Successfully backup $file\n$df"
-                else
-                    echo -e $lgn"[*] Failed backup $file\n$df"
-                fi
-            else
-                echo -e $lyw"[*] $file not found, skip it !\n$df"
-            fi
-        done
-        echo -e $lyw"Preparing to install package related on zsh !\n$df"
-        sleep 2s
-        pkg update -y && pkg upgrade -y
-        echo ""
-        for ohpkg in "${ohpkgs[@]}"; do
-            echo -e $lyw"[*] Installing $ohpkg . . .\n$df"
-            { pkg install -y $ohpkg; }
-            ipkg=$(pkg list-installed $ohpkg 2> /dev/null | tail -n 1)
-            cpkg=${ipkg%/*}
-            if [[ $cpkg == $ohpkg ]]; then
-                echo -e $lgn"\n[!] Successfully installed $ohpkg\n$df"
-            else
-                echo -e $lrd"\n[!] Failed installed $ohpkg\n$df"
-            fi
-        done
-        echo -e $lyt"Preparing to setup script check-size-packages v.0.1.0 !\n$df"
-        cp -R $DIR/termux/.scripts $HOME/
-        if [[ -d $HOME/.scripts ]]; then
-            echo -e $lgn"[!] Successfully setup script check-size-packages v.0.1.0 !\n$df"
-        else
-            echo -e $lrd"[!] Failed setup script check-size-packages v.0.1.0 !\n$df"
-        fi
-        echo -e $lyt"Preparing to clone repository related on zsh !\n$df"
-        sleep 2s
-        for ohrepo in "${ohrepos[@]}"; do
-            echo -e $lyw"[*] Cloning $ohrepo . . .\n$df"
-            git clone $ohrepo
-            echo ""
-        done
-        echo -e $lyt"Preparing to check clone repository related on zsh !\n$df"
-        sleep 2s
-        for ohname in "${ohnames[@]}"; do
-            if [[ "$ohname" == "oh-my-zsh" ]]; then
-                mv $ohname .$ohname
-                mv .$ohname $HOME/
-                if [[ -d $HOME/.$ohname ]]; then
-                    echo -e $lgn"[!] Successfully clone $ohname $df"
-                else
-                    echo -e $lrd"[!] Failed clone $ohname $df"
-                fi
-            elif [[ "$ohname" == "zsh-syntax-highlighting" ]]; then
-                mv $ohname $HOME/.oh-my-zsh/custom/plugins/
-                if [[ -d $HOME/.oh-my-zsh/custom/plugins/$ohname ]]; then
-                    echo -e $lgn"[!] Successfully clone $ohname $df"
-                else
-                    echo -e $lrd"[!] Failed clone $ohname $df"
-                fi
-            elif [[ "$ohname" == "zsh-autosuggestions" ]]; then
-                mv $ohname $HOME/.oh-my-zsh/custom/plugins/
-                if [[ -d $HOME/.oh-my-zsh/custom/plugins/$ohname ]]; then
-                    echo -e $lgn"[!] Successfully clone $ohname $df"
-                else
-                    echo -e $lrd"[!] Failed clone $ohname $df"
-                fi
-            else
-                echo $lyw"$ohname not found ! $df"
-            fi
-        done
-        echo ""
-        echo -e $lyt"Preparing to setup my zshfile !\n$df"
-        sleep 2s
-        mkdir $HOME/.config/
-        for zshfile in "${zshfiles[@]}"; do
-            if [[ "$zshfile" == ".zshrc" ]]; then
-                cp $DIR/termux/$zshfile $HOME
-                if [[ -f $HOME/$zshfile ]]; then
-                    echo -e $lgn"[!] Successfully setup $zshfile $df"
-                else
-                    echo -e $lrd"[!] Failed setup $zshfile $df"
-                fi
-            elif [[ "$zshfile" == "rounded.zsh-theme" ]]; then
-                cp $DIR/termux/$zshfile $HOME/.oh-my-zsh/custom/themes/
-                if [[ -f $HOME/.oh-my-zsh/custom/themes/$zshfile ]]; then
-                    echo -e $lgn"[!] Successfully setup $zshfile $df"
-                else
-                    echo -e $lrd"[!] Failed setup $zshfile $df"
-                fi
-            elif [[ "$zshfile" == ".termux" ]]; then
-                cp -R $DIR/termux/$zshfile $HOME
-                if [[ -d $HOME/$zshfile ]]; then
-                    echo -e $lgn"[!] Successfully setup $zshfile $df"
-                else
-                    echo -e $lrd"[!] Failed setup $zshfile $df"
-                fi
-            elif [[ "$zshfile" == "neofetch" ]]; then
-                cp -R $DIR/termux/.config/$zshfile $HOME/.config/
-                if [[ -d $HOME/.config/$zshfile ]]; then
-                    echo -e $lgn"[!] Successfully setup $zshfile $df"
-                else
-                    echo -e $lrd"[!] Failed setup $zshfile $df"
-                fi
-            else
-                echo -e $lyw"$zshfile not found ! $df"
-            fi
-        done
-        echo ""
-        echo -e $lyw"Getting PATH ZSH . . .\n$df"
-        sleep 2s
-        which zsh
-        chsh -s zsh
-        echo ""
-        termux-reload-settings
-        # echo -e $lyw"Result : [!] Please restart Termux to complete\n$df"
+
+    source $HOME/.xshin.var
+
+    DIR=`cd $(dirname $0); pwd`
+    
+    #source "$(pwd)/spinner.sh"
+    source $DIR/.spinner/spinner.sh
+
+    banner() {
+
+            echo -e "\n$bl╭────────────────────────────────────────────────────────╮"
+            echo -e "║              $df$lcyn _______$bl                                  ║"
+            echo -e "║              $df$lcyn(_______)$bl                                 ║"
+            echo -e "║     $df$wh ____  _   _ $lcyn_$wh   _____  ____ ____  _   _ _   _$bl      ║"
+            echo -e "║     $df$wh|    \| | | $lcyn| |$wh  ___ |/ ___)    \| | | ( \ / )$bl     ║"
+            echo -e "║     $df$wh| | | | |_| $lcyn| |$wh  ____| |   | | | | |_| |) X ($bl      ║"
+            echo -e "║     $df$wh|_|_|_|\__  $lcyn|_|$wh _____)_|   |_|_|_|____/(_/ \_)$bl     ║"
+            echo -e "║           $df$wh(____/$bl                                       ║"
+            echo -e "║                                                        ║"
+            echo -e "║             🚀$wh Version    :$lyw 0.3.0 $bl                     ║"
+            echo -e "║             📅$wh Build Date :$lrd 1 Maret 2021 $bl              ║"
+            echo -e "║             📦$wh Size       :$lgn 9.41 MB $bl                   ║"
+            echo -e "║             ⚙️ $wh Maintainer :$mg xShin$df$bl                      ║"
+            echo -e "║                                                        ║"
+            echo -e "╰────────────────────────────────────────────────────────╯$df"
+            echo -e "              ⚠️ $wh Mode       :$lgn $mode\n$df"
+
     }
 
-    p10k() {
-        echo -e $lyw"Adding Theme Powerlevel10k !\n$df"
-        sleep 2s
-        git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-        if [[ -d $HOME/.oh-my-zsh/custom/themes/powerlevel10k ]]; then
-            echo -e $lyw"Preparing change theme ZSH to Powerlevel10k"
-            sed -i '1iZSH_THEME="powerlevel10k/powerlevel10k"' "$HOME/.zshrc"
-            echo -e $lgn"[!] Successfully adding Theme Powerlevel10k $df"
-        else
-            echo -e $lrd"[!] Failed adding Theme Powerlevel10k $df"
-        fi
+    full() {
+
+        backup() {
+
+            banner
+            echo -e "⚙️ Backup dotfiles"
+            
+            for backup in "${backups[@]}"; do
+                start_spinner_backup "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 $backup"
+                sleep 2
+                if [[ -f $HOME/$backup || -d $HOME/$backup ]]; then
+                    mv -u ${HOME}/${backup}{,.backup};
+                    stop_spinner_backup $?
+                    echo -e " ‎‏‏‎ ⚠️ backup to $backup.backup\n"
+                else
+                    sleep 2
+                    cp "empty" > /dev/null 2>&1
+                    stop_spinner_backup $?
+                fi
+            done
+
+        }
+
+        fullpackage() {
+
+            backup
+            echo -e "\n⚙️ Installing full package"
+
+
+            for fullpkg in "${fullpkgs[@]}"; do
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 $fullpkg"
+                pkg install -y $fullpkg &>/dev/null
+
+                check() {
+
+                    ipkg=$(pkg list-installed $fullpkg 2> /dev/null | tail -n 1)
+                    cpkg=${ipkg%/*}
+
+                    if [[ $cpkg == $fullpkg ]]; then
+                        stop_spinner $? || exit 1;
+                    else
+                        sleep 2
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‎‎‏‏‎‏‏‎‏‏‎ ‎‏‏‎ ‎📦 ‎$fullpkg (retrying) ‎‏‏‎ "
+                        pkg install -y $fullpkg &>/dev/null
+                        check
+                    fi
+
+                }
+
+                check
+
+            done
+
+            echo -e ""
+            cp -R $DIR/.scripts $HOME/.scripts &>/dev/null
+            if [[ -f $HOME/.scripts/list-packages.sh ]]; then
+                bash $HOME/.scripts/list-packages.sh table full
+            fi
+
+        }
+
+        repository() {
+
+            fullpackage
+            echo -e "\n⚙️ Installing oh-my-zsh"
+
+            ohmyzsh() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 oh-my-zsh"
+                git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh/ &>/dev/null
+                    
+                check() {
+
+                    if [[ -d $HOME/.oh-my-zsh ]]; then
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 oh-my-zsh (retrying)"
+                        git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh/ &>/dev/null
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            ohmyzsh
+
+            echo -e "\n⚙️ Installing plugin oh-my-zsh"
+
+            highlighting() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-syntax-highlighting"
+                git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting &>/dev/null
+
+                check() {
+
+                    if [[ -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]]; then
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-syntax-highlighting (retrying)"
+                        git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting &>/dev/null
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            highlighting
+
+            autosuggest() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-autosuggestions"
+                git clone git://github.com/zsh-users/zsh-autosuggestions.git $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions &>/dev/null
+                
+                check() {
+
+                    if [[ -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-autosuggestions (retrying)"
+                        git clone git://github.com/zsh-users/zsh-autosuggestions.git $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions &>/dev/null
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            autosuggest
+
+        }
+
+        dotfiles() {
+
+            repository
+            echo -e "\n⚙️ Installing dotfiles"
+
+            zshrc() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .zshrc"
+                sleep 2
+                cp $DIR/.zshrc $HOME/.zshrc
+
+                check() {
+
+                    if [[ -f $HOME/.zshrc ]]; then
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .zshrc (retrying)"
+                        sleep 2
+                        cp $DIR/.zshrc $HOME/.zshrc
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            zshrc
+
+            termux() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .termux"
+                sleep 2
+                cp -R $DIR/.termux $HOME/.termux
+
+                check() {
+
+                    if [[ -d $HOME/.termux ]]; then
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .termux (retrying)"
+                        sleep 2
+                        cp -R $DIR/.termux $HOME/.termux
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            termux
+
+            config() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .config"
+                sleep 2
+                cp -R $DIR/.config $HOME/.config
+
+                check() {
+
+                    if [[ -d $HOME/.config ]]; then
+                        cp $DIR/fix/mpd/run $PREFIX/var/service/mpd/run &>/dev/null
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .config (retrying)"
+                        sleep 2
+                        cp -R $DIR/.config $HOME/.config
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            config
+
+        }
+
+        neovim() {
+
+            dotfiles
+            echo -e "\n⚙️ Installing neovim plugins"
+
+            start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 coc.vim & etc"
+            sleep 2
+
+            (
+                set -e
+
+                nvim --headless +PlugInstall +qall > /dev/null 2>&1
+
+            )
+
+            if [ $? -eq 0 ]; then
+                stop_spinner $?
+            else
+                sleep 2
+                cp "empty" > /dev/null 2>&1
+                stop_spinner $?
+            fi
+
+        }
+
+        shell() {
+
+            neovim
+            echo -e "\n⚙️ Setting SHELL default"
+
+            zsh() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 change shell to zsh"
+                sleep 2
+
+                check() {
+
+                    if [[ $(which zsh) == "/data/data/com.termux/files/usr/bin/zsh" ]]; then
+                        chsh -s zsh
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                    fi
+
+                }
+
+                check
+
+            }
+
+            zsh
+
+        }
+
+        rounded() {
+
+            shell
+            echo -e "\n⚙️ Installing ZSH Theme"
+
+            start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 rounded.zsh-theme"
+            sleep 2
+            cp $DIR/rounded.zsh-theme $HOME/.oh-my-zsh/custom/themes/rounded.zsh-theme
+
+            check() {
+
+                if [[ -f $HOME/.oh-my-zsh/custom/themes/rounded.zsh-theme ]]; then
+                    stop_spinner $?
+                    echo -e "‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Restart Termux to complete installation"
+                else
+                    cp "empty" > /dev/null 2>&1
+                    stop_spinner $?
+                    echo -e "‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Restart Termux to complete installation"
+                fi
+
+            }
+
+            check
+
+        }
+
+        permission() {
+
+            rounded
+            termux-setup-storage
+            termux-reload-settings
+
+        }
+
+        permission
+
     }
 
-    if [[ $ChooseMode == 1 ]]; then
-        simple
-        echo -e $lyw"[!] Please restart Termux to complete installation ZSH $df"
-    elif [[ $ChooseMode == 2 ]]; then
-        simple
-        p10k
-        echo -e $lyw"[!] Please restart Termux to complete installation ZSH\n$df"
+    lightweight() {
+
+        backup() {
+
+            banner
+            echo -e "⚙️ Backup dotfiles"
+            
+            for backup in "${backups[@]}"; do
+                start_spinner_backup "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 $backup"
+                sleep 2
+                if [[ -f $HOME/$backup || -d $HOME/$backup ]]; then
+                    mv -u ${HOME}/${backup}{,.backup};
+                    stop_spinner_backup $?
+                    echo -e " ‎‏‏‎ ⚠️ backup to $backup.backup\n"
+                else
+                    sleep 2
+                    cp "empty" > /dev/null 2>&1
+                    stop_spinner_backup $?
+                fi
+            done
+
+        }
+
+        lightweightpackage() {
+
+            backup
+            echo -e "\n⚙️ Installing lightweight package"
+
+            for lightweightpkg in "${lightweightpkgs[@]}"; do
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 $lightweightpkg"
+                pkg install -y $lightweightpkg &>/dev/null
+
+                check() {
+
+                    ipkg=$(pkg list-installed $lightweightpkg 2> /dev/null | tail -n 1)
+                    cpkg=${ipkg%/*}
+
+                    if [[ $cpkg == $lightweightpkg ]]; then
+                        stop_spinner $? || exit 1;
+                    else
+                        sleep 2
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‎‎‏‏‎‏‏‎‏‏‎ ‎‏‏‎ ‎📦 ‎$lightweightpkg (retrying) ‎‏‏‎ "
+                        pkg install -y $lightweightpkg &>/dev/null
+                        check
+                    fi
+
+                }
+
+                check
+
+            done
+
+            echo -e ""
+            cp -R $DIR/.scripts $HOME/.scripts &>/dev/null
+            if [[ -f $HOME/.scripts/list-packages.sh ]]; then
+                bash $HOME/.scripts/list-packages.sh table lightweight
+            fi
+
+        }
+
+        repository() {
+
+            lightweightpackage
+            echo -e "\n⚙️ Installing oh-my-zsh"
+
+            ohmyzsh() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 oh-my-zsh"
+                git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh/ &>/dev/null
+                    
+                check() {
+
+                    if [[ -d $HOME/.oh-my-zsh ]]; then
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 oh-my-zsh (retrying)"
+                        git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh/ &>/dev/null
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            ohmyzsh
+
+            echo -e "\n⚙️ Installing plugin oh-my-zsh"
+
+            highlighting() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-syntax-highlighting"
+                git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting &>/dev/null
+
+                check() {
+
+                    if [[ -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]]; then
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-syntax-highlighting (retrying)"
+                        git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting &>/dev/null
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            highlighting
+
+            autosuggest() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-autosuggestions"
+                git clone git://github.com/zsh-users/zsh-autosuggestions.git $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions &>/dev/null
+                
+                check() {
+
+                    if [[ -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-autosuggestions (retrying)"
+                        git clone git://github.com/zsh-users/zsh-autosuggestions.git $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions &>/dev/null
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            autosuggest
+
+        }
+
+        dotfiles() {
+
+            repository
+            echo -e "\n⚙️ Installing dotfiles"
+
+            zshrc() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .zshrc"
+                sleep 2
+                cp $DIR/.zshrc $HOME/.zshrc
+
+                check() {
+
+                    if [[ -f $HOME/.zshrc ]]; then
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .zshrc (retrying)"
+                        sleep 2
+                        cp $DIR/.zshrc $HOME/.zshrc
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            zshrc
+
+            termux() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .termux"
+                sleep 2
+                cp -R $DIR/.termux $HOME/.termux
+
+                check() {
+
+                    if [[ -d $HOME/.termux ]]; then
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .termux (retrying)"
+                        sleep 2
+                        cp -R $DIR/.termux $HOME/.termux
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            termux
+
+            config() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .config"
+                sleep 2
+                cp -R $DIR/.config $HOME/.config
+
+                check() {
+
+                    if [[ -d $HOME/.config ]]; then
+                        cp $DIR/fix/mpd/run $PREFIX/var/service/mpd/run &>/dev/null
+                        rm -rf $HOME/.config/nvim
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .config (retrying)"
+                        sleep 2
+                        cp -R $DIR/.config $HOME/.config
+                        check
+                    fi
+
+                }
+
+                check
+
+            }
+
+            config
+
+        }
+
+        shell() {
+
+            dotfiles
+            echo -e "\n⚙️ Setting SHELL default"
+
+            zsh() {
+
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 change shell to zsh"
+                sleep 2
+
+                check() {
+
+                    if [[ $(which zsh) == "/data/data/com.termux/files/usr/bin/zsh" ]]; then
+                        chsh -s zsh
+                        stop_spinner $?
+                    else
+                        cp "empty" > /dev/null 2>&1
+                        stop_spinner $?
+                    fi
+
+                }
+
+                check
+
+            }
+
+            zsh
+
+        }
+
+        rounded() {
+
+            shell
+            echo -e "\n⚙️ Installing ZSH Theme"
+
+            start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 rounded.zsh-theme"
+            sleep 2
+            cp $DIR/rounded.zsh-theme $HOME/.oh-my-zsh/custom/themes/rounded.zsh-theme
+
+            check() {
+
+                if [[ -f $HOME/.oh-my-zsh/custom/themes/rounded.zsh-theme ]]; then
+                    stop_spinner $?
+                    echo -e "‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Restart Termux to complete installation"
+                else
+                    cp "empty" > /dev/null 2>&1
+                    stop_spinner $?
+                    echo -e "‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Restart Termux to complete installation"
+                fi
+
+            }
+
+            check
+
+        }
+
+        permission() {
+
+            rounded
+            termux-setup-storage
+            termux-reload-settings
+
+        }
+
+        permission
+
+    }
+
+    help() {
+
+        echo -e "Usage: \n  ./install.sh [options]"
+        echo -e "\nMETA OPTIONS :"
+        echo -e "  help                 show list of command-line options."
+        echo -e "\nRUN OPTIONS :"
+        echo -e "  lightweight          installing with lightweight mode 
+                       (not included neovim plugins).\n"
+        echo -e "  full                 installing full mode 
+                       (included neovim plugins with 
+                       node package manager).\n"
+
+    }
+
+    if [[ "$1" == "lightweight" ]]; then
+        mode="Install Lightweight"
+        lightweight
+    elif [[ "$1" == "full" ]]; then
+        mode="Install Full"
+        full
+    elif [[ "$1" == "help" ]]; then
+        mode="Help"
+        banner
+        help
     else
-        { echo -e $lyw"Please input correctly answer $df"; zsh; }
+        { mode="Help"; banner; help; exit 1; }
     fi
-}
 
-standar() {
-    zsh
-    echo -e "\nPreparing to backup files or directory standar !\n$df"
-    sleep 2s
-    for sfile in "${stanfiles[@]}"; do
-        if [[ -f "$HOME/$sfile" || -d "$HOME/$sfile" ]]; then
-            echo -e $lyw"[*] $sfile found . . ."
-            echo -e "Preparing backup $sfile to $sfile.old !$df"
-            sleep 2s
-            { mv -u ${HOME}/${sfile}{,.old}; }
-            if [[ -f "$HOME/$sfile.old" || -d "$HOME/$sfile.old" ]]; then
-                echo -e $lgn"[*] Successfully backup $sfile\n$df"
-            else
-                echo -e $lgn"[*] Failed backup $sfile\n$df"
-            fi
-        else
-            echo -e $lyw"[*] $sfile not found, skip it !\n$df"
-        fi
-    done
-    echo -e "Preparing to install standar package !\n$df"
-    sleep 2s
-    for spkg in "${stanpkgs[@]}"; do
-        echo -e $lyw"[*] Installing $spkg . . .\n$df"
-        { pkg install -y $spkg; }
-        ipkg=$(pkg list-installed $spkg 2> /dev/null | tail -n 1)
-        cpkg=${ipkg%/*}
-        if [[ $cpkg == $spkg ]]; then
-            echo -e $lgn"\n[!] Successfully installed $spkg\n$df"
-            if [[ $cpkg == "python" ]]; then
-                pip install youtube-dl
-                if [[ -f $PREFIX/bin/youtube-dl ]]; then
-                    echo -e $lgn"\n[!] Successfully installed youtube-dl\n$df"
-                else
-                    echo -e $lrd"\n[!] Failed installed youtube-dl\n$df"
-                fi
-            fi
-        else
-            echo -e $lrd"\n[!] Failed installed $spkg\n$df"
-        fi
-    done
-    echo -e "Preparing to setup music (mpd & ncmpcpp) !\n$df"
-    sleep 2s
-    for music in "${musics[@]}"; do
-        cp -R $DIR/termux/.config/$music $HOME/.config/
-        if [[ -d $HOME/.config/$music ]]; then
-            echo -e $lgn"[!] Successfully setup $music $df"
-        else
-            echo -e $lrd"[!] Failed setup $music $df"
-        fi
-    done
-    echo -e $lyw"\nSetup music done !\n$df"
-    sleep 2s
-    echo -e "Preparing to setup neovim + plugin !\n$df"
-    sleep 2s
-    for neovim in "${neovims[@]}"; do
-        if [[ "$neovim" == "nvim" ]]; then
-            cp -R $DIR/termux/.local $HOME/
-            if [[ -d $HOME/.local/share/$neovim ]]; then
-                echo -e $lgn"[!] Successfully setup $neovim $df"
-            else
-                echo -e $lrd"[!] Failed setup $neovim $df"
-            fi
-        elif [[ "$neovim" == "init.vim" ]]; then
-            mkdir $HOME/.config/nvim/
-            cp $DIR/termux/.config/nvim/$neovim $HOME/.config/nvim/
-            if [[ -f $HOME/.config/nvim/$neovim ]]; then
-                echo -e $lgn"[!] Successfully setup $neovim $df"
-            else
-                echo -e $lrd"[!] Failed setup $neovim $df"
-            fi
-        fi
-    done
-}
-
-all() {
-    standar
-    echo -e $lyt"Preparing to clone private github repository\n$df"
-    sleep 2s
-    mkdir $HOME/repository
-    for privrepo in "${privrepos[@]}"; do
-        echo -e $lyw"[*] Cloning $privrepo . . .\n$df"
-        git clone $privlink/$privrepo $HOME/repository/$privrepo
-        if [[ -d $HOME/repository/$privrepo ]]; then
-            echo -e $lgn"\n[!] Successfully clone $privrepo\n$df"
-            if [[ $privrepo == "gitconsole" ]]; then
-                bash $HOME/repository/$privrepo/auto_conf.sh
-            elif [[ $privrepo == "termuxconsole" ]]; then
-                bash $HOME/repository/$privrepo/auto_conf.sh
-            fi
-        else
-            echo -e $lrd"[!] Failed clone $privrepo\n$df"
-        fi
-    done
-}
-
-permission() {
-    termux-setup-storage
-}
 else
-    echo -e "ERROR : Please Setting Up Global Variable First !"
+    echo -e '\e[31m'"\n⚠️ ERROR : Global Variable or tput not found !\e[39m\n"
+
+    echo -e "⚠️ Troubleshooting :"
+    echo -e "     Global Variable      make sure you copy .xshin.var to 
+                          $HOME/\n"
+    echo -e "     tput                 run 'pkg install ncurses-utils' 
+                          to install tput\n"
     exit 1
-fi
-
-version() {
-    echo -e "myTermux v0.2.0"
-}
-
-help() {
-    echo -e "Usage: \n  ./install.sh [options]"
-    echo -e "\nMETA OPTIONS :"
-    echo -e "  -h, --help           show list of command-line options."
-    echo -e "  -v, --version        show version of script."
-    echo -e "\nRUN OPTIONS :"
-    echo -e "  -z, --zsh            just installing oh-my-zsh."
-    echo -e "  -s, --standar        oh-my-zsh + some package like (neovim + plugin, mpd, ncmpcpp, youtube-dl, ncdu & etc), take a lot more storage."
-    echo -e "  -a, --all            installing all myTermux, NOTE ! take a lot more storage & need clone private github repository (Authentication).\n"
-}
-
-if [[ "$1" == "-z" || "$1" == "--zsh" ]]; then
-    zsh
-    permission
-    if [[ -f $HOME/.scripts/list-installed.sh ]]; then
-        bash $HOME/.scripts/list-installed.sh zsh
-    fi
-elif [[ "$1" == "-s" || "$1" == "--standar" ]]; then
-    standar
-    permission
-    if [[ -f $HOME/.scripts/list-installed.sh ]]; then
-        bash $HOME/.scripts/list-installed.sh standar
-    fi
-elif [[ "$1" == "-a" || "$1" == "--all" ]]; then
-    all
-    permission
-    if [[ -f $HOME/.scripts/list-installed.sh ]]; then
-        bash $HOME/.scripts/list-installed.sh all
-    fi
-elif [[ "$1" == "-h" || "$1" == "--help" ]]; then
-    help
-elif [[ "$1" == "-v" || "$1" == "--version" ]]; then
-    version
-else
-    { help; exit 0; }
 fi

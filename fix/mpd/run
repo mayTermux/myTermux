@@ -1,0 +1,8 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+if [ -f "$HOME/.config/mpd/mpd.conf" ]; then 
+    CONFIG="$HOME/.config/mpd/mpd.conf"; 
+else 
+    CONFIG="$PREFIX/etc/mpd.conf"; 
+fi
+exec mpd --stdout --no-daemon $CONFIG 2>&1
