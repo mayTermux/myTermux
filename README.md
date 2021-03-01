@@ -90,11 +90,11 @@ Here are some details about my setup
   <details open>
   <summary>See</summary>
 
-  |Packages + Size|
+  |Full Packages + Size|Lightweight Packages + Size|
   |--|--|
-  |![Image](/assets/images/checkpkgs/full.png)|![Image](/assets/images/checkpkgs/lightweight.jpg)|
+  |![Image](/assets/images/checkpkgs/full.jng)|![Image](/assets/images/checkpkgs/lightweight.jpg)|
 
-  `listpkg [options]` example `listpkg full` or `listpkg lightweight`
+  Command : `listpkg [options]` example `listpkg full` or `listpkg lightweight`
 
   </details>
 
@@ -103,11 +103,12 @@ Here are some details about my setup
   <details open>
   <summary><strong>Ncmpcpp</strong></summary>
 
-  |Dark Theme|
+  |Dark Theme|Dark Theme|
   |--|--|
   |![Dark-1](/assets/images/ncmpcpp/dark-1.jpg)|![Dark-2](/assets/images/ncmpcpp/dark-2.jpg)|
 
   If you change the color scheme in termux, like this
+  |Change Color Scheme|
   |--|
   |![Chcolor](/assets/images/ncmpcpp/chcolor.jpg)|
 
