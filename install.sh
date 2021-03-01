@@ -6,7 +6,6 @@ if [[ -f $HOME/.xshin.var ]]; then
 
     DIR=`cd $(dirname $0); pwd`
     
-    #source "$(pwd)/spinner.sh"
     source $DIR/.spinner/spinner.sh
 
     banner() {
@@ -22,7 +21,7 @@ if [[ -f $HOME/.xshin.var ]]; then
             echo -e "║                                                        ║"
             echo -e "║             🚀$wh Version    :$lyw 0.3.0 $bl                     ║"
             echo -e "║             📅$wh Build Date :$lrd 1 Maret 2021 $bl              ║"
-            echo -e "║             📦$wh Size       :$lgn 9.41 MB $bl                   ║"
+            echo -e "║             📦$wh Size       :$lgn $repoSize $bl                  ║"
             echo -e "║             ⚙️ $wh Maintainer :$mg xShin$df$bl                      ║"
             echo -e "║                                                        ║"
             echo -e "╰────────────────────────────────────────────────────────╯$df"

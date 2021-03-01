@@ -28,7 +28,7 @@ Here are some details about my setup
     ```
 
   - ```bash
-    $ pkg install ncurses-utils git
+    $ pkg install ncurses-utils bc git
     ```
 
   - ```bash
@@ -243,6 +243,12 @@ Here are some details about my setup
   - **Inspiration**
     - [Harry](https://github.com/owl4ce)
     - [adi1090x](https://github.com/adi1090x)
+
+  - **Bash Spinner UI**
+    - [tlatsas](https://github.com/tlatsas/bash-spinner)
+
+  - **Github Repository Size**
+    - [yoandypv](https://github.com/yoandypv/github-repository-size)
 
   - **Knowledge**
     - [Rizqi Nur Assyaufi](https://github.com/bandithijo)
