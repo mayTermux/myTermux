@@ -92,7 +92,7 @@ Here are some details about my setup
 
   |Full Packages + Size|Lightweight Packages + Size|
   |--|--|
-  |![Image](/assets/images/checkpkgs/full.jng)|![Image](/assets/images/checkpkgs/lightweight.jpg)|
+  |![Image](/assets/images/checkpkgs/full.jpg)|![Image](/assets/images/checkpkgs/lightweight.jpg)|
 
   Command : `listpkg [options]` example `listpkg full` or `listpkg lightweight`
 
@@ -141,19 +141,11 @@ Here are some details about my setup
   <details open>
   <summary><strong>Neovim</strong></summary>
 
-  |Vim Plug|Plugin Status|Neovim View|
+  |Full Install|Full Install Plugins|Lightweight not included plugins|
   |--|--|--|
-  |![Image](/assets/images/neovim/plug.png)|![Image](/assets/images/neovim/status.png)|![Image](/assets/images/neovim/look.png)|
+  |![Image](/assets/images/neovim/full-1.jpg)|![Image](/assets/images/neovim/full-2.jpg)|![Image](/assets/images/neovim/lightweight.jpg)|
 
-  To change the configuration of Neovim you can edit its config file in `~/.config/nvim/init.vim` & `~/.local/share/nvim/site/plug.vim`. <br>Then you can type <strong>`:PlugInstall`</strong> inside Neovim to install plugins (vim-plug).
-  </details>
-
-  <details>
-  <summary><strong>SSH</strong></summary>
-
-  |SSH View|
-  |--|
-  |![Image](/assets/images/ssh/look.png)|
+  Full install included plugins with node package manager (npm). For lightweight intallation not included so you can install the plugin manually
 
   </details>
 
@@ -163,13 +155,14 @@ Here are some details about my setup
   <details open>
   <summary><strong>Global Variable</strong></summary>
 
-  - **ERROR : Please Setting Up Global Variable First !**
+  - **ERROR : Global Variable or tput not found !**
 
-  This error is due to missing <strong>.xshin.var</strong>. To fix this, run `cp .xshin.var $HOME`
+  Global Variable : This error is due to missing <strong>.xshin.var</strong>. To fix this, run `cp .xshin.var $HOME`
+  tput            : This error is due to missing package <strong>ncurses-utils</strong>. To fix this, run `pkg install ncurses-utils`
 
-  |ERROR : Please Setting Up Global Variable First !|Fix|
-  |--|--|
-  |![Image](/assets/images/troubleshooting/variable/variable.png)|![Image](/assets/images/troubleshooting/variable/fix.png)|
+  |ERROR : Global Variable or tput not found !|
+  |--|
+  |![Image](/assets/images/troubleshooting/variable/vartput.jpg)|
 
   </details>
 
