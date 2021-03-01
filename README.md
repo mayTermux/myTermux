@@ -174,8 +174,8 @@ Here are some details about my setup
 
   - **ERROR : Global Variable or tput not found !**
 
-  Global Variable : This error is due to missing <strong>.xshin.var</strong>. To fix this, run `cp .xshin.var $HOME` <br />
-  tput            : This error is due to missing package <strong>ncurses-utils</strong>. To fix this, run `pkg install ncurses-utils` <br /
+  Global Variable : This error is due to missing <strong>.xshin.var</strong>. To fix this, run `cp .xshin.var $HOME` <br /><br />
+  tput            : This error is due to missing package <strong>ncurses-utils</strong>. To fix this, run `pkg install ncurses-utils` <br /><br />
   bc              : This error is due to missing package <strong>ncurses-utils</strong>. To fix this, run `pkg install bc`
 
   |ERROR : Global Variable or tput not found !|
