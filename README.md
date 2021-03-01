@@ -96,6 +96,10 @@ Here are some details about my setup
   |--|
   ![Image](/assets/images/first-impression/firstlook.jpg)
 
+  |Before|After|
+  |--|--|
+  ![Image](/assets/images/first-impression/before.jpg)![Image](/assets/images/first-impression/after.jpg)|
+
   </details>
 
 ### Check The Installed Packages + Size
