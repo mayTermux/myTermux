@@ -25,7 +25,7 @@ Here are some details about my setup
 
   - ```bash
     $ pkg install ncurses-utils git
-  ```
+    ```
 
   - ```bash
     $ git clone https://github.com/xshin404/myTermux
