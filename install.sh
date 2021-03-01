@@ -11,21 +11,21 @@ if [[ -f $HOME/.xshin.var ]]; then
     banner() {
 
             echo -e "\n$bl╭────────────────────────────────────────────────────────╮"
-            echo -e "║              $df$lcyn _______$bl                                  ║"
-            echo -e "║              $df$lcyn(_______)$bl                                 ║"
-            echo -e "║     $df$wh ____  _   _ $lcyn_$wh   _____  ____ ____  _   _ _   _$bl      ║"
-            echo -e "║     $df$wh|    \| | | $lcyn| |$wh  ___ |/ ___)    \| | | ( \ / )$bl     ║"
-            echo -e "║     $df$wh| | | | |_| $lcyn| |$wh  ____| |   | | | | |_| |) X ($bl      ║"
-            echo -e "║     $df$wh|_|_|_|\__  $lcyn|_|$wh _____)_|   |_|_|_|____/(_/ \_)$bl     ║"
+            echo -e "║              $df$lrd _______$bl                                  ║"
+            echo -e "║              $df$lrd(_______)$bl                                 ║"
+            echo -e "║     $df$wh ____  _   _$lrd _\e[97m _____  ____ ____  _   _ _   _$bl       ║"
+            echo -e "║     $df$wh|    \| | | $lrd| |\e[97m ___ |/ ___)    \| | | ( \ / )$bl      ║"
+            echo -e "║     $df$wh| | | | |_| $lrd| |\e[97m ____| |   | | | | |_| |) X ($bl       ║"
+            echo -e "║     $df$wh|_|_|_|\__  $lrd|_|\e[97m_____)_|   |_|_|_|____/(_/ \_)$bl      ║"
             echo -e "║           $df$wh(____/$bl                                       ║"
             echo -e "║                                                        ║"
-            echo -e "║             🚀$wh Version    :$lyw 0.3.0 $bl                     ║"
-            echo -e "║             📅$wh Build Date :$lrd 1 Maret 2021 $bl              ║"
-            echo -e "║             📦$wh Size       :$lgn $repoSize $bl                  ║"
-            echo -e "║             ⚙️ $wh Maintainer :$mg xShin$df$bl                      ║"
+            echo -e "║             🚀$wh Version         :$lyw 0.3.0 $bl                ║"
+            echo -e "║             📅$wh Build Date      :$lrd 1 Maret 2021 $bl         ║"
+            echo -e "║             📦$wh Repository Size :$lgn $repoSize $bl             ║"
+            echo -e "║             ⚙️ $wh Maintainer      :$mg xShin$df$bl                 ║"
             echo -e "║                                                        ║"
             echo -e "╰────────────────────────────────────────────────────────╯$df"
-            echo -e "              ⚠️ $wh Mode       :$lgn $mode\n$df"
+            echo -e "              ⚠️ $wh Mode            :$lgn $mode\n$df"
 
     }
 
@@ -665,9 +665,9 @@ if [[ -f $HOME/.xshin.var ]]; then
     help() {
 
         echo -e "Usage: \n  ./install.sh [options]"
-        echo -e "\nMETA OPTIONS :"
+        echo -e "\nMETA OPTIONS :\n"
         echo -e "  help                 show list of command-line options."
-        echo -e "\nRUN OPTIONS :"
+        echo -e "\nRUN OPTIONS :\n"
         echo -e "  lightweight          installing with lightweight mode 
                        (not included neovim plugins).\n"
         echo -e "  full                 installing full mode 
