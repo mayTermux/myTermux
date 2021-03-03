@@ -101,35 +101,65 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Shortcut
-alias chcolor='/data/data/com.termux/files/home/.termux/colors.sh'
-alias chfont='/data/data/com.termux/files/home/.termux/fonts.sh'
-alias q='exit'
-alias u='/data/data/com.termux/files/usr'
-alias b='/data/data/com.termux/files/usr/bin'
-alias t='/data/data/com.termux/files/home/.termux'
-alias sd='cd /sdcard'
-alias pg='ping google.com'
-alias n='ncmpcpp'
-alias mkill='mpd --kill'
-alias m="mkill && mpd && n"
-alias neo='neofetch --ascii_distro android_small'
-alias mem='bash ~/.config/neofetch/script.sh -s'
-alias batt="bash ~/.config/neofetch/script.sh -b"
-alias ls="exa --icons"
-alias la="exa --icons -lgha --group-directories-first"
-alias pf="cd $PREFIX"
-alias listpkg="bash $HOME/.scripts/list-packages.sh $1 $2"
+## Shortcut
 
-# Configuration
-alias mpdconf="nvim ~/.config/mpd/mpd.conf"
-alias mpconf="nvim /data/data/com.termux/files/usr/etc/mpd.conf"
-alias ncmconf="nvim ~/.config/ncmpcpp/config"
-alias nplug="nvim ~/.config/nvim/init.vim"
-alias zshconf="nvim ~/.zshrc"
-alias neoconf="nvim ~/.config/neofetch/config.conf"
-alias neoscript="nvim ~/.config/neofetch/script.sh"
+#Change
+    alias chcolor='/data/data/com.termux/files/home/.termux/colors.sh'
+    alias chfont='/data/data/com.termux/files/home/.termux/fonts.sh'
 
-echo -e "\e[4 q"
+#System    
+    alias q='exit'
+    alias u='/data/data/com.termux/files/usr'
+    alias b='/data/data/com.termux/files/usr/bin'
+    alias t='/data/data/com.termux/files/home/.termux'
+    alias sd='cd /sdcard'
+    alias pf="cd $PREFIX"
+
+#Ping    
+    alias pg='ping google.com'
+
+#Music    
+    alias n='ncmpcpp'
+    alias mkill='mpd --kill'
+    alias m="mkill && mpd && n"
+
+#System Information
+    alias neo='neofetch --ascii_distro android_small'
+    alias mem='bash ~/.config/neofetch/script.sh -s'
+    alias batt="bash ~/.config/neofetch/script.sh -b"
+    alias ls="exa --icons"
+    alias la="exa --icons -lgha --group-directories-first"
+    alias listpkg="bash $HOME/.scripts/list-packages.sh $1 $2"
+
+## Configuration
+
+#mpd
+    alias mpdconf="nvim ~/.config/mpd/mpd.conf"
+    alias mpconf="nvim /data/data/com.termux/files/usr/etc/mpd.conf"
+
+#ncmpcpp    
+    alias ncmconf="nvim ~/.config/ncmpcpp/config"
+
+#neovim    
+    alias nplug="nvim ~/.config/nvim/settings/plugins.vim"
+    alias nconf="nvim ~/.config/nvim/settings/sets.vim"
+    alias ntheme="nvim ~/.config/nvim/settings/themes.vim"
+
+#zsh    
+    alias zshconf="nvim ~/.zshrc"
+
+#neofetch    
+    alias neoconf="nvim ~/.config/neofetch/config.conf"
+    alias neoscript="nvim ~/.config/neofetch/script.sh"
+
+#Qursor Underline    
+    echo -e "\e[4 q"
+
+#Qursor Bar or Bold Pipe
+#    echo -e "\e[2 q"
+
+#Qursosr Pipe
+#    echo -e "\e[6 q"
+
 clear
 neo

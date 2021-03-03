@@ -82,9 +82,9 @@ vmap <C-M-n> <esc>:set nu! rnu!<cr>
 imap <C-M-n> <esc>:set nu! rnu!<cr>
 
 " Contol-Alt-b Turn hybrid line numbers off
-" nmap <C-M-b> <esc>:set nonu nornu<cr>
-" vmap <C-M-b> <esc>:set nonu nornu<cr>
-" imap <C-M-b> <esc>:set nonu nornu<cr>
+nmap <C-M-b> <esc>:set nonu nornu<cr>
+vmap <C-M-b> <esc>:set nonu nornu<cr>
+imap <C-M-b> <esc>:set nonu nornu<cr>
 
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
