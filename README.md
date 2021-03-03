@@ -2,10 +2,10 @@
   <a name="top" href="#octocat-hi-there-thanks-for-visiting-">
      <img alt="xshin404/myTermux" height="60%" width="100%" src="/assets/images/banner/banner.jpg"/>
   </a>
-</p>
+</p> <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=Visits&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/> <img alt="" align="right" src="https://img.shields.io/github/repo-size/xshin404/myTermux?style=flat-square&label=Size&color=fa74b2&labelColor=373e4d"/>
 
 ##  
-### :octocat: Hi, thanks for spending your time visiting this repository ! <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=Visits&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/> <img alt="" align="right" src="https://img.shields.io/github/repo-size/xshin404/myTermux?style=flat-square&label=Size&color=fa74b2&labelColor=373e4d"/>
+### :octocat: Hi, thanks for spending your time visiting this repository !
 
 I hope you understand my bad english. :sweat_smile:
 
@@ -176,7 +176,7 @@ Here are some details about my setup
 
   Global Variable : This error is due to missing <strong>.xshin.var</strong>. To fix this, run `cp .xshin.var $HOME` <br /><br />
   tput            : This error is due to missing package <strong>ncurses-utils</strong>. To fix this, run `pkg install ncurses-utils` <br /><br />
-  bc              : This error is due to missing package <strong>ncurses-utils</strong>. To fix this, run `pkg install bc`
+  bc              : This error is due to missing package <strong>bc</strong>. To fix this, run `pkg install bc`
 
   |ERROR : Global Variable or tput not found !|
   |--|
@@ -268,4 +268,3 @@ Here are some details about my setup
     - [Neovim](https://neovim.io)
     - [Vim Plug](https://github.com/junegunn/vim-plug)
     - [Neofetch](https://github.com/dylanaraps/neofetch)
-    - [youtube-dl](https://youtube-dl.org)

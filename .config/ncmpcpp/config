@@ -13,7 +13,7 @@ mpd_music_dir = "/sdcard/Music/"
 mpd_crossfade_time = 2
 
 # VISUALIZER
-visualizer_in_stereo = "yes"
+visualizer_in_stereo = "no"
 visualizer_fifo_path = "~/.config/mpd/mpd.fifo"
 visualizer_output_name = "Visualizer"
 visualizer_type = "wave"

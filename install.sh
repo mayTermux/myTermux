@@ -691,7 +691,7 @@ if [[ -f $HOME/.xshin.var && -f $PREFIX/bin/tput && -f $PREFIX/bin/bc ]]; then
     fi
 
 else
-    echo -e '\e[31m'"\n⚠️ ERROR : Global Variable or tput not found !\e[39m\n"
+    echo -e '\e[31m'"\n⚠️ ERROR : Global Variable, tput or bc not found !\e[39m\n"
 
     echo -e "⚠️ Troubleshooting :"
     echo -e "     Global Variable      make sure you copy .xshin.var to 
