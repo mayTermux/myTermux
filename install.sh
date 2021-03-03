@@ -5,7 +5,7 @@ if [[ -f $HOME/.xshin.var && -f $PREFIX/bin/tput && -f $PREFIX/bin/bc ]]; then
     source $HOME/.xshin.var
 
     DIR=`cd $(dirname $0); pwd`
-    
+
     source $DIR/.spinner/spinner.sh
 
     banner() {
@@ -20,7 +20,7 @@ if [[ -f $HOME/.xshin.var && -f $PREFIX/bin/tput && -f $PREFIX/bin/bc ]]; then
             echo -e "║           $df$wh(____/$bl                                       ║"
             echo -e "║                                                        ║"
             echo -e "║             🚀$wh Version         :$lyw 0.3.0 $bl                ║"
-            echo -e "║             📅$wh Build Date      :$lrd 1 Maret 2021 $bl         ║"
+            echo -e "║             📅$wh Build Date      :$lrd 1 March 2021 $bl         ║"
             echo -e "║             📦$wh Repository Size :$lgn $repoSize $bl             ║"
             echo -e "║             ⚙️ $wh Maintainer      :$mg xShin$df$bl                 ║"
             echo -e "║                                                        ║"
@@ -35,7 +35,7 @@ if [[ -f $HOME/.xshin.var && -f $PREFIX/bin/tput && -f $PREFIX/bin/bc ]]; then
 
             banner
             echo -e "⚙️ Backup dotfiles"
-            
+
             for backup in "${backups[@]}"; do
                 start_spinner_backup "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 $backup"
                 sleep 2
@@ -237,9 +237,9 @@ if [[ -f $HOME/.xshin.var && -f $PREFIX/bin/tput && -f $PREFIX/bin/bc ]]; then
 
             config() {
 
-                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .config"
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .config.full"
                 sleep 2
-                cp -R $DIR/.config $HOME/.config
+                cp -R $DIR/.config.full $HOME/.config
 
                 check() {
 
@@ -565,9 +565,9 @@ if [[ -f $HOME/.xshin.var && -f $PREFIX/bin/tput && -f $PREFIX/bin/bc ]]; then
 
             config() {
 
-                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .config"
+                start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .config.full"
                 sleep 2
-                cp -R $DIR/.config $HOME/.config
+                cp -R $DIR/.config.full $HOME/.config
 
                 check() {
 
@@ -693,11 +693,12 @@ if [[ -f $HOME/.xshin.var && -f $PREFIX/bin/tput && -f $PREFIX/bin/bc ]]; then
 else
     echo -e '\e[31m'"\n⚠️ ERROR : Global Variable, tput or bc not found !\e[39m\n"
 
-    echo -e "⚠️ Troubleshooting :"
+    echo -e "⚠️ Troubleshooting :\n"
     echo -e "     Global Variable      make sure you copy .xshin.var to 
                           $HOME/\n"
     echo -e "     tput                 run 'pkg install ncurses-utils' 
-                          to install tput"
-    echo -e "     bc                   run 'pkg install bc'\n"
+                          to install tput\n"
+    echo -e "     bc                   run 'pkg install bc'
+                          to install bc\n"
     exit 1
 fi

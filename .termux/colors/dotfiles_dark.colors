@@ -16,4 +16,5 @@ color14=#A1D5F7
 color15=#F4F4F4
 background=#373E4D
 foreground=#F9F9F9
-cursor=#F9F9F9
+#cursor=#F9F9F9
+cursor=#FA5AA4

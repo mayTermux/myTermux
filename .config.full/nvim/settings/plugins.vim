@@ -33,6 +33,7 @@ call plug#begin('~/.config/nvim/plugs')
     " Dev icons for files and folders
     Plug 'ryanoasis/vim-devicons'
 
+    Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
 " Automatically install missing plugins on startup
