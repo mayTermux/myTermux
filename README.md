@@ -162,7 +162,7 @@ Here are some details about my setup
   |--|--|--|
   |![Image](/assets/images/neovim/full-1.jpg)|![Image](/assets/images/neovim/full-2.jpg)|![Image](/assets/images/neovim/lightweight.jpg)|
 
-  Full install included plugins with node package manager (npm). For lightweight intallation not included so you can install the plugin manually
+  Full install included plugins with nodejs. For lightweight intallation not included so you can install the plugin manually
 
   </details>
 
