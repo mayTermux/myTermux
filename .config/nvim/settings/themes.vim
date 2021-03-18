@@ -1,4 +1,4 @@
-" set the colorscheme
+" set the colorscheme you want
 " default is onedark 
 " just comment out your desired colorscheme
 
