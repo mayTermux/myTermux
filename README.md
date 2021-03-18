@@ -24,18 +24,26 @@ Here are some details about my setup
   <details open>
   <summary>See</summary>
 
-  |Ayu|djancoeg|dracula|owl4ce-dark|owl4ce-light|snazzy|xshin|
-  |--|--|--|--|--|--|--|
-  |![Image](/assets/images/colorscheme/ayu.jpg)|![Image](/assets/images/colorscheme/djancoeg.jpg)|![Image](/assets/images/colorscheme/dracula.jpg)|![Image](/assets/images/colorscheme/owl4ce_dark.jpg)|![Image](/assets/images/colorscheme/owl4ce_light.jpg)|![Image](/assets/images/colorscheme/snazzy.jpg)|![Image](/assets/images/colorscheme/xshin.jpg)|
+  |Ayu|djancoeg|dracula|owl4ce-dark|
+  |--|--|--|--|
+  |![Image](/assets/images/colorscheme/ayu.jpg)|![Image](/assets/images/colorscheme/djancoeg.jpg)|![Image](/assets/images/colorscheme/dracula.jpg)|![Image](/assets/images/colorscheme/owl4ce_dark.jpg)|
+
+  |owl4ce-light|snazzy|xshin|
+  |--|--|--|
+  |![Image](/assets/images/colorscheme/owl4ce_light.jpg)|![Image](/assets/images/colorscheme/snazzy.jpg)|![Image](/assets/images/colorscheme/xshin.jpg)|
 
 ### Color Toys
 
   <details open>
   <summary>See</summary>
 
-  |colortest|colortest-slim|colorbars|colorview|bloks|panes|pipes1|pipes2|pipes2-slim|
-  |--|--|--|--|--|--|--|--|--|
-  |![Image](/assets/images/color-toys/colortest.jpg)|![Image](/assets/images/color-toys/colortest-slim.jpg)|![Image](/assets/images/color-toys/colorbars.jpg)|![Image](/assets/images/color-toys/colorview.jpg)|![Image](/assets/images/color-toys/bloks.jpg)|![Image](/assets/images/color-toys/panes.jpg)|![Image](/assets/images/color-toys/pipes1.jpg)|![Image](/assets/images/color-toys/pipes2.jpg)|![Image](/assets/images/color-toys/pipes2-slim.jpg)|
+  |colortest|colortest-slim|colorbars|colorview|
+  |--|--|--|--|
+  |![Image](/assets/images/color-toys/colortest.jpg)|![Image](/assets/images/color-toys/colortest-slim.jpg)|![Image](/assets/images/color-toys/colorbars.jpg)|![Image](/assets/images/color-toys/colorview.jpg)|
+
+  |bloks|panes|pipes1|pipes2|pipes2-slim|
+  |--|--|--|--|--|
+  |![Image](/assets/images/color-toys/bloks.jpg)|![Image](/assets/images/color-toys/panes.jpg)|![Image](/assets/images/color-toys/pipes1.jpg)|![Image](/assets/images/color-toys/pipes2.jpg)|![Image](/assets/images/color-toys/pipes2-slim.jpg)|
 
   </details>
 
