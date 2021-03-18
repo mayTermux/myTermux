@@ -221,6 +221,7 @@ Here are some details about my setup
 
   - **Other**
     - [Dotfiles Indonesia](https://t.me/dotfiles_id)
+    - [nekonako](https://github.com/nekonako)
     - [Oh-My-ZSH](https://github.com/ohmyzsh/ohmyzsh)
     - [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon)
     - [Ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp)
