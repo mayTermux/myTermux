@@ -1,5 +1,5 @@
 " set the colorscheme
-" default is ayucolor=mirage 
+" default is onedark 
 " just comment out your desired colorscheme
 
 "source $HOME/.config/nvim/themes/gruvbox.vim

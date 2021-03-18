@@ -135,8 +135,8 @@ source $ZSH/oh-my-zsh.sh
 
     #System Information
     alias neo="neofetch --ascii_distro android_small && colortest-slim"
-    alias memory="bash ~/.config/neofetch/script.sh -storage"
-    alias battery="bash ~/.config/neofetch/script.sh -battery"
+    alias memory="bash ~/.config/neofetch/script.sh --storage"
+    alias battery="bash ~/.config/neofetch/script.sh --battery"
     alias ls="exa --icons"
     alias la="exa --icons -lgha --group-directories-first"
     alias listpkg="bash $HOME/.scripts/list-packages.sh $1 $2"
@@ -167,6 +167,9 @@ source $ZSH/oh-my-zsh.sh
     #Web Server (Require install LAMP on Termux) https://github.com/xshin404/lampTermux
     alias apaconf="nvim $PREFIX/etc/apache2/httpd.conf"
     alias phpmyadminconf="nvim $PREFIX/etc/phpmyadmin/config.inc.php"
+
+    #Refresh
+    alias refresh="source $HOME/.zshrc"
 
 ##lf icons
 export LF_ICONS="\
