@@ -54,6 +54,8 @@ battery() {
 
 		echo -e 'ERROR: termux-battery-status not found, make sure you install the Termux-API APP (Playstore or F-Droid) and the package with "pkg install termux-api"'
 
+    fi
+
 }
 
 version() {
