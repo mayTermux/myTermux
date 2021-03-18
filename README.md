@@ -87,7 +87,7 @@ Here are some details about my setup
 
   |Installation Help|
   |--|
-  |![Image](/assets/images/help/help.jpg)|
+  |![Image](/assets/images/help/help-v.0.4.0.jpg)|
 
   </details>
 
