@@ -24,7 +24,7 @@ Here are some details about my setup
   <details open>
   <summary>See</summary>
 
-  |Ayu|djancoeg|dracula|owl4ce-dark|
+  |Ayu|nekonako-djancoeg|dracula|owl4ce-dark|
   |--|--|--|--|
   |![Image](/assets/images/colorscheme/ayu.jpg)|![Image](/assets/images/colorscheme/djancoeg.jpg)|![Image](/assets/images/colorscheme/dracula.jpg)|![Image](/assets/images/colorscheme/owl4ce_dark.jpg)|
 
