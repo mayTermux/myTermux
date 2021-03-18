@@ -59,14 +59,14 @@ if [[ -f $HOME/.xshin.var ]]; then
 
                 mode="Install Lightweight"
                 lightweight
-                echo -e '‏‏‎‏‏‎ ‎‏‏‎ ⚠️ If colorscheme not changed type "cp -R .termux $HOME && termux-reload-settings"'
+                echo -e '‏‏‎‏‏‎ ‎‏‏‎ ⚠️ If colorscheme not changed type "cp -R .termux $HOME && termux-reload-settings"\nFor SHELL type "chsh -s zsh"'
                 echo -e "‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Restart Termux to complete installation"
 
             elif [[ "$1" == "full" ]]; then
 
                 mode="Install Full"
                 full
-                echo -e '‏‏‎‏‏‎ ‎‏‏‎ ⚠️ If colorscheme not changed type "cp -R .termux $HOME && termux-reload-settings"'
+                echo -e '‏‏‎‏‏‎ ‎‏‏‎ ⚠️ If colorscheme not changed type "cp -R .termux $HOME && termux-reload-settings"\nFor SHELL type "chsh -s zsh"'
                 echo -e "‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Restart Termux to complete installation"
 
             elif [[ "$1" == "help" ]]; then
