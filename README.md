@@ -4,6 +4,21 @@
   </a>
 </p> <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=Visits&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/> <img alt="" align="right" src="https://img.shields.io/github/repo-size/xshin404/myTermux?style=flat-square&label=Size&color=fa74b2&labelColor=373e4d"/>
 
+
+##  
+### :octocat: Hi, thanks for spending your time visiting this repository !
+
+I hope you understand my bad english. :sweat_smile:
+
+These are dotfiles or my personal Termux configuration. But I didn't make all of them (combined from several repositories).
+
+Here are some details about my setup
+- **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework + plugins
+- **Music**                        • [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon) :musical_note: with [ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp) text-mode client for MPD
+- **File Manager**                 • [lf](https://github.com/gokcehan/lf) :ledger:
+- **Text Editor**                  • [Neovim](https://neovim.io) :ledger: + plugins
+- **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
+
 ### Colorscheme
 
   <details open>
@@ -23,21 +38,6 @@
   |![Image](/assets/images/color-toys/colortest.jpg)|![Image](/assets/images/color-toys/colortest-slim.jpg)|![Image](/assets/images/color-toys/colorbars.jpg)|![Image](/assets/images/color-toys/colorview.jpg)|![Image](/assets/images/color-toys/bloks.jpg)|![Image](/assets/images/color-toys/panes.jpg)|![Image](/assets/images/color-toys/pipes1.jpg)|![Image](/assets/images/color-toys/pipes2.jpg)|![Image](/assets/images/color-toys/pipes2-slim.jpg)|
 
   </details>
-
-
-##  
-### :octocat: Hi, thanks for spending your time visiting this repository !
-
-I hope you understand my bad english. :sweat_smile:
-
-These are dotfiles or my personal Termux configuration. But I didn't make all of them (combined from several repositories).
-
-Here are some details about my setup
-- **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework + plugins
-- **Music**                        • [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon) :musical_note: with [ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp) text-mode client for MPD
-- **File Manager**                 • [lf](https://github.com/gokcehan/lf) :ledger:
-- **Text Editor**                  • [Neovim](https://neovim.io) :ledger: + plugins
-- **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
 
 ### Installation
 
@@ -86,6 +86,17 @@ Here are some details about my setup
   </details>
 
 ### User Configuration
+
+  <details open>
+  <summary><strong>lf</strong></summary>
+
+  |lf dark theme|lf light theme|
+  |--|--|
+  |![Image](/assets/images/lf/lf-dark.jpg)|![Image](/assets/images/lf/lf-light.jpg)|
+
+  To change lf configuration you can edit its config file in `~/.config/lf/lfrc` 
+
+  </details>
 
   <details open>
   <summary><strong>Ncmpcpp</strong></summary>
