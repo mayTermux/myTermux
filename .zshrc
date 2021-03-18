@@ -1,4 +1,3 @@
-ZSH_THEME="rounded"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -17,6 +16,7 @@ export LINK
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME="la-round"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -103,63 +103,81 @@ source $ZSH/oh-my-zsh.sh
 
 ## Shortcut
 
-#Change
-    alias chcolor='/data/data/com.termux/files/home/.termux/colors.sh'
-    alias chfont='/data/data/com.termux/files/home/.termux/fonts.sh'
+    #Change
+    alias chcolor="/data/data/com.termux/files/home/.termux/colors.sh"
+    alias chfont="/data/data/com.termux/files/home/.termux/fonts.sh"
 
-#System    
-    alias q='exit'
-    alias u='/data/data/com.termux/files/usr'
-    alias b='/data/data/com.termux/files/usr/bin'
-    alias t='/data/data/com.termux/files/home/.termux'
-    alias sd='cd /sdcard'
+    #System    
+    alias q="exit"
+    alias c="clear"
+    alias sd="cd /sdcard"
     alias pf="cd $PREFIX"
 
-#Ping    
-    alias pg='ping google.com'
+    #Ping    
+    alias pg="ping google.com"
 
-#Music    
-    alias n='ncmpcpp'
-    alias mkill='mpd --kill'
+    #Music    
+    alias n="ncmpcpp"
+    alias mkill="mpd --kill"
     alias m="mkill && mpd && n"
 
-#System Information
-    alias neo='neofetch --ascii_distro android_small'
-    alias mem='bash ~/.config/neofetch/script.sh -s'
-    alias batt="bash ~/.config/neofetch/script.sh -b"
+    #Color Toys
+    alias 256colors2="~/.color-toys/256colors2.pl"
+    alias bloks="~/.color-toys/bloks"
+    alias colortest="~/.color-toys/colortest"
+    alias colortest-slim="~/.color-toys/colortest-slim"
+    alias colorview="~/.color-toys/colorview"
+    alias colorbars="~/.color-toys/colorbars"
+    alias panes="~/.color-toys/panes"
+    alias pipes1="~/.color-toys/pipes1"
+    alias pipes2="~/.color-toys/pipes2"
+    alias pipes2-slim="~/.color-toys/pipes2-slim"
+
+    #System Information
+    alias neo="neofetch --ascii_distro android_small && colortest-slim"
+    alias memory="bash ~/.config/neofetch/script.sh -storage"
+    alias battery="bash ~/.config/neofetch/script.sh -battery"
     alias ls="exa --icons"
     alias la="exa --icons -lgha --group-directories-first"
     alias listpkg="bash $HOME/.scripts/list-packages.sh $1 $2"
 
-## Configuration
+    ## Configuration
 
-#mpd
+    #mpd
     alias mpdconf="nvim ~/.config/mpd/mpd.conf"
     alias mpconf="nvim /data/data/com.termux/files/usr/etc/mpd.conf"
 
-#ncmpcpp    
+    #ncmpcpp    
     alias ncmconf="nvim ~/.config/ncmpcpp/config"
 
-#neovim    
-    alias nplug="nvim ~/.config/nvim/settings/plugins.vim"
-    alias nconf="nvim ~/.config/nvim/settings/sets.vim"
-    alias ntheme="nvim ~/.config/nvim/settings/themes.vim"
+    #neovim
+    alias nviminit="nvim ~/.config/nvim/init.vim"
+    alias nvimplug="nvim ~/.config/nvim/settings/plugins.vim"
+    alias nvimconf="nvim ~/.config/nvim/settings/sets.vim"
+    alias nvimtheme="nvim ~/.config/nvim/settings/themes.vim"
+    alias nvimkey="nvim ~/.config/nvim/settings/keybinds.vim"
 
-#zsh    
+    #zsh
     alias zshconf="nvim ~/.zshrc"
 
-#neofetch    
+    #neofetch    
     alias neoconf="nvim ~/.config/neofetch/config.conf"
     alias neoscript="nvim ~/.config/neofetch/script.sh"
 
-#Qursor Underline    
+    #Web Server (Require install LAMP on Termux) https://github.com/xshin404/lampTermux
+    alias apaconf="nvim $PREFIX/etc/apache2/httpd.conf"
+    alias phpmyadminconf="nvim $PREFIX/etc/phpmyadmin/config.inc.php"
+
+## First Boot
+
+    #cursor bar or bold pipe
+    #echo -e "\e[2 q"
+
+    #cursor underline    
     echo -e "\e[4 q"
 
-#Qursor Bar or Bold Pipe
-#    echo -e "\e[2 q"
+    #cursor pipe
+    #echo -e "\e[6 q"
 
-#Qursosr Pipe
-#    echo -e "\e[6 q"
-
-clear
-neo
+    c
+    neo

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/env bash
 
 if [[ -f $HOME/.xshin.var ]]; then
 

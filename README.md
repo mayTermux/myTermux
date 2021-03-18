@@ -1,20 +1,41 @@
 <p align="center">
   <a name="top" href="#octocat-hi-there-thanks-for-visiting-">
-     <img alt="xshin404/myTermux" height="60%" width="100%" src="/assets/images/banner/banner.jpg"/>
+     <img alt="myTermux Banner" height="60%" width="100%" src="/assets/images/banner/banner2.png"/>
   </a>
 </p> <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=Visits&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/> <img alt="" align="right" src="https://img.shields.io/github/repo-size/xshin404/myTermux?style=flat-square&label=Size&color=fa74b2&labelColor=373e4d"/>
+
+### Colorscheme
+
+  <details open>
+  <summary>See</summary>
+
+  |Ayu|djancoeg|dracula|owl4ce-dark|owl4ce-light|snazzy|xshin|
+  |--|--|--|--|--|--|--|
+  |![Image](/assets/images/colorscheme/ayu.jpg)|![Image](/assets/images/colorscheme/djancoeg.jpg)|![Image](/assets/images/colorscheme/dracula.jpg)|![Image](/assets/images/colorscheme/owl4ce_dark.jpg)|![Image](/assets/images/colorscheme/owl4ce_light.jpg)|![Image](/assets/images/colorscheme/snazzy.jpg)|![Image](/assets/images/colorscheme/xshin.jpg)|
+
+### Color Toys
+
+  <details open>
+  <summary>See</summary>
+
+  |colortest|colortest-slim|colorbars|colorview|bloks|panes|pipes1|pipes2|pipes2-slim|
+  |--|--|--|--|--|--|--|--|--|
+  |![Image](/assets/images/color-toys/colortest.jpg)|![Image](/assets/images/color-toys/colortest-slim.jpg)|![Image](/assets/images/color-toys/colorbars.jpg)|![Image](/assets/images/color-toys/colorview.jpg)|![Image](/assets/images/color-toys/bloks.jpg)|![Image](/assets/images/color-toys/panes.jpg)|![Image](/assets/images/color-toys/pipes1.jpg)|![Image](/assets/images/color-toys/pipes2.jpg)|![Image](/assets/images/color-toys/pipes2-slim.jpg)|
+
+  </details>
+
 
 ##  
 ### :octocat: Hi, thanks for spending your time visiting this repository !
 
 I hope you understand my bad english. :sweat_smile:
 
-This is my personal termux configuration, it is the result of a combination of several dotfiles from other people's repositories such as <a href="https://github.com/owl4ce/">owl4ce</a>.
+These are dotfiles or my personal Termux configuration. But I didn't make all of them (combined from several repositories).
 
 Here are some details about my setup
 - **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework + plugins
 - **Music**                        • [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon) :musical_note: with [ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp) text-mode client for MPD
-- **Color Scheme**                 • [Dotfiles](https://github.com/owl4ce/dotfiles/) :art:
+- **File Manager**                 • [lf](https://github.com/gokcehan/lf) :ledger:
 - **Text Editor**                  • [Neovim](https://neovim.io) :ledger: + plugins
 - **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
 
@@ -51,16 +72,6 @@ Here are some details about my setup
     $ ./install.sh [options] # You can see the options with './install.sh help'
     ```
 
-  Make sure you allow Termux to access your storage
-  <details open>
-  <summary>See</summary>
-
-  |Termux Permission|
-  |--|
-  |![Image](/assets/images/permission/storage.png)|
-
-  </details>
-
 ### Help
 
   <details open>
@@ -71,47 +82,6 @@ Here are some details about my setup
   |![Image](/assets/images/help/help.jpg)|
 
   </details>
-
-  </details>
-
-### Installation Preview
-
-  <details open>
-
-  |Full Installation|Full Installation|Lightweight Installation|Lightweight Installation|
-  |--|--|--|--|
-  |![Full Installation](/assets/images/preview-install/full-1.jpg)|![Full Installation](/assets/images/preview-install/full-2.jpg)|![Lightweight Installation](/assets/images/preview-install/lightweight-1.jpg)|![Lightweight Installation](/assets/images/preview-install/lightweight-2.jpg)|
-
-
-
-
-  </details>
-
-### First Impression
-
-  <details open>
-  <summary>See</summary>
-
-  |Views|
-  |--|
-  ![Image](/assets/images/first-impression/firstlook.jpg)
-
-  |Before|After|
-  |--|--|
-  ![Image](/assets/images/first-impression/before.jpg)|![Image](/assets/images/first-impression/after.jpg)|
-
-  </details>
-
-### Check The Installed Packages + Size
-
-  <details open>
-  <summary>See</summary>
-
-  |Full Packages + Size|Lightweight Packages + Size|
-  |--|--|
-  |![Image](/assets/images/checkpkgs/full.jpg)|![Image](/assets/images/checkpkgs/lightweight.jpg)|
-
-  Command : `listpkg [options]` example `listpkg full` or `listpkg lightweight`
 
   </details>
 
@@ -170,22 +140,6 @@ Here are some details about my setup
 ### Troubleshooting
 
   <details open>
-  <summary><strong>Global Variable</strong></summary>
-
-  - **ERROR : Global Variable or tput not found !**
-
-  Global Variable : This error is due to missing <strong>.xshin.var</strong>. To fix this, run `cp .xshin.var $HOME` <br /><br />
-  tput            : This error is due to missing package <strong>ncurses-utils</strong>. To fix this, run `pkg install ncurses-utils` <br /><br />
-  bc              : This error is due to missing package <strong>bc</strong>. To fix this, run `pkg install bc`
-
-  |ERROR : Global Variable or tput not found !|
-  |--|
-  |![Image](/assets/images/troubleshooting/variable/vartput.jpg)|
-
-  </details>
-
-
-  <details open>
   <summary><strong>exa</strong></summary>
 
   - **"ls" unknown argument --icons**
@@ -231,22 +185,9 @@ Here are some details about my setup
 
   </details>
 
-  <details open>
-  <summary><strong>"pkg" or "apt"</strong></summary>
-
-  - **Unable to locate package "..."**
-
-  This error is perhaps because of you execute the `install.sh` script before updating the repository. <br>Please make sure to run `pkg update` or `apt update` before you run the installation script. After running `pkg update` now you can run the installation script again.
-
-  |Unable to locate package|Unable to locate package|
-  |--|--|
-  |![Image](/assets/images/troubleshooting/package/error.png)|![Image](/assets/images/troubleshooting/package/error2.png)|
-
-  </details>
-
   ## :hearts:  Credits / Thanks
   - **Inspiration**
-    - [Harry](https://github.com/owl4ce)
+    - [owl4ce](https://github.com/owl4ce)
     - [adi1090x](https://github.com/adi1090x)
 
   - **Bash Spinner UI**
@@ -256,11 +197,11 @@ Here are some details about my setup
     - [yoandypv](https://github.com/yoandypv/github-repository-size)
 
   - **Knowledge**
-    - [Rizqi Nur Assyaufi](https://github.com/bandithijo)
+    - [bandithijo](https://github.com/bandithijo)
     - [Ann](https://github.com/annzc)
 
   - **Other**
-    - [Ricing Group](https://t.me/dotfiles_id)
+    - [Dotfiles Indonesia](https://t.me/dotfiles_id)
     - [Oh-My-ZSH](https://github.com/ohmyzsh/ohmyzsh)
     - [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon)
     - [Ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp)
