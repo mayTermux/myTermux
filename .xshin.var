@@ -105,6 +105,16 @@ lightweightpackage() {
 
     echo -e "\n⚙️ Installing lightweight package"
 
+    cp -R $DIR/.scripts $HOME/.scripts &>/dev/null
+
+    if [[ -f $HOME/.scripts/list-packages.sh ]]; then
+
+        bash $HOME/.scripts/list-packages.sh table lightweight
+
+    fi
+
+    echo ""
+
     for lightweightpkg in "${lightweightpkgs[@]}"; do
 
         start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 $lightweightpkg"
@@ -136,15 +146,6 @@ lightweightpackage() {
 
     done
 
-    echo -e ""
-    cp -R $DIR/.scripts $HOME/.scripts &>/dev/null
-    
-    if [[ -f $HOME/.scripts/list-packages.sh ]]; then
-    
-        bash $HOME/.scripts/list-packages.sh table lightweight
-    
-    fi
-
 }
 
 # Full Installation
@@ -167,6 +168,16 @@ fullpkgs=(
 fullpackage() {
 
     echo -e "\n⚙️ Installing full package"
+
+    cp -R $DIR/.scripts $HOME/.scripts &>/dev/null
+
+    if [[ -f $HOME/.scripts/list-packages.sh ]]; then
+
+        bash $HOME/.scripts/list-packages.sh table full
+
+    fi
+
+    echo ""
 
     for fullpkg in "${fullpkgs[@]}"; do
 
@@ -198,15 +209,6 @@ fullpackage() {
         check
 
     done
-
-    echo -e ""
-    cp -R $DIR/.scripts $HOME/.scripts &>/dev/null
-
-    if [[ -f $HOME/.scripts/list-packages.sh ]]; then
-
-        bash $HOME/.scripts/list-packages.sh table full
-
-    fi
 
 }
 
