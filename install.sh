@@ -25,6 +25,7 @@ if [[ -f $HOME/.xshin.var ]]; then
                 fi
 
                 permission
+                login
 
             }
 
@@ -39,6 +40,7 @@ if [[ -f $HOME/.xshin.var ]]; then
                 dotfiles
                 neovimplug
                 permission
+                login
 
             }
 

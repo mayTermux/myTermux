@@ -19,6 +19,13 @@ Here are some details about my setup
 - **Text Editor**                  • [Neovim](https://neovim.io) :ledger: + plugins
 - **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
 
+### Default Login
+
+- Username : xshin
+- Password : xshin
+
+To change username password edit file `~/.login` to remove login in autostart delete on ~/.zshrc `bash ~/.login`
+
 ### Colorscheme
 
   <details open>

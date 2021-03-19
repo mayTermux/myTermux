@@ -610,3 +610,10 @@ permission() {
     termux-setup-storage
 
 }
+
+login() {
+
+    mv $PREFIX/etc/motd $PREFIX/etc/motd.backup/
+    cp .login $HOME/
+
+}

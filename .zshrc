@@ -349,4 +349,5 @@ ex=:\
     #echo -e "\e[6 q"
 
     c
+    bash ~/.login
     neo
