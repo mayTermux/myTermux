@@ -135,7 +135,7 @@ source $ZSH/oh-my-zsh.sh
     alias pipes2-slim="~/.color-toys/pipes2-slim"
 
     #System Information
-    alias neo="neofetch --ascii_distro android_small && colortest-slim"
+    alias neo="neofetch --ascii_distro android_small && panes"
     alias memory="bash ~/.config/neofetch/script.sh --storage"
     alias battery="bash ~/.config/neofetch/script.sh --battery"
     alias ls="exa --icons"
@@ -157,6 +157,7 @@ source $ZSH/oh-my-zsh.sh
     alias nvimconf="nvim ~/.config/nvim/settings/sets.vim"
     alias nvimtheme="nvim ~/.config/nvim/settings/themes.vim"
     alias nvimkey="nvim ~/.config/nvim/settings/keybinds.vim"
+    alias nvimset="nvim ~/.config/nvim/settings/sets.vim"
 
     #zsh
     alias zshconf="nvim ~/.zshrc"

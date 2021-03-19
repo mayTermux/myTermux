@@ -30,25 +30,131 @@ battery() {
 
 	if [[ -f $PREFIX/bin/termux-battery-status ]]; then
 
-		percentage=`termux-battery-status | grep percentage | awk '{print $2}' | tr , '%'`
+        
+		perc=`termux-battery-status | grep percentage | awk '{print $2}' | tr , '%'`
+        #debug perc
+        #perc=9
 		status=`termux-battery-status | grep status | awk '{print $2}'`
-		lyw='\e[93m'
-		lgn='\e[92m'
-		df='\e[39m'
+        lrd="\e[91m"
+		lyw="\e[93m"
+		lgn="\e[92m"
+		df="\e[39m"
 
-		if [[ $status == '"CHARGING",' ]]; then
+        old() {
 
-			echo -e $lgn"$df : Charging, (${percentage})"
+    		if [[ $status == '"CHARGING",' ]]; then
 
-		elif [[ $status == '"DISCHARGING",' ]]; then
+    			echo -e $lgn"$df : Charging, (${perc})"
 
-			echo -e $lyw"$df : Discharging, (${percentage})"
+    		elif [[ $status == '"DISCHARGING",' ]]; then
 
-		elif [[ $status == '"FULL"' ]]; then
+    			echo -e $lyw"$df : Discharging, (${perc})"
 
-			echo -e $lgn"$df : Full, (${percentage})"
+    		elif [[ $status == '"FULL"' ]]; then
 
-		fi
+    			echo -e $lgn"$df : Full, (${perc})"
+
+    		fi
+
+        }
+
+
+        new() {
+
+            #Known bug :
+            # - Icon : 100% Battery on Discharging
+            #          3-9% Battery on Discharging
+
+            #Discharging
+
+            if [[ $perc < 21 && $status == '"DISCHARGING",' ]]; then
+
+                echo -e $lrd"$df : Discharging, (${perc})"
+
+            elif [[ $perc < 30, && $perc > 20 && $status == '"DISCHARGING",' ]]; then
+
+                echo -e $lyw"$df : Discharging, (${perc})"
+
+            elif [[ $perc < 40 && $perc > 29 && $status == '"DISCHARGING",' ]]; then
+
+                echo -e $lyw"$df : Discharging, (${perc})"
+
+            elif [[ $perc < 50 && $perc > 39 && $status == '"DISCHARGING",' ]]; then
+
+                echo -e $lyw"$df : Discharging, (${perc})"
+
+            elif [[ $perc < 60 && $perc > 49 && $status == '"DISCHARGING",' ]]; then
+
+                echo -e $lyw"$df : Discharging, (${perc})"
+
+            elif [[ $perc < 70 && $perc > 59 && $status == '"DISCHARGING",' ]]; then
+
+                echo -e $lyw"$df : Discharging, (${perc})"
+
+            elif [[ $perc < 80 && $perc > 69 && $status == '"DISCHARGING",' ]]; then
+
+                echo -e $lyw"$df : Discharging, (${perc})"
+
+            elif [[ $perc < 90 && $perc > 79 && $status == '"DISCHARGING",' ]]; then
+
+                echo -e $lyw"$df : Discharging, (${perc})"
+
+            elif [[ $perc < 99, && $perc > 89 && $status == '"DISCHARGING",' ]]; then
+
+                echo -e $lyw"$df : Discharging, (${perc})"
+
+            elif [[ $perc == 100 && $status == '"DISCHARGING",' ]]; then
+
+                echo -e $lgn"$df : Discharging, (${perc})"
+
+
+          #Charging
+
+            elif [[ $perc < 21 && $perc > 2 && $status == '"CHARGING",' ]]; then
+
+                echo -e $lgn"$df : Charging, (${perc})"  
+
+            elif [[ $perc < 30 && $perc > 20 && $status == '"CHARGING",' ]]; then
+
+                echo -e $lgn"$df : Charging, (${perc})"
+
+            elif [[ $perc < 40 && $perc > 29 && $status == '"CHARGING",' ]]; then
+
+                echo -e $lgn"$df : Charging, (${perc})"
+
+            elif [[ $perc < 50 && $perc > 39 && $status == '"CHARGING",' ]]; then
+
+                echo -e $lgn"$df : Charging, (${perc})"
+
+            elif [[ $perc < 60 && $perc > 49 && $status == '"CHARGING",' ]]; then
+
+                echo -e $lgn"$df : Charging, (${perc})"
+
+            elif [[ $perc < 70 && $perc > 59 && $status == '"CHARGING",' ]]; then
+
+                echo -e $lgn"$df : Charging, (${perc})"
+
+            elif [[ $perc < 80 && $perc > 69 && $status == '"CHARGING",' ]]; then
+
+                echo -e $lgn"$df : Charging, (${perc})"
+
+            elif [[ $perc < 90 && $perc > 79 && $status == '"CHARGING",' ]]; then
+
+                echo -e $lgn"$df : Charging, (${perc})"
+
+            elif [[ $perc < 99,5 && $perc > 89 && $status == '"CHARGING",' ]]; then
+
+                echo -e $lgn"$df : Charging, (${perc})"
+
+            elif [[ $perc == 100 && $status == '"CHARGING",' ]]; then
+
+                echo -e $lgn"$df : Charging, (${perc})"
+
+            fi
+
+        }
+
+        new
 
 	else
 
@@ -60,7 +166,7 @@ battery() {
 
 version() {
 
-	echo -e "neofetch output v.0.3.0"
+	echo -e "neofetch output v.0.3.0 pre"
 
 }
 

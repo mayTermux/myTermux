@@ -46,4 +46,6 @@ let NERDTreeShowHidden=1
 " disable autocomment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o 
 
-" search highlight dissapeared
+" unset termguicolors / true color
+
+set notermguicolors

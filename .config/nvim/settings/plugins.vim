@@ -17,7 +17,7 @@ call plug#begin('~/.config/nvim/plugs')
     Plug 'jiangmiao/auto-pairs'
 
     " Statusline theme
-    Plug 'vim-airline/vim-airline'
+    "Plug 'vim-airline/vim-airline'
     "Plug 'itchyny/lightline.vim'
 
     " Better syntax highlighting

@@ -65,8 +65,8 @@ nmap <M-c> <esc>:set termguicolors<cr>
 vmap <M-c> <esc>:set termguicolors<cr>
 imap <M-c> <esc>:set termguicolors<cr>
 
-" Ctrl+Alt+c Disable termguicolors
-nmap <C-M-c> <esc>:set notermguicolors<cr>
-vmap <C-M-c> <esc>:set notermguicolors<cr>
-imap <C-M-c> <esc>:set notermguicolors<cr>
+" Ctrl+Alt+g Disable termguicolors
+nmap <C-M-g> <esc>:set notermguicolors<cr>
+vmap <C-M-g> <esc>:set notermguicolors<cr>
+imap <C-M-g> <esc>:set notermguicolors<cr>
 
