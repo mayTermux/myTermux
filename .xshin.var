@@ -613,7 +613,7 @@ permission() {
 
 login() {
 
-    mv $PREFIX/etc/motd $PREFIX/etc/motd.backup/
+    mv $PREFIX/etc/motd $HOME/motd.backup
     cp .login $HOME/
 
 }
