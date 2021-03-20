@@ -140,6 +140,8 @@ source $ZSH/oh-my-zsh.sh
     alias battery="bash ~/.config/neofetch/script.sh --battery"
     alias ls="exa --icons"
     alias la="exa --icons -lgha --group-directories-first"
+    alias lt="exa --icons --tree"
+    alias lta="exa --icons --tree -lgha"
     alias listpkg="bash $HOME/.scripts/list-packages.sh $1 $2"
 
     ## Configuration
