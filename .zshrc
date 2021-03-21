@@ -135,7 +135,7 @@ source $ZSH/oh-my-zsh.sh
     alias pipes2-slim="~/.color-toys/pipes2-slim"
 
     #System Information
-    alias neo="neofetch --ascii_distro DarkOS_small && panes"
+    alias neo="neofetch --ascii_distro MacOS_small && panes"
     alias neodebug="bash ~/.config/neofetch/debug-logo.sh $1"
     alias memory="bash ~/.config/neofetch/script.sh --storage"
     alias battery="bash ~/.config/neofetch/script.sh --battery"

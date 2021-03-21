@@ -12,10 +12,9 @@ handle_ctrl_c() {
 
         pkill com.termux
 
-        echo -e "\n\n                    ERROR    :$RED you can't exit!$DEFAULT"
-        echo -e "\n               Message,$YELLOW Press Enter to back Login$DEFAULT"
-        echo -e "              $YELLOW or Enter username / password to
-               continue.$DEFAULT"
+        echo -e "\n\nERROR    :$RED Oops, you can't exit!$DEFAULT"
+        echo -e "\n             Message$YELLOW\n\n   Press Enter to back Login or$DEFAULT"
+        echo -e "$YELLOW   Enter username / password to\n   continue.$DEFAULT"
 
 }
 
@@ -24,28 +23,19 @@ trap "handle_ctrl_c" 2
 while true; do
 
     echo -e ""
+    echo -e "Termux Login"
     echo -e ""
-    echo -e ""
-    echo -e ""
-    echo -e ""
-    echo -e ""
-    echo -e ""
-    echo -e ""
-    echo -e ""
-    echo -e ""
-    echo -e "                        Termux Login"
-    echo -e ""
-    read -p "                    username : " username
+    read -p "username : " username
 
     if [[ "$username" == "$user" ]]; then
 
-        echo -e "                    password :"
+        echo -e "password :"
         read -r -s password
 
         if [[ "$password" == "$pass" ]]; then
            
             echo -e ""
-            echo -e "                    status   :$GREEN Success Login.$DEFAULT"
+            echo -e "status   :$GREEN Success Login.$DEFAULT"
             sleep 2s
             clear
             break
@@ -53,7 +43,7 @@ while true; do
         else
 
             echo -e ""
-            echo -e "                    status   :$RED Wrong Password.$DEFAULT"
+            echo -e "status   :$RED Wrong Password.$DEFAULT"
             sleep 2s
             clear
 
@@ -62,7 +52,7 @@ while true; do
     else
 
         echo -e ""
-        echo -e "                    status   :$YELLOW Wrong Username.$DEFAULT"
+        echo -e "status   :$YELLOW Wrong Username.$DEFAULT"
         sleep 2s
         clear
 
