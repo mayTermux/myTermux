@@ -19,14 +19,15 @@ Here are some details about my setup
 - **Text Editor**                  • [Neovim](https://neovim.io) :ledger: + plugins
 - **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
 
-### Default Login
+### Default Termux Login
 
 - Username : xshin
 - Password : xshin
 
-To change username password edit file `~/.login` to remove login in autostart delete on ~/.zshrc `bash ~/.login`
+To change username password edit file `~/.login`.
+To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.login`
 
-### Colorscheme
+### Colorscheme (Recommended)
 
   <details open>
   <summary>See</summary>
@@ -211,7 +212,7 @@ To change username password edit file `~/.login` to remove login in autostart de
 
   </details>
 
-  ## :hearts:  Credits / Thanks
+  ## :hearts:  Credits / Big Thanks
   - **Inspiration**
     - [owl4ce](https://github.com/owl4ce)
     - [adi1090x](https://github.com/adi1090x)
