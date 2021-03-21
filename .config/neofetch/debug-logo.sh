@@ -131,7 +131,7 @@ function randomsmall() {
 
 function help() {
 
-    echo -e "\nUsage : ./debug.sh [options]\n"
+    echo -e "\nUsage : ./debug-logo.sh [options]\n"
 
     echo -e "   RUN OPTIONS\n"
     echo -e "   --logo              all default logo neofetch"
