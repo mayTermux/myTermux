@@ -13,8 +13,10 @@ handle_ctrl_c() {
         pkill com.termux
 
         echo -e "\n\nERROR    :$RED Oops, you can't exit!$DEFAULT"
-        echo -e "\n             Message$YELLOW\n\n   Press Enter to back Login or$DEFAULT"
-        echo -e "$YELLOW   Enter username / password to\n   continue.$DEFAULT"
+        echo -e "\n             Message"
+        echo -e "             ───────"
+        echo -e "$YELLOW   Press Enter to back Login or"
+        echo -e "   Enter username / password to\n   continue.$DEFAULT"
 
 }
 
@@ -24,7 +26,7 @@ while true; do
 
     echo -e ""
     echo -e "Termux Login"
-    echo -e ""
+    echo -e "────────────"
     read -p "username : " username
 
     if [[ "$username" == "$user" ]]; then
