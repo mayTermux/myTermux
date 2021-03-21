@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/data/data/com.termux/files/usr/bin/env bash
 
 logo=(
 
@@ -56,6 +56,9 @@ logoSmall=(
 
 )
 
+randomLogo=${logo[$RANDOM % ${#logo[@]} ]}
+
+randomLogoSmall=${logoSmall[$RANDOM % ${#logoSmall[@]} ]}
 
 function logodebug() {
 
@@ -114,9 +117,21 @@ function logodebugsmall() {
 
 }
 
+function random() {
+
+    neofetch --ascii_distro $randomLogo
+
+}
+
+function randomsmall() {
+
+    neofetch --ascii_distro $randomLogoSmall
+
+}
+
 function help() {
 
-    echo -e "Usage : ./debug.sh [options]\n"
+    echo -e "\nUsage : ./debug.sh [options]\n"
 
     echo -e "   RUN OPTIONS\n"
     echo -e "   --logo              all default logo neofetch"
@@ -124,6 +139,10 @@ function help() {
     echo -e "   --ubuntuflavor      ubuntu distro"
     echo -e "   --small             distro logo small"
     echo -e "   --all               all options will run\n"
+
+    echo -e "   RANDOM OPTIONS\n"
+    echo -e "   --random            random distro logo"
+    echo -e "   --randomsmall       random distro logo small\n"
 
 }
 
@@ -142,6 +161,14 @@ elif [[ "$1" == "--ubuntuflavor" ]]; then
 elif [[ "$1" == "--small" ]]; then
 
     logodebugsmall
+
+elif [[ "$1" == "--random" ]]; then
+
+    random
+
+elif [[ "$1" == "--randomsmall" ]]; then
+
+    randomsmall
 
 elif [[ "$1" == "--all" ]]; then
 
