@@ -21,6 +21,10 @@ Here are some details about my setup
 
 ### Default Termux Login
 
+|Termux Login|
+|--|
+|![Termux Login](/assets/images/login/login.jpg)|
+
 - Username : xshin
 - Password : xshin
 
@@ -106,11 +110,17 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   <details open>
   <summary><strong>lf</strong></summary>
 
-  |lf dark theme|lf light theme|
-  |--|--|
-  |![Image](/assets/images/lf/lf-dark.jpg)|![Image](/assets/images/lf/lf-light.jpg)|
+  - Colorscheme
 
-  To change lf configuration you can edit its config file in `~/.config/lf/lfrc` 
+  |Dark Theme|Light Theme|
+  |--|--|
+  |![Image](/assets/images/lf/theme/dark.jpg)|![Image](/assets/images/lf/theme/light.jpg)|
+
+  This like ncmpcpp if you change the colorscheme terminal then lf in the color section also changes
+
+  - PATH Config File
+
+  To change lf configuration you can edit its config file in `~/.config/lf/lfrc` and the icon variable i save on `~/.zshrc`
 
   </details>
 
@@ -120,6 +130,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   - Browse Mode
 
   |MPD Database|Local Filesystem|
+  |--|--|
   |![MPD Database](/assets/images/ncmpcpp/browse/mpd-database.jpg)|![Local Filesystem](/assets/images/ncmpcpp/browse/local-filesystem.jpg)|
 
   To browse the music file press `2` and search your music path
@@ -150,7 +161,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   then ncmpcpp in the color section aslo changes
 
   |Nekonako-Djancoeg|Ayu Light|xShin|
-  |--|--|
+  |--|--|--|
   |![Nekonako-Djancoeg](/assets/images/ncmpcpp/color/djancoeg.jpg)|![Ayu-Light](/assets/images/ncmpcpp/color/ayu-light.jpg)|![xShin](/assets/images/ncmpcpp/color/xshin.jpg)|
 
   - Clock
@@ -169,6 +180,8 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   To show help press `F1`
 
+  - PATH Config File
+
   ncmpcpp configuration PATH in `~/.config/ncmpcpp/config`
 
   </details>
@@ -179,7 +192,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   |Neofetch Random|
   |--|
-  |![Neofetch Random](/assets/images/neofetch/random/)|
+  |![Neofetch Random](/assets/images/neofetch/random/random.jpg)|
 
   This is because i create logic to random neofetch distro logo, if you do not want random change the alias on file ~/.zshrc `neo="... --randomsmall ..."`
 
