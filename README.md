@@ -107,10 +107,10 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
 ### User Configuration
 
-  - lf
-
   <details open>
-  <summary>Colorscheme</summary>
+  <summary><strong>lf</strong></summary>
+
+  - Colorscheme
 
   |Dark Theme|Light Theme|
   |--|--|
@@ -119,19 +119,16 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   This like ncmpcpp if you change the colorscheme terminal then lf in the color section also changes
 
-  </details>
-
-  <details>
-  <summary>PATH Config File</summary>
+  - PATH Config File
 
   To change lf configuration you can edit its config file in `~/.config/lf/lfrc` and the icon variable i save on `~/.zshrc`
 
   </details>
 
-  - Ncmpcpp
-
   <details open>
-  <summary>Help</summary>
+  <summary><strong>Ncmpcpp</strong></summary>
+
+  - Help
 
   |Help|
   |--|
@@ -139,14 +136,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   To show help press `F1`
 
-  - PATH Config File
-
-  ncmpcpp configuration PATH in `~/.config/ncmpcpp/config`
-
-  </details>
-
-  <details open>
-  <summary>Browse Mode</summary>
+  - Browse Mode
 
   |MPD Database|Local Filesystem|
   |--|--|
@@ -156,10 +146,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   > NOTE:
   > Press `1x` to mode MPD Database. Press `2x` to mode Local Filesystem.
 
-  </details>
-
-  <details>
-  <summary>User Interface</summary>
+  - User Interface
 
   |Classic|Alternative|
   |--|--|
@@ -167,10 +154,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   To change User Interface press `\`
 
-  </details>
-
-  <details>
-  <summary>Visualizer Mode</summary>
+  - Visualizer Mode
 
   |Wave|Wave Filled|Spectrum|Ellipse|
   |--|--|--|--|
@@ -178,10 +162,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   To Change Visualizer Mode press `<space>`
 
-  </details>
-
-  <details>
-  <summary>Colorscheme</summary>
+  - Colorscheme
 
   If you change the colorscheme in termux, like this
   |Change Color Scheme|
@@ -194,10 +175,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   |--|--|--|
   |![Nekonako-Djancoeg](/assets/images/ncmpcpp/color/djancoeg.jpg)|![Ayu-Light](/assets/images/ncmpcpp/color/ayu-light.jpg)|![xShin](/assets/images/ncmpcpp/color/xshin.jpg)|
 
-  </details>
-
-  <details>
-  <summary>Clock</summary>
+  - Clock
 
   |Clock|
   |--|
@@ -205,9 +183,14 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   To use clock mode press `=` (equal) but you can't open if screen too small (you must zoom out the screen)
 
+  - PATH Config File
+
+  ncmpcpp configuration PATH in `~/.config/ncmpcpp/config`
+
   </details>
 
-  - Neofetch
+  <details open>
+  <summary><strong>Neofetch</strong></summary>
 
   |Neofetch Random|
   |--|
@@ -227,22 +210,20 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   |--|--|--|
   |![Image](/assets/images/neofetch/script/battery-charging.jpg)|![Image](/assets/images/neofetch/script/battery-discharging.jpg)|![Image](/assets/images/neofetch/script/storage.jpg)|
 
-
   To change Neofetch configuration you can edit its config file in `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
 
-  - Neovim
+  </details>
 
   <details open>
-  <summary>Colorscheme</summary>
+  <summary><strong>Neovim</strong></summary>
+
+  - Colorscheme
 
   |Onedark|Ayu Dark|Gruvbox|
   |--|--|--|
   |![Image](/assets/images/neovim/theme/onedark.jpg)|![Image](/assets/images/neovim/theme/ayu-dark.jpg)|![Image](/assets/images/neovim/theme/gruvbox.jpg)|
 
-  </details>
-
-  <details open>
-  <summary>Plugin</summary>
+  - Plugin
 
   |Vim Plug|CocList marketplace|
   |--|--|
