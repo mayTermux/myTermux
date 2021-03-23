@@ -32,7 +32,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   <details open>
   <summary>See</summary>
 
-  |Ayu|nekonako-djancoeg|dracula|owl4ce-dark|
+  |Ayu Dark|nekonako-djancoeg|dracula|owl4ce-dark|
   |--|--|--|--|
   |![Image](/assets/images/colorscheme/ayu.jpg)|![Image](/assets/images/colorscheme/djancoeg.jpg)|![Image](/assets/images/colorscheme/dracula.jpg)|![Image](/assets/images/colorscheme/owl4ce_dark.jpg)|
 
