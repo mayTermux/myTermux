@@ -232,7 +232,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   - Keybindings
 
   |Keys|Mode|Action|
-  |--|--|
+  |--|--|--|
   | `C-s` | nmap, vmap, imap | Save |
   | `C-q` | nmap, vmap, imap | Quit |
   | `C-M-q` | nmap, vmap, imap | Quit Without Saving |
