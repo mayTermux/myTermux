@@ -99,7 +99,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   |Installation Help|
   |--|
-  |![Image](/assets/images/help/help-v.0.4.0.jpg)|
+  |![Image](/assets/images/help/help.jpg)|
 
   </details>
 
@@ -259,7 +259,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   |PATH Music Ncmpcpp|
   |--|
-  |![Image](/assets/images/troubleshooting/ncmpcpp/path.png)|
+  |![Image](/assets/images/troubleshooting/ncmpcpp/path.jpg)|
 
   </details>
 
