@@ -200,13 +200,15 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   |--|
   |![Alias Neo](/assets/images/neofetch/random/cat.jpg)|
 
-  |Neofetch Battery|Neofetch Storage|
-  |--|--|
-  |![Image](/assets/images/neofetch/battery.png)|![Image](/assets/images/neofetch/storage.png)|
-
   |Neofetch Configuration|Neofetch Script|
   |--|--|
-  |![Image](/assets/images/neofetch/config.png)|![Image](/assets/images/neofetch/script.png)|
+  |![Image](/assets/images/neofetch/config/config.jpg)|![Image](/assets/images/neofetch/script/script.jpg)|
+
+  |Neofetch Battery Charging|Neofetch Battery Discharging|Neofetch Storage|
+  |--|--|--|
+  |![Image](/assets/images/neofetch/script/battery-charing.jpg)|![Image](/assets/images/neofetch/script/battery-discharing.jpg)|![Image](/assets/images/neofetch/storage.jpg)|
+
+
 
   To change Neofetch configuration you can edit its config file in `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
 

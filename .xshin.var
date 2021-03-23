@@ -31,8 +31,8 @@ banner() {
     echo -e "║     $df$wh|_|_|_|\__  $lrd|_|\e[97m_____)_|   |_|_|_|____/(_/ \_)$bl      ║"
     echo -e "║           $df$wh(____/$bl                                       ║"
     echo -e "║                                                        ║"
-    echo -e "║             🚀$wh Version         :$lyw 0.4.0 $bl                ║"
-    echo -e "║             📅$wh Build Date      :$lrd 18 March 2021 $bl        ║"
+    echo -e "║             🚀$wh Version         :$lyw 0.4.0 pre $bl            ║"
+    echo -e "║             📅$wh Build Date      :$lrd 23 March 2021 $bl        ║"
     echo -e "║             📦$wh Repository Size :$lgn $repoSize $bl             ║"
     echo -e "║             ⚙️ $wh Maintainer      :$mg xShin$df$bl                 ║"
     echo -e "║                                                        ║"
@@ -72,7 +72,7 @@ backup() {
             mv -u ${HOME}/${backup}{,.$(date +%Y.%m.%d-%H.%M.%S)};
             stop_spinner_backup $?
             echo -e " ‎‏‏‎ ⚠️ backup to $backup.$(date +%Y.%m.%d-%H.%M.%S)\n"
-
+
         else
 
             sleep 2
@@ -518,13 +518,23 @@ permission() {
 
 welcome() {
 
-    mv $PREFIX/etc/motd $HOME/motd.$(date       +%Y.%m.%d-%H.%M.%S)
+    if [[ -f $PREFIX/etc/motd ]]; then
+
+        mv $PREFIX/etc/motd $HOME/motd.$(date +%Y.%m.%d-%H.%M.%S)
+
+    fi
 
 }
 
-login() {
+finish() {
 
-    mv $PREFIX/etc/motd $HOME/motd.backup
-    cp .login $HOME/
+    echo -e "\n‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Message :"
+    echo -e "      - ZSH not apply (Need restart)"
+    echo -e "      - Termux Properties size (Need restart to fix the size)"
+    echo -e ""
+    echo -e "‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Known Installation Bug :"
+
+    echo -e "      - Colorscheme not automatic changed (Need run by manual)"
+    echo -e "        with 'cp -R .termux ~/ && termux-reload-settings'\n"
 
 }
