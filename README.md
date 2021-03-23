@@ -111,9 +111,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   <summary><strong>lf</strong></summary>
 
   <details open>
-  <summary>See</summary>
-
-  - Colorscheme
+  <summary>Colorscheme</summary>
 
   |Dark Theme|Light Theme|
   |--|--|
@@ -125,9 +123,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   </details>
 
   <details>
-  <summary>See</summary>
-
-  - PATH Config File
+  <summary>PATH Config File</summary>
 
   To change lf configuration you can edit its config file in `~/.config/lf/lfrc` and the icon variable i save on `~/.zshrc`
 
@@ -139,13 +135,11 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   <summary><strong>Ncmpcpp</strong></summary>
 
   <details open>
-  <summary>See</summary>
+  <summary>Help</summary>
 
-  - Help
-
-  |HELP|
+  |Help|
   |--|
-  |![Ncmpcpp HELP](/assets/images/ncmpcpp/help/help.jpg)|
+  |![Ncmpcpp Help](/assets/images/ncmpcpp/help/help.jpg)|
 
   To show help press `F1`
 
@@ -156,9 +150,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   </details>
 
   <details open>
-  <summary>See</summary>
-
-  - Browse Mode
+  <summary>Browse Mode</summary>
 
   |MPD Database|Local Filesystem|
   |--|--|
@@ -171,9 +163,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   </details>
 
   <details>
-  <summary>See</summary>
-
-  - User Interface
+  <summary>User Interface</summary>
 
   |Classic|Alternative|
   |--|--|
@@ -184,9 +174,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   </details>
 
   <details>
-  <summary>See</summary>
-
-  - Visualizer Mode
+  <summary>Visualizer Mode</summary>
 
   |Wave|Wave Filled|Spectrum|Ellipse|
   |--|--|--|--|
@@ -197,9 +185,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   </details>
 
   <details>
-  <summary>See</summary>
-
-  - Colorscheme
+  <summary>Colorscheme</summary>
 
   If you change the colorscheme in termux, like this
   |Change Color Scheme|
@@ -215,9 +201,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   </details>
 
   <details>
-  <summary>See</summary>
-
-  - Clock
+  <summary>Clock</summary>
 
   |Clock|
   |--|
@@ -228,7 +212,6 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   </details>
 
   </details>
-
 
   <details open>
   <summary><strong>Neofetch</strong></summary>
