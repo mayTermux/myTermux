@@ -31,7 +31,7 @@ cmap <C-e> <end>
 " Control-C Copy in visual mode
 vmap <C-C> y
 
-" Control-V Paste in insert aand command mode
+" Control-V Paste in insert and command mode
 imap <C-V> <esc>pa
 cmap <C-V> <C-r>0
 

@@ -54,7 +54,7 @@ Here are some details about my setup
 
 ### Installation Help
 
-  <details open>
+  <details>
   <summary>See</summary>
 
   |Installation Help|
@@ -229,8 +229,26 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   |--|--|
   |![Image](/assets/images/neovim/Vim-Plug.jpg)|![Image](/assets/images/neovim/CocList-marketplace.jpg)|
 
-  </details>
+  - Keybindings
 
+  |Keys|Mode|Action|
+  |--|--|
+  | `C-s` | nmap, vmap, imap | Save |
+  | `C-q` | nmap, vmap, imap | Quit |
+  | `C-M-q` | nmap, vmap, imap | Quit Without Saving |
+  | `C-b` | nmap, vmap, imap | Nerdtree |
+  | `C-a` | nmap, vmap, cmap | Home Text |
+  | `C-e` | nmap, vmap, cmap | End Text |
+  | `C-C` | vmap | Copy |
+  | `C-V` | imap, cmap | Paste |
+  | `M-c` | nmap, vmap, cmap | Set Termguicolors |
+  | `C-M-c` | nmap, vmap, cmap | Unset Termguicolors |
+  | `M-z` | nmap, vmap, imap | Wrap Text |
+  | `C-M-z` | nmap, vmap, imap | Unwrap Text |
+  | `C-M-n` | nmap, vmap, imap | Set Toggle Hybrid Line Number |
+  | `C-M-b` | nmap, vmap, imap | Unset off Hybrid Line Number |
+
+  </details>
 
 ### Troubleshooting
 
