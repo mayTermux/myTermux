@@ -107,8 +107,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
 ### User Configuration
 
-  <details open>
-  <summary><strong>lf</strong></summary>
+  - lf
 
   <details open>
   <summary>Colorscheme</summary>
@@ -129,10 +128,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   </details>
 
-  </details>
-
-  <details open>
-  <summary><strong>Ncmpcpp</strong></summary>
+  - Ncmpcpp
 
   <details open>
   <summary>Help</summary>
@@ -211,10 +207,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   </details>
 
-  </details>
-
-  <details open>
-  <summary><strong>Neofetch</strong></summary>
+  - Neofetch
 
   |Neofetch Random|
   |--|
@@ -237,18 +230,19 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   To change Neofetch configuration you can edit its config file in `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
 
-  </details>
+  - Neovim
 
   <details open>
-  <summary><strong>Neovim</strong></summary>
-
-  - Colorscheme
+  <summary>Colorscheme</summary>
 
   |Onedark|Ayu Dark|Gruvbox|
   |--|--|--|
   |![Image](/assets/images/neovim/theme/onedark.jpg)|![Image](/assets/images/neovim/theme/ayu-dark.jpg)|![Image](/assets/images/neovim/theme/gruvbox.jpg)|
 
-  - Plugins
+  </details>
+
+  <details open>
+  <summary>Plugin</summary>
 
   |Vim Plug|CocList marketplace|
   |--|--|
