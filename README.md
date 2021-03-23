@@ -19,6 +19,52 @@ Here are some details about my setup
 - **Text Editor**                  • [Neovim](https://neovim.io) :ledger: + plugins
 - **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
 
+### Installation
+
+  <details open>
+  <summary>Termux (Android)</summary>
+
+  - ```bash
+    $ pkg update && pkg upgrade
+    ```
+
+  - ```bash
+    $ pkg install ncurses-utils bc git
+    ```
+
+  - ```bash
+    $ git clone https://github.com/xshin404/myTermux
+    ```
+
+  - ```bash
+    $ cd myTermux
+    ```
+
+  - ```bash
+    $ cp .xshin.var $HOME # Setup global variable
+    ```
+
+  - ```bash
+    $ chmod +x install.sh
+    ```
+
+  - ```bash
+    $ ./install.sh [options] # You can see the options with './install.sh help'
+    ```
+
+### Installation Help
+
+  <details open>
+  <summary>See</summary>
+
+  |Installation Help|
+  |--|
+  |![Image](/assets/images/help/help.jpg)|
+
+  </details>
+
+  </details>
+
 ### Default Termux Login
 
 |Termux Login|
@@ -59,56 +105,13 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   </details>
 
-### Installation
-
-  <details open>
-  <summary>Termux (Android)</summary>
-
-  - ```bash
-    $ pkg update && pkg upgrade
-    ```
-
-  - ```bash
-    $ pkg install ncurses-utils bc git
-    ```
-
-  - ```bash
-    $ git clone https://github.com/xshin404/myTermux
-    ```
-
-  - ```bash
-    $ cd myTermux
-    ```
-
-  - ```bash
-    $ cp .xshin.var $HOME # Setup global variable
-    ```
-
-  - ```bash
-    $ chmod +x install.sh
-    ```
-
-  - ```bash
-    $ ./install.sh [options] # You can see the options with './install.sh help'
-    ```
-
-### Help
-
-  <details open>
-  <summary>See</summary>
-
-  |Installation Help|
-  |--|
-  |![Image](/assets/images/help/help.jpg)|
-
-  </details>
-
-  </details>
-
 ### User Configuration
 
   <details open>
   <summary><strong>lf</strong></summary>
+
+  <details open>
+  <summary>See</summary>
 
   - Colorscheme
 
@@ -116,7 +119,13 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   |--|--|
   |![Image](/assets/images/lf/theme/dark.jpg)|![Image](/assets/images/lf/theme/light.jpg)|
 
+
   This like ncmpcpp if you change the colorscheme terminal then lf in the color section also changes
+
+  </details>
+
+  <details>
+  <summary>See</summary>
 
   - PATH Config File
 
@@ -124,8 +133,30 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   </details>
 
+  </details>
+
   <details open>
   <summary><strong>Ncmpcpp</strong></summary>
+
+  <details open>
+  <summary>See</summary>
+
+  - Help
+
+  |HELP|
+  |--|
+  |![Ncmpcpp HELP](/assets/images/ncmpcpp/help/help.jpg)|
+
+  To show help press `F1`
+
+  - PATH Config File
+
+  ncmpcpp configuration PATH in `~/.config/ncmpcpp/config`
+
+  </details>
+
+  <details open>
+  <summary>See</summary>
 
   - Browse Mode
 
@@ -134,6 +165,13 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   |![MPD Database](/assets/images/ncmpcpp/browse/mpd-database.jpg)|![Local Filesystem](/assets/images/ncmpcpp/browse/local-filesystem.jpg)|
 
   To browse the music file press `2` and search your music path
+  > NOTE:
+  > Press `1x` to mode MPD Database. Press `2x` to mode Local Filesystem.
+
+  </details>
+
+  <details>
+  <summary>See</summary>
 
   - User Interface
 
@@ -143,6 +181,11 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   To change User Interface press `\`
 
+  </details>
+
+  <details>
+  <summary>See</summary>
+
   - Visualizer Mode
 
   |Wave|Wave Filled|Spectrum|Ellipse|
@@ -150,6 +193,11 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   |![Wave](/assets/images/ncmpcpp/visualizer-mode/wave.jpg)|![Wave-Filled](/assets/images/ncmpcpp/visualizer-mode/wave-filled.jpg)|![Spectrum](/assets/images/ncmpcpp/visualizer-mode/spectrum.jpg)|![Ellipse](/assets/images/ncmpcpp/visualizer-mode/ellipse.jpg)|
 
   To Change Visualizer Mode press `<space>`
+
+  </details>
+
+  <details>
+  <summary>See</summary>
 
   - Colorscheme
 
@@ -164,6 +212,11 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   |--|--|--|
   |![Nekonako-Djancoeg](/assets/images/ncmpcpp/color/djancoeg.jpg)|![Ayu-Light](/assets/images/ncmpcpp/color/ayu-light.jpg)|![xShin](/assets/images/ncmpcpp/color/xshin.jpg)|
 
+  </details>
+
+  <details>
+  <summary>See</summary>
+
   - Clock
 
   |Clock|
@@ -172,17 +225,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   To use clock mode press `=` (equal) but you can't open if screen too small (you must zoom out the screen)
 
-  - Help
-
-  |HELP|
-  |--|
-  |![Ncmpcpp HELP](/assets/images/ncmpcpp/help/help.jpg)|
-
-  To show help press `F1`
-
-  - PATH Config File
-
-  ncmpcpp configuration PATH in `~/.config/ncmpcpp/config`
+  </details>
 
   </details>
 
@@ -206,8 +249,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   |Neofetch Battery Charging|Neofetch Battery Discharging|Neofetch Storage|
   |--|--|--|
-  |![Image](/assets/images/neofetch/script/battery-charing.jpg)|![Image](/assets/images/neofetch/script/battery-discharing.jpg)|![Image](/assets/images/neofetch/storage.jpg)|
-
+  |![Image](/assets/images/neofetch/script/battery-charging.jpg)|![Image](/assets/images/neofetch/script/battery-discharging.jpg)|![Image](/assets/images/neofetch/script/storage.jpg)|
 
 
   To change Neofetch configuration you can edit its config file in `~/.config/neofetch/config.conf` & `~/.config/neofetch/script.sh`
