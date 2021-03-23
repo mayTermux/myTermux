@@ -117,20 +117,57 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   <details open>
   <summary><strong>Ncmpcpp</strong></summary>
 
-  |Dark Theme|Dark Theme|
-  |--|--|
-  |![Dark-1](/assets/images/ncmpcpp/dark-1.jpg)|![Dark-2](/assets/images/ncmpcpp/dark-2.jpg)|
+  - Browse Mode
 
-  If you change the color scheme in termux, like this
+  |MPD Database|Local Filesystem|
+  |![MPD Database](/assets/images/ncmpcpp/browse/mpd-database.jpg)|![Local Filesystem](/assets/images/ncmpcpp/browse/local-filesystem.jpg)|
+
+  To browse the music file press `2` and search your music path
+
+  - User Interface
+
+  |Classic|Alternative|
+  |--|--|
+  |![Classic](/assets/images/ncmpcpp/ui/classic.jpg)|![Alternative](/assets/images/ncmpcpp/ui/alternative.jpg)|
+
+  To change User Interface press `\`
+
+  - Visualizer Mode
+
+  |Wave|Wave Filled|Spectrum|Ellipse|
+  |--|--|--|--|
+  |![Wave](/assets/images/ncmpcpp/visualizer-mode/wave.jpg)|![Wave-Filled](/assets/images/ncmpcpp/visualizer-mode/wave-filled.jpg)|![Spectrum](/assets/images/ncmpcpp/visualizer-mode/spectrum.jpg)|![Ellipse](/assets/images/ncmpcpp/visualizer-mode/ellipse.jpg)|
+
+  To Change Visualizer Mode press `<space>`
+
+  - Colorscheme
+
+  If you change the colorscheme in termux, like this
   |Change Color Scheme|
   |--|
-  |![Chcolor](/assets/images/ncmpcpp/chcolor.jpg)|
+  |![Chcolor](/assets/images/ncmpcpp/color/chcolor.jpg)|
 
   then ncmpcpp in the color section aslo changes
 
-  |Another Dark Theme|Light Theme|
+  |Nekonako-Djancoeg|Ayu Light|xShin|
   |--|--|
-  |![Another-Dark](/assets/images/ncmpcpp/xshin.jpg)|![Light](/assets/images/ncmpcpp/light.jpg)|
+  |![Nekonako-Djancoeg](/assets/images/ncmpcpp/color/djancoeg.jpg)|![Ayu-Light](/assets/images/ncmpcpp/color/ayu-light.jpg)|![xShin](/assets/images/ncmpcpp/color/xshin.jpg)|
+
+  - Clock
+
+  |Clock|
+  |--|
+  |![Ncmpcpp Clock](/assets/images/ncmpcpp/clock/clock.jpg)|
+
+  To use clock mode press `=` (equal) but you can't open if screen too small (you must zoom out the screen)
+
+  - Help
+
+  |HELP|
+  |--|
+  |![Ncmpcpp HELP](/assets/images/ncmpcpp/help/help.jpg)|
+
+  To show help press `F1`
 
   ncmpcpp configuration PATH in `~/.config/ncmpcpp/config`
 
@@ -139,6 +176,16 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   <details open>
   <summary><strong>Neofetch</strong></summary>
+
+  |Neofetch Random|
+  |--|
+  |![Neofetch Random](/assets/images/neofetch/random/)|
+
+  This is because i create logic to random neofetch distro logo, if you do not want random change the alias on file ~/.zshrc `neo="... --randomsmall ..."`
+
+  |Alias|
+  |--|
+  |![Alias Neo](/assets/images/neofetch/random/cat.jpg)|
 
   |Neofetch Battery|Neofetch Storage|
   |--|--|
@@ -155,11 +202,17 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   <details open>
   <summary><strong>Neovim</strong></summary>
 
-  |Full Install|Full Install Included Plugins|Lightweight not included plugins|
-  |--|--|--|
-  |![Image](/assets/images/neovim/full-1.jpg)|![Image](/assets/images/neovim/full-2.jpg)|![Image](/assets/images/neovim/lightweight.jpg)|
+  - Colorscheme
 
-  Full install included plugins with nodejs. For lightweight intallation not included so you can install the plugin manually
+  |Onedark|Ayu Dark|Gruvbox|
+  |--|--|--|
+  |![Image](/assets/images/neovim/theme/onedark.jpg)|![Image](/assets/images/neovim/theme/ayu-dark.jpg)|![Image](/assets/images/neovim/theme/gruvbox.jpg)|
+
+  - Plugins
+
+  |Vim Plug|CocList marketplace|
+  |--|--|
+  |![Image](/assets/images/neovim/Vim-Plug.jpg)|![Image](/assets/images/neovim/CocList-marketplace.jpg)|
 
   </details>
 
