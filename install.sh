@@ -24,8 +24,8 @@ if [[ -f $HOME/.xshin.var ]]; then
                     rm -rf $HOME/.config/nvim
                 fi
 
+                welcome
                 permission
-                login
 
             }
 
@@ -39,8 +39,8 @@ if [[ -f $HOME/.xshin.var ]]; then
                 owl4cezsh
                 dotfiles
                 neovimplug
+                welcome
                 permission
-                login
 
             }
 

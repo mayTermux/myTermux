@@ -352,5 +352,5 @@ ex=:\
     #echo -e "\e[6 q"
 
     c
-    bash ~/.login
+    bash ~/.scripts/login.sh
     neo

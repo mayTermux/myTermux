@@ -72,7 +72,7 @@ backup() {
             mv -u ${HOME}/${backup}{,.$(date +%Y.%m.%d-%H.%M.%S)};
             stop_spinner_backup $?
             echo -e " ‎‏‏‎ ⚠️ backup to $backup.$(date +%Y.%m.%d-%H.%M.%S)\n"
-
+
         else
 
             sleep 2
@@ -103,7 +103,7 @@ lightweightpkgs=(
 
 lightweightpackage() {
 
-    echo -e "\n⚙️ Installing lightweight package"
+    echo -e "\n⚙️ Installing lightweight package\n"
 
     cp -R $DIR/.scripts $HOME/.scripts &>/dev/null
 
@@ -167,7 +167,7 @@ fullpkgs=(
 
 fullpackage() {
 
-    echo -e "\n⚙️ Installing full package"
+    echo -e "\n⚙️ Installing full package\n"
 
     cp -R $DIR/.scripts $HOME/.scripts &>/dev/null
 
@@ -482,101 +482,6 @@ dotfiles() {
 
     done
 
-    # termux() {
-
-    #     start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .termux"
-    #     sleep 2
-    #     cp -R $DIR/.termux $HOME/.termux
-
-    #     check() {
-
-    #         if [[ -d $HOME/.termux ]]; then
-
-    #             termux-reload-settings
-    #             stop_spinner $?
-
-    #         else
-
-    #             cp "empty" > /dev/null 2>&1
-    #             stop_spinner $?
-    #             start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .termux (retrying)"
-    #             sleep 2
-    #             cp -R $DIR/.termux $HOME/.termux
-    #             check
-
-    #         fi
-
-    #     }
-
-    #     check
-
-    # }
-
-    # termux
-
-    # config() {
-
-    #     start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .config"
-    #     sleep 2
-    #     cp -R $DIR/.config $HOME/.config
-
-    #     check() {
-
-    #         if [[ -d $HOME/.config ]]; then
-
-    #             cp $DIR/fix/mpd/run $PREFIX/var/service/mpd/run &>/dev/null
-    #             stop_spinner $?
-                        
-    #         else
-
-    #             cp "empty" > /dev/null 2>&1
-    #             stop_spinner $?
-    #             start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .config (retrying)"
-    #             sleep 2
-    #             cp -R $DIR/.config $HOME/.config
-    #             check
-
-    #         fi
-
-    #     }
-
-    #     check
-
-    # }
-
-    # config
-
-    # colortoys() {
-
-    #     start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .color-toys"
-    #     sleep 2
-    #     cp -R $DIR/.color-toys $HOME/.color-toys
-
-    #     check() {
-
-    #         if [[ -d $HOME/.color-toys ]]; then
-
-    #             stop_spinner $?
-                        
-    #         else
-
-    #             cp "empty" > /dev/null 2>&1
-    #             stop_spinner $?
-    #             start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 .config (retrying)"
-    #             sleep 2
-    #             cp -R $DIR/.color-toys $HOME/.color-toys
-    #             check
-
-    #         fi
-
-    #     }
-
-    #     check
-
-    # }
-
-    # colortoys
-
 }
 
 neovimplug() {
@@ -608,6 +513,12 @@ neovimplug() {
 permission() {
 
     termux-setup-storage
+
+}
+
+welcome() {
+
+    mv $PREFIX/etc/motd $HOME/motd.$(date       +%Y.%m.%d-%H.%M.%S)
 
 }
 

@@ -24,8 +24,8 @@ Here are some details about my setup
 - Username : xshin
 - Password : xshin
 
-To change username password edit file `~/.login`.
-To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.login`
+To change username password edit file `~/.scripts/login.sh`.
+To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh`
 
 ### Colorscheme (Recommended)
 
