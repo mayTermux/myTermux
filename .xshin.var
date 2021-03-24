@@ -61,7 +61,7 @@ backups=(
     ".zshrc"
 )
 
-backup() {
+function backup() {
 
     echo -e "⚙️ Backup dotfiles"
 
