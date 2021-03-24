@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/data/data/com.termux/files/usr/bin/env bash
 DIR=`cd $(dirname $0); pwd`
 COLORS_DIR=$DIR/colors
 count=0
@@ -17,13 +17,13 @@ while true; do
   if [[ -z "$number" ]]; then
     break;
   elif ! [[ $number =~ ^[0-9]+$ ]]; then
-    echo "Please enter the right number!\n";
+    echo -e "ERROR : Please enter the right number!\n";
   elif (( $number>=0 && $number<=$count )); then
     eval choice=${colors_name[number]};
     cp -fr "$COLORS_DIR/$choice" "$DIR/colors.properties";
     break;
   else
-    echo "Please enter the right number!\n";
+    echo -e "ERROR : Please enter the right number!\n";
   fi
 done
 

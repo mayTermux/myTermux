@@ -5,7 +5,7 @@
 #          https://github.com/annzc
 
 # Storage
-storage() {
+function storage() {
 
 	# Variable
 	size=$(df -h | grep '/storage/emulated' | awk '{print $2}')
@@ -30,7 +30,7 @@ storage() {
 	
 }
 
-battery() {
+function battery() {
 
 	if [[ -f $PREFIX/bin/termux-battery-status ]]; then
 
@@ -162,7 +162,9 @@ battery() {
 
 	else
 
-		echo -e 'ERROR: termux-battery-status not found, make sure you install the Termux-API APP (Playstore or F-Droid) and the package with "pkg install termux-api"'
+		echo -e 'ERROR : termux-battery-status not found, make sure you install 
+the Termux-API APP (Playstore or F-Droid) and the package with 
+"pkg install termux-api"'
 
     fi
 
