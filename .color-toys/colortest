@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/env bash
 
 #   Daniel Crisman's ANSI color chart script from
 #   The Bash Prompt HOWTO: 6.1. Colours

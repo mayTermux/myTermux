@@ -1,4 +1,5 @@
-" xShin Keybind for Neovim
+" Author : xShin
+" GitHub : https://github.com/xshin404
 
 " Ctrl+s == save
 nmap <C-s> <esc>:w<cr>

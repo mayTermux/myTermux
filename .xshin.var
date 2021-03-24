@@ -1,5 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/env bash
 
+# Author : xShin
+# GitHub : https://github.com/xshin404
+
 # Variable Color
 df="\e[39m"
 wh="\e[97m"
@@ -20,7 +23,7 @@ lcyn="\e[96m"
 
 DIR=`cd $(dirname $0); pwd`
 
-banner() {
+function banner() {
 
     echo -e "\n$bl╭────────────────────────────────────────────────────────╮"
     echo -e "║              $df$lrd _______$bl                                  ║"
@@ -31,7 +34,7 @@ banner() {
     echo -e "║     $df$wh|_|_|_|\__  $lrd|_|\e[97m_____)_|   |_|_|_|____/(_/ \_)$bl      ║"
     echo -e "║           $df$wh(____/$bl                                       ║"
     echo -e "║                                                        ║"
-    echo -e "║             🚀$wh Version         :$lyw 0.4.0 pre $bl            ║"
+    echo -e "║             🚀$wh Version         :$lyw 0.4.1 pre $bl            ║"
     echo -e "║             📅$wh Build Date      :$lrd 23 March 2021 $bl        ║"
     echo -e "║             📦$wh Repository Size :$lgn $repoSize $bl             ║"
     echo -e "║             ⚙️ $wh Maintainer      :$mg xShin$df$bl                 ║"
@@ -60,7 +63,7 @@ backups=(
 
 backup() {
 
-    echo -e "⚙️ Backup dotfiless"
+    echo -e "⚙️ Backup dotfiles"
 
     for backup in "${backups[@]}"; do
 
@@ -101,7 +104,7 @@ lightweightpkgs=(
 
 )
 
-lightweightpackage() {
+function lightweightpackage() {
 
     echo -e "\n⚙️ Installing lightweight package\n"
 
@@ -165,7 +168,7 @@ fullpkgs=(
 
 )
 
-fullpackage() {
+function fullpackage() {
 
     echo -e "\n⚙️ Installing full package\n"
 
@@ -212,11 +215,11 @@ fullpackage() {
 
 }
 
-zshrepo() {
+function zshrepo() {
 
     echo -e "\n⚙️ Installing oh-my-zsh"
 
-    ohmyzsh() {
+    function ohmyzsh() {
 
         start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 oh-my-zsh"
         git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh/ &>/dev/null
@@ -247,7 +250,7 @@ zshrepo() {
 
     echo -e "\n⚙️ Installing plugin oh-my-zsh"
 
-    highlighting() {
+    function highlighting() {
 
         start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-syntax-highlighting"
         git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting &>/dev/null
@@ -276,7 +279,7 @@ zshrepo() {
 
     highlighting
 
-    autosuggest() {
+    function autosuggest() {
 
         start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-autosuggestions"
         git clone git://github.com/zsh-users/zsh-autosuggestions.git $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions &>/dev/null
@@ -307,7 +310,7 @@ zshrepo() {
 
 }
 
-shell() {
+function shell() {
 
     echo -e "\n⚙️ Setting SHELL default"
 
@@ -349,7 +352,7 @@ owl4cethemes=(
 
 )
 
-owl4cezsh() {
+function owl4cezsh() {
 
     echo -e "\n⚙️ Installing ZSH Theme"
 
@@ -389,7 +392,7 @@ vardotfiles=(
     ".color-toys"
 
 )
-dotfiles() {
+function dotfiles() {
 
     echo -e "\n⚙️ Installing dotfiles"
 
@@ -484,7 +487,7 @@ dotfiles() {
 
 }
 
-neovimplug() {
+function neovimplug() {
 
     echo -e "\n⚙️ Installing neovim plugins"
 
@@ -510,13 +513,13 @@ neovimplug() {
 
 }
 
-permission() {
+function permission() {
 
     termux-setup-storage
 
 }
 
-welcome() {
+function welcome() {
 
     if [[ -f $PREFIX/etc/motd ]]; then
 
@@ -526,7 +529,7 @@ welcome() {
 
 }
 
-finish() {
+function finish() {
 
     echo -e "\n‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Message :"
     echo -e "      - ZSH not apply (Need restart)"

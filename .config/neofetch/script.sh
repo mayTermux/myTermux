@@ -1,5 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/env bash
 
+# Author : xShin & Annzc
+# GitHub : https://github.com/xshin404
+#          https://github.com/annzc
+
 # Storage
 storage() {
 

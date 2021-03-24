@@ -15,9 +15,11 @@ These are dotfiles or my personal Termux configuration. But I didn't make all of
 Here are some details about my setup
 - **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework + plugins
 - **Music**                        • [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon) :musical_note: with [ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp) text-mode client for MPD
-- **File Manager**                 • [lf](https://github.com/gokcehan/lf) :ledger:
+- **File Manager**                 • [lf](https://github.com/gokcehan/lf) :bookmark:
 - **Text Editor**                  • [Neovim](https://neovim.io) :ledger: + plugins
 - **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
+-  Font                          • [MesloLGS Nerd Font](https://github.com/romkatv/dotfiles-public/blob/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf) :doughnut:
+-  Icon                          • [Nerd Fonts](https://www.nerdfonts.com/cheat-sheet) :rocket:
 
 ### Installation
 
@@ -192,11 +194,11 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   <details open>
   <summary><strong>Neofetch</strong></summary>
 
-  |Neofetch Random|
+  |Neofetch Random Small|
   |--|
-  |![Neofetch Random](/assets/images/neofetch/random/random.jpg)|
+  |![Neofetch Random Small](/assets/images/neofetch/random/random.jpg)|
 
-  This is because i create logic to random neofetch distro logo, if you do not want random change the alias on file ~/.zshrc `neo="... --randomsmall ..."`
+  This is because i create logic script to random neofetch distro logo small, if you do not want random change the alias on file ~/.zshrc `neo="... --randomsmall ..."`
 
   |Alias|
   |--|
@@ -288,7 +290,7 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   - **Battery & Storage icon not showing**
 
-  If you want Battery icon showing you have to install <strong>Termux-API</strong> app from the same source as your installed Termux (whether from PlayStore or F-Droid). Though it is recommended for you to install Termux from F-Droid <strong>Don't forget uncomment battery output in neofetch configuration</strong>. <br>For storage info you must set it to the right partition on your Android (e.g `/storage/emulated`).
+  If you want Battery icon showing you have to install <strong>Termux-API</strong> app from the same source as your installed Termux (whether from PlayStore or F-Droid). Though it is recommended for you to install Termux from F-Droid <strong>Don't forget to install termux-api package on Termux with `pkg install termux-api`</strong>. <br>For storage info you must set it to the right partition on your Android (e.g `/storage/emulated`).
   > NOTE:
   > Please run `df -h` to know where your internal partition is located.
 

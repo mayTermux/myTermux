@@ -1,3 +1,7 @@
+" Author : xShin & Annzc
+" GitHub : https://github.com/xshin404
+"          https://github.com/annzc
+
 " Better not to change the order
 source $HOME/.config/nvim/settings/coc.vim
 source $HOME/.config/nvim/settings/plugins.vim

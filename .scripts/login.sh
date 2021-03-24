@@ -1,5 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/env bash
 
+# Author : xShin
+# GitHub : https://github.com/xshin404
+
 RED="\e[91m"
 YELLOW="\e[93m"
 GREEN="\e[92m"

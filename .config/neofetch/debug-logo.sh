@@ -1,5 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/env bash
 
+# Author : xShin
+# GitHub : https://github.com/xshin404
+
 logo=(
 
        AIX Alpine Anarchy Android Antergos antiX "AOSC\ OS"

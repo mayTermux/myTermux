@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/env bash
 
 # Original: http://frexx.de/xterm-256-notes/
 #           http://frexx.de/xterm-256-notes/data/colortable16.sh

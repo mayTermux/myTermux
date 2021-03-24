@@ -1,3 +1,7 @@
+" Author : xShin & Annzc
+" GitHub : https://github.com/xshin404
+"          https://github.com/annzc
+
 nnoremap <silent><esc> <esc>:noh<cr>
 " general set
 set encoding=utf-8
