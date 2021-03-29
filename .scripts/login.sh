@@ -28,7 +28,7 @@ trap "handle_ctrl_c" 2
 while true; do
 
     echo -e ""
-    echo -e "Welcome to Termux.\n"
+    echo -e "Welcome to Termux!\n"
     #echo -e "━━━━━━━━━━━━━━━━━\n"
     read -p "username : " username
 
