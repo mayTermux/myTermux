@@ -6,7 +6,7 @@
 
 
 ##  
-### :octocat: Hi, thanks for spending your time visiting this repository !
+### :octocat: Hi, thanks for spending your time visiting this repository!
 
 I hope you understand my bad english. :sweat_smile:
 
