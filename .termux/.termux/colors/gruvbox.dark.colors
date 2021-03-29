@@ -1,0 +1,21 @@
+# gruvbox.dark.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#665c54
+color1=#fb4934
+color2=#83a598
+color3=#d79921
+color4=#b16286
+color5=#458588
+color6=#b8bb26
+color7=#d65d0e
+color8=#a89984
+color9=#fb4934
+color10=#8ec07c
+color11=#fabd2f
+color12=#d3869b
+color13=#689d6a
+color14=#98971a
+color15=#fe8019
+background=#282828
+foreground=#ebdbb2
+cursor=#ebdbb2

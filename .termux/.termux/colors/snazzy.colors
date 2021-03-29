@@ -1,0 +1,21 @@
+# snazzy.colors
+# Color theme from Color scheme from https://github.com/Mayccoll/Gogh
+color0=#0C0D13
+color1=#FF5C57
+color2=#5AF78E
+color3=#F3F99D
+color4=#57C7FF
+color5=#FF6AC1
+color6=#9AEDFE
+color7=#EFF0EB
+color8=#686868
+color9=#FF5C57
+color10=#5AF78E
+color11=#F3F99D
+color12=#57C7FF
+color13=#FF6AC1
+color14=#9AEDFE
+color15=#EFF0EB
+background=#282A36
+foreground=#EFF0EB
+cursor=#EFF0EB

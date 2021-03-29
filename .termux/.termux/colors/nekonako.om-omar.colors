@@ -1,0 +1,34 @@
+! Color scheme by fikri omar
+
+background=#2F343F
+foreground=#EFF0EB
+
+color0=#2F343F
+color8=#444A57
+
+color1=#de8990
+color9=#d0a8ab
+
+color2=#94daa9
+color10=#bae8d2
+
+! yellow
+color3=#dee7aa
+color11=#d7c96b
+
+! blue
+color4=#9cdbdf
+color12=#6cb4dd
+
+! magenta
+color5=#cca8c9
+color13=#db79bf
+
+! cyan
+color6=#9ad4c8
+color14=#59b0b2
+
+! white
+color7=#e1e1e1
+color15=#f0f0f0
+

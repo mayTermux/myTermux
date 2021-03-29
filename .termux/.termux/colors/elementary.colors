@@ -1,0 +1,21 @@
+# elementary.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#303030
+color1=#e1321a
+color2=#6ab017
+color3=#ffc005
+color4=#004f9e
+color5=#ec0048
+color6=#2aa7e7
+color7=#f2f2f2
+color8=#5d5d5d
+color9=#ff361e
+color10=#7bc91f
+color11=#ffd00a
+color12=#0071ff
+color13=#ff1d62
+color14=#4bb8fd
+color15=#a020f0
+background=#101010
+foreground=#f2f2f2
+cursor=#f2f2f2

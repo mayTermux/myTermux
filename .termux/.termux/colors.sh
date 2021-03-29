@@ -17,14 +17,13 @@ while true; do
   if [[ -z "$number" ]]; then
     break;
   elif ! [[ $number =~ ^[0-9]+$ ]]; then
-    echo -e "Please enter the right number!\n";
+    echo "Please enter the right number!\n";
   elif (( $number>=0 && $number<=$count )); then
     eval choice=${colors_name[number]};
     cp -fr "$COLORS_DIR/$choice" "$DIR/colors.properties";
     break;
   else
-    echo -e "Please enter the right number!";
-    echo -e ""
+    echo "Please enter the right number!\n";
   fi
 done
 

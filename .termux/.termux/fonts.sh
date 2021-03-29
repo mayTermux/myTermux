@@ -3,7 +3,7 @@ DIR=`cd $(dirname $0) && pwd`
 FONTS_DIR=$DIR/fonts
 count=0
 
-echo -e "The default font is MesloLGS NF (Bold) font.\nYou can choose another one from list below.";
+echo -e "The default font is Ubuntu font.\nYou can choose another one from list below.";
 
 for font in $FONTS_DIR/*/{*.ttf,*.otf}; do
 	font_file[count]=$font;
