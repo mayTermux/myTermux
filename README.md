@@ -130,6 +130,9 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   <details open>
   <summary><strong>Ncmpcpp</strong></summary>
 
+  > NOTE:
+  > Before you run ncmpcpp you need run MPD first with `mpd`. If you doesn't run mpd first ncmpcpp will connection refused
+
   - Help
 
   |Help|
