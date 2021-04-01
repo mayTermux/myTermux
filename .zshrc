@@ -367,5 +367,15 @@ ex=:\
     #echo -e "\e[6 q"
 
     c
+    
+    #bash ~/.scripts/login.sh
+
+    if [ "$TMUX" == "" ]; then
+
+        tmux
+
+    fi
+
     bash ~/.scripts/login.sh
+
     neo
