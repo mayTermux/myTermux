@@ -43,6 +43,9 @@ while true; do
             echo -e "status   :$GREEN Success Login.$DEFAULT"
             sleep 2s
             clear
+            if [ -d ~/.scripts/pid ]; then
+                mkdir ~/.scripts/pid
+            fi
             echo $$ >> ~/.scripts/pid/login
             break
 
