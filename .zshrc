@@ -120,6 +120,14 @@ source $ZSH/oh-my-zsh.sh
     #Ping    
     alias pg="ping google.com"
 
+    #MyIP (Local) Pre
+    alias myipap="bash ~/.scripts/ip.sh ap"
+    alias myip6ap="bash ~/.scripts/ip.sh apv6"
+    alias myipcc="bash ~/.scripts/ip.sh cc"
+    alias myiplo="bash ~/.scripts/ip.sh lo"
+    alias myip6lo="bash ~/.scripts/ip.sh lov6"
+    alias myipwlan="bash ~/.scripts/ip.sh wlan"
+
     #Music    
     alias n="ncmpcpp"
     alias mkill="mpd --kill"
@@ -137,8 +145,12 @@ source $ZSH/oh-my-zsh.sh
     alias pipes2="~/.color-toys/pipes2"
     alias pipes2-slim="~/.color-toys/pipes2-slim"
 
+    #Photos
+    alias ss="cd /sdcard/Pictures/Screenshots/"
+
     #System Information
-    alias neo="bash ~/.config/neofetch/debug-logo.sh --randomsmall"
+    #alias neo="bash ~/.config/neofetch/debug-logo.sh --randomsmall"
+    alias neo="neofetch"
     alias neodebug="bash ~/.config/neofetch/debug-logo.sh $1"
     alias memory="bash ~/.config/neofetch/script.sh --storage"
     alias battery="bash ~/.config/neofetch/script.sh --battery"

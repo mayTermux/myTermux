@@ -34,8 +34,8 @@ function banner() {
     echo -e "║     $df$wh|_|_|_|\__  $lrd|_|\e[97m_____)_|   |_|_|_|____/(_/ \_)$bl      ║"
     echo -e "║           $df$wh(____/$bl                                       ║"
     echo -e "║                                                        ║"
-    echo -e "║             🚀$wh Version         :$lyw 0.4.1 pre $bl            ║"
-    echo -e "║             📅$wh Build Date      :$lrd 23 March 2021 $bl        ║"
+    echo -e "║             🚀$wh Version         :$lyw 0.4.2 pre $bl            ║"
+    echo -e "║             📅$wh Build Date      :$lrd 01 April 2021 $bl        ║"
     echo -e "║             📦$wh Repository Size :$lgn $repoSize $bl             ║"
     echo -e "║             ⚙️ $wh Maintainer      :$mg xShin$df$bl                 ║"
     echo -e "║                                                        ║"
@@ -98,8 +98,10 @@ lightweightpkgs=(
     "exa"
     "lf"
     "bat"
+    "tmux"
     "mpd" 
     "ncmpcpp"
+    "cava"
     "neovim"
 
 )
@@ -161,8 +163,10 @@ fullpkgs=(
     "exa"
     "lf"
     "bat"
-    "mpd" 
+    "tmux"
+    "mpd"
     "ncmpcpp"
+    "cava"
     "neovim"
     "nodejs"
 
@@ -392,6 +396,7 @@ vardotfiles=(
     ".color-toys"
 
 )
+
 function dotfiles() {
 
     echo -e "\n⚙️ Installing dotfiles"

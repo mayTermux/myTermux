@@ -195,6 +195,36 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   </details>
 
   <details open>
+  <summary><strong>Cava</strong></summary>
+
+  - Default Color
+
+  |Cava Default Color|
+  |--|
+  |![Cava Default Color](/assets/images/cava/cava3.jpg)|
+
+  - Foreground Color
+
+  |Cava Foreground Color|Cava Foreground Color|Cava Foreground Color|
+  |--|--|--|
+  |![Cava Foreground Color](/assets/images/cava/color/foreground/cava1.jpg)|![Cava Foreground Color](/assets/images/cava/color/foreground/cava2.jpg)|![Cava Foreground Color](/assets/images/cava/color/foreground/cava4.jpg)|
+
+  To change foreground colors `press f`
+
+  - Background Color
+
+  |Cava Background Color|Cava Background Color|Cava Background Color|
+  |--|--|--|
+  |![Cava Background Color](/assets/images/cava/color/background/cava1.jpg)|![Cava Background Color](/assets/images/cava/color/background/cava2.jpg)|![Cava Foreground Color](/assets/images/cava/color/background/cava3.jpg)|
+
+  To change background colors `press b`
+
+  > NOTE :
+  > Split Terminal i'm using Tmux press `CTRL + B + "`
+
+  </details>
+
+  <details open>
   <summary><strong>Neofetch</strong></summary>
 
   |Neofetch Random Small|
