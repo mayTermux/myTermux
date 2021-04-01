@@ -1,41 +1,95 @@
 #!/data/data/com.termux/files/usr/bin/env bash
 
-function myip() {
+function simcard() {
 
-    for((i=1; i<6; i++)) do
+    interface=`ip route | sed -n 1p | awk '{print $3}'`
 
-        ifconfig | grep inet | sed -n $i"p" | awk '{print $2}'
+    if [[ "$interface" == "ccmni0" ]]; then
 
-    done
+        echo -e "Simcard" `ip route | grep ccmni0 | awk '{print $9}'`
+
+    elif [[ "$interface" == "ccmni1" ]]; then
+
+        echo -e "Simcard" `ip route | grep ccmni1 | awk '{print $9}'`
+
+    fi
 
 }
 
-if [[ "$1" == "ap" ]]; then
+function hotspot() {
 
-    myip | sed -n 1p
+    interface=`ip route | sed -n 2p | awk '{print $3}'`
 
-elif [[ "$1" == "apv6" ]]; then
+    if [[ "$interface" == "ap0" ]]; then
 
-    myip | sed -n 2p
+        echo -e "Hotspot" `ip route | grep ap0 | awk '{print $9}'`
 
-elif [[ "$1" == "cc" ]]; then
+    elif [[ "$interface" == "tun0" ]]; then
 
-    myip | sed -n 3p
+        echo -e "Hotspot" `ip route | grep ap0 | awk '{print $9}'`
 
-elif [[ "$1" == "lo" ]]; then
-    
-    myip | sed -n 4p
+    fi
 
-elif [[ "$1" == "lov6" ]]; then
+}
 
-    myip | sed -n 5p
+function vpn() {
 
-elif [[ "$1" == "wlan" ]]; then
+    interface=`ip route | sed -n 2p | awk '{print $3}'`
 
-    myip | sed -n 6p
+    if [[ "$interface" == "tun0" ]]; then
+
+        echo -e "VPN" `ip route | grep tun0 | awk '{print $9}'`
+
+    elif [[ "$interface" == "wlan0" ]]; then
+
+        echo -e "VPN" `ip route | grep tun0 | awk '{print $9}'`
+
+    fi
+
+}
+
+function wifi() {
+
+    interface=`ip route | sed -n 2p | awk '{print $3}'`
+
+    if [[ "$interface" == "wlan0" ]]; then
+
+        echo -e "WiFi" `ip route | grep wlan0 | awk '{print $9}'`
+
+    elif [[ "$interface" == "tun0" ]]; then
+
+        echo -e "WiFi" `ip route | grep wlan0 | awk '{print $9}'`
+
+    fi
+
+}
+
+if [[ "$1" == "simcard" ]]; then
+
+    simcard
+
+elif [[ "$1" == "hotspot" ]]; then
+
+    hotspot
+
+elif [[ "$1" == "vpn" ]]; then
+
+    vpn
+
+elif [[ "$1" == "wifi" ]]; then
+
+    wifi
+
+elif [[ "$1" == "all" ]]; then
+
+
+    simcard
+    hotspot
+    vpn
+    wifi
 
 else
 
-    echo -e "ERROR Execute: Unknown Paramater Use!!!"
+    echo -e "ERROR Execute: Unknown Paramater Use!"
 
 fi

@@ -120,13 +120,12 @@ source $ZSH/oh-my-zsh.sh
     #Ping    
     alias pg="ping google.com"
 
-    #MyIP (Local) Pre
-    alias myipap="bash ~/.scripts/ip.sh ap"
-    alias myip6ap="bash ~/.scripts/ip.sh apv6"
-    alias myipcc="bash ~/.scripts/ip.sh cc"
-    alias myiplo="bash ~/.scripts/ip.sh lo"
-    alias myip6lo="bash ~/.scripts/ip.sh lov6"
-    alias myipwlan="bash ~/.scripts/ip.sh wlan"
+    #MyIP (Local)
+    alias myip="bash ~/.scripts/ip.sh simcard"
+    alias myipwifi="bash ~/.scripts/ip.sh wifi"
+    alias myiphotspot="~/.scripts/ip.sh hotspot"
+    alias myipvpn="~/.scripts/ip.sh vpn"
+    alias myipall="~/.scripts/ip.sh all"
 
     #Music    
     alias n="ncmpcpp"
