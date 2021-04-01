@@ -5,8 +5,6 @@
 
 # Variable Color
 
-source $(pwd)/.spinner/spinner.sh
-
 df="\e[39m"
 wh="\e[97m"
 rd="\e[31m"
