@@ -120,7 +120,7 @@ source $ZSH/oh-my-zsh.sh
     #Ping    
     alias pg="ping google.com"
 
-    #MyIP (Local)
+    #MyIP (Local) Pre
     alias myip="bash ~/.scripts/ip.sh simcard"
     alias myipwifi="bash ~/.scripts/ip.sh wifi"
     alias myiphotspot="~/.scripts/ip.sh hotspot"
@@ -191,7 +191,11 @@ source $ZSH/oh-my-zsh.sh
     alias refresh="source $HOME/.zshrc"
 
     #PID Login
+    alias loginconf="nvim ~/.scripts/login.sh"
     alias exit="if [ -f ~/.scripts/pid/login ]; then rm ~/.scripts/pid/login; fi && exit"
+
+    #MyIP
+    alias myipconf="nvim ~/.scripts/ip.sh"
 
 ##lf icons
 export LF_ICONS="\
