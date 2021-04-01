@@ -191,6 +191,9 @@ source $ZSH/oh-my-zsh.sh
     #Refresh
     alias refresh="source $HOME/.zshrc"
 
+    #PID Login
+    alias exit="if [ -f ~/.scripts/pid/login ]; then rm ~/.scripts/pid/login; fi && exit"
+
 ##lf icons
 export LF_ICONS="\
 tw=:\
@@ -368,7 +371,6 @@ ex=:\
 
     c
     
-    #bash ~/.scripts/login.sh
 
     if [ "$TMUX" == "" ]; then
 
@@ -376,6 +378,10 @@ ex=:\
 
     fi
 
-    bash ~/.scripts/login.sh
+    if [ ! -f ~/.scripts/pid/login ]; then
+        
+        bash ~/.scripts/login.sh
+
+    fi
 
     neo

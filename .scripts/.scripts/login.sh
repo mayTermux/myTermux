@@ -43,7 +43,6 @@ while true; do
             echo -e "status   :$GREEN Success Login.$DEFAULT"
             sleep 2s
             clear
-            echo $$ >> ~/.scripts/pid/login
             break
 
         else
