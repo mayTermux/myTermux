@@ -48,8 +48,11 @@ function banner() {
 function reposize() {
 
     if [ "$#" -eq 2 ]; then
+
         echo "$(echo "scale=2
+
         $(curl https://api.github.com/repos/$1/$2 2>/dev/null | grep size | head -1 | tr -dc '[:digit:]') / 1024" | bc) MB"
+
     fi
 
 }
@@ -76,7 +79,6 @@ vardotfiles=(
     ".color-toys"
     ".zshrc"
     ".tmux.conf"
-    ".tmux-themepack"
     ".termux"
 
 )
@@ -118,7 +120,7 @@ function dotfiles() {
         sleep 2
         cp $DIR/$dotfile $HOME/$dotfile
 
-        check() {
+        function check() {
 
             if [[ -f $HOME/$dotfile ]]; then
 
@@ -147,7 +149,7 @@ function dotfiles() {
         sleep 2
         cp -R $DIR/$dotfile $HOME/$dotfile
 
-        check() {
+        function check() {
 
             if [[ -d $HOME/$dotfile ]]; then
 
@@ -191,6 +193,35 @@ function dotfiles() {
 
 }
 
+function tmuxtheme() {
+
+    echo -e "\n⚙️ Installing tmux-theme\n"
+
+    start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 tmux-themepack"
+    git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack/ &>/dev/null
+    
+    function check() {
+
+        if [[ -d ~/.tmux-themepack ]]; then
+
+            stop_spinner $?
+
+        else
+
+            cp "empty" > /dev/null 2>&1
+            stop_spinner $?
+            start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 tmux-themepack"
+            git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack/ &>/dev/null
+            check
+
+        fi
+
+    }
+
+    check
+
+}
+
 # Lightweight Installation
 lightweightpkgs=(
 
@@ -228,7 +259,7 @@ function lightweightpackage() {
         start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 $lightweightpkg"
         pkg install -y $lightweightpkg &>/dev/null
 
-        check() {
+        function check() {
 
             ipkg=$(pkg list-installed $lightweightpkg 2> /dev/null | tail -n 1)
             cpkg=${ipkg%/*}
@@ -294,7 +325,7 @@ function fullpackage() {
         start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 $fullpkg"
         pkg install -y $fullpkg &>/dev/null
 
-        check() {
+        function check() {
 
             ipkg=$(pkg list-installed $fullpkg 2> /dev/null | tail -n 1)
             cpkg=${ipkg%/*}
@@ -331,7 +362,7 @@ function zshrepo() {
         start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 oh-my-zsh"
         git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh/ &>/dev/null
     
-        check() {
+        function check() {
 
             if [[ -d $HOME/.oh-my-zsh ]]; then
 
@@ -362,7 +393,7 @@ function zshrepo() {
         start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-syntax-highlighting"
         git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting &>/dev/null
 
-        check() {
+        function check() {
 
             if [[ -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]]; then
 
@@ -391,7 +422,7 @@ function zshrepo() {
         start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 zsh-autosuggestions"
         git clone git://github.com/zsh-users/zsh-autosuggestions.git $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions &>/dev/null
 
-        check() {
+        function check() {
 
             if [[ -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
 
@@ -421,12 +452,12 @@ function shell() {
 
     echo -e "\n⚙️ Setting SHELL default"
 
-        zsh() {
+        function zsh() {
 
             start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 change shell to zsh"
             sleep 2
 
-            check() {
+            function check() {
 
                 if [[ $(which zsh) == "/data/data/com.termux/files/usr/bin/zsh" ]]; then
 
@@ -469,7 +500,7 @@ function owl4cezsh() {
         sleep 2
         cp $DIR/.oh-my-zsh/custom/themes/$owl4cetheme $HOME/.oh-my-zsh/custom/themes/$owl4cetheme
 
-        check() {
+        function check() {
 
             if [[ -f $HOME/.oh-my-zsh/custom/themes/$owl4cetheme ]]; then
 
@@ -499,8 +530,10 @@ function neovimplug() {
     sleep 2
 
     (
+
         set -e
         nvim --headless +PlugInstall +qall > /dev/null 2>&1
+        
     )
 
     if [ $? -eq 0 ]; then

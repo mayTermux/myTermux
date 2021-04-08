@@ -24,8 +24,12 @@ if [[ -f $HOME/.xshin.var ]]; then
                 dotfiles
 
                 if [[ -d $HOME/.config/nvim ]]; then
+
                     rm -rf $HOME/.config/nvim
+
                 fi
+
+                tmuxtheme
 
                 welcome
                 permission
@@ -41,6 +45,7 @@ if [[ -f $HOME/.xshin.var ]]; then
                 shell
                 owl4cezsh
                 dotfiles
+                tmuxtheme
                 neovimplug
                 welcome
                 permission
