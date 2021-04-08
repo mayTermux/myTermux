@@ -231,6 +231,8 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
   |--|
   |![Neofetch Random Small](/assets/images/neofetch/random/random.jpg)|
 
+  > NOTE for: myTermux-v.0.4.1 pre
+  
   This is because i create logic script to random neofetch distro logo small, if you do not want random change the alias on file ~/.zshrc `neo="... --randomsmall ..."`
 
   |Alias|
