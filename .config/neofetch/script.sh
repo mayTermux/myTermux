@@ -1,18 +1,19 @@
 #!/data/data/com.termux/files/usr/bin/env bash
 
-# Author : xShin & Annzc
-# GitHub : https://github.com/xshin404
-#          https://github.com/annzc
+# Author      : xShin (https://github.com/xshin404)
+# Contributor : Ann   (https://github.com/annzc)
+
 
 # Storage
 function storage() {
 
 	# Variable
-	size=$(df -h | grep '/storage/emulated' | awk '{print $2}')
-	used=$(df -h | grep '/storage/emulated' | awk '{print $3}')
-	avail=$(df -h | grep '/storage/emulated' | awk '{print $4}')
-	use=$(df -h | grep '/storage/emulated' | awk '{print $5}')
-	mounted=$(df -h | grep '/storage/emulated' | awk '{print $6}')
+	disk=$(df -h 2>/dev/null | grep "/storage/emulated")
+	size=$(echo $disk | awk '{print $2}')
+	used=$(echo $disk | awk '{print $3}')
+	avail=$(echo $disk | awk '{print $4}')
+	use=$(echo $disk | awk '{print $5}')
+	mounted=$(echo $disk | awk '{print $6}')
 
 	outputStorage() {
 		
@@ -34,139 +35,149 @@ function battery() {
 
 	if [[ -f $PREFIX/bin/termux-battery-status ]]; then
 
-        
-		perc=`termux-battery-status | grep percentage | awk '{print $2}' | tr , '%'`
-        #debug perc
-        #perc=9
-		status=`termux-battery-status | grep status | awk '{print $2}'`
-        lrd="\e[91m"
+		batt() {
+
+			termux-battery-status | grep $1 | awk '{print $2}' | sed "s/,//g" | sed "s/\"//g"
+
+		}
+
+		#debug perc
+		#perc=9
+		perc=`batt "percentage"`
+		status=`batt "status"`
+
+		lrd="\e[91m"
 		lyw="\e[93m"
 		lgn="\e[92m"
 		df="\e[39m"
 
-        old() {
+	old() {
 
-    		if [[ $status == '"CHARGING",' ]]; then
+		if [[ $status == "CHARGING" ]]; then
 
-    			echo -e $lgn"$df : Charging, (${perc})"
+			echo -e $lgn"$df : Charging, ($perc%)"
 
-    		elif [[ $status == '"DISCHARGING",' ]]; then
+		elif [[ $status == "DISCHARGING" ]]; then
 
-    			echo -e $lyw"$df : Discharging, (${perc})"
+			echo -e $lyw"$df : Discharging, ($perc%)"
 
-    		elif [[ $status == '"FULL"' ]]; then
+		elif [[ $status == "FULL" ]]; then
 
-    			echo -e $lgn"$df : Full, (${perc})"
+			echo -e $lgn"$df : Full, ($perc%)"
 
-    		fi
+		fi
 
-        }
+	}
 
+	new() {
 
-        new() {
+		#Known bug :
+		# - Icon : 100% Battery on Discharging
+		#          3-9% Battery on Discharging
 
-            #Known bug :
-            # - Icon : 100% Battery on Discharging
-            #          3-9% Battery on Discharging
+    #Discharging
+		if [[ $status == "DISCHARGING" ]]; then
 
-            #Discharging
+			if [[ $perc < 21 ]]; then
 
-            if [[ $perc < 21 && $status == '"DISCHARGING",' ]]; then
+				echo -e $lrd"$df : Discharging, ($perc%)"
 
-                echo -e $lrd"$df : Discharging, (${perc})"
+			elif [[ $perc < 30 && $perc > 20 ]]; then
 
-            elif [[ $perc < 30, && $perc > 20 && $status == '"DISCHARGING",' ]]; then
+				echo -e $lyw"$df : Discharging, ($perc%)"
 
-                echo -e $lyw"$df : Discharging, (${perc})"
+			elif [[ $perc < 40 && $perc > 29 ]]; then
 
-            elif [[ $perc < 40 && $perc > 29 && $status == '"DISCHARGING",' ]]; then
+				echo -e $lyw"$df : Discharging, ($perc%)"
 
-                echo -e $lyw"$df : Discharging, (${perc})"
+			elif [[ $perc < 50 && $perc > 39 ]]; then
 
-            elif [[ $perc < 50 && $perc > 39 && $status == '"DISCHARGING",' ]]; then
+				echo -e $lyw"$df : Discharging, ($perc%)"
 
-                echo -e $lyw"$df : Discharging, (${perc})"
+			elif [[ $perc < 60 && $perc > 49 ]]; then
 
-            elif [[ $perc < 60 && $perc > 49 && $status == '"DISCHARGING",' ]]; then
+				echo -e $lyw"$df : Discharging, ($perc%)"
 
-                echo -e $lyw"$df : Discharging, (${perc})"
+			elif [[ $perc < 70 && $perc > 59 ]]; then
 
-            elif [[ $perc < 70 && $perc > 59 && $status == '"DISCHARGING",' ]]; then
+				echo -e $lyw"$df : Discharging, ($perc%)"
 
-                echo -e $lyw"$df : Discharging, (${perc})"
+			elif [[ $perc < 80 && $perc > 69 ]]; then
 
-            elif [[ $perc < 80 && $perc > 69 && $status == '"DISCHARGING",' ]]; then
+				echo -e $lyw"$df : Discharging, ($perc%)"
 
-                echo -e $lyw"$df : Discharging, (${perc})"
+			elif [[ $perc < 90 && $perc > 79 ]]; then
 
-            elif [[ $perc < 90 && $perc > 79 && $status == '"DISCHARGING",' ]]; then
+				echo -e $lyw"$df : Discharging, ($perc%)"
 
-                echo -e $lyw"$df : Discharging, (${perc})"
+			elif [[ $perc < 99, && $perc > 89 ]]; then
 
-            elif [[ $perc < 99, && $perc > 89 && $status == '"DISCHARGING",' ]]; then
+				echo -e $lyw"$df : Discharging, ($perc%)"
 
-                echo -e $lyw"$df : Discharging, (${perc})"
+			elif [[ $perc == 100 ]]; then
 
-            elif [[ $perc == 100 && $status == '"DISCHARGING",' ]]; then
+				echo -e $lgn"$df : Discharging, ($perc%)"
 
-                echo -e $lgn"$df : Discharging, (${perc})"
+			fi
 
+    #Charging
+		elif [[ $status == "CHARGING" ]]; then
 
-          #Charging
+			if [[ $perc < 21 ]]; then
 
-            elif [[ $perc < 21 && $perc > 2 && $status == '"CHARGING",' ]]; then
+				echo -e $lgn"$df : Charging, ($perc%)"  
 
-                echo -e $lgn"$df : Charging, (${perc})"  
+			elif [[ $perc < 30 && $perc > 20 ]]; then
 
-            elif [[ $perc < 30 && $perc > 20 && $status == '"CHARGING",' ]]; then
+				echo -e $lgn"$df : Charging, ($perc%)"
 
-                echo -e $lgn"$df : Charging, (${perc})"
+			elif [[ $perc < 40 && $perc > 29 ]]; then
 
-            elif [[ $perc < 40 && $perc > 29 && $status == '"CHARGING",' ]]; then
+				echo -e $lgn"$df : Charging, ($perc%)"
 
-                echo -e $lgn"$df : Charging, (${perc})"
+			elif [[ $perc < 50 && $perc > 39 ]]; then
 
-            elif [[ $perc < 50 && $perc > 39 && $status == '"CHARGING",' ]]; then
+				echo -e $lgn"$df : Charging, ($perc%)"
 
-                echo -e $lgn"$df : Charging, (${perc})"
+			elif [[ $perc < 60 && $perc > 49 ]]; then
 
-            elif [[ $perc < 60 && $perc > 49 && $status == '"CHARGING",' ]]; then
+				echo -e $lgn"$df : Charging, ($perc%)"
 
-                echo -e $lgn"$df : Charging, (${perc})"
+			elif [[ $perc < 70 && $perc > 59 ]]; then
 
-            elif [[ $perc < 70 && $perc > 59 && $status == '"CHARGING",' ]]; then
+				echo -e $lgn"$df : Charging, ($perc%)"
 
-                echo -e $lgn"$df : Charging, (${perc})"
+			elif [[ $perc < 80 && $perc > 69 ]]; then
 
-            elif [[ $perc < 80 && $perc > 69 && $status == '"CHARGING",' ]]; then
+				echo -e $lgn"$df : Charging, ($perc%)"
 
-                echo -e $lgn"$df : Charging, (${perc})"
+			elif [[ $perc < 90 && $perc > 79 ]]; then
 
-            elif [[ $perc < 90 && $perc > 79 && $status == '"CHARGING",' ]]; then
+				echo -e $lgn"$df : Charging, ($perc%)"
 
-                echo -e $lgn"$df : Charging, (${perc})"
+			elif [[ $perc < 99,5 && $perc > 89 ]]; then
 
-            elif [[ $perc < 99,5 && $perc > 89 && $status == '"CHARGING",' ]]; then
+				echo -e $lgn"$df : Charging, ($perc%)"
 
-                echo -e $lgn"$df : Charging, (${perc})"
+			elif [[ $perc == 100 ]]; then
 
-            elif [[ $perc == 100 && $status == '"CHARGING",' ]]; then
+				echo -e $lgn"$df : Charging, ($perc%)"
 
-                echo -e $lgn"$df : Charging, (${perc})"
+			fi
 
-            fi
+		fi
 
-        }
+	}
 
-        new
+	new
 
 	else
 
-		echo -e 'ERROR : termux-battery-status not found, make sure you install 
+		echo -e 'ERROR : termux-battery-status not found, make sure to install 
 the Termux-API APP (Playstore or F-Droid) and the package with 
 "pkg install termux-api"'
 
-    fi
+	fi
 
 }
 
@@ -178,13 +189,13 @@ version() {
 
 help() {
 
-    echo -e "Usage: \n  ./script.sh [options]"
-    echo -e "\nMETA OPTIONS :"
-    echo -e "  -h, --help           Show list of command-line options."
-    echo -e "  -v, --version        Show version of script."
-    echo -e "\nRUN OPTIONS :"
-    echo -e "  -s, --storage        Show Internal Storage."
-    echo -e "  -b, --battery        Show Battery Android (Need Termux-API Insatlled)."
+	echo -e "Usage: \n  ./script.sh [options]"
+	echo -e "\nMETA OPTIONS :"
+	echo -e "  -h, --help           Show list of command-line options."
+	echo -e "  -v, --version        Show version of script."
+	echo -e "\nRUN OPTIONS :"
+	echo -e "  -s, --storage        Show Internal Storage."
+	echo -e "  -b, --battery        Show Battery Android (Need Termux-API Insatlled)."
 
 }
 
