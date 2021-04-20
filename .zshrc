@@ -147,6 +147,9 @@ source $ZSH/oh-my-zsh.sh
     #Photos
     alias ss="cd /sdcard/Pictures/Screenshots/"
 
+    #Largest Files
+    alias largefile="du -h -x -s -- * | sort -r -h | head -20"
+
     #System Information
     #alias neo="bash ~/.config/neofetch/debug-logo.sh --randomsmall"
     alias neo="neofetch"
