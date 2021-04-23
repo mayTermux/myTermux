@@ -9,6 +9,9 @@ export PATH
 LINK="https://github.com/xshin404"
 export LINK
 
+# Enable 256color
+export TERM=xterm-256color 
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -144,6 +147,9 @@ source $ZSH/oh-my-zsh.sh
     alias pipes2="~/.color-toys/pipes2"
     alias pipes2-slim="~/.color-toys/pipes2-slim"
 
+    #archives .deb
+    alias archives="cd /data/data/com.termux/cache/apt/archives/"
+
     #Photos
     alias ss="cd /sdcard/Pictures/Screenshots/"
 
@@ -161,6 +167,10 @@ source $ZSH/oh-my-zsh.sh
     alias lt="exa --icons --tree"
     alias lta="exa --icons --tree -lgha"
     alias listpkg="bash $HOME/.scripts/list-packages.sh $1 $2"
+
+    #proot-distro
+    alias prot="cd $PREFIX/var/lib/proot-distro"
+    alias protlogin="proot-distro login $1"
 
     ## Configuration
 
@@ -192,6 +202,9 @@ source $ZSH/oh-my-zsh.sh
 
     #Refresh
     alias refresh="source $HOME/.zshrc"
+
+    #Unsource
+    alias unsource="exec $SHELL -l"
 
     #PID Login
     alias loginconf="nvim ~/.scripts/login.sh"
