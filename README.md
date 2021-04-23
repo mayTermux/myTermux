@@ -5,6 +5,19 @@
 </p> <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/myTermux?style=flat-square&label=Visits&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/> <img alt="" align="right" src="https://img.shields.io/github/repo-size/xshin404/myTermux?style=flat-square&label=Size&color=fa74b2&labelColor=373e4d"/>
 
 ##
+
+### About my setup
+
+- **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework + plugins
+- **Music**                        • [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon) :musical_note: with [ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp) text-mode client for MPD
+- **File Manager**                 • [lf](https://github.com/gokcehan/lf) :bookmark:
+- **Text Editor**                  • [Neovim](https://neovim.io) :ledger: + plugins
+- **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
+- **Font**                         • [MesloLGS Nerd Font](https://github.com/romkatv/dotfiles-public/blob/master/.local/share/fonts/NerdFonts/) :doughnut:
+- **Icon**                         • [Nerd Fonts](https://www.nerdfonts.com/cheat-sheet) :rocket:
+
+[Installation](https://github.com/xshin404/myTermux/blob/master/READFULL.md)
+
 ### Preview
 
   > NOTE:
