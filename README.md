@@ -16,7 +16,9 @@
 - **Font**                         • [MesloLGS Nerd Font](https://github.com/romkatv/dotfiles-public/blob/master/.local/share/fonts/NerdFonts/) :doughnut:
 - **Icon**                         • [Nerd Fonts](https://www.nerdfonts.com/cheat-sheet) :rocket:
 
-### Installation -> [READFULL <3](https://github.com/xshin404/myTermux/blob/master/READFULL.md)
+### Installation 
+
+  See -> [READFULL <3](https://github.com/xshin404/myTermux/blob/master/READFULL.md)
 
 ### Preview
 
@@ -52,3 +54,12 @@
   |ncmpcpp + cava (split using tmux)|
   |--|
   |![Image](/assets/images/preview/ncmcava1.png)|
+
+
+### Support My Work
+
+<p align="center">
+  <a name="top" href="https://sociabuzz.com/xshin/tribe">
+     <img alt="myTermux Banner" height="60%" width="100%" src="/assets/images/donate/Support-My-Work.png"/>
+  </a>
+</p>
