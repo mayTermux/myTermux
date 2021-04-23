@@ -297,6 +297,11 @@ function lightweightpackage() {
         
             exit 1 ;;
 
+        * )
+
+          echo -e "Abort."
+          exit 1 ;;
+
     esac
 
 }
@@ -376,6 +381,11 @@ function fullpackage() {
         n|N ) 
         
             exit 1 ;;
+
+        * )
+
+          echo -e "Abort."
+          exit 1 ;;
 
     esac
 
