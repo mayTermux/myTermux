@@ -391,16 +391,16 @@ ex=:\
     c
     
 
-    if [ "$TMUX" == "" ]; then
+#    if [ "$TMUX" == "" ]; then
 
-        tmux
+#        tmux
 
-    fi
+#    fi
 
-    if [ ! -f ~/.scripts/pid/login ]; then
+#    if [ ! -f ~/.scripts/pid/login ]; then
         
-        bash ~/.scripts/login.sh
+#        bash ~/.scripts/login.sh
 
-    fi
+#    fi
 
     neo
