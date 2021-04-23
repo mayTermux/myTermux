@@ -13,7 +13,7 @@
 - **File Manager**                 • [lf](https://github.com/gokcehan/lf) :bookmark:
 - **Text Editor**                  • [Neovim](https://neovim.io) :ledger: + plugins
 - **System Information**           • [Neofetch](https://github.com/dylanaraps/neofetch/wiki) :gear:
-- **Font**                         • [MesloLGS Nerd Font](https://github.com/romkatv/dotfiles-public/blob/master/.local/share/fonts/NerdFonts/) :doughnut:
+- **Font**                         • [JetBrains Mono Nerd Font](https://github.com/romkatv/dotfiles-public/blob/master/.local/share/fonts/NerdFonts/) :doughnut:
 - **Icon**                         • [Nerd Fonts](https://www.nerdfonts.com/cheat-sheet) :rocket:
 
 ### Installation 
