@@ -60,6 +60,6 @@
 
 <p align="center">
   <a name="top" href="https://sociabuzz.com/xshin/tribe">
-     <img alt="myTermux Banner" height="60%" width="100%" src="/assets/images/donate/Support-My-Work.png"/>
+     <img alt="myTermux Banner" height="50%" width="50%" src="/assets/images/donate/Support-My-Work.png"/>
   </a>
 </p>
