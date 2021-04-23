@@ -5,7 +5,7 @@ count=0
 
 echo -e "The default font is MesloLGS NF (Bold) font.\nYou can choose another one from list below.";
 
-for font in $FONTS_DIR/*/{*.ttf,*.otf}; do
+for font in $FONTS_DIR/*/*/{*.ttf,*.otf}; do
 	font_file[count]=$font;
 	echo "[$count] $( echo ${font_file[count]} | awk -F'/' '{print $NF}' )";
 	count=$(( $count + 1));
