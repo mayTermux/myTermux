@@ -20,7 +20,7 @@ if [[ -f $HOME/.xshin.var ]]; then
                 lightweightpackage
                 zshrepo
                 shell
-                owl4cezsh
+                zshtheme
                 dotfiles
 
                 if [[ -d $HOME/.config/nvim ]]; then
@@ -43,7 +43,7 @@ if [[ -f $HOME/.xshin.var ]]; then
                 fullpackage
                 zshrepo
                 shell
-                owl4cezsh
+                zshtheme
                 dotfiles
                 tmuxtheme
                 neovimplug

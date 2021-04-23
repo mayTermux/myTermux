@@ -482,28 +482,60 @@ function shell() {
 }
 
 # ZSH Themes
-owl4cethemes=(
 
-    "rounded.zsh-theme"
-    "ar-round.zsh-theme"
-    "la-round.zsh-theme"
-
-)
-
-function owl4cezsh() {
+function zshtheme() {
 
     echo -e "\n⚙️ Installing ZSH Theme"
 
-    for owl4cetheme in "${owl4cethemes[@]}"; do
+    function owl4cethemes() {
 
-        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 $owl4cetheme"
+        owl4cethemes=(
+
+            "rounded.zsh-theme"
+            "ar-round.zsh-theme"
+            "la-round.zsh-theme"
+
+        )
+
+        for owl4cetheme in "${owl4cethemes[@]}"; do
+
+            start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 $owl4cetheme"
+            sleep 2
+            cp $DIR/.oh-my-zsh/custom/themes/$owl4cetheme $HOME/.oh-my-zsh/custom/themes/$owl4cetheme
+
+            function check() {
+
+                if [[ -f $HOME/.oh-my-zsh/custom/themes/$owl4cetheme ]]; then
+
+                    sed -i 's/ZSH_THEME=""/ZSH_THEME="la-round"' ~/.zshrc
+                    stop_spinner $?
+
+                else
+
+                    cp "empty" > /dev/null 2>&1
+                    stop_spinner $?
+
+                fi
+
+            }
+
+            check
+
+        done
+
+    }
+
+    function powerlevel10k() {
+
+        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 powerlevel10k"
         sleep 2
-        cp $DIR/.oh-my-zsh/custom/themes/$owl4cetheme $HOME/.oh-my-zsh/custom/themes/$owl4cetheme
+        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k &>/dev/null
 
         function check() {
 
-            if [[ -f $HOME/.oh-my-zsh/custom/themes/$owl4cetheme ]]; then
+            if [[ -d $HOME/.oh-my-zsh/custom/themes/powerlevel10k ]]; then
 
+                sed -i 's/ZSH_THEME=""/ZSH_THEME="powerlevel10k/powerlevel10k"' ~/.zshrc
                 stop_spinner $?
 
             else
@@ -517,7 +549,18 @@ function owl4cezsh() {
 
         check
 
-    done
+    }
+
+
+    echo -e "[1] owl4ce"
+    echo -e "[2] powerlevel10k\n"
+    read -p "Choose Theme : " Theme
+
+    case $Theme in
+        1 ) owl4cethemes ;;
+        2 ) powerlevel10k ;;
+        * ) echo -e $lrd"\nPlease enter the right number!\n$df" && zshtheme ;;
+    esac
 
 }
 
