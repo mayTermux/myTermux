@@ -16,7 +16,7 @@
 - **Font**                         • [MesloLGS Nerd Font](https://github.com/romkatv/dotfiles-public/blob/master/.local/share/fonts/NerdFonts/) :doughnut:
 - **Icon**                         • [Nerd Fonts](https://www.nerdfonts.com/cheat-sheet) :rocket:
 
-### [Installation](https://github.com/xshin404/myTermux/blob/master/READFULL.md)
+### Installation -> [READFULL <3](https://github.com/xshin404/myTermux/blob/master/READFULL.md)
 
 ### Preview
 
