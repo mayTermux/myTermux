@@ -23,7 +23,7 @@
 ### Preview
 
   > NOTE:
-  > This photo was taken using a laptop which is connected to the openssh server Termux
+  > This photos was taken using a laptop which is connected to the openssh server Termux
 
   - Neovim (Text Editor)
 
