@@ -574,6 +574,7 @@ function zshtheme() {
             if [[ -d $HOME/.oh-my-zsh/custom/themes/powerlevel10k ]]; then
 
                 sed -i 's/ZSH_THEME=""/ZSH_THEME="powerlevel10k\/powerlevel10k"/g' ~/.zshrc
+                cp $DIR/.p10k.zsh ~/
                 stop_spinner $?
 
             else
