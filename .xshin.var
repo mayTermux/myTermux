@@ -77,7 +77,6 @@ vardotfiles=(
 
     ".config"
     ".color-toys"
-    ".zshrc"
     ".tmux.conf"
     ".termux"
 
@@ -545,7 +544,6 @@ function zshtheme() {
 
                 if [[ -f $HOME/.oh-my-zsh/custom/themes/$owl4cetheme ]]; then
 
-                    sed -i 's/ZSH_THEME=""/ZSH_THEME="la-round"/g' ~/.zshrc
                     stop_spinner $?
 
                 else
@@ -561,6 +559,9 @@ function zshtheme() {
 
         done
 
+        cp $DIR/.zshrc $HOME
+        sed -i 's/ZSH_THEME=""/ZSH_THEME="la-round"/g' ~/.zshrc
+
     }
 
     function powerlevel10k() {
@@ -573,6 +574,7 @@ function zshtheme() {
 
             if [[ -d $HOME/.oh-my-zsh/custom/themes/powerlevel10k ]]; then
 
+                cp $DIR/.zshrc $HOME
                 sed -i 's/ZSH_THEME=""/ZSH_THEME="powerlevel10k\/powerlevel10k"/g' ~/.zshrc
                 cp $DIR/.p10k.zsh ~/
                 stop_spinner $?
