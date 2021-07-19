@@ -6,6 +6,11 @@
 
 ##
 
+### See Web Document Version (Beta)
+
+  Here -> [xshin404.github.io](https://xshin404.github.io)
+
+
 ### About my setup
 
 - **Shell**                        • [ZSH](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework + plugins
