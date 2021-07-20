@@ -1,0 +1,289 @@
+#!/usr/bin/env bash
+# Github  : https://github.com/annzc
+# telegram: @bluetterphiley
+# MIT LICENSE <3
+
+#R="\e[91m"
+#G="\e[92m"
+#B="\e[94m"
+#Y="\e[93m"
+#C="\e[96m"
+#O="\e[0m"
+
+_VERSION="0.2-beta"
+_PROG="shot-magick"
+_GITHUB="https://github.com/annzc/shot-magick"
+
+_OPTIONS=(         \
+  '-h' '--help'    \
+  '-v' '--version' \
+  '-r' '--rounded' \
+  '-d' '--dark'    \
+  '-t' '--usertag' \
+  '-c' '--notag'   \
+  '-f' '--file'    \
+  '-o' '--output'  \
+)
+_OPSI_USER=( "$2" "$3" "$4" "$5" )
+
+_FILE="$1"
+_NEME=$(echo $1|awk -F '/' '{print $NF}')
+_FUCC=$(echo $_NEME | sed 's/[ ]*/WTF/g')
+_FILE_EXT=$(echo "$1" | awk -F "." '{print $NF}')
+_FILE_NAME=$(echo "$1" | sed "s/.$_FILE_EXT$//")
+_FILE_ANU="ShotMg"
+_FILE_RES="${_FILE_NAME}_${_FILE_ANU}.$_FILE_EXT"
+_PNG=".buff.png"
+
+_MODE="light" # default
+
+# Tag setup
+_TAG_FG="#0e1419"
+_TAG_BG="none"
+_TAG_SIZE=13
+_TAG_GRAVITY="Northwest"
+_TAG_ANNOTATE="+40+2"
+_TAG_DEFAULT="Ann @ Redmi6A $(date +'%d-%m-%Y %r')"
+_TAG_FONT="Iosevka-Mayukai-Medium-Nerd-Font-Complete"
+# to display list font, run:
+#      convert -list font | grep -iE 'font:.*'
+
+# Shadow setup
+_SHADOW_SIZE="50x10+0+10"
+_SHADOW_COLOR="#000000"
+
+# Border setup
+_BORDER_COLOR="#abb2bf"
+
+# user options
+#[[ ${_OPSI_USER[*]} =~ "-f" ]] ||
+#  [[ ${_OPSI_USER[*]} =~ "--file" ]] &&
+#  for v in ${_OPSI_USER[@]}
+
+[[ ${_OPSI_USER[*]} =~ "--notag" ]] ||
+  [[ ${_OPSI_USER[*]} =~ "-c" ]] &&
+  _IS_TAG=false || _IS_TAG=true
+
+if [[ ${_OPSI_USER[*]} =~ "--usertag" ]] ||
+  [[ ${_OPSI_USER[*]} =~ "-t" ]]; then
+  if [ -f .usertag ]; then
+    _TAG_FROM=.usertag
+    _USER_TAG="$(cat .usertag)"
+  else
+    echo -ne "input user tag:\n> "
+    read -e _usertag
+    _TAG_FROM="user input"
+    _USER_TAG="$(echo $_usertag)"
+  fi
+else
+  _TAG_FROM="default tag"
+  _USER_TAG="$_TAG_DEFAULT"
+fi
+
+[[ ${_OPSI_USER[*]} =~ "--rounded" ]] ||
+  [[ ${_OPSI_USER[*]} =~ "-r" ]]      &&
+  _IS_ROUNDED=true || _IS_ROUNDED=false
+
+[[ ${_OPSI_USER[*]} =~ "--dark" ]] ||
+  [[ ${_OPSI_USER[*]} =~ "-d" ]]   &&
+  _MODE="dark" _TAG_FG="#61afef"
+
+[[ $_MODE == "dark" ]] &&
+  _BORDER_COLOR="#0e1419" _SHADOW_COLOR="#61afef"
+
+_apani="
+ $_PROG v$_VERSION
+ Program sederhana untuk mempercantik(?) hasil screenshot.
+"
+
+_apani_cara_pakai="
+ USAGE
+  ./shot-magick [-h|--help|-v|--version]
+  ./shot-magick [img.ext] [OPSI]
+"
+
+_apani_contoh="
+ EXAMPLE
+  ./shot-magick img.jpg --dark
+  ./shot-magick img.png --rounded --dark
+  ./shot-magick img.jpg --dark --usertag
+"
+
+_apani_opsi="
+ OPTIONS
+  -r [--rounded]    - menumpulkan bagian sudut gambar
+  -d [--dark]       - border mode gelap
+  -t [--usertag]    - menyesuaikan bagian isi tag
+  -c [--notag]      - tidak ada tag
+"
+
+_setup_() {
+  echo
+}
+
+_help_() {
+  echo -e "            \
+    $_apani            \
+    $_apani_cara_pakai \
+    $_apani_opsi       \
+    $_apani_contoh"
+}
+
+_version_() {
+  echo -e "
+$_PROG v$_VERSION\n${O}Github: $_GITHUB
+  "
+}
+
+_unknown_() {
+  [[ ${_OPTIONS[*]} =~ "$_FILE" ]] &&
+  case "$_FILE" in
+    -|--)
+      echo -e "tidak ditemukan argumen '$_FILE'. lihat --help"
+      ;;
+    -*)
+      echo -e "penggunaan salah! coba dengan --help"
+      ;;
+  esac ||
+    echo -e "tidak ditemukan argumen '$_FILE'. lihat '--help'"
+}
+
+_nofile_() {
+  echo -e "file '$_FILE' tidak dapat ditemukan"
+}
+
+_result_() {
+  echo -e "
+  Details~~~
+
+  {
+  \t'file'    : '$_FILE'
+  \t'rounded' : '$_IS_ROUNDED'
+  \t'mode'    : '$_MODE'
+  \t'tag'     : '$($_IS_TAG && echo $_USER_TAG || echo notag)'
+  \t'result'  : '$_FILE_RES'
+  }
+  " | sed 's/^[ ]*//g'
+}
+
+_convert_() {
+  {
+    cp "$_FILE" $_FUCC 2>&1
+    echo
+    echo converting...
+    convert "$_FUCC" $_PNG
+    sleep 0.1
+
+    echo -n "rounded corner... " 
+    $_IS_ROUNDED       &&
+      echo yes         &&
+      _rounded_corner_ ||
+      echo no
+
+		[[ $_MODE == "light" ]] && #_inborder_
+		$_IS_ROUNDED && _rounded_corner_
+
+    _shadow_
+    _border_
+
+    echo -n "adding tag... "
+    $_IS_TAG                  &&
+      echo "yes ($_TAG_FROM)" &&
+      _tag_                   ||
+      echo no
+
+    echo final convert...
+    convert $_PNG "$_FILE_RES"
+
+    rm $_PNG $_FUCC
+  }
+}
+
+_usrarg_() {
+  case "$1" in
+    -h|--help    ) _help_       ;;
+    -v|--version ) _version_    ;;
+    -*           ) _unknown_ ;;
+  esac
+}
+
+#######################################
+################ MAIN #################
+main() {
+  [ ! $1 ]                     &&
+    _help_                     &&
+    exit 1
+
+  [ -f "$_FILE" ]              &&
+    {
+      _convert_                &&
+      _result_                 ||
+      echo -e "Convert failed" &&
+      exit 1
+    }
+
+  [[ "$1" =~ -* ]]             &&
+    _usrarg_ $1                &&
+    exit 0
+  
+  _nofile_                     &&
+    exit 1
+}
+################ MAIN #################
+#######################################
+
+_rounded_corner_() {
+  convert $_PNG                                                 \
+    \(                                                          \
+      +clone                                                    \
+      -alpha extract -draw                                      \
+      'fill black polygon 0,0 0,30 30,0 fill white circle 30,30 30,0'\
+      \( +clone -flip \)                                        \
+      -compose Multiply -composite                              \
+      \( +clone -flop \)                                        \
+      -compose Multiply -composite                              \
+    \)                                                          \
+    -alpha off                                                  \
+    -compose CopyOpacity -composite $_PNG
+}
+
+_shadow_() {
+  convert $_PNG                   \
+    \( +clone                     \
+    -background "$_SHADOW_COLOR"  \
+    -shadow $_SHADOW_SIZE \)      \
+    +swap                         \
+    -background none              \
+    -layers merge                 \
+    +repage $_PNG
+}
+
+_border_() {
+  convert $_PNG                   \
+    -bordercolor "$_BORDER_COLOR" \
+    -border 70 $_PNG
+}
+
+_tag_() {
+  echo -en "  $_USER_TAG  "       |
+    convert     $_PNG             \
+    -gravity    $_TAG_GRAVITY     \
+    -pointsize  $_TAG_SIZE        \
+    -fill       $_TAG_FG          \
+    -undercolor $_TAG_BG          \
+    -font       $_TAG_FONT        \
+    -annotate   $_TAG_ANNOTATE    \
+    @- $_PNG
+}
+
+#_inborder_() {
+#	convert $_PNG -border 3 $_PNG
+#}
+
+__end() { # for debugging
+  _result_
+  exit 1
+}
+
+#__end
+main $1 $2 $3 $4
