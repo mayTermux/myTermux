@@ -35,8 +35,8 @@ function banner() {
     echo -e "║     $df$wh|_|_|_|\__  $lrd|_|\e[97m_____)_|   |_|_|_|____/(_/ \_)$bl      ║"
     echo -e "║           $df$wh(____/$bl                                       ║"
     echo -e "║                                                        ║"
-    echo -e "║             🚀$wh Version         :$lyw 0.4.3 pre $bl            ║"
-    echo -e "║             📅$wh Build Date      :$lrd 09 April 2021 $bl        ║"
+    echo -e "║             🚀$wh Version         :$lyw 0.4.4 dev $bl            ║"
+    echo -e "║             📅$wh Build Date      :$lrd 25 July 2021 $bl        ║"
     echo -e "║             📦$wh Repository Size :$lgn $repoSize $bl             ║"
     echo -e "║             ⚙️ $wh Maintainer      :$mg xShin$df$bl                 ║"
     echo -e "║                                                        ║"
@@ -530,6 +530,7 @@ function zshtheme() {
         owl4cethemes=(
 
             "rounded.zsh-theme"
+            "rounded-custom.zsh-theme"
             "ar-round.zsh-theme"
             "la-round.zsh-theme"
 
@@ -635,18 +636,6 @@ function neovimplug() {
     }
 
     check
-
-    if [ $? -eq 0 ]; then
-
-        stop_spinner $?
-
-    else
-
-        sleep 2
-        cp "empty" > /dev/null 2>&1
-        stop_spinner $?
-
-    fi
 
 }
 
