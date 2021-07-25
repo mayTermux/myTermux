@@ -245,6 +245,7 @@ function lightweightpackage() {
     echo -e "\n⚙️ Installing lightweight package\n"
 
     cp -R $DIR/.scripts $HOME/.scripts &>/dev/null
+    cp -R $DIR/.local $HOME/.local &>/dev/null
 
     if [[ -f $HOME/.scripts/list-packages.sh ]]; then
 
@@ -369,6 +370,7 @@ function fullpackage() {
     echo -e "\n⚙️ Installing full package\n"
 
     cp -R $DIR/.scripts $HOME/.scripts &>/dev/null
+    cp -R $DIR/.local $HOME/.local &>/dev/null
 
     if [[ -f $HOME/.scripts/list-packages.sh ]]; then
 
@@ -416,7 +418,7 @@ function fullpackage() {
                 check
 
             done 
-            
+
         ;;
 
         y|Y ) 
@@ -692,7 +694,7 @@ function zshtheme() {
 
 function neovimplug() {
 
-    echo -e "\n⚙️ Installing neovim plugins"
+    echo -e "\n⚙️ Installing neovim plugin"
 
     start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 packer plugin"
     sleep 2
@@ -701,7 +703,7 @@ function neovimplug() {
     
     function check() {
 
-        if [[ -f ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
+        if [[ -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
 
             stop_spinner $?
 
@@ -742,6 +744,7 @@ function finish() {
     echo -e "\n‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Message :"
     echo -e "      - ZSH not apply (Need restart)"
     echo -e "      - Termux Properties size (Need restart to fix the size)"
+    echo -e "      - Neovim need run :PackerInstall to install plugin"
     echo -e ""
     echo -e "‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Known Installation Bug :"
 
