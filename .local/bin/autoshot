@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+DIRECTORY="/sdcard/Pictures/Screenshots"
+
+inotifywait -m -e create $DIRECTORY | \
+  while read FILENAME; do
+    FILE_NAME=$(echo -e $FILENAME | awk '{print $3}')
+    awesomeshot -r $FILE_NAME
+  done
