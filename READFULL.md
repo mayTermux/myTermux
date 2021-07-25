@@ -242,41 +242,6 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   </details>
 
-  <details open>
-  <summary><strong>Neovim</strong></summary>
-
-  - Colorscheme
-
-  |Onedark|Ayu Dark|Gruvbox|
-  |--|--|--|
-  |![Image](/assets/images/neovim/theme/onedark.jpg)|![Image](/assets/images/neovim/theme/ayu-dark.jpg)|![Image](/assets/images/neovim/theme/gruvbox.jpg)|
-
-  - Plugin
-
-  |Vim Plug|CocList marketplace|
-  |--|--|
-  |![Image](/assets/images/neovim/Vim-Plug.jpg)|![Image](/assets/images/neovim/CocList-marketplace.jpg)|
-
-  - Keybindings
-
-  |Keys|Mode|Action|
-  |--|--|--|
-  | `C-s` | nmap, vmap, imap | Save |
-  | `C-q` | nmap, vmap, imap | Quit |
-  | `C-M-q` | nmap, vmap, imap | Quit Without Saving |
-  | `C-b` | nmap, vmap, imap | Nerdtree |
-  | `C-a` | nmap, vmap, cmap | Home Text |
-  | `C-e` | nmap, vmap, cmap | End Text |
-  | `C-C` | vmap | Copy |
-  | `C-V` | imap, cmap | Paste |
-  | `M-c` | nmap, vmap, cmap | Set Termguicolors |
-  | `C-M-c` | nmap, vmap, cmap | Unset Termguicolors |
-  | `M-z` | nmap, vmap, imap | Wrap Text |
-  | `C-M-z` | nmap, vmap, imap | Unwrap Text |
-  | `C-M-n` | nmap, vmap, imap | Set Toggle Hybrid Line Number |
-  | `C-M-b` | nmap, vmap, imap | Unset off Hybrid Line Number |
-
-  </details>
 
 ### Troubleshooting
 
@@ -343,11 +308,12 @@ To remove Termux Login in autostart delete on ~/.zshrc `bash ~/.scripts/login.sh
 
   - **Other**
     - [Dotfiles Indonesia](https://t.me/dotfiles_id)
+    - [Siduck76](https://github.com/siduck76)
     - [nekonako](https://github.com/nekonako)
     - [Oh-My-ZSH](https://github.com/ohmyzsh/ohmyzsh)
     - [MPD](https://wiki.archlinux.org/index.php/Music_Player_Daemon)
     - [Ncmpcpp](https://wiki.archlinux.org/index.php/ncmpcpp)
-    - [Dotfiles](https://github.com/owl4ce/dotfiles)
+    - [Owl4ce Dotfiles](https://github.com/owl4ce/dotfiles)
     - [Neovim](https://neovim.io)
     - [Vim Plug](https://github.com/junegunn/vim-plug)
     - [Neofetch](https://github.com/dylanaraps/neofetch)

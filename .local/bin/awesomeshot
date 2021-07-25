@@ -1,0 +1,241 @@
+#!/usr/bin/env bash
+#/data/data/com.termux/usr/bin/env bash
+
+# Variable Color
+COLOR_BASED="\e[39m"
+COLOR_DANGER="\e[91m"
+COLOR_WARNING="\e[93m"
+COLOR_SUCCESS="\e[92m"
+
+# Variable Information Awesomeshot
+VERSION="0.0.1"
+PROGRAM_NAME="awesomeshot"
+REPOSITORY_URL="https://github.com/xshin404/awesomeshot"
+BUILD_DATE="Sunday, 25 July 2021"
+
+# Variable Imagemagick
+
+## Imagemagick Color
+BACKGROUND_COLOR="#545862"
+SHADOW_SIZE="50x10+0+10"
+SHADOW_COLOR="#000000"
+BORDER_SIZE=70
+BORDER_COLOR="#ABB2BF"
+
+## Imagemagick Footer
+FOOTER_POSITION="SouthWest"
+FOOTER_XY="+280+25"
+FOOTER_TEXT=" Awesomeshot on $(date +'%d-%m-%Y %r')"
+FOOTER_FONT="JetBrains-Mono-Regular-Nerd-Font-Complete"
+FOOTER_FONT_SIZE="18"
+FOOTER_FOREGROUND_COLOR="#0E1419"
+FOOTER_BACKGROUND_COLOR="none"
+
+## Log Message
+LOG_OK="[${COLOR_SUCCESS}OK${COLOR_BASED}]"
+LOG_ERROR="[${COLOR_DANGER}ERROR${COLOR_BASED}]"
+
+# Function Log Date
+function logdate() {
+  echo -e "[${COLOR_WARNING}$(date +'%d-%m-%Y %r')${COLOR_BASED}] > $@"
+}
+
+# Function Magick
+
+## Function magickrounded
+function magickrounded() {
+  convert $NEW_FILE_PWD \
+    \( \
+        +clone \
+        -alpha extract -draw \
+        'fill black polygon 0,0 0,20 20,0 fill white circle 20,20 20,0' \
+        \( +clone -flip \) \
+        -compose Multiply -composite \
+        \( +clone -flop \) \
+        -compose Multiply -composite \
+    \) \
+    -alpha off -compose CopyOpacity -composite $NEW_FILE_PWD
+}
+
+## Function magickshadow
+function magickshadow() {
+  convert $NEW_FILE_PWD \
+    \( \
+      +clone \
+      -background "$SHADOW_COLOR" \
+      -shadow $SHADOW_SIZE \
+    \) \
+    +swap \
+    -background none \
+    -layers merge \
+    +repage $NEW_FILE_PWD
+}
+
+## Function magickborder
+function magickborder() {
+  convert $NEW_FILE_PWD -bordercolor "$BORDER_COLOR" -border $BORDER_SIZE $NEW_FILE_PWD
+}
+
+## Function magickfooter
+function magickfooter() {
+  echo -n "$FOOTER_TEXT" |
+  convert $NEW_FILE_PWD \
+  -gravity $FOOTER_POSITION \
+  -pointsize $FOOTER_FONT_SIZE \
+  -fill $FOOTER_FOREGROUND_COLOR \
+  -undercolor $FOOTER_BACKGROUND_COLOR \
+  -font $FOOTER_FONT \
+  -annotate $FOOTER_XY \
+  @- $NEW_FILE_PWD
+}
+
+# Option Execute
+
+## Function execute
+function execute() {
+  logdate Getting Option Execute...
+  if [[ "$@" == "-r" ]]; then
+    echo -e "Rounded  : Enable"
+    echo -e "Footer   : Disable"
+    logdate Execute awesomeshot
+    logdate Searching newest file on pwd...
+    if [ `find | sort -r | head | sed -n 1p 2>/dev/null` ]; then
+      NEW_FILE_PWD=`find | sort -r | head | sed -n 1p`
+      logdate $NEW_FILE_PWD $LOG_OK
+      # sleep 1s
+      logdate Add rounded corner to image...
+      if magickrounded; then
+        logdate Rounded $LOG_OK
+        # sleep 1s
+        logdate Add shadow to image...
+        if magickshadow; then
+          logdate Shadow $LOG_OK
+          # sleep 1s
+          logdate Add border to image...
+          if magickborder; then
+            logdate Shadow $LOG_OK
+            # sleep 1s
+            logdate $NEW_FILE_PWD [${COLOR_SUCCESS}DONE${COLOR_BASED}]
+          else
+            logdate Border $LOG_ERROR
+          fi
+        else
+          logdate Shadow $LOG_ERROR
+        fi
+      else
+        logdate Rounded $LOG_ERROR
+      fi
+    fi
+  elif [[ "$@" == "-r -f" ]]; then
+    echo -e "Rounded  : Enable"
+    echo -e "Footer   : Enable"
+    logdate Execute awesomeshot
+    logdate Searching newest file on pwd...
+    if [ `find | sort -r | head | sed -n 1p 2>/dev/null` ]; then
+      NEW_FILE_PWD=`find | sort -r | head | sed -n 1p`
+      logdate $NEW_FILE_PWD $LOG_OK
+      # sleep 3s
+      logdate Add rounded corner to image...
+      if magickrounded; then
+        logdate Rounded $LOG_OK
+        # sleep 1s
+        logdate Add shadow to image...
+        if magickshadow; then
+          logdate Shadow $LOG_OK
+          # sleep 1s
+          logdate Add border to image...
+          if magickborder; then
+            logdate Shadow $LOG_OK
+            # sleep 1s
+            logdate Add footer to image...
+            if magickfooter; then
+              logdate Footer $LOG_OK
+              # sleep 1s
+              logdate $NEW_FILE_PWD [${COLOR_SUCCESS}DONE${COLOR_BASED}]
+            else
+              logdate Footer $LOG_ERROR
+            fi
+          else
+            logdate Border $LOG_ERROR
+          fi
+        else
+          logdate Shadow $LOG_ERROR
+        fi
+      else
+        logdate Rounded $LOG_ERROR
+      fi
+    fi
+  elif [[ "$@" == "-f" ]]; then
+    echo -e "Footer   : Enable"
+    echo -e "Rounded  : Disable"
+  elif [[ "$@" == "-f -r" ]]; then
+    echo -e "Footer   : Enable"
+    echo -e "Rounded  : Enable"
+  else
+    echo -e "[${COLOR_DANGER}ERROR${COLOR_BASED}] > Unknown option"
+    exit 1
+  fi
+  exit 1
+  NEW_FILE_PWD=`find | sort -r | head | sed -n 1p`
+  logdate Execute awesomeshot
+  logdate Searching newest file on pwd
+  logdate Edit image to rounded...
+  magickrounded
+  logdate Adding shadow image...
+  magickshadow
+  logdate Adding border image...
+  magickborder
+  logdate Adding footer image...
+  magickfooter
+  logdate Getting image file name...
+  logdate $NEW_FILE_PWD
+  logdate [${COLOR_SUCCESS}DONE${COLOR_BASED}]
+}
+
+## Function Information
+function information() {
+  echo -e "Program Name   : $PROGRAM_NAME"
+  echo -e "Version        : v$VERSION"
+  echo -e "Repository URL : $REPOSITORY_URL"
+  echo -e "Build Date     : $BUILD_DATE"
+}
+
+## Function Help
+function help() {
+  
+  # Usage Help
+  echo -e "Usage:
+  awesomeshot [options] 
+  "
+  
+  # Option Help
+  echo -e "Options:
+  -f        Run awesomeshot with footer text
+  -h        Print this help message
+  -i        Print information about this program
+  -m        Run awesomeshot with custom mode 'light|dark' (default light)
+  -p        Run awesomeshot on pwd
+  -v        Print version information
+  "
+}
+
+case $@ in
+  -v )
+    echo -e "$PROGRAM_NAME v$VERSION"
+  ;;
+  -i )
+    information
+  ;;
+  -h )
+    help
+  ;;
+  "" )
+    execute
+  ;;
+  -f )
+    execute $@
+  ;;
+  $@ )
+    execute $@
+  ;;
+esac
