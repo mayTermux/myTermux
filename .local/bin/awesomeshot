@@ -94,13 +94,14 @@ function magickfooter() {
 ## Function execute
 function execute() {
   logdate Getting Option Execute...
-  if [[ "$@" == "-r" ]]; then
+  if [[ "$1" == "-r" && "$2" == * ]]; then
     echo -e "Rounded  : Enable"
     echo -e "Footer   : Disable"
     logdate Execute awesomeshot
     logdate Searching newest file on pwd...
     if [ `find | sort -r | head | sed -n 1p 2>/dev/null` ]; then
-      NEW_FILE_PWD=`find | sort -r | head | sed -n 1p`
+      #NEW_FILE_PWD=`find | sort -r | head | sed -n 1p`
+      NEW_FILE_PWD="$2"
       logdate $NEW_FILE_PWD $LOG_OK
       # sleep 1s
       logdate Add rounded corner to image...

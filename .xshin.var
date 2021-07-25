@@ -237,6 +237,7 @@ lightweightpkgs=(
     "cava"
     "neovim"
     "imagemagick"
+    "inotify-tools"
 
 )
 
@@ -362,6 +363,7 @@ fullpkgs=(
     "cava"
     "neovim"
     "imagemagick"
+    "inotify-tools"
 
 )
 
