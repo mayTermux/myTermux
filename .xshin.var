@@ -236,6 +236,7 @@ lightweightpkgs=(
     "ncmpcpp"
     "cava"
     "neovim"
+    "imagemagick"
 
 )
 
@@ -320,7 +321,7 @@ fullpkgs=(
     "ncmpcpp"
     "cava"
     "neovim"
-    "nodejs"
+    "imagemagick"
 
 )
 
@@ -560,7 +561,7 @@ function zshtheme() {
         done
 
         cp $DIR/.zshrc $HOME
-        sed -i 's/ZSH_THEME=""/ZSH_THEME="la-round"/g' ~/.zshrc
+        sed -i 's/ZSH_THEME=""/ZSH_THEME="rounded-custom"/g' ~/.zshrc
 
     }
 
@@ -610,15 +611,30 @@ function neovimplug() {
 
     echo -e "\n⚙️ Installing neovim plugins"
 
-    start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 coc.vim & etc"
+    start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 packer plugin"
     sleep 2
 
-    (
+    git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim &>/dev/null
+    
+    function check() {
 
-        set -e
-        nvim --headless +PlugInstall +qall > /dev/null 2>&1
-        
-    )
+        if [[ -f ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
+
+            stop_spinner $?
+
+        else
+
+            cp "empty" > /dev/null 2>&1
+            stop_spinner $?
+            start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎📦 packer plugin"
+            git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim &>/dev/null
+            check
+
+        fi
+
+    }
+
+    check
 
     if [ $? -eq 0 ]; then
 
