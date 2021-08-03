@@ -140,7 +140,7 @@ function informationRepository() {
 }
 
 function cloneRepository() {
-  echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Cloning or Downloading Repository"  
+  echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Cloning or Downloading Repository\n"  
   sleep 2s
   for REPOSITORY_LINK in "${REPOSITORY_LINKS[@]}"; do
     logDate Status $REPOSITORY_LINK [${COLOR_SUCCESS}TEST${COLOR_BASED}]
@@ -150,16 +150,16 @@ function cloneRepository() {
 function dotFiles() {
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Getting List Dotfiles"
   echo -e "
-    ╭───────────────────────────────────────────────────────────────╮
-    ┃                       Information Dotfiles                    ┃
-    ╰───────────────────────────────────────────────────────────────╯
-    ┃       Folder Name     ┃       PATH      ┃     Folder Size     ┃
-    ╰───────────────────────────────────────────────────────────────╯"
+    ╭───────────────────────────────────────────────╮
+    ┃             Information Dotfiles              ┃
+    ╰───────────────────────────────────────────────╯
+    ┃        Folder Name      ┃     Folder Size     ┃
+    ╰───────────────────────────────────────────────╯"
   for DOTFILE in ${DOTFILES[@]}; do
     FOLDER_SIZE=$(du -s -h $DOTFILE | awk '{print $1}')
-    printf "    ┃      %-10s     ▎      %30s      ▎      %5s      ┃\n" $DOTFILE $HOME $FOLDER_SIZE
+    printf "    ┃        %-12s     ▎        %5s        ┃\n" $DOTFILE $FOLDER_SIZE
   done
-  echo "    ╰──────────────────────────────────────────────────────────────╯"
+  echo "    ╰───────────────────────────────────────────────╯"
 }
 
 banner
