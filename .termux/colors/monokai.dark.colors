@@ -1,0 +1,21 @@
+# monokai.dark.colors
+# Color scheme from https://github.com/Mayccoll/Gogh
+color0=#75715e
+color1=#f92672
+color2=#a6e22e
+color3=#f4bf75
+color4=#66d9ef
+color5=#ae81ff
+color6=#2AA198
+color7=#f9f8f5
+color8=#272822
+color9=#f92672
+color10=#a6e22e
+color11=#f4bf75
+color12=#66d9ef
+color13=#ae81ff
+color14=#2AA198
+color15=#f8f8f2
+background=#272822
+foreground=#f8f8f2
+cursor=#f8f8f2
