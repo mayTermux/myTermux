@@ -27,6 +27,7 @@ REPOSITORY_LINKS=(
   https://github.com/zsh-users/zsh-autosuggestions
   https://github.com/wbthomason/packer.nvim
   https://github.com/jimeh/tmux-themepack
+  https://ngasal.com/
 )
 
 REPOSITORY_APIS=(
@@ -41,4 +42,7 @@ REPOSITORY_PATH=(
   $HOME/.oh-my-zsh/
   $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  $HOME/.local/share/nvim/site/pack/packer/opt/packer.nvim
+  $HOME/.tmux-themepack
+  $HOME/.ngasal
 )
