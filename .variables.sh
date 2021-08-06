@@ -18,31 +18,49 @@ DEPENDENCY_PACKAGES=(
 )
 
 DOTFILES=(
-  .local .config .termux .color-toys
+  .local .config .termux .color-toys .scripts
 )
 
 REPOSITORY_LINKS=(
   https://github.com/robbyrussell/oh-my-zsh
   https://github.com/zsh-users/zsh-syntax-highlighting
   https://github.com/zsh-users/zsh-autosuggestions
-  https://github.com/wbthomason/packer.nvim
   https://github.com/jimeh/tmux-themepack
-  https://ngasal.com/
+  https://github.com/siduck76/NvChad
 )
 
 REPOSITORY_APIS=(
   repositories/291137
   repos/zsh-users/zsh-syntax-highlighting
   repos/zsh-users/zsh-autosuggestions
-  repos/wbthomason/packer.nvim
   repos/jimeh/tmux-themepack
+  repos/siduck76/NvChad
+)
+
+REPOSITORY_FULL_NAME=(
+  robbyrussell/oh-my-zsh
+  zsh-users/zsh-syntax-highlighting
+  zsh-autosuggestions
+  tmux-themepack
+  siduck76/NvChad
 )
 
 REPOSITORY_PATH=(
   $HOME/.oh-my-zsh/
   $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-  $HOME/.local/share/nvim/site/pack/packer/opt/packer.nvim
   $HOME/.tmux-themepack
-  $HOME/.ngasal
+  $HOME/NvChad
+)
+
+ZSH_CUSTOM_THEMES=(
+  ar-round.zsh-theme
+  la-round.zsh-theme
+  rounded-custom.zsh-theme
+  rounded.zsh-theme
+)
+
+FINISHINGS=(
+  .zshrc
+  .lfvar
 )

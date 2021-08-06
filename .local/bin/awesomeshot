@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-#/data/data/com.termux/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/env bash
 
 # Variable Color
 COLOR_BASED="\e[39m"
@@ -17,7 +16,7 @@ BUILD_DATE="Sunday, 25 July 2021"
 
 ## Imagemagick Color
 BACKGROUND_COLOR="#545862"
-SHADOW_SIZE="50x10+0+10"
+SHADOW_SIZE="80x10+0+10"
 SHADOW_COLOR="#000000"
 BORDER_SIZE=70
 BORDER_COLOR="#ABB2BF"
@@ -26,7 +25,11 @@ BORDER_COLOR="#ABB2BF"
 FOOTER_POSITION="SouthWest"
 FOOTER_XY="+280+25"
 FOOTER_TEXT=" Awesomeshot on $(date +'%d-%m-%Y %r')"
-FOOTER_FONT="JetBrains-Mono-Regular-Nerd-Font-Complete"
+
+# PATH FONT (/data/data/com.termux/files/usr/share/fonts/TTF)
+# To check list font available use command (magick convert -list font | grep -iE 'font:.*')
+FOOTER_FONT="JetBrains-Mono-Medium-Nerd-Font-Complete"
+
 FOOTER_FONT_SIZE="18"
 FOOTER_FOREGROUND_COLOR="#0E1419"
 FOOTER_BACKGROUND_COLOR="none"
@@ -44,17 +47,7 @@ function logdate() {
 
 ## Function magickrounded
 function magickrounded() {
-  convert $NEW_FILE_PWD \
-    \( \
-        +clone \
-        -alpha extract -draw \
-        'fill black polygon 0,0 0,20 20,0 fill white circle 20,20 20,0' \
-        \( +clone -flip \) \
-        -compose Multiply -composite \
-        \( +clone -flop \) \
-        -compose Multiply -composite \
-    \) \
-    -alpha off -compose CopyOpacity -composite $NEW_FILE_PWD
+  convert $NEW_FILE_PWD \( +clone -alpha extract -draw 'fill black polygon 0,0 0,20 20,0 fill white circle 20,20 20,0' \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) -alpha off -compose CopyOpacity -composite $NEW_FILE_PWD
 }
 
 ## Function magickshadow
@@ -74,6 +67,7 @@ function magickshadow() {
 ## Function magickborder
 function magickborder() {
   convert $NEW_FILE_PWD -bordercolor "$BORDER_COLOR" -border $BORDER_SIZE $NEW_FILE_PWD
+  #convert $1 -bordercolor "$BORDER_COLOR" -border $BORDER_SIZE $1
 }
 
 ## Function magickfooter
@@ -114,7 +108,7 @@ function execute() {
           # sleep 1s
           logdate Add border to image...
           if magickborder; then
-            logdate Shadow $LOG_OK
+            logdate Border $LOG_OK
             # sleep 1s
             logdate $NEW_FILE_PWD [${COLOR_SUCCESS}DONE${COLOR_BASED}]
           else
@@ -146,7 +140,7 @@ function execute() {
           # sleep 1s
           logdate Add border to image...
           if magickborder; then
-            logdate Shadow $LOG_OK
+            logdate Border $LOG_OK
             # sleep 1s
             logdate Add footer to image...
             if magickfooter; then
@@ -211,16 +205,35 @@ function help() {
   
   # Option Help
   echo -e "Options:
+  -a        Run automatic shot on working directory
+  -b        Enable background image
   -f        Run awesomeshot with footer text
   -h        Print this help message
   -i        Print information about this program
   -m        Run awesomeshot with custom mode 'light|dark' (default light)
   -p        Run awesomeshot on pwd
+  -r        Enable Rounded corner
   -v        Print version information
   "
 }
 
+function autoshot() {
+  DIRECTORY="/sdcard/Pictures/Screenshots"
+
+  inotifywait -m -e create $DIRECTORY | \
+    while read FILENAME; do
+      FILE_NAME=$(echo -e $FILENAME | awk '{print $3}')
+      execute -r $FILE_NAME
+    done
+}
+
 case $@ in
+  -a )
+    autoshot
+  ;;
+  -b )
+    magickborder
+  ;;
   -v )
     echo -e "$PROGRAM_NAME v$VERSION"
   ;;
@@ -231,7 +244,7 @@ case $@ in
     help
   ;;
   "" )
-    execute
+    execute 
   ;;
   -f )
     execute $@

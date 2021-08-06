@@ -7,6 +7,17 @@ function logDate() {
   echo -e "    [${COLOR_WARNING}$(date +'%A, %d %B %Y %r')${COLOR_BASED}] > $@"
 }
 
+function dotTermux() {
+  logDate Changing Colorscheme...
+  sleep 2s
+  rm -rf $HOME/.termux
+  cp -R $(pwd)/.termux $HOME && termux-reload-settings
+  for ((i=3; i>0; i--)); do
+    sleep 1s
+    logDate Preparing Installation on ${COLOR_SUCCESS}${i}${COLOR_BASED}s
+  done
+}
+
 function banner() {
     echo -e "\n${COLOR_SKY}
               ╭────────────────────────────────────────────────────────────────╮
@@ -28,7 +39,6 @@ function banner() {
 function informationPackages() {
 
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Getting Information Packages"
-  sleep 2s
   echo -e "
     ╭─────────────────────────────────────────────────────────────────────────────────────╮
     ┃                                 Information Packages                                ┃
@@ -55,18 +65,10 @@ function informationPackages() {
 
     "" )
       installDependencyPackages
-      informationRepository
-      cloneRepository
-      dotFiles
-      installDotFiles
     ;;
 
     y|Y )
       installDependencyPackages
-      informationRepository
-      cloneRepository
-      dotFiles
-      installDotFiles
     ;;
 
     n|N )
@@ -119,7 +121,7 @@ function forloop() {
 
   for ((i=0; i<${#REPOSITORY_LINKS[@]}; i++)); do
 
-    logDate Installing ${REPOSITORY_LINKS[i]} ... 
+    logDate Installing ${REPOSITORY_FULL_NAME[i]} ... 
     sleep 1s
 
     if [ -d ${REPOSITORY_PATH[i]} ]; then
@@ -229,25 +231,20 @@ function cloneRepository() {
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Cloning or Downloading Repository\n"  
   sleep 2s
 
-  # for REPOSITORY_LINK in "${REPOSITORY_LINKS[@]}"; do
-  #   logDate Installing $REPOSITORY_LINK ...
-  #   logDate Status $REPOSITORY_LINK [${COLOR_SUCCESS}TEST${COLOR_BASED}]
-  #   echo -e ""  
-  # done
-  for ((i=0; i<6; i++)); do
+  for ((i=0; i<${#REPOSITORY_LINKS[@]}; i++)); do
 
-    logDate Installing ${REPOSITORY_LINKS[i]} ... 
-    sleep 1s
+    logDate Installing ${REPOSITORY_FULL_NAME[i]} ... 
+    git clone ${REPOSITORY_LINKS[i]} ${REPOSITORY_PATH[i]}
 
     if [ -d ${REPOSITORY_PATH[i]} ]; then
 
-      logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_SUCCESS}TEST SUCCESS${COLOR_BASED}]
+      logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
       sleep 2s
       logDate Repository PATH ${REPOSITORY_PATH[i]}
 
     else
 
-      logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_DANGER}TEST FAILED${COLOR_BASED}]
+      logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_DANGER}FAILED${COLOR_BASED}]
 
     fi
 
@@ -285,25 +282,71 @@ function installDotFiles() {
 
   for DOTFILE in "${DOTFILES[@]}"; do
 
-    # cp -R $DOTFILE $HOME
-    # logDate Status $DOTFILE [${COLOR_SUCCESS}TEST${COLOR_BASED}]
+    cp -R $DOTFILE $HOME
 
     if [ -d $HOME/$DOTFILE ]; then
 
-      logDate Status $DOTFILE [${COLOR_SUCCESS}TEST SUCCESS${COLOR_BASED}]
+      logDate Status $DOTFILE [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
 
     else
 
-      logDate Status $DOTFILE [${COLOR_DANGER}TEST FAILED${COLOR_BASED}]
+      logDate Status $DOTFILE [${COLOR_DANGER}FAILED${COLOR_BASED}]
 
     fi
 
   done
-
-  # rm -rf $HOME/.termux && termux-reload-settings
-  # cp -R .termux $HOME && termux-reload-settings
   
 }
 
-banner
-informationPackages
+function neovimPlugins() {
+  logDate Installing Neovim Plugins...
+  if [ -f $HOME/NvChad/install.sh ]; then
+    bash $HOME/NvChad/install.sh -i
+    logDate Status Neovim Plugins [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+    cp $(pwd)/neovim-settings/xshin.lua $HOME/.config/nvim/lua/xshin.lua
+  else
+    logDate Status [${COLOR_DANGER}ERROR INSTALLER NOT FOUND${COLOR_BASED}]
+  fi
+}
+
+function zshThemes() {
+  PATHDIR=".oh-my-zsh/custom/themes"
+  logDate Installing ZSH Custom Themes...
+  for ZSH_CUSTOM_THEME in "${ZSH_CUSTOM_THEMES[@]}"; do
+    logDate $ZSH_CUSTOM_THEME
+    cp $(pwd)/${PATHDIR}/${ZSH_CUSTOM_THEME} $HOME/${PATHDIR}/${ZSH_CUSTOM_THEME}
+    if [ -f $HOME/$PATHDIR/$ZSH_CUSTOM_THEME ]; then
+      logDate Status $ZSH_CUSTOM_THEME [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+    else
+      logDate Status $ZSH_CUSTOM_THEME [${COLOR_DANGER}FAILED${COLOR_BASED}]
+    fi
+    echo -e ""
+  done
+}
+
+function reloadSettings() {
+  $(termux-reload-settings)
+}
+
+function finishing() {
+
+  for FINISHING in "${FINISHINGS[@]}"; do
+    cp $FINISHING $HOME
+  done
+}
+
+function main() {
+  dotTermux
+  clear
+  banner
+  informationPackages
+  informationRepository
+  cloneRepository
+  dotFiles
+  installDotFiles
+  neovimPlugins
+  zshThemes
+  changeSHELL
+  # reloadSettings
+  finishing
+}
