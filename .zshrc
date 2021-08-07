@@ -22,7 +22,7 @@ export TERM=xterm-256color
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-ZSH_THEME=""
+ZSH_THEME="rounded-custom"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -120,6 +120,14 @@ source $ZSH/oh-my-zsh.sh
     alias sd="cd /sdcard"
     alias pf="cd $PREFIX"
 
+    #Package Manager
+    alias pacupg="pkg upgrade"
+    alias pacupd="pkg update"
+    alias pacupgupd="pkg update && pkg upgrade"
+
+    #Convert Video
+    alias convi="ffmpeg -i $1 -c:v libx264 -crf 25 $2"
+
     #Ping    
     alias pg="ping google.com"
 
@@ -133,7 +141,7 @@ source $ZSH/oh-my-zsh.sh
     #Music    
     alias n="ncmpcpp"
     alias mkill="mpd --kill"
-    alias m="mkill && mpd && n"
+    alias m="music"
 
     #Color Toys
     alias 256colors2="~/.color-toys/256colors2.pl"
@@ -153,6 +161,15 @@ source $ZSH/oh-my-zsh.sh
     #Photos
     alias ss="cd /sdcard/Pictures/Screenshots/"
 
+    #Movies
+    alias ms="cd /sdcard/Movies"
+
+    #Downloads
+    alias dl="cd /sdcard/Downloads"
+
+    #Documents
+    alias ds="cd /sdcard/Documents"
+
     #Largest Files
     alias largefile="du -h -x -s -- * | sort -r -h | head -20"
 
@@ -171,6 +188,9 @@ source $ZSH/oh-my-zsh.sh
     #proot-distro
     alias prot="cd $PREFIX/var/lib/proot-distro"
     alias protlogin="proot-distro login $1"
+
+    #Magick
+    alias listfont="magick convert -list font | grep -iE 'font:.*'"
 
     ## Configuration
 
@@ -196,6 +216,9 @@ source $ZSH/oh-my-zsh.sh
     alias neoconf="nvim ~/.config/neofetch/config.conf"
     alias neoscript="nvim ~/.config/neofetch/script.sh"
 
+    #git
+    alias gitgraph="git log --all --decorate --oneline --graph"
+
     #Web Server (Require install LAMP on Termux) https://github.com/xshin404/lampTermux
     alias apaconf="nvim $PREFIX/etc/apache2/httpd.conf"
     alias phpmyadminconf="nvim $PREFIX/etc/phpmyadmin/config.inc.php"
@@ -213,169 +236,8 @@ source $ZSH/oh-my-zsh.sh
     #MyIP
     alias myipconf="nvim ~/.scripts/ip.sh"
 
-##lf icons
-export LF_ICONS="\
-tw=:\
-st=:\
-ow=:\
-dt=:\
-di=:\
-fi=:\
-ln=:\
-or=:\
-ex=:\
-*.c=:\
-*.cc=:\
-*.clj=:\
-*.coffee=:\
-*.cpp=:\
-*.css=:\
-*.d=:\
-*.dart=:\
-*.erl=:\
-*.exs=:\
-*.fs=:\
-*.go=:\
-*.h=:\
-*.hh=:\
-*.hpp=:\
-*.hs=:\
-*.html=:\
-*.java=:\
-*.jl=:\
-*.js=:\
-*.json=:\
-*.lua=:\
-*.md=:\
-*.php=:\
-*.pl=:\
-*.pro=:\
-*.py=:\
-*.rb=:\
-*.rs=:\
-*.scala=:\
-*.ts=:\
-*.vim=:\
-*.cmd=:\
-*.ps1=:\
-*.sh=:\
-*.bash=:\
-*.zsh=:\
-*.fish=:\
-*.tar=:\
-*.tgz=:\
-*.arc=:\
-*.arj=:\
-*.taz=:\
-*.lha=:\
-*.lz4=:\
-*.lzh=:\
-*.lzma=:\
-*.tlz=:\
-*.txz=:\
-*.tzo=:\
-*.t7z=:\
-*.zip=:\
-*.z=:\
-*.dz=:\
-*.gz=:\
-*.lrz=:\
-*.lz=:\
-*.lzo=:\
-*.xz=:\
-*.zst=:\
-*.tzst=:\
-*.bz2=:\
-*.bz=:\
-*.tbz=:\
-*.tbz2=:\
-*.tz=:\
-*.deb=:\
-*.rpm=:\
-*.jar=:\
-*.war=:\
-*.ear=:\
-*.sar=:\
-*.rar=:\
-*.alz=:\
-*.ace=:\
-*.zoo=:\
-*.cpio=:\
-*.7z=:\
-*.rz=:\
-*.cab=:\
-*.wim=:\
-*.swm=:\
-*.dwm=:\
-*.esd=:\
-*.jpg=:\
-*.jpeg=:\
-*.mjpg=:\
-*.mjpeg=:\
-*.gif=:\
-*.bmp=:\
-*.pbm=:\
-*.pgm=:\
-*.ppm=:\
-*.tga=:\
-*.xbm=:\
-*.xpm=:\
-*.tif=:\
-*.tiff=:\
-*.png=:\
-*.svg=:\
-*.svgz=:\
-*.mng=:\
-*.pcx=:\
-*.mov=:\
-*.mpg=:\
-*.mpeg=:\
-*.m2v=:\
-*.mkv=:\
-*.webm=:\
-*.ogm=:\
-*.mp4=:\
-*.m4v=:\
-*.mp4v=:\
-*.vob=:\
-*.qt=:\
-*.nuv=:\
-*.wmv=:\
-*.asf=:\
-*.rm=:\
-*.rmvb=:\
-*.flc=:\
-*.avi=:\
-*.fli=:\
-*.flv=:\
-*.gl=:\
-*.dl=:\
-*.xcf=:\
-*.xwd=:\
-*.yuv=:\
-*.cgm=:\
-*.emf=:\
-*.ogv=:\
-*.ogx=:\
-*.aac=:\
-*.au=:\
-*.flac=:\
-*.m4a=:\
-*.mid=:\
-*.midi=:\
-*.mka=:\
-*.mp3=:\
-*.mpc=:\
-*.ogg=:\
-*.ra=:\
-*.wav=:\
-*.oga=:\
-*.opus=:\
-*.spx=:\
-*.xspf=:\
-*.pdf=:\
-*.nix=:\
-"
+## Source lf variable icons
+source $HOME/.lfvar
 
 ## First Boot
 
@@ -389,7 +251,6 @@ ex=:\
     #echo -e "\e[6 q"
 
     c
-    
 
 #    if [ "$TMUX" == "" ]; then
 
@@ -399,7 +260,7 @@ ex=:\
 
 #    if [ ! -f ~/.scripts/pid/login ]; then
         
-#        bash ~/.scripts/login.sh
+       bash ~/.scripts/login.sh
 
 #    fi
 

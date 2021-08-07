@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if $(mpd --kill); then
+
+  echo -e "Kill pid mpd previous..."
+  echo -e "Starting music..."
+  mpd
+  ncmpcpp
+
+else
+
+  echo -e "Starting music..."
+  mpd
+  ncmpcpp
+
+fi
