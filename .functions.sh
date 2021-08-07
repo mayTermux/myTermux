@@ -305,6 +305,8 @@ function neovimPlugins() {
     bash $HOME/NvChad/install.sh -i
     logDate Status Neovim Plugins [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
     cp $(pwd)/neovim-settings/xshin.lua $HOME/.config/nvim/lua/xshin.lua
+    sed -i 's/"mappings"/"mappings",/g' ~/.config/nvim/init.lua
+    sed -i '4i\    "xshin"' ~/.config/nvim/init.lua
   else
     logDate Status [${COLOR_DANGER}ERROR INSTALLER NOT FOUND${COLOR_BASED}]
   fi
