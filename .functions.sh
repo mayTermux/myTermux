@@ -330,6 +330,24 @@ function finishing() {
   for FINISHING in "${FINISHINGS[@]}"; do
     cp $FINISHING $HOME
   done
+  welcomeTermux
+  alert
+}
+
+function welcomeTermux() {
+
+  if [[ -f $PREFIX/etc/motd ]]; then
+
+    mv $PREFIX/etc/motd $(pwd)/tmp/motd.backup
+
+  fi
+
+}
+
+function alert() {
+
+  echo -e "\n‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Installation Finish, but you need restart Termux to clear setup"
+
 }
 
 function main() {
