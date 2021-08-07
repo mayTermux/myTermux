@@ -40,8 +40,8 @@ REPOSITORY_APIS=(
 REPOSITORY_FULL_NAME=(
   robbyrussell/oh-my-zsh
   zsh-users/zsh-syntax-highlighting
-  zsh-autosuggestions
-  tmux-themepack
+  zsh-users/zsh-autosuggestions
+  jimeh/tmux-themepack
   siduck76/NvChad
 )
 

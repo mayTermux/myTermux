@@ -73,6 +73,7 @@ function informationPackages() {
 
     n|N )
       logDate Status Installation [${COLOR_WARNING}Abort.${COLOR_BASED}]
+      exit 1
     ;;
 
     * )
