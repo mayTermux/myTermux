@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 source $(pwd)/.variables.sh
 
 function logDate() {
@@ -12,10 +11,11 @@ function dotTermux() {
   sleep 2s
   rm -rf $HOME/.termux
   cp -R $(pwd)/.termux $HOME && termux-reload-settings
-  for ((i=3; i>0; i--)); do
-    sleep 1s
+  for ((i=3; i>=0; i--)); do
     logDate Preparing Installation on ${COLOR_SUCCESS}${i}${COLOR_BASED}s
+    sleep 1s
   done
+  sleep 1s
 }
 
 function banner() {
@@ -116,33 +116,6 @@ function changeSHELL() {
   chsh -s zsh
 }
 
-function forloop() {
-
-  # varLength=${#REPOSITORY_LINKS[@]}
-
-  for ((i=0; i<${#REPOSITORY_LINKS[@]}; i++)); do
-
-    logDate Installing ${REPOSITORY_FULL_NAME[i]} ... 
-    sleep 1s
-
-    if [ -d ${REPOSITORY_PATH[i]} ]; then
-
-      logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_SUCCESS}TEST SUCCESS${COLOR_BASED}]
-      sleep 2s
-      logDate Repository PATH ${REPOSITORY_PATH[i]}
-
-    else
-
-      logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_DANGER}TEST FAILED${COLOR_BASED}]
-
-    fi
-
-    echo -e ""
-
-  done
-
-}
-
 function OhMyZSH() {
 
   logDate Installing ${REPOSITORY_LINKS[0]}
@@ -217,8 +190,6 @@ function informationRepository() {
 
     for REPOSITORY_API in "${REPOSITORY_APIS[@]}"; do
 
-      # REPO_SIZE=$(echo "scale=2 $(curl https://api.github.com/repos/${ZSH_REPO} 2> /dev/null | grep size | head -1 | tr -dc '[:digit:]') / 1024" | bc) MB")
-      # REPO_SIZE=`repoSize $ZSH_REPO`
       REPOSITORY_NAME=$(curl https://api.github.com/${REPOSITORY_API} 2> /dev/null | grep full_name | awk '{print $2}' | sed "s/,//g" | sed "s/\"//g")
       printf "    ┃      %-36s     ▎      %8s      ┃\n" $REPOSITORY_NAME `repoSize $REPOSITORY_API`
 
@@ -235,13 +206,13 @@ function cloneRepository() {
   for ((i=0; i<${#REPOSITORY_LINKS[@]}; i++)); do
 
     logDate Installing ${REPOSITORY_FULL_NAME[i]} ... 
-    git clone ${REPOSITORY_LINKS[i]} ${REPOSITORY_PATH[i]}
+    git clone ${REPOSITORY_LINKS[i]} ${REPOSITORY_PATH[i]} 2> /dev/null
 
     if [ -d ${REPOSITORY_PATH[i]} ]; then
 
       logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
       sleep 2s
-      logDate Repository PATH ${REPOSITORY_PATH[i]}
+      # logDate Repository PATH ${REPOSITORY_PATH[i]}
 
     else
 
@@ -258,6 +229,7 @@ function cloneRepository() {
 function dotFiles() {
 
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Getting Information Dotfiles"
+  sleep 2s
 
   echo -e "
     ╭───────────────────────────────────────────────╮
@@ -283,6 +255,7 @@ function installDotFiles() {
 
   for DOTFILE in "${DOTFILES[@]}"; do
 
+    logDate Installing $DOTFILE ...
     cp -R $DOTFILE $HOME
 
     if [ -d $HOME/$DOTFILE ]; then
@@ -295,35 +268,56 @@ function installDotFiles() {
 
     fi
 
+    sleep 1s
+    echo -e ""
+
   done
   
 }
 
 function neovimPlugins() {
-  logDate Installing Neovim Plugins...
+
+  echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Installing Neovim Plugins with Packer\n"
+
   if [ -f $HOME/NvChad/install.sh ]; then
+
     bash $HOME/NvChad/install.sh -i
     logDate Status Neovim Plugins [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
     cp $(pwd)/neovim-settings/xshin.lua $HOME/.config/nvim/lua/xshin.lua
     sed -i 's/"mappings"/"mappings",/g' ~/.config/nvim/init.lua
     sed -i '4i\    "xshin"' ~/.config/nvim/init.lua
+
   else
+
     logDate Status [${COLOR_DANGER}ERROR INSTALLER NOT FOUND${COLOR_BASED}]
+
   fi
+
 }
 
 function zshThemes() {
+
+  echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Installing ZSH Custom Themes\n"  
+
   PATHDIR=".oh-my-zsh/custom/themes"
-  logDate Installing ZSH Custom Themes...
+
   for ZSH_CUSTOM_THEME in "${ZSH_CUSTOM_THEMES[@]}"; do
+
     logDate $ZSH_CUSTOM_THEME
     cp $(pwd)/${PATHDIR}/${ZSH_CUSTOM_THEME} $HOME/${PATHDIR}/${ZSH_CUSTOM_THEME}
+
     if [ -f $HOME/$PATHDIR/$ZSH_CUSTOM_THEME ]; then
+
       logDate Status $ZSH_CUSTOM_THEME [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+
     else
+
       logDate Status $ZSH_CUSTOM_THEME [${COLOR_DANGER}FAILED${COLOR_BASED}]
+
     fi
+
     echo -e ""
+
   done
 }
 
