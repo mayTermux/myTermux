@@ -94,7 +94,7 @@ function magickfooter() {
 ## Function execute
 function execute() {
   logdate Getting Option Execute...
-  if [[ "$@" == "-r" ]]; then
+  if [[ "$1" == "-r" ]]; then
     echo -e "Rounded  : Enable"
     echo -e "Footer   : Disable"
     logdate Execute awesomeshot
@@ -219,7 +219,10 @@ function help() {
   "
 }
 
-case $@ in
+case $1 in
+  -r )
+    execute -r
+  ;;
   -v )
     echo -e "$PROGRAM_NAME v$VERSION"
   ;;
@@ -233,9 +236,6 @@ case $@ in
     execute
   ;;
   -f )
-    execute $@
-  ;;
-  $@ )
-    execute $@
+    execute -f
   ;;
 esac
