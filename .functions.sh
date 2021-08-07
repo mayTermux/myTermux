@@ -328,10 +328,14 @@ function reloadSettings() {
 function finishing() {
 
   for FINISHING in "${FINISHINGS[@]}"; do
+
     cp $FINISHING $HOME
+
   done
+  
   welcomeTermux
   alert
+
 }
 
 function welcomeTermux() {

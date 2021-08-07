@@ -141,7 +141,7 @@ source $ZSH/oh-my-zsh.sh
     #Music    
     alias n="ncmpcpp"
     alias mkill="mpd --kill"
-    alias m="mkill && mpd && n"
+    alias m="music"
 
     #Color Toys
     alias 256colors2="~/.color-toys/256colors2.pl"
@@ -160,6 +160,15 @@ source $ZSH/oh-my-zsh.sh
 
     #Photos
     alias ss="cd /sdcard/Pictures/Screenshots/"
+
+    #Movies
+    alias ms="cd /sdcard/Movies"
+
+    #Downloads
+    alias dl="cd /sdcard/Downloads"
+
+    #Documents
+    alias ds="cd /sdcard/Documents"
 
     #Largest Files
     alias largefile="du -h -x -s -- * | sort -r -h | head -20"
@@ -207,6 +216,9 @@ source $ZSH/oh-my-zsh.sh
     alias neoconf="nvim ~/.config/neofetch/config.conf"
     alias neoscript="nvim ~/.config/neofetch/script.sh"
 
+    #git
+    alias gitgraph="git log --all --decorate --oneline --graph"
+
     #Web Server (Require install LAMP on Termux) https://github.com/xshin404/lampTermux
     alias apaconf="nvim $PREFIX/etc/apache2/httpd.conf"
     alias phpmyadminconf="nvim $PREFIX/etc/phpmyadmin/config.inc.php"
@@ -239,7 +251,6 @@ source $HOME/.lfvar
     #echo -e "\e[6 q"
 
     c
-    
 
 #    if [ "$TMUX" == "" ]; then
 
@@ -249,7 +260,7 @@ source $HOME/.lfvar
 
 #    if [ ! -f ~/.scripts/pid/login ]; then
         
-#        bash ~/.scripts/login.sh
+       bash ~/.scripts/login.sh
 
 #    fi
 
