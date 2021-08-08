@@ -30,19 +30,19 @@ clear
 while true; do
 
     echo -e ""
-    echo -e "Login to Termux!\n"
+    echo -e "Welcome to Termux!\n"
     # echo -e "━━━━━━━━━━━━━━\n"
-    read -p "Username : " username
+    read -p "Username: " username
 
     if [[ "$username" == "$user" ]]; then
 
-        echo -e "Password :"
+        echo -n "Password: "
         read -s -r password
 
         if [[ "$password" == "$pass" ]]; then
            
             echo -e ""
-            echo -e "Status   :$GREEN Success Login.$DEFAULT"
+            echo -e "\nStatus:$GREEN Success Login.$DEFAULT"
             sleep 2s
             clear
 
