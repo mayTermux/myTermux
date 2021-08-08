@@ -286,7 +286,7 @@ function neovimPlugins() {
     cp $(pwd)/neovim-settings/xshin.lua $HOME/.config/nvim/lua/xshin.lua
     sed -i 's/"mappings"/"mappings",/g' ~/.config/nvim/init.lua
     sed -i '4i\    "xshin"' ~/.config/nvim/init.lua
-
+    sed -i 's/g.nvim_tree_hide_dotfiles = 1/g.nvim_tree_hide_dotfiles = 0/g' ~/.config/nvim/lua/plugins/nvimtree.lua
   else
 
     logDate Status [${COLOR_DANGER}ERROR INSTALLER NOT FOUND${COLOR_BASED}]
