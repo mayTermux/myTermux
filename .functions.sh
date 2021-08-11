@@ -341,7 +341,8 @@ function finishing() {
 function welcomeTermux() {
 
   if [[ -f $PREFIX/etc/motd ]]; then
-
+    
+    mkdir tmp
     mv $PREFIX/etc/motd $(pwd)/tmp/motd.backup
 
   fi

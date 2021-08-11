@@ -58,7 +58,7 @@ while true; do
         else
 
             echo -e ""
-            echo -e "status   :$RED Wrong Password.$DEFAULT"
+            echo -e "status:$RED Wrong Password.$DEFAULT"
             sleep 2s
             clear
 
@@ -67,7 +67,7 @@ while true; do
     else
 
         echo -e ""
-        echo -e "status   :$YELLOW Wrong Username.$DEFAULT"
+        echo -e "Status:$YELLOW Wrong Username.$DEFAULT"
         sleep 2s
         clear
 

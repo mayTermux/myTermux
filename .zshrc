@@ -264,4 +264,5 @@ source $HOME/.lfvar
 
 #    fi
 
-    neo
+#    neo
+     rxfetch
