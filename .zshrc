@@ -218,6 +218,7 @@ source $ZSH/oh-my-zsh.sh
 
     #git
     alias gitgraph="git log --all --decorate --oneline --graph"
+    alias gitupdate="git fetch && git pull"
 
     #Web Server (Require install LAMP on Termux) https://github.com/xshin404/lampTermux
     alias apaconf="nvim $PREFIX/etc/apache2/httpd.conf"
