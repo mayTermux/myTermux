@@ -12,4 +12,4 @@
 
 ### Screenshots
 
-[Image](/assets/images/README/rxfetch.pmg)
+<img alt="myTermux rxfetch" src="/assets/images/README/rxfetch.png"/>
