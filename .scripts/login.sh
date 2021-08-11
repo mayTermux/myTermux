@@ -36,15 +36,39 @@ while true; do
 
     if [[ "$username" == "$user" ]]; then
 
-        echo -n "Password: "
-        read -s -r password
+      # Show password *
+      unset password
 
-        if [[ "$password" == "$pass" ]]; then
+      prompt="Password: "
+      while IFS= read -p "$prompt" -r -s -n 1 char
+      do
+          if [[ $char == $'\0' ]]; then
+            break
+          fi
+          prompt='*'
+          password+="$char"
+      done
+
+      if [[ $password == $pass ]]; then
+        echo -e "\n\nStatus: ${GREEN}Success Login. ${DEFAULT}"
+        sleep 2s
+        clear
+        break
+      else
+        echo -e "\n\nStatus: ${RED}Wrong Password. ${DEFAULT}"
+        sleep 2s
+      fi
+
+      # Hidden Password
+  #      echo -n "Password: "
+  #      read -s -r password
+
+  #      if [[ "$password" == "$pass" ]]; then
            
-            echo -e ""
-            echo -e "\nStatus:$GREEN Success Login.$DEFAULT"
-            sleep 2s
-            clear
+  #          echo -e ""
+  #          echo -e "\nStatus:$GREEN Success Login.$DEFAULT"
+  #          sleep 2s
+  #          clear
 
             # if [ ! -d ~/.scripts/pid ]; then
 
@@ -53,21 +77,21 @@ while true; do
             # fi
 
             # echo $$ >> ~/.scripts/pid/login
-            break
+  #          break
 
-        else
+  #      else
 
-            echo -e ""
-            echo -e "status:$RED Wrong Password.$DEFAULT"
-            sleep 2s
-            clear
+  #          echo -e ""
+  #          echo -e "status   :$RED Wrong Password.$DEFAULT"
+  #          sleep 2s
+  #          clear
 
-        fi
+  #      fi
 
     else
 
         echo -e ""
-        echo -e "Status:$YELLOW Wrong Username.$DEFAULT"
+        echo -e "status   :$YELLOW Wrong Username.$DEFAULT"
         sleep 2s
         clear
 
