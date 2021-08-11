@@ -145,11 +145,17 @@ get_color() {
   reset='[0m'
 }
 
+get_music() {
+  title=$(mpc --host=127.0.0.1 --port=8000 --format '[%title%]' current)
+  artist=$(mpc --host=127.0.0.1 --port=8000 --format '[%artist%]' current)
+}
+
 # fetch output
 distro_detect
 storage_info
 get_user
 get_color
+get_music
 get_node_name
 echo -e "\n                  xshin${c5}@${c3}android💕\n"
 echo -e "               ${c1}os${c3}    ${distro} $(uname -m)"
@@ -160,6 +166,7 @@ echo -e "    ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}      ${c6}ram${c3}   $(get_m
 echo -e "   ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}      ${c1}init${c3}  $(get_init)"
 echo -e "               ${c7}up${c3}   $(uptime -p | sed 's/up//')"
 #echo -e "               ${c4}disk${c3}  $used / $size ($avail $use)"
+echo -e "               ${c1}music${c3} $artist - $title"
 echo -e "               ${c4}disk${c3} $(bash $HOME/.config/neofetch/script.sh --storage | grep Used | awk '{print " "$3"B " $4" " $5"B " $6"B " $7 $8}')"
 echo -e "               ${c6}batt${c3}  $(bash $HOME/.config/neofetch/script.sh --battery)"
 echo -e "               ${c5}color${c3} ${black}██${red}██${green}██${yellow}██${blue}██${magenta}██${cyan}██${white}██${reset}"
