@@ -57,6 +57,7 @@ while true; do
       else
         echo -e "\n\nStatus: ${RED}Wrong Password. ${DEFAULT}"
         sleep 2s
+        clear
       fi
 
       # Hidden Password
@@ -91,7 +92,7 @@ while true; do
     else
 
         echo -e ""
-        echo -e "status   :$YELLOW Wrong Username.$DEFAULT"
+        echo -e "Status: $YELLOW Wrong Username.$DEFAULT"
         sleep 2s
         clear
 
