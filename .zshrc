@@ -236,6 +236,9 @@ source $ZSH/oh-my-zsh.sh
     #MyIP
     alias myipconf="nvim ~/.scripts/ip.sh"
 
+    #termux-reload
+    alias reterm="termux-reload-settings"
+
 ## Source lf variable icons
 source $HOME/.lfvar
 
