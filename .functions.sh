@@ -351,7 +351,7 @@ function welcomeTermux() {
 
 function alert() {
 
-  echo -e "\n‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Installation Finish, but you need restart Termux to clear setup"
+  echo -e "‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Installation Finish, but you need restart Termux to clear setup\n"
 
 }
 
