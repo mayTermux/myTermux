@@ -214,6 +214,7 @@ source $ZSH/oh-my-zsh.sh
 
     #neofetch    
     alias neoconf="nvim ~/.config/neofetch/config.conf"
+    alias rxconf="nvim ~/.local/bin/rxfetch"
     alias neoscript="nvim ~/.config/neofetch/script.sh"
 
     #git
