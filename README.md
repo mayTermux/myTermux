@@ -10,6 +10,10 @@
 
   Here -> [xshin404.github.io](https://xshin404.github.io)
 
+### Installation
+
+  Termux -> [Android](https://xshin404.github.io/installation/android.html)
+
 ### Screenshots
 
 <a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/rxfetch.png" target="_blank" rel="noopener">
