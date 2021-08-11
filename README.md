@@ -16,3 +16,24 @@
   <img alt="myTermux rxfetch" height="60%" width="100%" src="/assets/images/README/rxfetch.png"/>
 </a>
 
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/neovim.pmg" target="_blank" rel="noopener">
+  <img alt="myTermux neovim" height="60%" width="100%" src="/assets/images/README/neovim.png"/>
+</a>
+
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/neovim2.png" target="_blank" rel="noopener">
+  <img alt="myTermux neovim" height="60%" width="100%" src="/assets/images/README/neovim2.png"/>
+</a>
+
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/ncmpcpp-dark.png" target="_blank" rel="noopener">
+  <img alt="myTermux music" height="60%" width="100%" src="/assets/images/README/ncmpcpp-dark.png"/>
+</a>
+
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/ncmpcpp-light.png" target="_blank" rel="noopener">
+  <img alt="myTermux music" height="60%" width="100%" src="/assets/images/README/ncmpcpp-light.png"/>
+</a>
+
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/git.png" target="_blank" rel="noopener">
+  <img alt="myTermux git" height="60%" width="100%" src="/assets/images/README/git.png"/>
+</a>
+
+
