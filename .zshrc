@@ -221,6 +221,9 @@ source $ZSH/oh-my-zsh.sh
     alias gitupdate="git fetch && git pull"
     alias gituser="git config --global user.name $1"
     alias gitemail="git config --global user.email $1"
+    alias gitstat="git status"
+    alias gitad="git add $@"
+    alias gitcom="git commit -m '$@'"
 
     #Web Server (Require install LAMP on Termux) https://github.com/xshin404/lampTermux
     alias apaconf="nvim $PREFIX/etc/apache2/httpd.conf"
@@ -240,7 +243,13 @@ source $ZSH/oh-my-zsh.sh
     alias myipconf="nvim ~/.scripts/ip.sh"
 
     #termux-reload
-    alias reterm="termux-reload-settings"
+    alias reload="termux-reload-settings"
+
+    #termux-setting
+    alias termconf="nvim ~/.termux/termux.properties"
+
+    #termux-permission
+    alias termper="termux-setup-storage"
 
 ## Source lf variable icons
 source $HOME/.lfvar
