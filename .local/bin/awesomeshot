@@ -113,7 +113,7 @@ function execute() {
           # sleep 1s
           logdate Add border to image...
           if magickborder; then
-            logdate Shadow $LOG_OK
+            logdate Border $LOG_OK
             # sleep 1s
             logdate $NEW_FILE_PWD [${COLOR_SUCCESS}DONE${COLOR_BASED}]
           else
