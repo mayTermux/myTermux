@@ -16,7 +16,7 @@
   <img alt="myTermux rxfetch" height="60%" width="100%" src="/assets/images/README/rxfetch.png"/>
 </a>
 
-<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/neovim.pmg" target="_blank" rel="noopener">
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/neovim.png" target="_blank" rel="noopener">
   <img alt="myTermux neovim" height="60%" width="100%" src="/assets/images/README/neovim.png"/>
 </a>
 
