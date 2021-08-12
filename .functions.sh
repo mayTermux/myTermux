@@ -6,18 +6,6 @@ function logDate() {
   echo -e "    [${COLOR_WARNING}$(date +'%A, %d %B %Y %r')${COLOR_BASED}] > $@"
 }
 
-function dotTermux() {
-  logDate Changing Colorscheme...
-  sleep 2s
-  rm -rf $HOME/.termux
-  cp -R $(pwd)/.termux $HOME && termux-reload-settings
-  for ((i=3; i>=0; i--)); do
-    logDate Preparing Installation on ${COLOR_SUCCESS}${i}${COLOR_BASED}s
-    sleep 1s
-  done
-  sleep 1s
-}
-
 function banner() {
     echo -e "\n${COLOR_SKY}
               ╭────────────────────────────────────────────────────────────────╮
