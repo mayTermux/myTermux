@@ -19,6 +19,13 @@ DEPENDENCY_PACKAGES=(
 
 DOTFILES=(
   .local .config .termux .color-toys .scripts
+  .zshrc .tmux.conf .lfvar
+)
+
+BACKUP_DOTFILES=(
+  .local .config .termux 
+  .color-toys .scripts .zshrc
+  .lfvar .tmux.conf .oh-my-zsh
 )
 
 REPOSITORY_LINKS=(

@@ -31,7 +31,7 @@ function banner() {
               ┃                                                                ┃
               ┃                  ${COLOR_BASED}🚀 Version    : ${VERSION}                     ${COLOR_SKY}┃
               ┃                  ${COLOR_BASED}📅 Build Date : ${BUILD_DATE}                ${COLOR_SKY}┃
-              ┃                  ${COLOR_BASED}⚙️ Author     : ${AUTHOR}                          ${COLOR_SKY}┃
+              ┃                  ${COLOR_BASED}⚙️ Author      : ${AUTHOR}                         ${COLOR_SKY}┃
               ┃                                                                ┃
               ╰────────────────────────────────────────────────────────────────╯${COLOR_BASED}"
 }
@@ -77,7 +77,7 @@ function informationPackages() {
     ;;
 
     * )
-      logDate {${COLOR_DANGER}ERROR ANSWER${COLOR_BASED}}
+      logDate [${COLOR_DANGER}ERROR ANSWER${COLOR_BASED}]
       exit 1  
     ;;
 
@@ -88,6 +88,7 @@ function informationPackages() {
 function installDependencyPackages() {
 
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Downloading Package\n"
+  echo -e "Downloading Package:" >> $(pwd)/.log
 
   for DEPENDENCY_PACKAGE in "${DEPENDENCY_PACKAGES[@]}"; do
 
@@ -99,16 +100,20 @@ function installDependencyPackages() {
     if [[ $CHECK_PACKAGE == $DEPENDENCY_PACKAGE ]]; then
 
       logDate Status $DEPENDENCY_PACKAGE [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+      # echo -e "$(date +'%A, %d %B %Y %r') Status $DEPENDENCY_PACKAGE [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}])" >> $(pwd)/.log
+      echo -e "$(date +'%A, %d %B %Y %r') Status $DEPENDENCY_PACKAGE [SUCCESS]" >> $(pwd)/.log
 
     else
 
       logDate Status $DEPENDENCY_PACKAGE [${COLOR_DANGER}FAILED${COLOR_BASED}]
-
+      echo -e "$(date +'%A, %d %B %Y %r') Status $DEPENDENCY_PACKAGE [FAILED]" >> $(pwd)/.log
     fi
 
     echo -e ""
 
   done
+
+  echo -e "" >> $(pwd)/.log
 
 }
 
@@ -201,6 +206,7 @@ function informationRepository() {
 function cloneRepository() {
 
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Cloning or Downloading Repository\n"  
+  echo -e "Cloning or Downloading Repository:" >> $(pwd)/.log
   sleep 2s
 
   for ((i=0; i<${#REPOSITORY_LINKS[@]}; i++)); do
@@ -211,18 +217,22 @@ function cloneRepository() {
     if [ -d ${REPOSITORY_PATH[i]} ]; then
 
       logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+      echo -e "$(date +'%A, %d %B %Y %r') Status ${REPOSITORY_LINKS[i]} [SUCCESS]" >> $(pwd)/.log
       sleep 2s
       # logDate Repository PATH ${REPOSITORY_PATH[i]}
 
     else
 
       logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_DANGER}FAILED${COLOR_BASED}]
+      echo -e "$(date +'%A, %d %B %Y %r') Status ${REPOSITORY_LINKS[i]} [FAILED]" >> $(pwd)/.log
 
     fi
 
     echo -e ""
 
   done
+
+  echo -e "" >> $(pwd)/.log
 
 }
 
@@ -249,22 +259,61 @@ function dotFiles() {
 
 }
 
+function backupDotFiles() {
+
+  function backupExec() {
+
+    echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Backup dotfiles"
+    echo -e "Backup dotfile:" >> $(pwd)/.log
+    sleep 2s
+
+    for BACKUP_DOTFILE in "${BACKUP_DOTFILES[@]}"; do
+      echo -e ""
+      logDate Backup $BACKUP_DOTFILE ...
+      if [[ -d "$HOME/$BACKUP_DOTFILE" || -f "$HOME/$BACKUP_DOTFILE" ]]; then
+        mv ${HOME}/${BACKUP_DOTFILE} ${HOME}/${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S);
+        if [[ -d ${HOME}/${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) || -f ${HOME}/${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) ]]; then
+          logDate Status $BACKUP_DOTFILE to ${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+          echo -e "$(date +'%A, %d %B %Y %r') Status $BACKUP_DOTFILE to ${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) [SUCCESS]" >> $(pwd)/.log
+          echo -e ""
+        else
+          logDate Status $BACKUP_DOTFILE to ${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) [${COLOR_DANGER}FAILED${COLOR_BASED}]
+          echo -e "$(date +'%A, %d %B %Y %r') Status $BACKUP_DOTFILE to ${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) [FAILED]" >> $(pwd)/.log
+          echo -e ""
+        fi
+      else
+        logDate Status $BACKUP_DOTFILE [${COLOR_WARNING}NOT FOUND${COLOR_BASED}]
+        echo -e "$(date +'%A, %d %B %Y %r') Status $BACKUP_DOTFILE [NOT FOUND]" >> $(pwd)/.log
+        echo -e ""
+      fi
+    done
+    echo -e "" >> $(pwd)/.log
+  }
+
+  echo -e ""
+  backupExec
+  installDotFiles
+}
+
 function installDotFiles() {
 
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Installing Dotfiles\n"
+  echo -e "Installing dotfile:" >> $(pwd)/.log
 
   for DOTFILE in "${DOTFILES[@]}"; do
 
     logDate Installing $DOTFILE ...
     cp -R $DOTFILE $HOME
 
-    if [ -d $HOME/$DOTFILE ]; then
+    if [[ -d $HOME/$DOTFILE || -f $HOME/$DOTFILE ]]; then
 
       logDate Status $DOTFILE [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+      echo -e "$(date +'%A, %d %B %Y %r') Status $DOTFILE [SUCCESS]" >> $(pwd)/.log
 
     else
 
       logDate Status $DOTFILE [${COLOR_DANGER}FAILED${COLOR_BASED}]
+      echo -e "$(date +'%A, %d %B %Y %r') Status $DOTFILE [FAILED]" >> $(pwd)/.log
 
     fi
 
@@ -272,12 +321,15 @@ function installDotFiles() {
     echo -e ""
 
   done
+
+  echo -e "" >> $(pwd)/.log
   
 }
 
 function neovimPlugins() {
 
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Installing Neovim Plugins with Packer\n"
+  echo -e "Installing Neovim Plugins:" >> $(pwd)/.log
 
   if [ -f $HOME/NvChad/install.sh ]; then
 
@@ -287,17 +339,24 @@ function neovimPlugins() {
     sed -i 's/"mappings"/"mappings",/g' ~/.config/nvim/init.lua
     sed -i '4i\    "xshin"' ~/.config/nvim/init.lua
     sed -i 's/g.nvim_tree_hide_dotfiles = 1/g.nvim_tree_hide_dotfiles = 0/g' ~/.config/nvim/lua/plugins/nvimtree.lua
+    echo -e "$(date +'%A, %d %B %Y %r') Status Neovim Plugins [SUCCESS]" >> $(pwd)/.log
+
   else
 
     logDate Status [${COLOR_DANGER}ERROR INSTALLER NOT FOUND${COLOR_BASED}]
+    echo -e "$(date +'%A, %d %B %Y %r') Status Neovim Plugins [ERROR INSTALLER NOT FOUND]" >> $(pwd)/.log
+
 
   fi
+
+  echo -e "" >> $(pwd)/.log
 
 }
 
 function zshThemes() {
 
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Installing ZSH Custom Themes\n"  
+  echo -e "Installing ZSH Custom Themes:" >> $(pwd)/.log
 
   PATHDIR=".oh-my-zsh/custom/themes"
 
@@ -309,16 +368,20 @@ function zshThemes() {
     if [ -f $HOME/$PATHDIR/$ZSH_CUSTOM_THEME ]; then
 
       logDate Status $ZSH_CUSTOM_THEME [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+      echo -e "$(date +'%A, %d %B %Y %r') Status $ZSH_CUSTOM_THEME [SUCCESS]" >> $(pwd)/.log
 
     else
 
       logDate Status $ZSH_CUSTOM_THEME [${COLOR_DANGER}FAILED${COLOR_BASED}]
+      echo -e "$(date +'%A, %d %B %Y %r') Status $ZSH_CUSTOM_THEME [FAILED]" >> $(pwd)/.log
 
     fi
 
     echo -e ""
 
   done
+
+  echo -e "" >> $(pwd)/.log
 }
 
 function reloadSettings() {
@@ -332,9 +395,6 @@ function finishing() {
     cp $FINISHING $HOME
 
   done
-  
-  welcomeTermux
-  alert
 
 }
 
@@ -351,22 +411,25 @@ function welcomeTermux() {
 
 function alert() {
 
+  echo -e "‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Log saved on $(pwd)/.log\n"
   echo -e "‏‏‎‏‏‎ ‎‏‏‎ ⚠️ Installation Finish, but you need restart Termux to clear setup\n"
 
 }
 
 function main() {
-  dotTermux
+  # dotTermux
   clear
   banner
   informationPackages
+  dotFiles
+  backupDotFiles
+  reloadSettings
   informationRepository
   cloneRepository
-  dotFiles
-  installDotFiles
   neovimPlugins
   zshThemes
   changeSHELL
-  # reloadSettings
-  finishing
+  welcomeTermux
+  alert
+  # finishing
 }
