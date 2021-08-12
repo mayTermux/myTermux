@@ -176,6 +176,7 @@ source $ZSH/oh-my-zsh.sh
     #System Information
     #alias neo="bash ~/.config/neofetch/debug-logo.sh --randomsmall"
     alias neo="neofetch"
+    alias rx="rxfetch"
     alias neodebug="bash ~/.config/neofetch/debug-logo.sh $1"
     alias memory="bash ~/.config/neofetch/script.sh --storage"
     alias battery="bash ~/.config/neofetch/script.sh --battery"
