@@ -165,6 +165,10 @@ function battery() {
 
 			fi
 
+		elif [[ $status == "FULL" ]]; then
+
+			echo -e $lgn"$df : Charging, ($perc%)"
+
 		fi
 
 	}
