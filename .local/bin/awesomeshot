@@ -107,18 +107,10 @@ function magickfooter() {
 ## Function autoshot (with package inotify-tools)
 function autoshot() {
 
-  # if [ $(pwd) == ${SCREENSHOT_PATH} ]; then
-
     inotifywait -m -e create $SCREENSHOT_PATH | \
     while read FILENAME; do
       main
     done
-
-  # else
-  
-  #   error "Make sure your working directory on ${SCREENSHOT_PATH}"
-  
-  # fi
 
 }
 
