@@ -17,21 +17,29 @@ BUILD_DATE="Sunday, 25 July 2021"
 
 ## Imagemagick Color
 BACKGROUND_COLOR="#545862"
-SHADOW_SIZE="100x10+0+10"
+SHADOW_SIZE="80x10+0+10"
 SHADOW_COLOR="#000000"
 BORDER_SIZE=70
 BORDER_COLOR="#ABB2BF"
 
 ## Imagemagick Footer
 FOOTER_POSITION="SouthWest"
-FOOTER_XY="+280+25"
-FOOTER_TEXT=" Awesomeshot on $(date +'%d-%m-%Y %r')"
-FOOTER_FONT="JetBrains-Mono-Regular-Nerd-Font-Complete"
-FOOTER_FONT_SIZE="18"
+FOOTER_XY="+320+40"
+FOOTER_TEXT=" Shot by Awesomeshot"
+# Font PATH "/data/data/com.termux/files/usr/share/fonts/TTF/"
+# See font available "magick convert -list font | grep -iE 'font:.*' " or "listfont" (listfont is alias from command magick convert ...)
+FOOTER_FONT="JetBrains-Mono-Medium-Nerd-Font-Complete"
+FOOTER_FONT_SIZE="20"
 FOOTER_FOREGROUND_COLOR="#0E1419"
 FOOTER_BACKGROUND_COLOR="none"
 
+## Screeshot PATH
+SCREENSHOT_PATH="/sdcard/Pictures/Screenshots"
+
 ## Log Message
+LOG_SUCCESS="[${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]"
+LOG_FAILED="[${COLOR_DANGER}FAILED${COLOR_BASED}]"
+LOG_DONE="[${COLOR_SUCCESS}DONE${COLOR_BASED}]"
 LOG_OK="[${COLOR_SUCCESS}OK${COLOR_BASED}]"
 LOG_ERROR="[${COLOR_DANGER}ERROR${COLOR_BASED}]"
 
@@ -40,11 +48,16 @@ function logdate() {
   echo -e "[${COLOR_WARNING}$(date +'%d-%m-%Y %r')${COLOR_BASED}] > $@"
 }
 
+# Function ERROR
+function error() {
+  echo -e "[${COLOR_DANGER}ERROR${COLOR_BASED}] > $@"
+}
+
 # Function Magick
 
 ## Function magickrounded
 function magickrounded() {
-  convert $NEW_FILE_PWD \
+  convert $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME \
     \( \
         +clone \
         -alpha extract -draw \
@@ -54,12 +67,12 @@ function magickrounded() {
         \( +clone -flop \) \
         -compose Multiply -composite \
     \) \
-    -alpha off -compose CopyOpacity -composite $NEW_FILE_PWD
+    -alpha off -compose CopyOpacity -composite $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME
 }
 
 ## Function magickshadow
 function magickshadow() {
-  convert $NEW_FILE_PWD \
+  convert $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME \
     \( \
       +clone \
       -background "$SHADOW_COLOR" \
@@ -68,128 +81,147 @@ function magickshadow() {
     +swap \
     -background none \
     -layers merge \
-    +repage $NEW_FILE_PWD
+    +repage $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME
 }
 
 ## Function magickborder
 function magickborder() {
-  convert $NEW_FILE_PWD -bordercolor "$BORDER_COLOR" -border $BORDER_SIZE $NEW_FILE_PWD
+  convert $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME -bordercolor "$BORDER_COLOR" -border $BORDER_SIZE $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME
 }
 
 ## Function magickfooter
 function magickfooter() {
   echo -n "$FOOTER_TEXT" |
-  convert $NEW_FILE_PWD \
+  convert $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME \
   -gravity $FOOTER_POSITION \
   -pointsize $FOOTER_FONT_SIZE \
   -fill $FOOTER_FOREGROUND_COLOR \
   -undercolor $FOOTER_BACKGROUND_COLOR \
   -font $FOOTER_FONT \
   -annotate $FOOTER_XY \
-  @- $NEW_FILE_PWD
+  @- $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME
 }
 
 # Option Execute
 
-## Function execute
-function execute() {
-  logdate Getting Option Execute...
-  if [[ "$1" == "-r" ]]; then
-    echo -e "Rounded  : Enable"
-    echo -e "Footer   : Disable"
-    logdate Execute awesomeshot
-    logdate Searching newest file on pwd...
-    if [ `find | sort -r | head | sed -n 1p 2>/dev/null` ]; then
-      NEW_FILE_PWD=`find | sort -r | head | sed -n 1p`
-      logdate $NEW_FILE_PWD $LOG_OK
-      # sleep 1s
-      logdate Add rounded corner to image...
-      if magickrounded; then
-        logdate Rounded $LOG_OK
-        # sleep 1s
-        logdate Add shadow to image...
-        if magickshadow; then
-          logdate Shadow $LOG_OK
-          # sleep 1s
-          logdate Add border to image...
-          if magickborder; then
-            logdate Border $LOG_OK
-            # sleep 1s
-            logdate $NEW_FILE_PWD [${COLOR_SUCCESS}DONE${COLOR_BASED}]
-          else
-            logdate Border $LOG_ERROR
-          fi
-        else
-          logdate Shadow $LOG_ERROR
-        fi
-      else
-        logdate Rounded $LOG_ERROR
-      fi
-    fi
-  elif [[ "$@" == "-r -f" ]]; then
-    echo -e "Rounded  : Enable"
-    echo -e "Footer   : Enable"
-    logdate Execute awesomeshot
-    logdate Searching newest file on pwd...
-    if [ `find | sort -r | head | sed -n 1p 2>/dev/null` ]; then
-      NEW_FILE_PWD=`find | sort -r | head | sed -n 1p`
-      logdate $NEW_FILE_PWD $LOG_OK
-      # sleep 3s
-      logdate Add rounded corner to image...
-      if magickrounded; then
-        logdate Rounded $LOG_OK
-        # sleep 1s
-        logdate Add shadow to image...
-        if magickshadow; then
-          logdate Shadow $LOG_OK
-          # sleep 1s
-          logdate Add border to image...
-          if magickborder; then
-            logdate Shadow $LOG_OK
-            # sleep 1s
-            logdate Add footer to image...
-            if magickfooter; then
-              logdate Footer $LOG_OK
-              # sleep 1s
-              logdate $NEW_FILE_PWD [${COLOR_SUCCESS}DONE${COLOR_BASED}]
-            else
-              logdate Footer $LOG_ERROR
-            fi
-          else
-            logdate Border $LOG_ERROR
-          fi
-        else
-          logdate Shadow $LOG_ERROR
-        fi
-      else
-        logdate Rounded $LOG_ERROR
-      fi
-    fi
-  elif [[ "$@" == "-f" ]]; then
-    echo -e "Footer   : Enable"
-    echo -e "Rounded  : Disable"
-  elif [[ "$@" == "-f -r" ]]; then
-    echo -e "Footer   : Enable"
-    echo -e "Rounded  : Enable"
+## Function autoshot (with package inotify-tools)
+function autoshot() {
+
+  # if [ $(pwd) == ${SCREENSHOT_PATH} ]; then
+
+    inotifywait -m -e create $SCREENSHOT_PATH | \
+    while read FILENAME; do
+      main
+    done
+
+  # else
+  
+  #   error "Make sure your working directory on ${SCREENSHOT_PATH}"
+  
+  # fi
+
+}
+
+function autoshotFooter() {
+  inotifywait -m -e create $SCREENSHOT_PATH | \
+  while read FILENAME; do
+    main
+    footer
+  done
+}
+
+function magickexec() {
+
+  if $($1); then
+    logdate "$2 image ${LOG_SUCCESS} \n"
   else
-    echo -e "[${COLOR_DANGER}ERROR${COLOR_BASED}] > Unknown option"
-    exit 1
+    logdate "$2 image ${LOG_FAILED} \n"
   fi
-  exit 1
-  NEW_FILE_PWD=`find | sort -r | head | sed -n 1p`
-  logdate Execute awesomeshot
-  logdate Searching newest file on pwd
-  logdate Edit image to rounded...
-  magickrounded
-  logdate Adding shadow image...
-  magickshadow
-  logdate Adding border image...
-  magickborder
-  logdate Adding footer image...
-  magickfooter
-  logdate Getting image file name...
-  logdate $NEW_FILE_PWD
-  logdate [${COLOR_SUCCESS}DONE${COLOR_BASED}]
+
+}
+
+function footer() {
+  logdate "Add footer to image ..."
+  magickexec "magickfooter" "Footer"
+}
+
+function main() {
+
+  logdate "Execute awesomeshot"
+  logdate "Searching newest file on working directory ..."
+  SCREENSHOT_FILE_NAME_LENGHT=${#SCREENSHOT_FILE_NAME}
+  if [ $(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ' 2> /dev/null) ]; then
+
+    SCREENSHOT_FILE_NAME=$(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ')
+    logdate "${SCREENSHOT_FILE_NAME} ${LOG_OK} \n"
+
+    function execute() {
+      logdate "Add rounded to image ..."
+      magickexec "magickrounded" "Rounded"
+
+      logdate "Add shadow to image ..."
+      magickexec "magickshadow" "Shadow"
+
+      logdate "Add border to image ..."
+      magickexec "magickborder" "Border"
+
+    }
+
+    logdate "Backup original file ..."
+    if [ ! -d $HOME/awesomeshot/ ]; then
+
+      logdate "Creating directory $HOME/awesomeshot"
+
+      if mkdir $HOME/awesomeshot; then
+
+        logdate "Creating directory ${LOG_SUCCESS}"
+
+      else
+
+        logdate "Creating directory ${LOG_FAILED}"
+
+      fi
+
+      cp $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME $HOME/awesomeshot
+
+      if [ -f $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ]; then
+
+        logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
+        execute
+
+      else
+
+        logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_FAILED} \n"
+        execute
+
+      fi
+
+    else
+
+      cp $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME $HOME/awesomeshot
+
+      if [ -f $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ]; then
+
+        logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
+        execute
+
+      else
+
+        logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_FAILED} \n"
+        execute
+
+      fi
+
+    fi
+
+    logdate "$SCREENSHOT_PATH/${SCREENSHOT_FILE_NAME} ${LOG_DONE} \n"
+
+  else
+
+    error "Can't get newest file on working directory"
+
+  fi
+
 }
 
 ## Function Information
@@ -197,7 +229,8 @@ function information() {
   echo -e "Program Name   : $PROGRAM_NAME"
   echo -e "Version        : v$VERSION"
   echo -e "Repository URL : $REPOSITORY_URL"
-  echo -e "Build Date     : $BUILD_DATE"
+  echo -e "Build Date     : $BUILD_      logdate "$SCREENSHOT_PATH/${SCREENSHOT_FILE_NAME} ${LOG_DONE} \n"
+DATE"
 }
 
 ## Function Help
@@ -210,32 +243,43 @@ function help() {
   
   # Option Help
   echo -e "Options:
+  -a        Automatic run awesomeshot
   -f        Run awesomeshot with footer text
   -h        Print this help message
   -i        Print information about this program
-  -m        Run awesomeshot with custom mode 'light|dark' (default light)
-  -p        Run awesomeshot on pwd
   -v        Print version information
   "
 }
 
 case $1 in
-  -r )
-    execute -r
+
+  "" )
+    main
   ;;
-  -v )
-    echo -e "$PROGRAM_NAME v$VERSION"
+
+  -a )
+    autoshot
   ;;
-  -i )
-    information
+
+  -f )
+    main
+    footer
   ;;
+
+  -af )
+    autoshotFooter
+  ;;
+
   -h )
     help
   ;;
-  "" )
-    execute
+
+  -i )
+    information
   ;;
-  -f )
-    execute -f
+
+  -v )
+    echo -e "$PROGRAM_NAME v$VERSION"
   ;;
+
 esac
