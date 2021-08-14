@@ -104,19 +104,6 @@ distro_detect() {
     esac
 }
 
-storage_info() {
-    # storageused=$(df -h / | grep "/" | awk '{print $3}')
-    # storageavail=$(df -h / | grep "/" | awk '{print $2}')
-
-    # Termux
-    disk=$(df -h 2>/dev/null | grep "/storage/emulated")
-    size=$(echo $disk | awk '{print $2}')
-    used=$(echo $disk | awk '{print $3}')
-    avail=$(echo $disk | awk '{print $4}')
-    use=$(echo $disk | awk '{print $5}')
-    mounted=$(echo $disk | awk '{print $6}')
-}
-
 # Get Memory usage
 get_mem () {
   free --mega | sed -n -E '2s/^[^0-9]*([0-9]+) *([0-9]+).*/'"${space}"'\2 \/ \1 MB/p'
@@ -152,28 +139,19 @@ get_music() {
 
 # fetch output
 distro_detect
-storage_info
 get_user
 get_color
 get_music
 get_node_name
-echo -e "\n                  xshin${c5}@${c3}android💕\n"
-echo -e "               ${c1}os${c3}    ${distro} $(uname -m)"
-echo -e "               ${c2}ker${c3}   $(uname -r)"
-echo -e "     ${c3}•${c8}_${c3}•${c0}       ${c7}pkgs${c3}  $(net_pkg)"
-echo -e "     ${c8}${c0}${c9}oo${c0}${c8}|${c0}       ${c4}sh${c3}    $(basename "${SHELL}")"
-echo -e "    ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}      ${c6}ram${c3}   $(get_mem)"
-echo -e "   ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}      ${c1}init${c3}  $(get_init)"
-echo -e "               ${c7}up${c3}   $(uptime -p | sed 's/up//')"
-#echo -e "               ${c4}disk${c3}  $used / $size ($avail $use)"
-echo -e "               ${c1}music${c3} $artist - $title 💕"
-echo -e "               ${c4}disk${c3} $(bash $HOME/.config/neofetch/script.sh --storage | grep Used | awk '{print " "$3"B " $4" " $5"B " $6"B " $7 $8}')"
-echo -e "               ${c6}batt${c3}  $(bash $HOME/.config/neofetch/script.sh --battery)"
+echo -e "\n                xshin${c5}@${c3}android💕\n"
+echo -e "               ${c2}${c3} : ${distro} $(uname -m)"
+echo -e "               ${c5}${c3} : $(uname -r)"
+echo -e "               ${c6}${c3} : $(net_pkg) Packages"
+echo -e "     ${c3}•${c8}_${c3}•${c0}       ${c5}${c3} : $(basename "${SHELL}")"
+echo -e "     ${c8}${c0}${c9}oo${c0}${c8}|${c0}       ${c6}${c3} : $(get_mem)"
+echo -e "    ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}      ${c7}${c3} :$(uptime -p | sed 's/up//')"
+echo -e "   ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}      ${c1}${c3} : $artist - $title 💕"
+echo -e "               ${c6}${c3} : $(bash $HOME/.scripts/fetch.sh storage)"
+echo -e "               $(bash $HOME/.scripts/fetch.sh battery)"
 echo -e "               
                ${black}██${red}██${green}██${yellow}██${blue}██${magenta}██${cyan}██${white}██${reset}\n"
-#echo -e "    
-#                ${c6}.--.${c0}                   
-#               ${c6}/ _.-'${c0}   ${c6}${c2}   ${c2}${c4}   ${c4}${c5}   ${c5}${c7} ${c7}
-#               ${c6}\  '-.${c0}   ${c7}   ${c5}   ${c4}   ${c2} 
-#                ${c6}'--'${c0}                   
-#"
