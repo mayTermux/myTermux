@@ -57,7 +57,7 @@ function error() {
 
 ## Function magickrounded
 function magickrounded() {
-  convert $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME \
+  convert $1 \
     \( \
         +clone \
         -alpha extract -draw \
@@ -67,12 +67,12 @@ function magickrounded() {
         \( +clone -flop \) \
         -compose Multiply -composite \
     \) \
-    -alpha off -compose CopyOpacity -composite $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME
+    -alpha off -compose CopyOpacity -composite $1
 }
 
 ## Function magickshadow
 function magickshadow() {
-  convert $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME \
+  convert $1 \
     \( \
       +clone \
       -background "$SHADOW_COLOR" \
@@ -81,25 +81,25 @@ function magickshadow() {
     +swap \
     -background none \
     -layers merge \
-    +repage $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME
+    +repage $1
 }
 
 ## Function magickborder
 function magickborder() {
-  convert $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME -bordercolor "$BORDER_COLOR" -border $BORDER_SIZE $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME
+  convert $1 -bordercolor "$BORDER_COLOR" -border $BORDER_SIZE $1
 }
 
 ## Function magickfooter
 function magickfooter() {
   echo -n "$FOOTER_TEXT" |
-  convert $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME \
+  convert $1 \
   -gravity $FOOTER_POSITION \
   -pointsize $FOOTER_FONT_SIZE \
   -fill $FOOTER_FOREGROUND_COLOR \
   -undercolor $FOOTER_BACKGROUND_COLOR \
   -font $FOOTER_FONT \
   -annotate $FOOTER_XY \
-  @- $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME
+  @- $1
 }
 
 # Option Execute
@@ -132,7 +132,7 @@ function autoshotFooter() {
 
 function magickexec() {
 
-  if $($1); then
+  if $($1 $3); then
     logdate "$2 image ${LOG_SUCCESS} \n"
   else
     logdate "$2 image ${LOG_FAILED} \n"
@@ -145,27 +145,18 @@ function footer() {
   magickexec "magickfooter" "Footer"
 }
 
-function main() {
+function execute() {
+  logdate "Add rounded to image ..."
+  magickexec "magickrounded" "Rounded" $1
 
-  logdate "Execute awesomeshot"
-  logdate "Searching newest file on working directory ..."
-  SCREENSHOT_FILE_NAME_LENGHT=${#SCREENSHOT_FILE_NAME}
-  if [ $(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ' 2> /dev/null) ]; then
+  logdate "Add shadow to image ..."
+  magickexec "magickshadow" "Shadow" $1
 
-    SCREENSHOT_FILE_NAME=$(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ')
-    logdate "${SCREENSHOT_FILE_NAME} ${LOG_OK} \n"
+  logdate "Add border to image ..."
+  magickexec "magickborder" "Border" $1
+}
 
-    function execute() {
-      logdate "Add rounded to image ..."
-      magickexec "magickrounded" "Rounded"
-
-      logdate "Add shadow to image ..."
-      magickexec "magickshadow" "Shadow"
-
-      logdate "Add border to image ..."
-      magickexec "magickborder" "Border"
-
-    }
+function backupOriginalFile() {
 
     logdate "Backup original file ..."
     if [ ! -d $HOME/awesomeshot/ ]; then
@@ -182,45 +173,66 @@ function main() {
 
       fi
 
-      cp $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME $HOME/awesomeshot
+      cp $1 $HOME/awesomeshot
 
       if [ -f $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ]; then
 
         logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
-        execute
+        execute "$1"
 
       else
 
         logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_FAILED} \n"
-        execute
+        execute "$1"
 
       fi
 
     else
 
-      cp $SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME $HOME/awesomeshot
+      cp $1 $HOME/awesomeshot
 
       if [ -f $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ]; then
 
         logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
-        execute
+        execute "$1"
 
       else
 
         logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_FAILED} \n"
-        execute
+        execute "$1"
 
       fi
 
     fi
 
-    logdate "$SCREENSHOT_PATH/${SCREENSHOT_FILE_NAME} ${LOG_DONE} \n"
+    logdate "$1 ${LOG_DONE} \n"
+  
+}
+
+function main() {
+
+  logdate "Execute awesomeshot"
+  logdate "Searching newest file on working directory ..."
+  if [ $(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ' 2> /dev/null) ]; then
+
+    SCREENSHOT_FILE_NAME=$(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ')
+    logdate "${SCREENSHOT_FILE_NAME} ${LOG_OK} \n"
+
+    backupOriginalFile "$SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME"
 
   else
 
     error "Can't get newest file on working directory"
 
   fi
+
+}
+
+function manual() {
+
+  SCREENSHOT_FILE_NAME="$1"
+  backupOriginalFile "$SCREENSHOT_FILE_NAME"
+  # execute "$SCREENSHOT_FILE_NAME"
 
 }
 
@@ -238,7 +250,7 @@ function help() {
   
   # Usage Help
   echo -e "Usage:
-  awesomeshot [options] 
+  awesomeshot [options] [filename]
   "
   
   # Option Help
@@ -247,6 +259,7 @@ function help() {
   -f        Run awesomeshot with footer text
   -h        Print this help message
   -i        Print information about this program
+  -m        Run awesomeshot manual (require filename)
   -v        Print version information
   "
 }
@@ -276,6 +289,10 @@ case $1 in
 
   -i )
     information
+  ;;
+
+  -m )
+    manual $2
   ;;
 
   -v )
