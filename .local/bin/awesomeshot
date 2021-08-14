@@ -45,7 +45,7 @@ LOG_ERROR="[${COLOR_DANGER}ERROR${COLOR_BASED}]"
 
 # Function Log Date
 function logdate() {
-  echo -e "[${COLOR_WARNING}$(date +'%d-%m-%Y %r')${COLOR_BASED}] > $@"
+  echo -e "[${COLOR_WARNING}$(date +'%A, %d %B %Y %r')${COLOR_BASED}] > $@"
 }
 
 # Function ERROR
@@ -126,7 +126,7 @@ function autoshotFooter() {
   inotifywait -m -e create $SCREENSHOT_PATH | \
   while read FILENAME; do
     main
-    footer
+    footer "$SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME"
   done
 }
 
@@ -142,7 +142,7 @@ function magickexec() {
 
 function footer() {
   logdate "Add footer to image ..."
-  magickexec "magickfooter" "Footer"
+  magickexec "magickfooter" "Footer" $1
 }
 
 function execute() {
@@ -276,7 +276,7 @@ case $1 in
 
   -f )
     main
-    footer
+    footer $2
   ;;
 
   -af )
