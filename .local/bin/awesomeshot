@@ -247,12 +247,13 @@ function help() {
   
   # Option Help
   echo -e "Options:
-  -a        Automatic run awesomeshot
-  -f        Run awesomeshot with footer text
-  -h        Print this help message
-  -i        Print information about this program
-  -m        Run awesomeshot manual (require filename)
-  -v        Print version information
+  -a      Automatic run awesomeshot (automatic detect new file screenshot)
+  -f      Run awesomeshot with footer text
+  -af     Run awesomeshot with automatic with footer text
+  -h      Print this help message
+  -i      Print information about this program
+  -m      Run awesomeshot manual (require filename)
+  -v      Print version awesomeshot
   "
 }
 

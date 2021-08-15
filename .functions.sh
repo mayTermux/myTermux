@@ -404,6 +404,10 @@ function alert() {
 
 }
 
+function awesomeshotFont() {
+  cp ~/.termux/fonts/NerdFonts/JetBrains/JetBrains\ Mono\ Medium\ Nerd\ Font\ Complete.ttf $PREFIX/share/fonts/TTF/ 2> /dev/null
+}
+
 function main() {
   # dotTermux
   clear
@@ -412,6 +416,7 @@ function main() {
   dotFiles
   backupDotFiles
   reloadSettings
+  awesomeshotFont
   informationRepository
   cloneRepository
   neovimPlugins
