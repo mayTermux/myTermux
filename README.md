@@ -14,6 +14,21 @@
 
   Termux -> [Android](https://xshin404.github.io/installation/android.html)
 
+### Termux Login
+
+  Username: xshin
+  Password: xshin
+
+  [Read More](https://xshin404.github.io/login/login.html)
+
+### Termux Colorscheme
+
+  [Read More](https://xshin404.github.io/preview/readmore/colorscheme.html)
+
+### Neovim Theme
+
+  [Read More](https://xshin404.github.io/preview/readmore/text_editor.html)
+
 ### Screenshots
 
 <a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/merge.png" target="_blank" rel="noopener">
