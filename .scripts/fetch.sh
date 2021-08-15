@@ -24,7 +24,7 @@ function storage() {
   USED=$(echo ${GREP_ONE_ROW} | awk '{print $3}')
   AVAIL=$(echo ${GREP_ONE_ROW} | awk '{print $4}')
   USE=$(echo ${GREP_ONE_ROW}} | awk '{print $5}')
-	MOUNTED=$(echo ${GREP_ONE_ROW} | awk '{print $6}')
+  MOUNTED=$(echo ${GREP_ONE_ROW} | awk '{print $6}')
 
   function help() {
     # Usage Help
@@ -155,7 +155,7 @@ function battery() {
 
         elif [ ${PERCENTAGE} -ge 41 ] && [ ${PERCENTAGE} -le 50 ]; then
 
-          echo -e "${COLOR_WARNING}${COLOR_SUCCESS} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
 
         elif [ ${PERCENTAGE} -ge 51 ] && [ ${PERCENTAGE} -le 60 ]; then
 
@@ -232,8 +232,7 @@ function battery() {
 
   else
 
-    Error "Fetching battery error, ${COLOR_WARNING}termux-battery-status ${COLOR_DANGER}not found${COLOR_BASED}. Make sure you installed 
-          ${COLOR_WARNING}Termux:API${COLOR_BASED} on ${COLOR_WARNING}Playstore${COLOR_BASED} or ${COLOR_SUCCESS}F-Droid${COLOR_BASED} and package ${COLOR_SUCCESS}termux-api${COLOR_BASED} with pkg"
+    Error "Fetching battery error, ${COLOR_WARNING}termux-battery-status ${COLOR_DANGER}not found${COLOR_BASED}. Make sure you installed ${COLOR_WARNING}Termux:API${COLOR_BASED} on ${COLOR_WARNING}Playstore${COLOR_BASED} or ${COLOR_SUCCESS}F-Droid${COLOR_BASED} and package ${COLOR_SUCCESS}termux-api${COLOR_BASED} with pkg"
   
   fi
 
