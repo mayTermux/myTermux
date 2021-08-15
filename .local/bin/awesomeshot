@@ -151,11 +151,11 @@ function execute() {
 function backupOriginalFile() {
 
     logdate "Backup original file ..."
-    if [ ! -d $HOME/awesomeshot/ ]; then
+    if [ ! -d $HOME/.awesomeshot/ ]; then
 
-      logdate "Creating directory $HOME/awesomeshot"
+      logdate "Creating directory $HOME/.awesomeshot"
 
-      if mkdir $HOME/awesomeshot; then
+      if mkdir $HOME/.awesomeshot; then
 
         logdate "Creating directory ${LOG_SUCCESS}"
 
@@ -165,32 +165,32 @@ function backupOriginalFile() {
 
       fi
 
-      cp $1 $HOME/awesomeshot
+      cp $1 $HOME/.awesomeshot
 
-      if [ -f $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ]; then
+      if [ -f $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ]; then
 
-        logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
+        logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
         execute "$1"
 
       else
 
-        logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_FAILED} \n"
+        logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_FAILED} \n"
         execute "$1"
 
       fi
 
     else
 
-      cp $1 $HOME/awesomeshot
+      cp $1 $HOME/.awesomeshot
 
-      if [ -f $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ]; then
+      if [ -f $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ]; then
 
-        logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
+        logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
         execute "$1"
 
       else
 
-        logdate "Original file on $HOME/awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_FAILED} \n"
+        logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_FAILED} \n"
         execute "$1"
 
       fi
@@ -204,7 +204,7 @@ function backupOriginalFile() {
 function main() {
 
   logdate "Execute awesomeshot"
-  logdate "Searching newest file on working directory ..."
+  logdate "Searching newest file on ${SCREENSHOT_PATH} ..."
   if [ $(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ' 2> /dev/null) ]; then
 
     SCREENSHOT_FILE_NAME=$(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ')
@@ -228,6 +228,12 @@ function manual() {
 
 }
 
+function manualFooter() {
+  SCREENSHOT_FILE_NAME="$1"
+  backupOriginalFile "$SCREENSHOT_FILE_NAME"
+  footer $1
+}
+
 ## Function Information
 function information() {
   echo -e "Program Name   : $PROGRAM_NAME"
@@ -247,12 +253,12 @@ function help() {
   
   # Option Help
   echo -e "Options:
-  -a      Automatic run awesomeshot (automatic detect new file screenshot)
-  -f      Run awesomeshot with footer text
+  -a      Automatic run awesomeshot (automatic detect new file when you do screenshot)
+  -f      Manual run awesomeshot with footer text (require filename)
   -af     Run awesomeshot with automatic with footer text
   -h      Print this help message
   -i      Print information about this program
-  -m      Run awesomeshot manual (require filename)
+  -m      Manual run awesomeshot (require filename)
   -v      Print version awesomeshot
   "
 }
@@ -268,8 +274,7 @@ case $1 in
   ;;
 
   -f )
-    main
-    footer $2
+    manualFooter $2
   ;;
 
   -af )
