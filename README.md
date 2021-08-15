@@ -16,18 +16,18 @@
 
 ### Termux Login
 
-  Username: xshin
+  Username: xshin \
   Password: xshin
 
   [Read More](https://xshin404.github.io/login/login.html)
 
 ### Termux Colorscheme
 
-  [Read More](https://xshin404.github.io/preview/readmore/colorscheme.html)
+  [Here](https://xshin404.github.io/preview/readmore/colorscheme.html)
 
 ### Neovim Theme
 
-  [Read More](https://xshin404.github.io/preview/readmore/text_editor.html)
+  [Here](https://xshin404.github.io/preview/readmore/text_editor.html)
 
 ### Screenshots
 
