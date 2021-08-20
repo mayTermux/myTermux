@@ -33,7 +33,7 @@ REPOSITORY_LINKS=(
   https://github.com/zsh-users/zsh-syntax-highlighting
   https://github.com/zsh-users/zsh-autosuggestions
   https://github.com/jimeh/tmux-themepack
-  https://github.com/siduck76/NvChad
+  https://github.com/NvChad/NvChad
 )
 
 REPOSITORY_APIS=(
@@ -41,7 +41,7 @@ REPOSITORY_APIS=(
   repos/zsh-users/zsh-syntax-highlighting
   repos/zsh-users/zsh-autosuggestions
   repos/jimeh/tmux-themepack
-  repos/siduck76/NvChad
+  repos/NvChad/NvChad
 )
 
 REPOSITORY_FULL_NAME=(
