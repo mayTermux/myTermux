@@ -38,13 +38,13 @@
   </div>
 
 
-# :camera_flash: Screenshots
+### :camera_flash: Screenshots
 <a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/merge.png" target="_blank" rel="noopener">
   <img alt="myTermux rxfetch" height="60%" width="100%" src="/assets/images/README/merge.png"/>
 </a>
 
 
-# :hearts:  Credits / Big Thanks
+### :hearts:  Credits / Big Thanks
 - **Inspiration**
   - [owl4ce](https://github.com/owl4ce)
   - [adi1090x](https://github.com/adi1090x)
