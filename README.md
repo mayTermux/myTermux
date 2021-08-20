@@ -31,6 +31,7 @@
             src="https://img.shields.io/github/license/xshin404/myTermux?style=flat-square&logo=GNU&label=License"
             alt="License"
     />
+[![Telegram Group](https://img.shields.io/badge/Telegram%20Group-white.svg?style=flat-square&logo=Telegram)](https://t.me/termux_art)
 [![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.5+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
 [![GitHub Issues](https://img.shields.io/github/issues/xshin404/myTermux.svg?style=flat-square&label=Issues&color=fc0330)](https://github.com/xshin404/myTermux/issues)
 [![Last Commit](https://img.shields.io/github/last-commit/xshin404/myTermux.svg?style=flat-square&label=Last%20Commit&color=58eb34)](https://github.com/xshin404/myTermux/pulse) 
