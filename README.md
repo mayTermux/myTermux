@@ -38,7 +38,7 @@
   </div>
 
 
-# Screenshots
+# :camera_flash: Screenshots
 <a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/merge.png" target="_blank" rel="noopener">
   <img alt="myTermux rxfetch" height="60%" width="100%" src="/assets/images/README/merge.png"/>
 </a>
@@ -61,7 +61,6 @@
   - [siduck76 (onedark-siduck)](https://github.com/siduck76)
   - [owl4ce (owl4ce-dark, owl4ce-light)](https://github.com/owl4ce)
   - [nekonako (djancoeg, hue, om-mar)](https://github.com/nekonako)
-  And More...
 
 - **Other**
   - [Dotfiles Indonesia](https://t.me/dotfiles_id)
