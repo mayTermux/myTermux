@@ -15,7 +15,7 @@
 
 <div align="center">
 	
-[![Linux](https://img.shields.io/badge/my%20Termux-gray.svg?style=for-the-badge&logo=linux)]()
+[![Linux](https://img.shields.io/badge/my%20Termux-gray.svg?style=for-the-badge&logo=android)]()
 	
 </div>
 
@@ -42,3 +42,27 @@
 <a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/merge.png" target="_blank" rel="noopener">
   <img alt="myTermux rxfetch" height="60%" width="100%" src="/assets/images/README/merge.png"/>
 </a>
+
+
+# :hearts:  Credits / Big Thanks
+- **Inspiration**
+  - [owl4ce](https://github.com/owl4ce)
+  - [adi1090x](https://github.com/adi1090x)
+  - [siduck76](https://github.com/siduck76)
+
+- **Neovim Setup**
+  - [NvChad](https://github.com/NvChad/NvChad)
+
+- **Awesomeshot with Imagemagick**
+  - [bandithijo (Dekstop Version)](https://github.com/bandithijo)
+  - [Annzc (Android Version)](https://github.com/annzc)
+
+- **Colorscheme**
+  - [siduck76 (onedark-siduck)](https://github.com/siduck76)
+  - [owl4ce (owl4ce-dark, owl4ce-light)](https://github.com/owl4ce)
+  - [nekonako (djancoeg, hue, om-mar)](https://github.com/nekonako)
+  And More...
+
+- **Other**
+  - [Dotfiles Indonesia](https://t.me/dotfiles_id)
+  - [Vim Indonesia](https://t.me/VimID)
