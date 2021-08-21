@@ -275,7 +275,7 @@ source $HOME/.lfvar
 
 #    if [ ! -f ~/.scripts/pid/login ]; then
         
-       bash ~/.scripts/login.sh
+#       bash ~/.scripts/login.sh
 
 #    fi
 
