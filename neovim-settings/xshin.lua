@@ -11,6 +11,9 @@ cmd [[set cursorline]];
 -- Set nowrap text when opening files
 cmd [[set nowrap]];
 
+-- Set Cursor Underline
+cmd [[set guicursor=]];
+
 -- Restore Cursor
 cmd [[
   augroup RestoreCursorShapeOnExit
