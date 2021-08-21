@@ -178,13 +178,12 @@ source $ZSH/oh-my-zsh.sh
     alias neo="neofetch"
     alias rx="rxfetch"
     alias neodebug="bash ~/.config/neofetch/debug-logo.sh $1"
-    alias memory="bash ~/.config/neofetch/script.sh --storage"
+    alias disk="bash ~/.scripts/fetch storage"
     alias battery="bash ~/.config/neofetch/script.sh --battery"
     alias ls="exa --icons"
     alias la="exa --icons -lgha --group-directories-first"
     alias lt="exa --icons --tree"
     alias lta="exa --icons --tree -lgha"
-    alias listpkg="bash $HOME/.scripts/list-packages.sh $1 $2"
 
     #proot-distro
     alias prot="cd $PREFIX/var/lib/proot-distro"
