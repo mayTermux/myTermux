@@ -11,6 +11,14 @@ cmd [[set cursorline]];
 -- Set nowrap text when opening files
 cmd [[set nowrap]];
 
+-- Restore Cursor
+cmd [[
+  augroup RestoreCursorShapeOnExit
+    autocmd!
+    autocmd VimLeave * set guicursor=a:hor20
+  augroup END
+]];
+
 -- mapping
 
 local function map(mode, lhs, rhs, opts)
