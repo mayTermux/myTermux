@@ -9,6 +9,8 @@
   <span> • </span>
 	<a href="https://xshin404.github.io/preview/screenshot.html">Preview</a>
   <span> • </span>
+	<a href="https://xshin404.github.io/awesomeshot/index.html">Awesomeshot</a>
+  <span> • </span>
       	<a href="https://xshin404.github.io/credits/index.html">Credits or Big Thanks</a>
   <p></p>
 </div>
