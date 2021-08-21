@@ -132,16 +132,10 @@ get_color() {
   reset='[0m'
 }
 
-get_music() {
-  title=$(mpc --host=127.0.0.1 --port=8000 --format '[%title%]' current 2> /dev/null)
-  artist=$(mpc --host=127.0.0.1 --port=8000 --format '[%artist%]' current 2> /dev/null)
-}
-
 # fetch output
 distro_detect
 get_user
 get_color
-get_music
 get_node_name
 echo -e "\n                xshin${c5}@${c3}android ${c5}${c3}\n"
 echo -e "               ${c2}${c3} : ${distro} $(uname -m)"
@@ -150,7 +144,7 @@ echo -e "               ${c6}${c3} : $(net_pkg) Packages"
 echo -e "     ${c3}•${c8}_${c3}•${c0}       ${c5}${c3} : $(basename "${SHELL}")"
 echo -e "     ${c8}${c0}${c9}oo${c0}${c8}|${c0}       ${c6}${c3} : $(get_mem)"
 echo -e "    ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}      ${c7}${c3} :$(uptime -p | sed 's/up//')"
-echo -e "   ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}      ${c1}${c3} : $artist - $title 💕"
+echo -e "   ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}      ${c1}${c3} : $(music -f)"
 echo -e "               ${c6}${c3} : $(bash $HOME/.scripts/fetch.sh storage)"
 echo -e "               $(bash $HOME/.scripts/fetch.sh battery)"
 echo -e "               
