@@ -258,7 +258,7 @@ source $HOME/.lfvar
     #cursor pipe
     #echo -e "\e[6 q"
 
-    c
+#    c
 
 #    if [ "$TMUX" == "" ]; then
 
@@ -273,4 +273,4 @@ source $HOME/.lfvar
 #    fi
 
 #    neo
-     rxfetch
+     rx
