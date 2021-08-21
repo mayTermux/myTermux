@@ -203,13 +203,7 @@ source $ZSH/oh-my-zsh.sh
     alias ncmconf="nvim ~/.config/ncmpcpp/config"
 
     #neovim
-    alias nviminit="nvim ~/.config/nvim/init.vim"
-    alias nvimplug="nvim ~/.config/nvim/settings/plugins.vim"
-    alias nvimconf="nvim ~/.config/nvim/settings/sets.vim"
-    alias nvimtheme="nvim ~/.config/nvim/settings/themes.vim"
-    alias nvimkey="nvim ~/.config/nvim/settings/keybinds.vim"
-    alias nvimset="nvim ~/.config/nvim/settings/sets.vim"
-
+    alias nvimtheme="nvim ~/.config/nvim/lua/chadrc.lua"
     #zsh
     alias zshconf="nvim ~/.zshrc"
 
@@ -221,8 +215,6 @@ source $ZSH/oh-my-zsh.sh
     #git
     alias gitgraph="git log --all --decorate --oneline --graph"
     alias gitupdate="git fetch && git pull"
-    alias gituser="git config --global user.name $1"
-    alias gitemail="git config --global user.email $1"
     alias gitstat="git status"
     alias gitad="git add $@"
     alias gitcom="git commit -m '$@'"
