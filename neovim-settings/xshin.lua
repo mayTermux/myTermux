@@ -29,6 +29,11 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+-- Terminal
+map("n", "<C-l>", ":vnew +terminal | setlocal nobuflisted <CR>", opt) -- term over right
+map("n", "<C-x>", ":10new +terminal | setlocal nobuflisted <CR>", opt) --  term bottom
+map("n", "<M-t>", ":terminal <CR>", opt) -- term buffer
+
 -- save on normal, insert and visual mode (CTRL + S)
 map("n", "<C-s>", [[<esc>:w<cr>]], opt)
 map("i", "<C-s>", [[<esc>:w<cr>]], opt)

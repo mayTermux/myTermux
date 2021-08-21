@@ -202,7 +202,14 @@ source $ZSH/oh-my-zsh.sh
     alias ncmconf="nvim ~/.config/ncmpcpp/config"
 
     #neovim
+    alias nvimimit="nvim ~/.config/nvim/init.lua"
     alias nvimtheme="nvim ~/.config/nvim/lua/chadrc.lua"
+    alias nvimplug="nvim ~/.config/nvim/lua/pluginList.lua"
+    alias nvimmap="nvim ~/.config/nvim/lua/mappings.lua"
+    alias nvimpacnit="nvim ~/.config/nvim/lua/packerInit.lua"
+    alias nvimsin="nvim ~/.config/nvim/lua/xshin.lua"
+    alias nvimhighlight="nvim ~/.config/nvim/lua/hightlights.lua"
+
     #zsh
     alias zshconf="nvim ~/.zshrc"
 
