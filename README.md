@@ -1,17 +1,15 @@
 <h1 align="center">myTermux</h1> 
 
 <div align="center">
-	<a href="https://xshin404.github.io/">About Setup</a>
+  <a href="https://mytermux-xshin404.vercel.app/docs/intro" target="_blank">Install</a>
   <span> • </span>
-    	<a href="https://xshin404.github.io/installation/android.html">Install</a>
+       	<a href="https://mytermux-xshin404.vercel.app/docs/login/Username%20&%20Password" target="_blank">myTermux Login</a>
   <span> • </span>
-       	<a href="https://xshin404.github.io/login/login.html">myTermux Login</a>
+	      <a href="https://mytermux-xshin404.vercel.app/docs/screenshot/colorscheme" target="_blank">Screenshot</a>
   <span> • </span>
-	<a href="https://xshin404.github.io/preview/screenshot.html">Preview</a>
+	<a href="https://xshin404.github.io/awesomeshot/index.html" target="_blank">Awesomeshot</a>
   <span> • </span>
-	<a href="https://xshin404.github.io/awesomeshot/index.html">Awesomeshot</a>
-  <span> • </span>
-      	<a href="https://xshin404.github.io/credits/index.html">Credits or Big Thanks</a>
+      	<a href="https://xshin404.github.io/credits/index.html" target="_blank">Credits or Big Thanks</a>
   <p></p>
 </div>
 
