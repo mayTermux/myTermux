@@ -178,7 +178,7 @@ source $ZSH/oh-my-zsh.sh
     alias neo="neofetch"
     alias rx="rxfetch"
     alias neodebug="bash ~/.config/neofetch/debug-logo.sh $1"
-    alias disk="bash ~/.scripts/fetch storage"
+    alias disk="bash ~/.scripts/fetch.sh storage"
     alias battery="bash ~/.config/neofetch/script.sh --battery"
     alias ls="exa --icons"
     alias la="exa --icons -lgha --group-directories-first"
