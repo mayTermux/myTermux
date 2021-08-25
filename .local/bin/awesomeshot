@@ -24,7 +24,7 @@ BORDER_COLOR="#ABB2BF"
 
 ## Imagemagick Footer
 FOOTER_POSITION="SouthWest"
-FOOTER_XY="+320+40"
+FOOTER_XY="+0+30"
 FOOTER_TEXT=" Shot by Awesomeshot"
 # Font PATH "/data/data/com.termux/files/usr/share/fonts/TTF/"
 # See font available "magick convert -list font | grep -iE 'font:.*' " or "listfont" (listfont is alias from command magick convert ...)
