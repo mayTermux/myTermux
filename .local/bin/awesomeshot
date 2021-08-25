@@ -23,7 +23,7 @@ BORDER_SIZE=70
 BORDER_COLOR="#ABB2BF"
 
 ## Imagemagick Footer
-FOOTER_POSITION="SouthWest"
+FOOTER_POSITION="South"
 FOOTER_XY="+0+30"
 FOOTER_TEXT=" Shot by Awesomeshot"
 # Font PATH "/data/data/com.termux/files/usr/share/fonts/TTF/"
