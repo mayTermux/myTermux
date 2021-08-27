@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 DEPENDENCY_PACKAGES=(
-  git clang autoconf automake libtool pkg-config boost
+  git clang autoconf automake 
+  libtool pkg-config boost taglib
 )
 
 for DEPENDENCY_PACKAGE in ${DEPENDENCY_PACKAGES[@]}; do
