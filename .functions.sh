@@ -305,7 +305,6 @@ function installDotFiles() {
 
     fi
 
-    sleep 1s
     echo -e ""
 
   done
@@ -319,23 +318,52 @@ function neovimPlugins() {
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Installing Neovim Plugins with Packer\n"
   echo -e "Installing Neovim Plugins:" >> $(pwd)/.log
 
-  if [ -f $HOME/NvChad/install.sh ]; then
+  if [ -d $HOME/NvChad ]; then
 
-    bash $HOME/NvChad/install.sh -i
-    logDate Status Neovim Plugins [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
-    cp $(pwd)/neovim-settings/xshin.lua $HOME/.config/nvim/lua/xshin.lua
-    sed -i 's/"mappings"/"mappings",/g' ~/.config/nvim/init.lua
-    sed -i '4i\    "xshin"' ~/.config/nvim/init.lua
-    sed -i 's/g.nvim_tree_hide_dotfiles = 1/g.nvim_tree_hide_dotfiles = 0/g' ~/.config/nvim/lua/plugins/nvimtree.lua
-    echo -e "$(date +'%A, %d %B %Y %r') Status Neovim Plugins [SUCCESS]" >> $(pwd)/.log
+    logDate Status NvChad [${COLOR_SUCCESS}FOUND${COLOR_BASED}]
+
+    logDate Preparing to install Plugin (Move NvChad to .config/nvim)
+    mv $HOME/NvChad $HOME/.config/nvim
+    if [ -d $HOME/.config/nvim ]; then
+    
+      logDate Status .config/nvim [${COLOR_SUCCESS}OK${COLOR_BASED}]
+
+      logDate Status Installer [${COLOR_SUCCESS}READY${COLOR_BASED}]
+      $(nvim +'hi NormalFloat guibg=#1e222a' +PackerSync)
+      logDate Status Neovim Plugins [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+      echo -e "$(date +'%A, %d %B %Y %r') Status Neovim Plugins [SUCCESS]" >> $(pwd)/.log
+
+    else
+
+      logDate Status .config/nvim [${COLOR_DANGER}Configuration not found${COLOR_BASED}]
+      echo -e "$(date +'%A, %d %B %Y %r') Status .config/nvim [Configuration not found]" >> $(pwd)/.log
+
+    fi
 
   else
 
-    logDate Status [${COLOR_DANGER}ERROR INSTALLER NOT FOUND${COLOR_BASED}]
-    echo -e "$(date +'%A, %d %B %Y %r') Status Neovim Plugins [ERROR INSTALLER NOT FOUND]" >> $(pwd)/.log
-
+    logDate Status NvChad [${COLOR_DANGER}NvChad not found${COLOR_BASED}]
+    echo -e "$(date +'%A, %d %B %Y %r') Status NvChad [NvChad not found]" >> $(pwd)/.log
 
   fi
+
+  # if [ -f $HOME/NvChad/install.sh ]; then
+
+  #   bash $HOME/NvChad/install.sh -i
+  #   logDate Status Neovim Plugins [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+  #   cp $(pwd)/neovim-settings/xshin.lua $HOME/.config/nvim/lua/xshin.lua
+  #   sed -i 's/"mappings"/"mappings",/g' ~/.config/nvim/init.lua
+  #   sed -i '4i\    "xshin"' ~/.config/nvim/init.lua
+  #   sed -i 's/g.nvim_tree_hide_dotfiles = 1/g.nvim_tree_hide_dotfiles = 0/g' ~/.config/nvim/lua/plugins/nvimtree.lua
+  #   echo -e "$(date +'%A, %d %B %Y %r') Status Neovim Plugins [SUCCESS]" >> $(pwd)/.log
+
+  # else
+
+  #   logDate Status [${COLOR_DANGER}ERROR INSTALLER NOT FOUND${COLOR_BASED}]
+  #   echo -e "$(date +'%A, %d %B %Y %r') Status Neovim Plugins [ERROR INSTALLER NOT FOUND]" >> $(pwd)/.log
+
+
+  # fi
 
   echo -e "" >> $(pwd)/.log
 
