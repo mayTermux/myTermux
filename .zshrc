@@ -203,7 +203,7 @@ source $ZSH/oh-my-zsh.sh
     alias ncmconf="nvim ~/.config/ncmpcpp/config"
 
     #neovim
-    alias nvimimit="nvim ~/.config/nvim/init.lua"
+    alias nviminit="nvim ~/.config/nvim/init.lua"
     alias nvimtheme="nvim ~/.config/nvim/lua/chadrc.lua"
     alias nvimplug="nvim ~/.config/nvim/lua/pluginList.lua"
     alias nvimmap="nvim ~/.config/nvim/lua/mappings.lua"
