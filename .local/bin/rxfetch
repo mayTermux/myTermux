@@ -137,15 +137,77 @@ distro_detect
 get_user
 get_color
 get_node_name
-echo -e "\n                xshin${c5}@${c3}android ${c5}${c3}\n"
-echo -e "               ${c2}${c3} : ${distro} $(uname -m)"
-echo -e "               ${c5}${c3} : $(uname -r)"
-echo -e "               ${c6}${c3} : $(net_pkg) Packages"
-echo -e "     ${c3}•${c8}_${c3}•${c0}       ${c5}${c3} : $(basename "${SHELL}")"
-echo -e "     ${c8}${c0}${c9}oo${c0}${c8}|${c0}       ${c6}${c3} : $(get_mem)"
-echo -e "    ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}      ${c7}${c3} :$(uptime -p | sed 's/up//')"
-echo -e "   ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}      ${c1}${c3} : $(music -f)"
-echo -e "               ${c6}${c3} : $(bash $HOME/.scripts/fetch.sh storage)"
-echo -e "               $(bash $HOME/.scripts/fetch.sh battery)"
-echo -e "               
-               ${black}██${red}██${green}██${yellow}██${blue}██${magenta}██${cyan}██${white}██${reset}\n"
+
+function penguin() {
+  echo -e "\n                xshin${c5}@${c3}android ${c5}${c3}\n"
+  echo -e "               ${c2}${c3} : ${distro} $(uname -m)"
+  echo -e "               ${c5}${c3} : $(uname -r)"
+  echo -e "               ${c6}${c3} : $(net_pkg) Packages"
+  echo -e "     ${c3}•${c8}_${c3}•${c0}       ${c5}${c3} : $(basename "${SHELL}")"
+  echo -e "     ${c8}${c0}${c9}oo${c0}${c8}|${c0}       ${c6}${c3} : $(get_mem)"
+  echo -e "    ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}      ${c7}${c3} :$(uptime -p | sed 's/up//')"
+  echo -e "   ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}      ${c1}${c3} : $(bash $HOME/.scripts/fetch.sh music)"
+  echo -e "               $(bash $HOME/.scripts/fetch.sh storage -n)"
+  echo -e "               $(bash $HOME/.scripts/fetch.sh battery)"
+  echo -e "               
+                ${black}██${red}██${green}██${yellow}██${blue}██${magenta}██${cyan}██${white}██${reset}\n"
+
+}
+
+function hydra() {
+
+  echo -e "${c5}
+  ${red}⣴⣶⣤⡤⠦⣤⣀⣤⠆${reset}     ${green}⣈⣭⣿⣶⣿⣦⣼⣆           ${reset}xshin${c5}@${c3}android ${c5}${c3}
+   ${red}⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄${reset}${green}⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       
+         ${red}⠈⢿⣿⣟⠦${reset} ${green}⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄      ${green} ${reset}: ${distro} $(uname -m)
+          ${red}⣸⣿⣿⢧${reset} ${green}⢻⠻⣿⣿⣷⣄⣀⠄${white}⠢⣀${green}⠈⠙⠿⠄      ${yellow} ${reset}: $(uname -r)
+  ${yellow}     ${reset}  ${red}⢠⣿⣿⣿⠈${reset}    ${green}⣻⣿⣿⣿⣿${white}⣿⣿⣿⣛⣳⣤⣀⣀    ${red} ${reset}: $(net_pkg) Packages
+  ${yellow}⢠⣧⣶⣥⡤⢄${reset} ${red}⣸⣿⣿⠘${reset}  ${white}⢀⣴⣿⣿⡿⠛${green}⣿⣿⣧⠈${white}⢿⠿⠟⠛⠻⠿⠄   ${white} ${reset}: $(basename "${SHELL}")
+ ${yellow}⣰⣿⣿⠛⠻⣿⣿⡦${reset}${red}⢹⣿⣷${reset}   ${white}⢊⣿⣿⡏  ${green}⢸⣿⣿⡇${blue} ⢀⣠⣄⣾⠄    ${yellow} ${reset}: $(get_mem)
+ ${yellow}⣠⣿⠿⠛ ⢀⣿⣿⣷${reset}${red}⠘⢿⣿⣦⡀${reset} ${white}⢸⢿⣿⣿⣄ ${green}⣸⣿⣿⡇${blue}⣪⣿⡿⠿⣿⣷⡄  ${red} ${reset}:$(uptime -p | sed 's/up//')
+${yellow}⠙⠃   ⣼⣿⡟${reset}  ${red}⠈⠻⣿⣿⣦⣌⡇${reset}${white}⠻⣿⣿⣷${green}⣿⣿⣿ ${blue}⣿⣿⡇ ⠛⠻⢷⣄  ${prurple} ${reset}: $(bash $HOME/.scripts/fetch.sh music)
+   ${yellow}⢻⣿⣿⣄${reset}   ${red}⠈⠻⣿⣿⣿⣷⣿⣿${white}⣿⣿${green}⣿⡟ ${blue}⠫⢿⣿⡆        $(bash $HOME/.scripts/fetch.sh storage -n)
+   ${yellow}⠻⣿⣿⣿⣿⣶⣶${reset}${red}⣾⣿⣿⣿⣿${white}⣿⣿${green}⣿⣿⡟${blue}⢀⣀⣤⣾⡿⠃         $(bash $HOME/.scripts/fetch.sh battery)  
+
+                                  ${black}██${red}██${green}██${yellow}██${blue}██${magenta}██${cyan}██${white}██${reset}
+  "
+
+}
+
+function help() {
+
+  # Usage Help
+  echo -e "Usage:
+  rxfetch [option]
+  "
+  
+  # Option Help
+  echo -e "Options:
+  ''        Run fetch script default (Logo Penguin)
+  penguin   Run fetch script with Logo Penguin
+  hydra     Run fetch script with Logo Hydra
+  help      Print help message
+  "  
+
+}
+
+case $1 in
+
+  "" )
+    penguin
+  ;;
+
+  penguin )
+    penguin
+  ;;
+
+  hydra )
+    hydra
+  ;;
+
+  * )
+    help
+    exit 1
+  ;;
+
+esac

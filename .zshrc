@@ -142,6 +142,7 @@ source $ZSH/oh-my-zsh.sh
     alias n="ncmpcpp"
     alias mkill="mpd --kill"
     alias m="music"
+    alias ncmpcpp-compile="~/myTermux/compile/armv7l/install/ncmpcpp-compile.sh"
 
     #Color Toys
     alias 256colors2="~/.color-toys/256colors2.pl"
@@ -176,7 +177,7 @@ source $ZSH/oh-my-zsh.sh
     #System Information
     #alias neo="bash ~/.config/neofetch/debug-logo.sh --randomsmall"
     alias neo="neofetch"
-    alias rx="rxfetch"
+    alias rx="rxfetch hydra"
     alias neodebug="bash ~/.config/neofetch/debug-logo.sh $1"
     alias disk="bash ~/.scripts/fetch.sh storage"
     alias battery="bash ~/.config/neofetch/script.sh --battery"
@@ -217,6 +218,8 @@ source $ZSH/oh-my-zsh.sh
     alias neoconf="nvim ~/.config/neofetch/config.conf"
     alias rxconf="nvim ~/.local/bin/rxfetch"
     alias neoscript="nvim ~/.config/neofetch/script.sh"
+    alias fetch="~/.scripts/fetch.sh $@"
+    alias fetchconf="nvim ~/.scripts/fetch.sh"
 
     #git
     alias gitgraph="git log --all --decorate --oneline --graph"

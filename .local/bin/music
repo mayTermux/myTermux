@@ -18,31 +18,4 @@ function play() {
   fi
 }
 
-function get_music() {
-
-  ARTIST=$(mpc --host=127.0.0.1 --port=8000 --format '[%artist%]' current 2> /dev/null)
-  TITLE=$(mpc --host=127.0.0.1 --port=8000 --format '[%title%]' current 2> /dev/null)
-
-  if mpc --host=127.0.0.1 --port=8000 &> /dev/null; then
-
-    echo -e "${ARTIST} - ${TITLE}"
-
-  else
-
-    echo -e "Unknown Artist - Unknown Song"
-
-  fi
-
-}
-
-case $1 in
-  
-  "" )
-    play
-  ;;
-
-  -f )
-    get_music
-  ;;
-
-esac
+play

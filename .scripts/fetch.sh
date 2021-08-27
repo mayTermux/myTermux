@@ -15,6 +15,23 @@ function Error() {
 
 }
 
+function get_music() {
+
+  ARTIST=$(mpc --host=127.0.0.1 --port=8000 --format '[%artist%]' current 2> /dev/null)
+  TITLE=$(mpc --host=127.0.0.1 --port=8000 --format '[%title%]' current 2> /dev/null)
+
+  if mpc --host=127.0.0.1 --port=8000 &> /dev/null; then
+
+    echo -e "${ARTIST} - ${TITLE}"
+
+  else
+
+    echo -e "Unknown Artist - Unknown Song"
+
+  fi
+
+}
+
 # Fetch storage
 function storage() {
 
@@ -23,8 +40,58 @@ function storage() {
   SIZE=$(echo ${GREP_ONE_ROW} | awk '{print $2}')
   USED=$(echo ${GREP_ONE_ROW} | awk '{print $3}')
   AVAIL=$(echo ${GREP_ONE_ROW} | awk '{print $4}')
-  USE=$(echo ${GREP_ONE_ROW}} | awk '{print $5}')
+  USE=$(echo ${GREP_ONE_ROW}} | awk '{print $5}' | sed "s/%//g")
   MOUNTED=$(echo ${GREP_ONE_ROW} | awk '{print $6}')
+
+  function execute() {
+
+    if [ ${USE} -ge 0 ] && [ ${USE} -le 10 ]; then
+
+      echo -e "${COLOR_SUCCESS}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+
+    elif [ ${USE} -ge 11 ] && [ ${USE} -le 20 ]; then
+
+      echo -e "${COLOR_SUCCESS}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+
+    elif [ ${USE} -ge 21 ] && [ ${USE} -le 30 ]; then
+
+      echo -e "${COLOR_SUCCESS}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+
+    elif [ ${USE} -ge 31 ] && [ ${USE} -le 40 ]; then
+
+      echo -e "${COLOR_SUCCESS}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+
+    elif [ ${USE} -ge 41 ] && [ ${USE} -le 50 ]; then
+
+      echo -e "${COLOR_SUCCESS}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+
+    elif [ ${USE} -ge 51 ] && [ ${USE} -le 60 ]; then
+
+      echo -e "${COLOR_WARNING}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+
+    elif [ ${USE} -ge 61 ] && [ ${USE} -le 70 ]; then
+
+      echo -e "${COLOR_WARNING}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+
+    elif [ ${USE} -ge 71 ] && [ ${USE} -le 80 ]; then
+
+      echo -e "${COLOR_WARNING}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+
+    elif [ ${USE} -ge 81 ] && [ ${USE} -le 90 ]; then
+
+      echo -e "${COLOR_DANGER}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+
+    elif [ ${USE} -ge 91 ] && [ ${USE} -le 99 ]; then
+
+      echo -e "${COLOR_DANGER}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+
+    elif [ ${USE} == 100 ]; then
+    
+      echo -e "${COLOR_DANGER}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+
+    fi
+
+  }
 
   function help() {
     # Usage Help
@@ -40,6 +107,7 @@ function storage() {
     -m        Show fetch storage mounted path
     -s        Show fetch storage total size
     -u        Show fetch storage total used
+    -n        Show fetch storage for neofetch output
     -p        Show fetch storage percentage
     "
   }
@@ -60,6 +128,10 @@ function storage() {
 
     -m )
       echo -e "${MOUNTED}"
+    ;;
+
+    -n )
+      execute
     ;;
 
     -s )
@@ -247,6 +319,7 @@ function help() {
   
   # Option Help
   echo -e "Options:
+  music     Run fetch script music
   battery   Run fetch script battery (require option2)
   help      Print help message
   storage   Run fetch script storage (require option2)
@@ -255,6 +328,10 @@ function help() {
 }
 
 case $1 in
+
+  music )
+    get_music
+  ;;
 
   battery )
     battery $2
