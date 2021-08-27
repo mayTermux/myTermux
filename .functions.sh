@@ -330,7 +330,7 @@ function neovimPlugins() {
       logDate Status .config/nvim [${COLOR_SUCCESS}OK${COLOR_BASED}]
 
       logDate Status Installer [${COLOR_SUCCESS}READY${COLOR_BASED}]
-      $(nvim +'hi NormalFloat guibg=#1e222a' +PackerSync)
+      nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
       logDate Status Neovim Plugins [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
       echo -e "$(date +'%A, %d %B %Y %r') Status Neovim Plugins [SUCCESS]" >> $(pwd)/.log
 
