@@ -10,6 +10,8 @@ done
 
 git clone https://github.com/ncmpcpp/ncmpcpp
 cd ncmpcpp
+libtoolize && aclocal && autoheader && autoconf && automake --add-missing
+autoupdate
 ./autogen.sh
 sed -i '36i\#include <linux/in.h>' src/screen/visualizer.cpp 
 ./configure --enable-outputs --enable-visualizer --enable-clock --enable-static-boost
