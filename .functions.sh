@@ -17,7 +17,7 @@ function banner() {
               ┃          ${COLOR_BASED}|_|_|_|\__  ${COLOR_DANGER}|_|${COLOR_BASED}_____)_|   |_|_|_|____/(_/ \_)         ${COLOR_SKY}┃
               ┃                ${COLOR_BASED}(____/                                          ${COLOR_SKY}┃
               ┃                                                                ┃
-              ┃                  ${COLOR_BASED}🚀 Version    : ${VERSION}                     ${COLOR_SKY}┃
+              ┃                  ${COLOR_BASED}🚀 Version    : ${VERSION}                     ${COLOR_SKY}    ┃
               ┃                  ${COLOR_BASED}📅 Build Date : ${BUILD_DATE}                ${COLOR_SKY}┃
               ┃                  ${COLOR_BASED}⚙️ Author      : ${AUTHOR}                         ${COLOR_SKY}┃
               ┃                                                                ┃
@@ -61,6 +61,7 @@ function informationPackages() {
 
     n|N )
       logDate Status Installation [${COLOR_WARNING}Abort.${COLOR_BASED}]
+      echo ""
       exit 1
     ;;
 
