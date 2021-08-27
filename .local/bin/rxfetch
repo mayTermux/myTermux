@@ -165,8 +165,8 @@ function hydra() {
   ${yellow}⢠⣧⣶⣥⡤⢄${reset} ${red}⣸⣿⣿⠘${reset}  ${white}⢀⣴⣿⣿⡿⠛${green}⣿⣿⣧⠈${white}⢿⠿⠟⠛⠻⠿⠄   ${white} ${reset}: $(basename "${SHELL}")
  ${yellow}⣰⣿⣿⠛⠻⣿⣿⡦${reset}${red}⢹⣿⣷${reset}   ${white}⢊⣿⣿⡏  ${green}⢸⣿⣿⡇${blue} ⢀⣠⣄⣾⠄    ${yellow} ${reset}: $(get_mem)
  ${yellow}⣠⣿⠿⠛ ⢀⣿⣿⣷${reset}${red}⠘⢿⣿⣦⡀${reset} ${white}⢸⢿⣿⣿⣄ ${green}⣸⣿⣿⡇${blue}⣪⣿⡿⠿⣿⣷⡄  ${red} ${reset}:$(uptime -p | sed 's/up//')
-${yellow}⠙⠃   ⣼⣿⡟${reset}  ${red}⠈⠻⣿⣿⣦⣌⡇${reset}${white}⠻⣿⣿⣷${green}⣿⣿⣿ ${blue}⣿⣿⡇ ⠛⠻⢷⣄  ${prurple} ${reset}: $(bash $HOME/.scripts/fetch.sh music)
-   ${yellow}⢻⣿⣿⣄${reset}   ${red}⠈⠻⣿⣿⣿⣷⣿⣿${white}⣿⣿${green}⣿⡟ ${blue}⠫⢿⣿⡆        $(bash $HOME/.scripts/fetch.sh storage -n)
+${yellow}⠙⠃   ⣼⣿⡟${reset}  ${red}⠈⠻⣿⣿⣦${white}⣌⡇⠻⣿⣿⣷${green}⣿⣿⣿ ${blue}⣿⣿⡇ ⠛⠻⢷⣄  ${prurple} ${reset}: $(bash $HOME/.scripts/fetch.sh music)
+   ${yellow}⢻⣿⣿⣄${reset}   ${red}⠈⠻⣿⣿⣿⣷${white}⣿⣿⣿${green}⣿⣿⡟ ${blue}⠫⢿⣿⡆        $(bash $HOME/.scripts/fetch.sh storage -n)
    ${yellow}⠻⣿⣿⣿⣿⣶⣶${reset}${red}⣾⣿⣿⣿⣿${white}⣿⣿${green}⣿⣿⡟${blue}⢀⣀⣤⣾⡿⠃         $(bash $HOME/.scripts/fetch.sh battery)  
 
                                   ${black}██${red}██${green}██${yellow}██${blue}██${magenta}██${cyan}██${white}██${reset}
