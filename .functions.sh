@@ -322,7 +322,7 @@ function neovimPlugins() {
 
     logDate Status NvChad [${COLOR_SUCCESS}FOUND${COLOR_BASED}]
 
-    logDate Preparing to install Plugin (Move NvChad to .config/nvim)
+    logDate Preparing to install Plugin [Move NvChad to .config/nvim]
     mv $HOME/NvChad $HOME/.config/nvim
     if [ -d $HOME/.config/nvim ]; then
     
