@@ -198,7 +198,7 @@ function backupOriginalFile() {
     fi
 
     logdate "$1 ${LOG_DONE} \n"
-  
+    termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
 }
 
 function main() {
