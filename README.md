@@ -46,9 +46,19 @@
 <a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/tokyonight-2.png" target="_blank" rel="noopener">
   <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/tokyonight-2.png"/>
 </a>
-<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/merge.png" target="_blank" rel="noopener">
-  <img alt="myTermux rxfetch" src="/assets/images/README/merge.png"/>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/chadracula-1.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/chadracula-1.png"/>
 </a>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/chadracula-2.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/chadracula-2.png"/>
+</a>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/everforest-1.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/everforest-1.png"/>
+</a>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/everforest-2.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/everforest-2.png"/>
+</a>
+
 
 
 ### :hearts:  Credits / Big Thanks
