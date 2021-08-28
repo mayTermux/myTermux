@@ -56,6 +56,6 @@ song_columns_list_format                            = "(50)[]{t|fr:Title} (0)[ma
 
 song_list_format                                    = " {%t $R   $8%a$8}|{%f $R   $8%l$8} $8"
 
-song_status_format                                  = "$b$7[ $4 $1   $4 $7] $7{$8 %b }|{$8 %t }|{$8 %f }$2 $7 $8"
+song_status_format                                  = "$b$7[ $4 $8   $4 $7] $7{$8 %b }|{$8 %t }|{$8 %f }$2 $7 $8"
 
 song_window_title_format                            = "Music - { %b }|{ %t }|{ %f }"
