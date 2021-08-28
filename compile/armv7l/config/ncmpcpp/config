@@ -35,7 +35,7 @@ external_editor                                     = "nano"
 main_window_color                                   = "default"
 startup_screen                                      = "playlist"
 
-progressbar_look                                    = "━━━"
+progressbar_look                                    = "━━"
 #progressbar_look                                   = "▃▃▃"
 progressbar_elapsed_color                           = 5
 progressbar_color                                   = "black"
