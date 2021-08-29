@@ -110,6 +110,20 @@ source $ZSH/oh-my-zsh.sh
 
 ## Shortcut
 
+    #Awesomeshot
+    alias shot="awesomeshot -d --border-light"
+    alias awesomeconf="nvim ~/.local/bin/awesomeshot"
+    alias awesomeshot-borderlight="awesomeshot -d --border-light"
+    alias awesomeshot-borderdark="awesomeshot -d --border-dark"
+    alias awesomeshot-auto-borderlight="awesomeshot -a --border-light"
+    alias awesomeshot-auto-borderdark="awesomeshot -a --border-dark"
+    alias awesomeshot-auto-borderlight-footerdark="awesomeshot -af --border-light --footer-dark"
+    alias awesomeshot-auto-borderdark-footerlight="awesomeshot -af --border-dark --footer-light"
+    alias awesomeshot-manual-borderlight="awesomeshot -m --border-light $1"
+    alias awesomeshot-manual-borderdark="awesomeshot -m --border-dark $1"
+    alias awesomeshot-manual-borderlight-footerdark="awesomeshot -f --border-light --footer-dark $1"
+    alias awesomeshot-manual-borderdark-footerlight="awesomeshot -f --border-dark --footer-light $2"
+
     #Change
     alias chcolor="/data/data/com.termux/files/home/.termux/colors.sh"
     alias chfont="/data/data/com.termux/files/home/.termux/fonts.sh"
@@ -283,4 +297,4 @@ source $HOME/.lfvar
 #    fi
 
 #    neo
-     rx
+     rxfetch
