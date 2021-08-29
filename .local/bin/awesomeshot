@@ -8,19 +8,41 @@ COLOR_WARNING="\e[93m"
 COLOR_SUCCESS="\e[92m"
 
 # Variable Information Awesomeshot
-VERSION="0.0.1"
+VERSION="0.1.0"
 PROGRAM_NAME="awesomeshot"
 REPOSITORY_URL="https://github.com/xshin404/awesomeshot"
 BUILD_DATE="Sunday, 25 July 2021"
+LAST_UPDATE="Sunday, 29 August 2021"
 
 # Variable Imagemagick
 
 ## Imagemagick Color
-BACKGROUND_COLOR="#545862"
-SHADOW_SIZE="80x10+0+10"
+
+### Background
+BACKGROUND_COLOR=""
+BACKGROUND_COLOR_DARK="#000000"
+BACKGROUND_COLOR_LIGHT="#FFFFFF"
+
+### Shadow
 SHADOW_COLOR="#000000"
+SHADOW_COLOR_DARK="#000000"
+SHADOW_COLOR_LIGHT="#FFFFFF"
+
+### Border
+BORDER_COLOR=""
+BORDER_COLOR_DARK="#373E4D"
+BORDER_COLOR_LIGHT="#ABB2BF"
+
+### Footer
+FOOTER_FOREGROUND_COLOR=""
+FOOTER_FOREGROUND_COLOR_DARK="#000000"
+FOOTER_FOREGROUND_COLOR_LIGHT="#FFFFFF"
+FOOTER_BACKGROUND_COLOR="none"
+
+## Imagemagick Size
+SHADOW_SIZE="80x10+0+10"
 BORDER_SIZE=70
-BORDER_COLOR="#ABB2BF"
+FOOTER_FONT_SIZE="20"
 
 ## Imagemagick Footer
 FOOTER_POSITION="South"
@@ -29,9 +51,6 @@ FOOTER_TEXT=" Shot by Awesomeshot"
 # Font PATH "/data/data/com.termux/files/usr/share/fonts/TTF/"
 # See font available "magick convert -list font | grep -iE 'font:.*' " or "listfont" (listfont is alias from command magick convert ...)
 FOOTER_FONT="JetBrains-Mono-Medium-Nerd-Font-Complete"
-FOOTER_FONT_SIZE="20"
-FOOTER_FOREGROUND_COLOR="#0E1419"
-FOOTER_BACKGROUND_COLOR="none"
 
 ## Screeshot PATH
 SCREENSHOT_PATH="/sdcard/Pictures/Screenshots"
@@ -49,8 +68,8 @@ function logdate() {
 }
 
 # Function ERROR
-function error() {
-  echo -e "[${COLOR_DANGER}ERROR${COLOR_BASED}] > $@"
+function errorMessage() {
+  echo -e "\n[${COLOR_DANGER}ERROR${COLOR_BASED}] > Can't get option ${COLOR_WARNING}$1${COLOR_BASED}\n"
 }
 
 # Function Magick
@@ -110,6 +129,7 @@ function autoshot() {
     inotifywait -m -e create $SCREENSHOT_PATH | \
     while read FILENAME; do
       main
+      termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
     done
 
 }
@@ -119,6 +139,7 @@ function autoshotFooter() {
   while read FILENAME; do
     main
     footer "$SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME"
+    termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
   done
 }
 
@@ -198,7 +219,6 @@ function backupOriginalFile() {
     fi
 
     logdate "$1 ${LOG_DONE} \n"
-    termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
 }
 
 function main() {
@@ -239,8 +259,8 @@ function information() {
   echo -e "Program Name   : $PROGRAM_NAME"
   echo -e "Version        : v$VERSION"
   echo -e "Repository URL : $REPOSITORY_URL"
-  echo -e "Build Date     : $BUILD_      logdate "$SCREENSHOT_PATH/${SCREENSHOT_FILE_NAME} ${LOG_DONE} \n"
-DATE"
+  echo -e "Build Date     : $BUILD_DATE"
+  echo -e "Last Update    : $LAST_UPDATE"
 }
 
 ## Function Help
@@ -248,37 +268,189 @@ function help() {
   
   # Usage Help
   echo -e "Usage:
-  awesomeshot [options] [filename]
+  awesomeshot [option1] [option2] [option3] [filename]
   "
   
   # Option Help
-  echo -e "Options:
-  -a      Automatic run awesomeshot (automatic detect new file when you do screenshot)
-  -f      Manual run awesomeshot with footer text (require filename)
-  -af     Run awesomeshot with automatic with footer text
-  -h      Print this help message
-  -i      Print information about this program
-  -m      Manual run awesomeshot (require filename)
-  -v      Print version awesomeshot
+  echo -e "Options1:
+  -d                  Default mode (${COLOR_WARNING}Require Option2${COLOR_BASED})
+  -a                  Automatic mode (${COLOR_WARNING}Require Option2${COLOR_BASED})
+  -af                 Automatic mode awesomeshot with footer text (${COLOR_WARNING}Require Option2 & Option3${COLOR_BASED})
+  -m                  Manual mode awesomeshot (${COLOR_WARNING}Require Option2 & Filename${COLOR_BASED})
+  -f                  Manual mode awesomeshot with footer text (${COLOR_WARNING}Require Option2, Option3 & Filename${COLOR_BASED})
+
+Option2:
+
+  --border-light      Border color Light Mode
+  --border-dark       Border color Dark Mode
+
+Option3:
+
+  --footer-light      Footer color Light Mode
+  --footer-dark       Footer color Dark Mode
+
+Other:
+
+  -h                  Print this help message
+  -i                  Print information about this program
+  -v                  Print version awesomeshot
   "
 }
 
 case $1 in
 
-  "" )
-    main
+  -d )
+    case $2 in
+      --border-dark )
+        BORDER_COLOR+="${BORDER_COLOR_DARK}"
+        main
+        termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME}
+      ;;
+      --border-light )
+        BORDER_COLOR+="${BORDER_COLOR_LIGHT}"
+        main
+        termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
+      ;;
+      * )
+        errorMessage $2
+        help
+      ;;
+    esac
   ;;
 
   -a )
-    autoshot
+    case $2 in
+      --border-dark )
+        BORDER_COLOR+="${BORDER_COLOR_DARK}"
+        autoshot
+      ;;
+      --border-light )
+        BORDER_COLOR+="${BORDER_COLOR_LIGHT}"
+        autoshot
+      ;;
+      * )
+        errorMessage $2
+        help
+      ;;
+    esac
   ;;
 
   -f )
-    manualFooter $2
+    case $2 in
+      --border-dark )
+        BORDER_COLOR+="${BORDER_COLOR_DARK}"
+        case $3 in
+          --footer-dark )
+            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_DARK}"
+            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_LIGHT}"
+            if [ "$4" != "" ]; then
+              manualFooter $4
+              termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
+            else
+              errorMessage "[Require Filename]"
+              help
+            fi
+          ;;
+          --footer-light )
+            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_LIGHT}"
+            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_DARK}"
+            if [ "$4" != "" ]; then
+              manualFooter $4
+              termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
+            else
+              errorMessage "[Require Filename]"
+              help
+            fi
+          ;;
+          * )
+            errorMessage $3
+            help
+          ;;
+        esac
+      ;;
+      --border-light )
+        BORDER_COLOR+="${BORDER_COLOR_LIGHT}"
+        case $3 in
+          --footer-dark )
+            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_DARK}"
+            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_LIGHT}"
+            if [ "$4" != "" ]; then
+              manualFooter $4
+              termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
+            else
+              errorMessage "[Require Filename]"
+              help
+            fi
+          ;;
+          --footer-light )
+            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_LIGHT}"
+            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_DARK}"
+            if [ "$4" != "" ]; then
+              manualFooter $4
+              termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
+            else
+              errorMessage "[Require Filename]"
+              help
+            fi
+          ;;
+          * )
+            errorMessage $3
+            help
+          ;;
+        esac
+      ;;
+      * )
+        errorMessage $2
+        help
+      ;;
+    esac
   ;;
 
   -af )
-    autoshotFooter
+    case $2 in
+      --border-dark )
+        BORDER_COLOR+="${BORDER_COLOR_DARK}"
+        case $3 in
+          --footer-dark )
+            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_DARK}"
+            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_LIGHT}"
+            autoshotFooter
+          ;;
+          --footer-light )
+            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_LIGHT}"
+            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_DARK}"
+            autoshotFooter
+          ;;
+          * )
+            errorMessage $3
+            help
+          ;;
+        esac
+      ;;
+      --border-light )
+        BORDER_COLOR+="${BORDER_COLOR_LIGHT}"
+        case $3 in
+          --footer-dark )
+            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_DARK}"
+            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_LIGHT}"
+            autoshotFooter
+          ;;
+          --footer-light )
+            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_LIGHT}"
+            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_DARK}"
+            autoshotFooter
+          ;;
+          * )
+            errorMessage $3
+            help
+          ;;
+        esac
+      ;;
+      * )
+        errorMessage $2
+        help
+      ;;
+    esac
   ;;
 
   -h )
@@ -290,11 +462,41 @@ case $1 in
   ;;
 
   -m )
-    manual $2
+    case $2 in
+      --border-dark )
+        BORDER_COLOR+="${BORDER_COLOR_DARK}"
+        if [ "$3" != "" ]; then
+          manual $3
+          termux-open $3
+        else
+          errorMessage "[Require Filename]"
+          help
+        fi
+      ;;
+      --border-light )
+        BORDER_COLOR+="${BORDER_COLOR_LIGHT}"
+        if [ "$3" != "" ]; then
+          manual $3
+          termux-open $3
+        else
+          errorMessage "[Require Filename]"
+          help
+        fi
+      ;;
+      * )
+        errorMessage $2
+        help
+      ;;
+    esac
   ;;
 
   -v )
     echo -e "$PROGRAM_NAME v$VERSION"
+  ;;
+
+  * )
+    errorMessage $1
+    help
   ;;
 
 esac
