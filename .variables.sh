@@ -19,7 +19,7 @@ DEPENDENCY_PACKAGES=(
 
 DOTFILES=(
   .local .config .termux .color-toys .scripts
-  .zshrc .tmux.conf .lfvar
+  .zshrc .tmux.conf .lfvar .autostart .aliases
 )
 
 BACKUP_DOTFILES=(
