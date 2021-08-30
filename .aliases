@@ -1,0 +1,157 @@
+#Awesomeshot
+alias shot="awesomeshot -d --border-light"
+alias awesomeconf="nvim ~/.local/bin/awesomeshot"
+alias awesomeshot-borderlight="awesomeshot -d --border-light"
+alias awesomeshot-borderdark="awesomeshot -d --border-dark"
+alias awesomeshot-auto-borderlight="awesomeshot -a --border-light"
+alias awesomeshot-auto-borderdark="awesomeshot -a --border-dark"
+alias awesomeshot-auto-borderlight-footerdark="awesomeshot -af --border-light --footer-dark"
+alias awesomeshot-auto-borderdark-footerlight="awesomeshot -af --border-dark --footer-light"
+alias awesomeshot-manual-borderlight="awesomeshot -m --border-light $1"
+alias awesomeshot-manual-borderdark="awesomeshot -m --border-dark $1"
+alias awesomeshot-manual-borderlight-footerdark="awesomeshot -f --border-light --footer-dark $1"
+alias awesomeshot-manual-borderdark-footerlight="awesomeshot -f --border-dark --footer-light $2"
+
+#Change
+alias chcolor="/data/data/com.termux/files/home/.termux/colors.sh"
+alias chfont="/data/data/com.termux/files/home/.termux/fonts.sh"
+
+#System    
+alias q="exit"
+alias c="clear"
+alias sd="cd /sdcard"
+alias pf="cd $PREFIX"
+
+#Package Manager
+alias pacupg="pkg upgrade"
+alias pacupd="pkg update"
+alias pacupgupd="pkg update && pkg upgrade"
+
+#Convert Video
+alias convi="ffmpeg -i $1 -c:v libx264 -crf 25 $2"
+
+#Ping    
+alias pg="ping google.com"
+
+#MyIP (Local) Pre
+alias myip="bash ~/.scripts/ip.sh simcard"
+alias myipwifi="bash ~/.scripts/ip.sh wifi"
+alias myiphotspot="~/.scripts/ip.sh hotspot"
+alias myipvpn="~/.scripts/ip.sh vpn"
+alias myipall="~/.scripts/ip.sh all"
+
+#Music    
+alias n="ncmpcpp"
+alias mkill="mpd --kill"
+alias m="music"
+alias ncmpcpp-compile="~/myTermux/compile/armv7l/install/ncmpcpp-compile.sh"
+
+#Color Toys
+alias 256colors2="~/.color-toys/256colors2.pl"
+alias bloks="~/.color-toys/bloks"
+alias colortest="~/.color-toys/colortest"
+alias colortest-slim="~/.color-toys/colortest-slim"
+alias colorview="~/.color-toys/colorview"
+alias colorbars="~/.color-toys/colorbars"
+alias panes="~/.color-toys/panes"
+alias pipes1="~/.color-toys/pipes1"
+alias pipes2="~/.color-toys/pipes2"
+alias pipes2-slim="~/.color-toys/pipes2-slim"
+
+#archives .deb
+alias archives="cd /data/data/com.termux/cache/apt/archives/"
+
+#Photos
+alias ss="cd /sdcard/Pictures/Screenshots/"
+
+#Movies
+alias ms="cd /sdcard/Movies"
+
+#Downloads
+alias dl="cd /sdcard/Downloads"
+
+#Documents
+alias ds="cd /sdcard/Documents"
+
+#Largest Files
+alias largefile="du -h -x -s -- * | sort -r -h | head -20"
+
+#System Information
+#alias neo="bash ~/.config/neofetch/debug-logo.sh --randomsmall"
+alias neo="neofetch"
+alias rx="rxfetch hydra"
+alias neodebug="bash ~/.config/neofetch/debug-logo.sh $1"
+alias disk="bash ~/.scripts/fetch.sh storage"
+alias battery="bash ~/.config/neofetch/script.sh --battery"
+alias ls="exa --icons"
+alias la="exa --icons -lgha --group-directories-first"
+alias lt="exa --icons --tree"
+alias lta="exa --icons --tree -lgha"
+
+#proot-distro
+alias prot="cd $PREFIX/var/lib/proot-distro"
+alias protlogin="proot-distro login $1"
+
+#Magick
+alias listfont="magick convert -list font | grep -iE 'font:.*'"
+
+## Configuration
+
+#mpd
+alias mpdconf="nvim ~/.config/mpd/mpd.conf"
+alias mpconf="nvim /data/data/com.termux/files/usr/etc/mpd.conf"
+
+#ncmpcpp    
+alias ncmconf="nvim ~/.config/ncmpcpp/config"
+
+#neovim
+alias nviminit="nvim ~/.config/nvim/init.lua"
+alias nvimtheme="nvim ~/.config/nvim/lua/chadrc.lua"
+alias nvimplug="nvim ~/.config/nvim/lua/pluginList.lua"
+alias nvimmap="nvim ~/.config/nvim/lua/mappings.lua"
+alias nvimpacnit="nvim ~/.config/nvim/lua/packerInit.lua"
+alias nvimsin="nvim ~/.config/nvim/lua/xshin.lua"
+alias nvimhighlight="nvim ~/.config/nvim/lua/hightlights.lua"
+
+#zsh
+alias zshconf="nvim ~/.zshrc"
+
+#neofetch    
+alias neoconf="nvim ~/.config/neofetch/config.conf"
+alias rxconf="nvim ~/.local/bin/rxfetch"
+alias neoscript="nvim ~/.config/neofetch/script.sh"
+alias fetch="~/.scripts/fetch.sh $@"
+alias fetchconf="nvim ~/.scripts/fetch.sh"
+
+#git
+alias gitgraph="git log --all --decorate --oneline --graph"
+alias gitupdate="git fetch && git pull"
+alias gitstat="git status"
+alias gitad="git add $@"
+alias gitcom="git commit -m '$@'"
+
+#Web Server (Require install LAMP on Termux) https://github.com/xshin404/lampTermux
+alias apaconf="nvim $PREFIX/etc/apache2/httpd.conf"
+alias phpmyadminconf="nvim $PREFIX/etc/phpmyadmin/config.inc.php"
+
+#Refresh
+alias refresh="source $HOME/.zshrc"
+
+#Unsource
+alias unsource="exec $SHELL -l"
+
+#PID Login
+alias loginconf="nvim ~/.scripts/login.sh"
+alias exit="if [ -f ~/.scripts/pid/login ]; then rm ~/.scripts/pid/login; fi && exit"
+
+#MyIP
+alias myipconf="nvim ~/.scripts/ip.sh"
+
+#termux-reload
+alias reload="termux-reload-settings"
+
+#termux-setting
+alias termconf="nvim ~/.termux/termux.properties"
+
+#termux-permission
+alias termper="termux-setup-storage"
