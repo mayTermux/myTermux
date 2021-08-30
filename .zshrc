@@ -10,7 +10,6 @@ export LINK
 
 export TERM=xterm-256color 
 
-
 source $ZSH/oh-my-zsh.sh
 source $HOME/.lfvar
 source $HOME/.aliases
