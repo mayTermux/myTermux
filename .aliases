@@ -155,3 +155,5 @@ alias termconf="nvim ~/.termux/termux.properties"
 
 #termux-permission
 alias termper="termux-setup-storage"
+
+alias aliasconf="nvim ~/.aliases"
