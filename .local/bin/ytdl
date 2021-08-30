@@ -1,0 +1,143 @@
+#!/usr/bin/env bash
+
+based="\e[39m"
+danger="\e[91m"
+warning="\e[93m"
+success="\e[92m"
+paramerror="\n[\e[93mERROR$based] >$danger Unknown"
+paramlist="\n[\e[93mPARAMLIST$based] >$success "
+dir=`cd $(dirname $0); pwd`
+
+function helpall() {
+
+    echo -e "$paramerror $1 '$2'$based"
+    help
+    echo ""
+    read -n 1 -s -r -p "Press any key to exit "
+    exit 1
+    
+}
+
+function handle_ctrl_c() {
+
+  echo -e "
+\n[\e[93mERROR$based] >$danger $1"
+  echo -e "$based"
+  read -n 1 -s -r -p "Press any key to exit "
+  exit 1
+
+}
+
+# ytdl function
+function ytdl() {
+
+  syntax="youtube-dl"
+  paramcode="-F"
+  paramdowncode="-f"
+  best="bestvideo+bestaudio --merge-output-format mp4"
+  fcwebm="248"
+  fcaudio="251"
+  fcmp4="22"
+  fcmp3="--extract-audio --audio-format mp3"
+
+  function help() {
+
+    echo -e "\nusage: bash $dir/ytdl [paramter1]
+    ${paramlist}• [emptystring] / '' ${based}> to print default output
+    $success          • neofetch           ${based}> to print output neofetch
+    $success          • help               ${based}> show this help"
+
+  }
+
+  # ytdl Case
+  case "$1" in
+
+    best )
+      $syntax $paramdowncode $best $2
+    ;;
+
+    webm )
+      $syntax $paramdowncode $fcwebm $2
+    ;;
+
+    audio )
+      $syntax $paramdowncode $fcaudio $2
+    ;;
+
+    mp4 )
+      $syntax $paramdowncode $fcmp4 $2
+    ;;
+
+    mp3 )
+      $syntax $fcmp3 $2
+    ;;
+
+    format )
+      $syntax $paramcode $2
+      echo ""
+      read -p $'[\e[93mASK\e[0m] > Input the format code to specify download: ' fcode
+      echo -e "Downloading...\n"
+      $syntax $paramdowncode $fcode $2
+    ;;
+
+    * )
+      helpall Parameter $1
+    ;;
+
+  esac
+}
+
+# Function Help
+function help() {
+
+  echo -e "\nusage: bash $dir/ytdl [parameter1] [parameter2]
+  ${paramlist} • [webm]   [link] > ${based}to Download Video with format webm
+               ${success}• [audio]  [link] > ${based}to Download Video with format audio only (webm)
+               ${success}• [mp3]    [link] > ${based}to Downlaod Audio only format mp3
+               ${success}• [mp4]    [link] > ${based}to Download Video with format mp4
+               ${success}• [format] [link] > ${based}to print the format code
+               ${success}• [best]   [link] > ${based}to Download Video + Audio (Merge) with bestvideo + bestaudio
+               ${success}• [help]          > ${based}to print this help"
+
+}
+
+# Main case
+case "$1" in
+
+  best )
+    ytdl best $2
+  ;;
+
+  webm )
+    ytdl webm $2
+  ;;
+  
+  audio )
+    ytdl audio $2
+  ;;
+
+  mp4 )
+    ytdl mp4 $2
+  ;;
+
+  mp3 )
+    ytdl mp3 $2
+  ;;
+
+  format )
+    ytdl format $2
+  ;;
+
+  help )
+    help
+  ;;
+
+  "" )
+    helpall Parameter $1
+  ;;
+  
+  * )
+    helpall Parameter $1
+  ;;
+
+esac
