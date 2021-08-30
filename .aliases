@@ -157,3 +157,4 @@ alias termconf="nvim ~/.termux/termux.properties"
 alias termper="termux-setup-storage"
 
 alias aliasconf="nvim ~/.aliases"
+alias startconf="nvim ~/.autostart"
