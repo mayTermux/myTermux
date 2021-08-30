@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#cursor bar or bold pipe
+#echo -e "\e[2 q"
+
+#cursor underline    
+echo -e "\e[4 q"
+
+#cursor pipe
+#echo -e "\e[6 q"
+
+#c
+
+#if [ "$TMUX" == "" ]; then
+
+#  tmux
+
+#fi
+
+#if [ ! -f ~/.scripts/pid/login ]; then
+        
+  bash ~/.scripts/login.sh
+
+#fi
+
+#neo
+rx
