@@ -169,7 +169,7 @@ ${yellow}⠙⠃   ⣼⣿⡟${reset}  ${red}⠈⠻⣿⣿⣦${white}⣌⡇⠻⣿�
    ${yellow}⢻⣿⣿⣄${reset}   ${red}⠈⠻⣿⣿⣿⣷${white}⣿⣿⣿${green}⣿⣿⡟ ${blue}⠫⢿⣿⡆        $(bash $HOME/.scripts/fetch.sh storage -n)
    ${yellow}⠻⣿⣿⣿⣿⣶⣶${reset}${red}⣾⣿⣿⣿⣿${white}⣿⣿${green}⣿⣿⡟${blue}⢀⣀⣤⣾⡿⠃         $(bash $HOME/.scripts/fetch.sh battery)  
 
-                                  ${black}██${red}██${green}██${yellow}██${blue}██${magenta}██${cyan}██${white}██${reset}
+                                   ${black}██${red}██${green}██${yellow}██${blue}██${magenta}██${cyan}██${white}██${reset}
   "
 
 }
