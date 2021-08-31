@@ -269,10 +269,8 @@ function help() {
   # Usage Help
   echo -e "Usage:
   awesomeshot [option1] [option2] [option3] [filename]
-  "
   
-  # Option Help
-  echo -e "Options1:
+Options1:
   -d                  Default mode (${COLOR_WARNING}Require Option2${COLOR_BASED})
   -a                  Automatic mode (${COLOR_WARNING}Require Option2${COLOR_BASED})
   -af                 Automatic mode awesomeshot with footer text (${COLOR_WARNING}Require Option2 & Option3${COLOR_BASED})
