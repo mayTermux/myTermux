@@ -158,3 +158,5 @@ alias termper="termux-setup-storage"
 
 alias aliasconf="nvim ~/.aliases"
 alias startconf="nvim ~/.autostart"
+
+alias repocek="node ~/.scripts/js/repochecker.js"
