@@ -13,7 +13,7 @@ AUTHOR="xShin"
 
 DEPENDENCY_PACKAGES=(
   bat cava curl clang exa git imagemagick
-  inotify-tools lf mpd mpc ncmpcpp neovim
+  inotify-tools lf mpd mpc neovim
   neofetch openssh termux-api tmux zsh
 )
 
