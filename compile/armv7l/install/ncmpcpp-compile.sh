@@ -18,6 +18,7 @@ sed -i '36i\#include <linux/in.h>' src/screens/visualizer.cpp
 ./configure --enable-outputs --enable-visualizer --enable-clock --enable-static-boost --with-taglib
 make
 strip src/ncmpcpp
-cp $HOME/myTermux/compile/armv7l/config/ncmpcpp/config $PREFIX/bin/ncmpcpp
+cp $HOME/myTermux/compile/armv7l/config/ncmpcpp/config ~/.config/ncmpcpp/config
+cp src/ncmpcpp $PREFIX/bin/ncmpcpp
 mpd
 ncmpcpp
