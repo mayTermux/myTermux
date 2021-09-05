@@ -56,7 +56,7 @@ FOOTER_FONT="JetBrains-Mono-Medium-Nerd-Font-Complete"
 SCREENSHOT_PATH="/sdcard/Pictures/Screenshots"
 
 ## Log Message
-LOG_SUCCESS="[${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]"
+LOG_SUCCESS="${COLOR_SUCCESS}${COLOR_BASED}"
 LOG_FAILED="[${COLOR_DANGER}FAILED${COLOR_BASED}]"
 LOG_DONE="[${COLOR_SUCCESS}DONE${COLOR_BASED}]"
 LOG_OK="[${COLOR_SUCCESS}OK${COLOR_BASED}]"
@@ -70,6 +70,22 @@ function logdate() {
 # Function ERROR
 function errorMessage() {
   echo -e "\n[${COLOR_DANGER}ERROR${COLOR_BASED}] > Can't get option ${COLOR_WARNING}$1${COLOR_BASED}\n"
+}
+
+function header() {
+  echo ""
+  echo ""
+  echo ""
+  echo ""
+  echo ""
+  echo ""
+  echo ""
+  echo ""
+  echo ""
+  echo -e "╭─────────────────────────────────────────────────────────────╮"
+  echo -e "│                                                             │"
+  echo -e "│  Execute awesomeshot:                                       │"
+  echo -e "│                                                             │"
 }
 
 # Function Magick
@@ -128,7 +144,11 @@ function autoshot() {
 
     inotifywait -m -e create $SCREENSHOT_PATH | \
     while read FILENAME; do
+      clear
       main
+      echo -e "│   Result: ${SCREENSHOT_FILE_NAME} ${LOG_DONE}     │"
+      echo -e "│                                                             │"
+      echo -e "╰─────────────────────────────────────────────────────────────╯"
       termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
     done
 
@@ -137,8 +157,12 @@ function autoshot() {
 function autoshotFooter() {
   inotifywait -m -e create $SCREENSHOT_PATH | \
   while read FILENAME; do
+    clear
     main
     footer "$SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME"
+    echo -e "│   Result: ${SCREENSHOT_FILE_NAME} ${LOG_DONE}     │"
+    echo -e "│                                                             │"
+    echo -e "╰─────────────────────────────────────────────────────────────╯"
     termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
   done
 }
@@ -154,24 +178,48 @@ function magickexec() {
 }
 
 function footer() {
-  logdate "Add footer to image ..."
-  magickexec "magickfooter" "Footer" $1
+  #logdate "Add footer to image ..."
+  echo -e "│   Add Footer                                               │"
+  #magickexec "magickfooter" "Footer" $1
+  if magickfooter $1; then
+    echo -e "│     Status: Footer ${LOG_SUCCESS}                                        │"
+  else
+    echo -e "│     Status: Shadow ${LOG_FAILED}                                │"
+  fi
 }
 
 function execute() {
-  logdate "Add rounded to image ..."
-  magickexec "magickrounded" "Rounded" $1
+  #logdate "Add rounded to image ..."
+  echo -e "│   Add Rounded                                              │"
+  #magickexec "magickrounded" "Rounded" $1
+  if magickrounded $1; then
+    echo -e "│     Status: Rounded ${LOG_SUCCESS}                                       │"
+  else
+    echo -e "│     Status: Rounded ${LOG_FAILED}                               │"
+  fi
 
-  logdate "Add shadow to image ..."
-  magickexec "magickshadow" "Shadow" $1
+  #logdate "Add shadow to image ..."
+  echo -e "│   Add Shadow                                               │"
+  #magickexec "magickshadow" "Shadow" $1
+  if magickshadow $1; then
+    echo -e "│     Status: Shadow ${LOG_SUCCESS}                                        │"
+  else
+    echo -e "│     Status: Shadow ${LOG_FAILED}                                │"
+  fi
 
-  logdate "Add border to image ..."
-  magickexec "magickborder" "Border" $1
+  #logdate "Add border to image ..."
+  echo -e "│   Add Border                                               │"
+  #magickexec "magickborder" "Border" $1
+  if magickborder $1; then
+    echo -e "│     Status: Border ${LOG_SUCCESS}                                        │"
+  else
+    echo -e "│     Status: Shadow ${LOG_FAILED}                                │"
+  fi
 }
 
 function backupOriginalFile() {
 
-    logdate "Backup original file ..."
+    #logdate "Backup original file ..."
     if [ ! -d $HOME/.awesomeshot/ ]; then
 
       logdate "Creating directory $HOME/.awesomeshot"
@@ -190,7 +238,9 @@ function backupOriginalFile() {
 
       if [ -f $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ]; then
 
-        logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
+        #logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
+        echo -e "│   BACKUP PATH: /home/.awesomeshot                        │"
+        echo -e "│     ${SCREENSHOT_FILE_NAME} ${LOG_SUCCESS}           │"
         execute "$1"
 
       else
@@ -206,7 +256,9 @@ function backupOriginalFile() {
 
       if [ -f $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ]; then
 
-        logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
+        #logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
+        echo -e "│   BACKUP PATH: /home/.awesomeshot                          │"
+        echo -e "│     ${SCREENSHOT_FILE_NAME} ${LOG_SUCCESS}                 │"
         execute "$1"
 
       else
@@ -218,17 +270,26 @@ function backupOriginalFile() {
 
     fi
 
-    logdate "$1 ${LOG_DONE} \n"
+    #logdate "$1 ${LOG_DONE} \n"
+#   echo -e "│   Result: ${SCREENSHOT_FILE_NAME} ${LOG_DONE}     │" 
+#   echo -e "│                                                             │"
+#   echo -e "╰─────────────────────────────────────────────────────────────╯"
 }
 
 function main() {
-
-  logdate "Execute awesomeshot"
-  logdate "Searching newest file on ${SCREENSHOT_PATH} ..."
+  
+#  echo -e "╭─────────────────────────────────────────────────────────────╮"
+#  echo -e "│                                                             │"
+#  echo -e "│  Execute awesomeshot:                                       │"
+#  echo -e "│                                                             │"
+  header
+  #logdate "Searching newest file on ${SCREENSHOT_PATH} ..."
+  echo -e "│   PATH: ${SCREENSHOT_PATH}                       │"
   if [ $(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ' 2> /dev/null) ]; then
 
     SCREENSHOT_FILE_NAME=$(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ')
-    logdate "${SCREENSHOT_FILE_NAME} ${LOG_OK} \n"
+    #logdate "${SCREENSHOT_FILE_NAME} ${LOG_OK} \n"
+    echo -e "│   File: ${SCREENSHOT_FILE_NAME} ${LOG_OK}         │"
 
     backupOriginalFile "$SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME"
 
@@ -243,15 +304,34 @@ function main() {
 function manual() {
 
   SCREENSHOT_FILE_NAME="$1"
+#  echo -e "╭─────────────────────────────────────────────────────────────╮"
+#  echo -e "│                                                             │"
+#  echo -e "│  Execute awesomeshot:                                       │"
+#  echo -e "│                                                             │"
+  header
+  #logdate "Searching newest file on ${SCREENSHOT_PATH} ..."
+  echo -e "│   PATH: ${SCREENSHOT_PATH}                       │"
+  if [ -f ./$1 ]; then
+    echo -e "│   File: ${1} ${LOG_OK}         │"
+  else
+    echo -e "blok"
+  fi
   backupOriginalFile "$SCREENSHOT_FILE_NAME"
+  echo -e "│   Result: ${SCREENSHOT_FILE_NAME} ${LOG_DONE}     │"
+  echo -e "│                                                             │"
+  echo -e "╰─────────────────────────────────────────────────────────────╯"
   # execute "$SCREENSHOT_FILE_NAME"
 
 }
 
 function manualFooter() {
   SCREENSHOT_FILE_NAME="$1"
+  header
   backupOriginalFile "$SCREENSHOT_FILE_NAME"
   footer $1
+  echo -e "│   Result: ${SCREENSHOT_FILE_NAME} ${LOG_DONE}     │"
+  echo -e "│                                                             │"
+  echo -e "╰─────────────────────────────────────────────────────────────╯"
 }
 
 ## Function Information
