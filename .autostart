@@ -18,9 +18,9 @@ echo -e "\e[4 q"
 
 #if [ ! -f ~/.scripts/pid/login ]; then
         
-  bash ~/.scripts/login.sh
+  # bash ~/.scripts/login.sh
 
 #fi
 
 #neo
-rx
+rxfetch
