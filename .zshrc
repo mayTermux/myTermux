@@ -11,6 +11,6 @@ export LINK
 export TERM=xterm-256color 
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.lfvar
+source $HOME/.config/lf/icons
 source $HOME/.aliases
 source $HOME/.autostart
