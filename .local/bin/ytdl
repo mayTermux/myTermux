@@ -40,15 +40,6 @@ function ytdl() {
   fcmp4="22"
   fcmp3="--extract-audio --audio-format mp3"
 
-  function help() {
-
-    echo -e "\nusage: bash $dir/ytdl [paramter1]
-    ${paramlist}• [emptystring] / '' ${based}> to print default output
-    $success          • neofetch           ${based}> to print output neofetch
-    $success          • help               ${based}> show this help"
-
-  }
-
   # ytdl Case
   case "$1" in
 
