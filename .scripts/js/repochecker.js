@@ -26,15 +26,15 @@ function informationUser(data) {
     ┃     Information User    ┃
     ╰─────────────────────────╯
 
-    ${chalk.blue(' Username')}          : ${data.login}
-    ${chalk.blue(' Name')}              : ${data.name}
-    ${chalk.red(' Location')}          : ${data.location}
-    ${chalk.red(' Followers')}         : ${data.followers}
-    ${chalk.blue(' Following')}         : ${data.following}
-     Bio               : ${data.bio ? `${data.bio}` : 'Kosong'}
-    ${chalk.yellow(' Public Repository')} : ${data.public_repos}
-    ${chalk.blue(' Twitter')}           : ${data.twitter_username ? `${data.twitter_username}` : 'Kosong'}
-     Email             : ${data.email ? `${data.email}` : 'Kosong'}
+    ${chalk.blue('  Username')}          : ${data.login ? data.bio : 'Empty'}
+    ${chalk.blue('  Name')}              : ${data.name ? data.bio : 'Empty'}
+    ${chalk.red('  Location')}          : ${data.location ? data.bio : 'Empty'}
+    ${chalk.red('  Followers')}         : ${data.followers}
+    ${chalk.blue('  Following')}         : ${data.following}
+      Bio               : ${data.bio ? `${data.bio}` : 'Empty'}
+    ${chalk.yellow('  Public Repository')} : ${data.public_repos ? data.public_repos : 'Empty'}
+    ${chalk.blue('  Twitter')}           : ${data.twitter_username ? data.twitter_username : 'Empty'}
+      Email             : ${data.email ? data.email : 'Empty'}
   `
 }
 
@@ -62,31 +62,31 @@ function informationRepository(data) {
 }
 
 function language(language) {
-  if ( language == "Lua" ) {
+  if (language == "Lua") {
     return `${chalk.blue(' Lua')}`
-  } else if ( language == "Shell" ) {
+  } else if (language == "Shell") {
     return `${chalk.white(' Shell')}`
-  } else if ( language == "JavaScript") {
+  } else if (language == "JavaScript") {
     return `${chalk.yellow(' JavaScript')}`
-  } else if ( language == "HTML" ) {
+  } else if (language == "HTML") {
     return `${chalk.red(' HTML')}`
-  } else if ( language == "CSS" ) {
+  } else if (language == "CSS") {
     return `${chalk.blue(' CSS')}`
-  } else if ( language == "Python" ) {
+  } else if (language == "Python") {
     return `${chalk.blue(' Python')}`
-  } else if ( language == "Rust" ) {
-    return `${chalk.brown(' Rust')}`
-  } else if ( language == "C" ) {
+  } else if (language == "Rust") {
+    return `${chalk.red(' Rust')}`
+  } else if (language == "C") {
     return `${chalk.blue(' C')}`
-  } else if ( language == "C++" ) {
+  } else if (language == "C++") {
     return `${chalk.blue(' C++')}`
-  } else if ( language == "Elixir" ) {
+  } else if (language == "Elixir") {
     return `${chalk.magenta(' Elixir')}`
-  } else if ( language == "PHP" ) {
+  } else if (language == "PHP") {
     return `${chalk.blue(' PHP')}`
-  } else if ( language == "TypeScript" ) {
+  } else if (language == "TypeScript") {
     return `${chalk.blue(' TypeScript')}`
-  } else if ( language == "Vim script") {
+  } else if (language == "Vim script") {
     return `${chalk.green(' Vim script')}`
   }
   else {
