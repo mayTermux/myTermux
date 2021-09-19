@@ -30,9 +30,19 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Terminal
+
+-- <C-l> == CTRL + l
 map("n", "<C-l>", ":vnew +terminal | setlocal nobuflisted <CR>", opt) -- term over right
+-- <C-x> == CTRL + x
 map("n", "<C-x>", ":10new +terminal | setlocal nobuflisted <CR>", opt) --  term bottom
+-- <M-t> == ALT + t
 map("n", "<M-t>", ":terminal <CR>", opt) -- term buffer
+
+-- Number Line
+-- <C-m> == CTRL + m
+map("n", "<C-m>", ":set number <CR>", opt) -- set number
+-- <C-M-m> == CTRL + ALT + m
+map("n", "<C-M-m>", ":set nonumber <CR>", opt) -- set nonumber
 
 -- save on normal, insert and visual mode (CTRL + S)
 map("n", "<C-s>", [[<esc>:w<cr>]], opt)
