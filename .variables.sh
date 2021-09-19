@@ -66,9 +66,3 @@ ZSH_CUSTOM_THEMES=(
   rounded-custom.zsh-theme
   rounded.zsh-theme
 )
-
-FINISHINGS=(
-  .zshrc
-  .lfvar
-  .tmux.conf
-)
