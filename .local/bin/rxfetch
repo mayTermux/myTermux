@@ -139,7 +139,9 @@ get_color
 get_node_name
 
 function penguin() {
-  echo -e "\n                xshin${c5}@${c3}android ${c5}${c3}\n"
+  echo -e "
+
+\n                xshin${c5}@${c3}android ${c5}${c3}\n"
   echo -e "               ${c2}${c3} : ${distro} $(uname -m)"
   echo -e "               ${c5}${c3} : $(uname -r)"
   echo -e "               ${c6}${c3} : $(net_pkg) Packages"
@@ -150,13 +152,18 @@ function penguin() {
   echo -e "               $(bash $HOME/.scripts/fetch.sh storage -n)"
   echo -e "               $(bash $HOME/.scripts/fetch.sh battery)"
   echo -e "               
-                ${black} ${red} ${green} ${yellow} ${blue} ${magenta} ${cyan} ${white} ${reset}\n"
+                ${black} ${red} ${green} ${yellow} ${blue} ${magenta} ${cyan} ${white} ${reset}\n
+                
+                "
 
 }
 
 function hydra() {
 
-  echo -e "${c5}
+  echo -e "
+  
+  
+  ${c5}
   ${red}⣴⣶⣤⡤⠦⣤⣀⣤⠆${reset}     ${green}⣈⣭⣿⣶⣿⣦⣼⣆           ${reset}xshin${c5}@${c3}android ${c5}${c3}
    ${red}⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄${reset}${green}⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       
          ${red}⠈⢿⣿⣟⠦${reset} ${green}⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄      ${green} ${reset}: ${distro} $(uname -m)
@@ -170,6 +177,8 @@ ${yellow}⠙⠃   ⣼⣿⡟${reset}  ${red}⠈⠻⣿⣿⣦${white}⣌⡇⠻⣿�
    ${yellow}⠻⣿⣿⣿⣿⣶⣶${reset}${red}⣾⣿⣿⣿⣿${white}⣿⣿${green}⣿⣿⡟${blue}⢀⣀⣤⣾⡿⠃         $(bash $HOME/.scripts/fetch.sh battery)  
 
                                    ${black} ${red} ${green} ${yellow} ${blue} ${magenta} ${cyan} ${white} ${reset}
+  
+  
   "
 
 }
