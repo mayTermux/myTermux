@@ -405,16 +405,6 @@ function reloadSettings() {
   $(termux-reload-settings)
 }
 
-function finishing() {
-
-  for FINISHING in "${FINISHINGS[@]}"; do
-
-    cp $FINISHING $HOME
-
-  done
-
-}
-
 function welcomeTermux() {
 
   if [[ -f $PREFIX/etc/motd ]]; then
@@ -438,7 +428,6 @@ function awesomeshotFont() {
 }
 
 function main() {
-  # dotTermux
   clear
   banner
   informationPackages
@@ -453,5 +442,4 @@ function main() {
   changeSHELL
   welcomeTermux
   alert
-  # finishing
 }
