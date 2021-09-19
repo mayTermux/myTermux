@@ -12,9 +12,9 @@ BUILD_DATE="01 August 2021"
 AUTHOR="xShin"
 
 DEPENDENCY_PACKAGES=(
-  bat cava curl clang exa git imagemagick
+  bat curl exa git imagemagick
   inotify-tools lf mpd mpc neovim
-  neofetch openssh termux-api tmux zsh
+  neofetch termux-api tmux zsh
 )
 
 DOTFILES=(
@@ -23,9 +23,10 @@ DOTFILES=(
 )
 
 BACKUP_DOTFILES=(
+  .autostart .aliases
   .local .config .termux 
   .color-toys .scripts .zshrc
-  .lfvar .tmux.conf .oh-my-zsh
+  .tmux.conf .lfvar .oh-my-zsh
 )
 
 REPOSITORY_LINKS=(
