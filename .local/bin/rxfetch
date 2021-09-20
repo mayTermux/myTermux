@@ -152,7 +152,7 @@ function penguin() {
   echo -e "               $(bash $HOME/.scripts/fetch.sh storage -n)"
   echo -e "               $(bash $HOME/.scripts/fetch.sh battery)"
   echo -e "               
-                ${black} ${red} ${green} ${yellow} ${blue} ${magenta} ${cyan} ${white} ${reset}\n
+               ${black} ${red} ${green} ${yellow} ${blue} ${magenta} ${cyan} ${white} ${reset}\n
                 
                 "
 
