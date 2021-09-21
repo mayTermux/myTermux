@@ -6,8 +6,8 @@ mpd_music_dir                                       = "/sdcard/Music"
 lyrics_directory                                    = "~/.config/ncmpcpp/lyrics"
 
 visualizer_in_stereo                                = "no"
-visualizer_data_source                              = "~/.config/mpd/mpd.fifo"
-visualizer_fps                                      = 60
+visualizer_fifo_path                                = "~/.config/mpd/mpd.fifo"
+#visualizer_fps                                      = 60
 visualizer_spectrum_smooth_look                     = "no"
 visualizer_output_name                              = "Visualizer"
 visualizer_type                                     = "wave"
