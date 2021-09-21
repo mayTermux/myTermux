@@ -141,7 +141,7 @@ get_node_name
 function penguin() {
   echo -e "
 
-\n                xshin${c5}@${c3}android ${c5}${c3}\n"
+\n               xshin${c5}@${c3}android ${c5}${c3}\n"
   echo -e "               ${c2}${c3} : ${distro} $(uname -m)"
   echo -e "               ${c5}${c3} : $(uname -r)"
   echo -e "               ${c6}${c3} : $(net_pkg) Packages"
