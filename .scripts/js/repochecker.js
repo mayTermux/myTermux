@@ -26,9 +26,9 @@ function informationUser(data) {
     ┃     Information User    ┃
     ╰─────────────────────────╯
 
-    ${chalk.blue('  Username')}          : ${data.login ? data.bio : 'Empty'}
-    ${chalk.blue('  Name')}              : ${data.name ? data.bio : 'Empty'}
-    ${chalk.red('  Location')}          : ${data.location ? data.bio : 'Empty'}
+    ${chalk.blue('  Username')}          : ${data.login ? data.login : 'Empty'}
+    ${chalk.blue('  Name')}              : ${data.name ? data.name : 'Empty'}
+    ${chalk.red('  Location')}          : ${data.location ? data.location : 'Empty'}
     ${chalk.red('  Followers')}         : ${data.followers}
     ${chalk.blue('  Following')}         : ${data.following}
       Bio               : ${data.bio ? `${data.bio}` : 'Empty'}
