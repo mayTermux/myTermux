@@ -68,7 +68,7 @@ alias ss="cd /sdcard/Pictures/Screenshots/"
 alias ms="cd /sdcard/Movies"
 
 #Downloads
-alias dl="cd /sdcard/Downloads"
+alias dl="cd /sdcard/Download"
 
 #Documents
 alias ds="cd /sdcard/Documents"
