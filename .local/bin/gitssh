@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+function main() {
+
+  # Get Email Address GitHub
+  read -p "Email Address: " EMAIL
+  ssh-keygen -t rsa -b 4096 -C "${EMAIL}"
+
+  # Get PID
+  eval $(ssh-agent -s)
+
+  # Add Authentication Agent
+  ssh-add ~/.ssh/id_rsa
+
+  # Copy Public Key and Paste to GitHub Account
+  cat ~/.ssh/id_rsa.pub
+
+}
+
+main
