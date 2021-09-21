@@ -32,7 +32,7 @@ end
 -- Terminal
 
 -- <C-l> == CTRL + l
-map("n", "<C-l>", ":vnew +terminal | setlocal nobuflisted <CR>", opt) -- term over right
+map("n", "<C-r>", ":vnew +terminal | setlocal nobuflisted <CR>", opt) -- term over right
 -- <C-x> == CTRL + x
 map("n", "<C-x>", ":10new +terminal | setlocal nobuflisted <CR>", opt) --  term bottom
 -- <M-t> == ALT + t
@@ -67,9 +67,9 @@ map("i", "<C-q>", [[<esc>:q<cr>]], opt)
 map("v", "<C-q>", [[<esc>:q<cr>]], opt)
 
 -- save and quit, insert and visual mode (CTRL + ALT + S)
-map("n", "<C-s>", [[<esc>:wq!<cr>]], opt)
-map("i", "<C-s>", [[<esc>:wq!<cr>]], opt)
-map("v", "<C-s>", [[<esc>:wq!<cr>]], opt)
+map("n", "<C-M-s>", [[<esc>:wq!<cr>]], opt)
+map("i", "<C-M-s>", [[<esc>:wq!<cr>]], opt)
+map("v", "<C-M-s>", [[<esc>:wq!<cr>]], opt)
 
 -- quit without save on normal, insert and visual mode (CTRL + ALT + Q)
 map("n", "<C-M-q>", [[<esc>:q!<cr>]], opt)
