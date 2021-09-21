@@ -44,6 +44,18 @@ map("n", "<C-m>", ":set number <CR>", opt) -- set number
 -- <C-M-m> == CTRL + ALT + m
 map("n", "<C-M-m>", ":set nonumber <CR>", opt) -- set nonumber
 
+-- Wrap Text 
+-- <C-w> == CTRL + w
+map("n", "<C-w>", [[<esc>:set wrap<cr>]], opt)
+map("i", "<C-w>", [[<esc>:set wrap<cr>]], opt)
+map("v", "<C-w>", [[<esc>:set wrap<cr>]], opt)
+
+-- No Wrap Text 
+-- <C-M-w> == CTRL + ALT + w
+map("n", "<C-M-w>", [[<esc>:set nowrap<cr>]], opt)
+map("i", "<C-M-w>", [[<esc>:set nowrap<cr>]], opt)
+map("v", "<C-M-w>", [[<esc>:set nowrap<cr>]], opt)
+
 -- save on normal, insert and visual mode (CTRL + S)
 map("n", "<C-s>", [[<esc>:w<cr>]], opt)
 map("i", "<C-s>", [[<esc>:w<cr>]], opt)
@@ -53,6 +65,11 @@ map("v", "<C-s>", [[<esc>:w<cr>]], opt)
 map("n", "<C-q>", [[<esc>:q<cr>]], opt)
 map("i", "<C-q>", [[<esc>:q<cr>]], opt)
 map("v", "<C-q>", [[<esc>:q<cr>]], opt)
+
+-- save and quit, insert and visual mode (CTRL + ALT + S)
+map("n", "<C-s>", [[<esc>:wq!<cr>]], opt)
+map("i", "<C-s>", [[<esc>:wq!<cr>]], opt)
+map("v", "<C-s>", [[<esc>:wq!<cr>]], opt)
 
 -- quit without save on normal, insert and visual mode (CTRL + ALT + Q)
 map("n", "<C-M-q>", [[<esc>:q!<cr>]], opt)
