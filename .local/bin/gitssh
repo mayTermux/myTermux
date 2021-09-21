@@ -1,19 +1,31 @@
 #!/usr/bin/env bash
 
+COLOR_BASED="\e[39m"
+COLOR_DANGER="\e[91m"
+COLOR_WARNING="\e[93m"
+COLOR_SUCCESS="\e[92m"
+COLOR_SKY="\e[34m"
+
 function main() {
 
   # Get Email Address GitHub
-  read -p "Email Address: " EMAIL
+  read -p $'[\e[93m Email Address \e[0m] > ' EMAIL
+  echo -e "\n[${COLOR_WARNING} Generating Public/Private RSA Key Pair ${COLOR_BASED}]"
   ssh-keygen -t rsa -b 4096 -C "${EMAIL}"
 
   # Get PID
+  echo -e "\n[${COLOR_WARNING} Getting PID ${COLOR_BASED}]"
   eval $(ssh-agent -s)
 
   # Add Authentication Agent
+  echo -e "\n[${COLOR_WARNING} Add Authentication Agent ${COLOR_BASED}]"
   ssh-add ~/.ssh/id_rsa
 
   # Copy Public Key and Paste to GitHub Account
+  echo -e "\n[${COLOR_WARNING} Print Public Key ${COLOR_BASED}]"
   cat ~/.ssh/id_rsa.pub
+  
+  echo -e ""
 
 }
 
