@@ -8,6 +8,9 @@ export PATH
 LINK="https://github.com/xshin404"
 export LINK
 
+LINK_SSH="git@github.com:xshin404"
+export LINK_SSH
+
 export TERM=xterm-256color 
 
 source $ZSH/oh-my-zsh.sh
