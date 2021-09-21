@@ -110,8 +110,9 @@ alias nvimtheme="nvim ~/.config/nvim/lua/chadrc.lua"
 alias nvimplug="nvim ~/.config/nvim/lua/pluginList.lua"
 alias nvimmap="nvim ~/.config/nvim/lua/mappings.lua"
 alias nvimpacnit="nvim ~/.config/nvim/lua/packerInit.lua"
-alias nvimsin="nvim ~/.config/nvim/lua/xshin.lua"
+alias nvimsin="nvim ~/.config/nvim/lua/core/xshin.lua"
 alias nvimhighlight="nvim ~/.config/nvim/lua/hightlights.lua"
+alias nvimcore="nvim ~/.config/nvim/lua/core/init.lua"
 
 #zsh
 alias zshconf="nvim ~/.zshrc"
