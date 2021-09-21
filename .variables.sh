@@ -12,7 +12,7 @@ BUILD_DATE="01 August 2021"
 AUTHOR="xShin"
 
 DEPENDENCY_PACKAGES=(
-  bat curl exa git imagemagick
+  bat curl clang exa git imagemagick
   inotify-tools lf mpd mpc neovim
   neofetch termux-api tmux zsh
 )
