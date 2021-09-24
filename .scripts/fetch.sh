@@ -167,43 +167,43 @@ function battery() {
 
         if [ ${PERCENTAGE} -ge 0 ] && [ ${PERCENTAGE} -le 10 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 11 ] && [ ${PERCENTAGE} -le 20 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 21 ] && [ ${PERCENTAGE} -le 30 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 31 ] && [ ${PERCENTAGE} -le 40 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 41 ] && [ ${PERCENTAGE} -le 50 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 51 ] && [ ${PERCENTAGE} -le 60 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 61 ] && [ ${PERCENTAGE} -le 70 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 71 ] && [ ${PERCENTAGE} -le 80 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 81 ] && [ ${PERCENTAGE} -le 90 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 91 ] && [ ${PERCENTAGE} -le 99 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
         fi
 
@@ -211,47 +211,47 @@ function battery() {
 
         if [ ${PERCENTAGE} -ge 0 ] && [ ${PERCENTAGE} -le 10 ]; then
 
-          echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 11 ] && [ ${PERCENTAGE} -le 20 ]; then
 
-          echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 21 ] && [ ${PERCENTAGE} -le 30 ]; then
 
-          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 31 ] && [ ${PERCENTAGE} -le 40 ]; then
 
-          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 41 ] && [ ${PERCENTAGE} -le 50 ]; then
 
-          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 51 ] && [ ${PERCENTAGE} -le 60 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 61 ] && [ ${PERCENTAGE} -le 70 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 71 ] && [ ${PERCENTAGE} -le 80 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 81 ] && [ ${PERCENTAGE} -le 90 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} -ge 91 ] && [ ${PERCENTAGE} -le 99 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
 
         elif [ ${PERCENTAGE} == 100 ]; then
         
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE})"
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
 
         fi
 
