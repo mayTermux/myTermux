@@ -157,12 +157,13 @@ function storage() {
 
 function battery() {
 
+  PERCENTAGE=$(termux-battery-status | grep percentage | awk '{print $2}' | sed "s/,//g")
+  STATUS=$(termux-battery-status | grep status | awk '{print $2}' | sed "s/,//g" | sed "s/\"//g")
+
   function execute() {
 
     if [ -f ${PREFIX}/bin/termux-battery-status ]; then
 
-      PERCENTAGE=$(termux-battery-status | grep percentage | awk '{print $2}' | sed "s/,//g")
-      STATUS=$(termux-battery-status | grep status | awk '{print $2}' | sed "s/,//g" | sed "s/\"//g")
 
         if [ ${STATUS} == "CHARGING" ]; then
 
