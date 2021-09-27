@@ -157,118 +157,119 @@ function storage() {
 
 function battery() {
 
-  if [ -f ${PREFIX}/bin/termux-battery-status ]; then
+  function execute() {
 
-    PERCENTAGE=$(termux-battery-status | grep percentage | awk '{print $2}' | sed "s/,//g")
-    STATUS=$(termux-battery-status | grep status | awk '{print $2}' | sed "s/,//g" | sed "s/\"//g")
+    if [ -f ${PREFIX}/bin/termux-battery-status ]; then
 
-    function execute() {
+      PERCENTAGE=$(termux-battery-status | grep percentage | awk '{print $2}' | sed "s/,//g")
+      STATUS=$(termux-battery-status | grep status | awk '{print $2}' | sed "s/,//g" | sed "s/\"//g")
 
-      if [ ${STATUS} == "CHARGING" ]; then
+        if [ ${STATUS} == "CHARGING" ]; then
 
-        if [ ${PERCENTAGE} -ge 0 ] && [ ${PERCENTAGE} -le 10 ]; then
+          if [ ${PERCENTAGE} -ge 0 ] && [ ${PERCENTAGE} -le 10 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 11 ] && [ ${PERCENTAGE} -le 20 ]; then
+          elif [ ${PERCENTAGE} -ge 11 ] && [ ${PERCENTAGE} -le 20 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 21 ] && [ ${PERCENTAGE} -le 30 ]; then
+          elif [ ${PERCENTAGE} -ge 21 ] && [ ${PERCENTAGE} -le 30 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 31 ] && [ ${PERCENTAGE} -le 40 ]; then
+          elif [ ${PERCENTAGE} -ge 31 ] && [ ${PERCENTAGE} -le 40 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 41 ] && [ ${PERCENTAGE} -le 50 ]; then
+          elif [ ${PERCENTAGE} -ge 41 ] && [ ${PERCENTAGE} -le 50 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 51 ] && [ ${PERCENTAGE} -le 60 ]; then
+          elif [ ${PERCENTAGE} -ge 51 ] && [ ${PERCENTAGE} -le 60 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 61 ] && [ ${PERCENTAGE} -le 70 ]; then
+          elif [ ${PERCENTAGE} -ge 61 ] && [ ${PERCENTAGE} -le 70 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 71 ] && [ ${PERCENTAGE} -le 80 ]; then
+          elif [ ${PERCENTAGE} -ge 71 ] && [ ${PERCENTAGE} -le 80 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 81 ] && [ ${PERCENTAGE} -le 90 ]; then
+          elif [ ${PERCENTAGE} -ge 81 ] && [ ${PERCENTAGE} -le 90 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 91 ] && [ ${PERCENTAGE} -le 99 ]; then
+          elif [ ${PERCENTAGE} -ge 91 ] && [ ${PERCENTAGE} -le 99 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+
+          fi
+
+        elif [ ${STATUS} == "DISCHARGING" ]; then
+
+          if [ ${PERCENTAGE} -ge 0 ] && [ ${PERCENTAGE} -le 10 ]; then
+
+            echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+
+          elif [ ${PERCENTAGE} -ge 11 ] && [ ${PERCENTAGE} -le 20 ]; then
+
+            echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+
+          elif [ ${PERCENTAGE} -ge 21 ] && [ ${PERCENTAGE} -le 30 ]; then
+
+            echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+
+          elif [ ${PERCENTAGE} -ge 31 ] && [ ${PERCENTAGE} -le 40 ]; then
+
+            echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+
+          elif [ ${PERCENTAGE} -ge 41 ] && [ ${PERCENTAGE} -le 50 ]; then
+
+            echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+
+          elif [ ${PERCENTAGE} -ge 51 ] && [ ${PERCENTAGE} -le 60 ]; then
+
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+
+          elif [ ${PERCENTAGE} -ge 61 ] && [ ${PERCENTAGE} -le 70 ]; then
+
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+
+          elif [ ${PERCENTAGE} -ge 71 ] && [ ${PERCENTAGE} -le 80 ]; then
+
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+
+          elif [ ${PERCENTAGE} -ge 81 ] && [ ${PERCENTAGE} -le 90 ]; then
+
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+
+          elif [ ${PERCENTAGE} -ge 91 ] && [ ${PERCENTAGE} -le 99 ]; then
+
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+
+          elif [ ${PERCENTAGE} == 100 ]; then
+          
+            echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+
+          fi
+
+        elif [ ${STATUS} == "FULL" ]; then
+
+          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
 
         fi
 
-      elif [ ${STATUS} == "DISCHARGING" ]; then
 
-        if [ ${PERCENTAGE} -ge 0 ] && [ ${PERCENTAGE} -le 10 ]; then
+    else
 
-          echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+      Error "Fetching battery error, ${COLOR_WARNING}termux-battery-status ${COLOR_DANGER}not found${COLOR_BASED}. Make sure you installed ${COLOR_WARNING}Termux:API${COLOR_BASED} on ${COLOR_WARNING}Playstore${COLOR_BASED} or ${COLOR_SUCCESS}F-Droid${COLOR_BASED} and package ${COLOR_SUCCESS}termux-api${COLOR_BASED} with pkg"
+    
+    fi
 
-        elif [ ${PERCENTAGE} -ge 11 ] && [ ${PERCENTAGE} -le 20 ]; then
-
-          echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 21 ] && [ ${PERCENTAGE} -le 30 ]; then
-
-          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 31 ] && [ ${PERCENTAGE} -le 40 ]; then
-
-          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 41 ] && [ ${PERCENTAGE} -le 50 ]; then
-
-          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 51 ] && [ ${PERCENTAGE} -le 60 ]; then
-
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 61 ] && [ ${PERCENTAGE} -le 70 ]; then
-
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 71 ] && [ ${PERCENTAGE} -le 80 ]; then
-
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 81 ] && [ ${PERCENTAGE} -le 90 ]; then
-
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 91 ] && [ ${PERCENTAGE} -le 99 ]; then
-
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} == 100 ]; then
-        
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        fi
-
-      elif [ ${STATUS} == "FULL" ]; then
-
-        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
-
-      fi
-
-    }
-
-  else
-
-    Error "Fetching battery error, ${COLOR_WARNING}termux-battery-status ${COLOR_DANGER}not found${COLOR_BASED}. Make sure you installed ${COLOR_WARNING}Termux:API${COLOR_BASED} on ${COLOR_WARNING}Playstore${COLOR_BASED} or ${COLOR_SUCCESS}F-Droid${COLOR_BASED} and package ${COLOR_SUCCESS}termux-api${COLOR_BASED} with pkg"
-  
-  fi
+  }
 
   function help() {
     # Usage Help
