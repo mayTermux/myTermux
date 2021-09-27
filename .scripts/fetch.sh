@@ -42,52 +42,53 @@ function storage() {
   AVAIL=$(echo ${GREP_ONE_ROW} | awk '{print $4}')
   USE=$(echo ${GREP_ONE_ROW}} | awk '{print $5}' | sed "s/%//g")
   MOUNTED=$(echo ${GREP_ONE_ROW} | awk '{print $6}')
+  ICON=""
 
   function execute() {
 
     if [ ${USE} -ge 0 ] && [ ${USE} -le 10 ]; then
 
-      echo -e "${COLOR_SUCCESS}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      echo -e "${COLOR_SUCCESS}${ICON}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
 
     elif [ ${USE} -ge 11 ] && [ ${USE} -le 20 ]; then
 
-      echo -e "${COLOR_SUCCESS}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      echo -e "${COLOR_SUCCESS}${ICON}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
 
     elif [ ${USE} -ge 21 ] && [ ${USE} -le 30 ]; then
 
-      echo -e "${COLOR_SUCCESS}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      echo -e "${COLOR_SUCCESS}${ICON}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
 
     elif [ ${USE} -ge 31 ] && [ ${USE} -le 40 ]; then
 
-      echo -e "${COLOR_SUCCESS}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      echo -e "${COLOR_SUCCESS}${ICON}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
 
     elif [ ${USE} -ge 41 ] && [ ${USE} -le 50 ]; then
 
-      echo -e "${COLOR_SUCCESS}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      echo -e "${COLOR_SUCCESS}${ICON}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
 
     elif [ ${USE} -ge 51 ] && [ ${USE} -le 60 ]; then
 
-      echo -e "${COLOR_WARNING}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      echo -e "${COLOR_WARNING}${ICON}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
 
     elif [ ${USE} -ge 61 ] && [ ${USE} -le 70 ]; then
 
-      echo -e "${COLOR_WARNING}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      echo -e "${COLOR_WARNING}${ICON}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
 
     elif [ ${USE} -ge 71 ] && [ ${USE} -le 80 ]; then
 
-      echo -e "${COLOR_WARNING}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      echo -e "${COLOR_WARNING}${ICON}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
 
     elif [ ${USE} -ge 81 ] && [ ${USE} -le 90 ]; then
 
-      echo -e "${COLOR_DANGER}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      echo -e "${COLOR_DANGER}${ICON}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
 
     elif [ ${USE} -ge 91 ] && [ ${USE} -le 99 ]; then
 
-      echo -e "${COLOR_DANGER}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      echo -e "${COLOR_DANGER}${ICON}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
 
     elif [ ${USE} == 100 ]; then
     
-      echo -e "${COLOR_DANGER}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      echo -e "${COLOR_DANGER}${ICON}${COLOR_BASED} : ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
 
     fi
 
@@ -115,7 +116,7 @@ function storage() {
   case $1 in
 
     "" )
-      echo -e "[ ${COLOR_WARNING} ${MOUNTED}${COLOR_BASED} ] > ${USED}B / ${SIZE}B = ${AVAIL}B (${USE})"
+      echo -e "[ ${COLOR_WARNING}${ICON} ${MOUNTED}${COLOR_BASED} ] > ${USED}B / ${SIZE}B = ${AVAIL}B (${USE})"
     ;;
 
     -a )
@@ -263,50 +264,50 @@ function battery() {
 
     }
 
-    function help() {
-      # Usage Help
-      echo -e "Usage:
-      ./fetch battery [options]
-      "
-      
-      # Option Help
-      echo -e "Options:
-      ''        Show default output fetch battery
-      -h        Print help message
-      -p        Show fetch battery percentage
-      -s        Show fetch battery status state
-      "
-    }
-
-    case $1 in
-
-      "" )
-        execute
-      ;;
-
-      -h )
-        help
-      ;;
-
-      -p )
-        echo -e "${PERCENTAGE}"
-      ;;
-
-      -s )
-        echo -e "${STATUS}"
-      ;;
-
-      * )
-        help
-      ;;
-
-    esac
-
   else
 
     Error "Fetching battery error, ${COLOR_WARNING}termux-battery-status ${COLOR_DANGER}not found${COLOR_BASED}. Make sure you installed ${COLOR_WARNING}Termux:API${COLOR_BASED} on ${COLOR_WARNING}Playstore${COLOR_BASED} or ${COLOR_SUCCESS}F-Droid${COLOR_BASED} and package ${COLOR_SUCCESS}termux-api${COLOR_BASED} with pkg"
   
   fi
+
+  function help() {
+    # Usage Help
+    echo -e "Usage:
+    ./fetch battery [options]
+    "
+    
+    # Option Help
+    echo -e "Options:
+    ''        Show default output fetch battery
+    -h        Print help message
+    -p        Show fetch battery percentage
+    -s        Show fetch battery status state
+    "
+  }
+
+  case $1 in
+
+    "" )
+      execute
+    ;;
+
+    -h )
+      help
+    ;;
+
+    -p )
+      echo -e "${PERCENTAGE}"
+    ;;
+
+    -s )
+      echo -e "${STATUS}"
+    ;;
+
+    * )
+      help
+    ;;
+
+  esac
 
 }
 
