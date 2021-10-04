@@ -427,7 +427,8 @@ function awesomeshotFont() {
   cp ~/.termux/fonts/NerdFonts/JetBrains/JetBrains\ Mono\ Medium\ Nerd\ Font\ Complete.ttf $PREFIX/share/fonts/TTF/ 2> /dev/null
 }
 
-function main() {
+function execute() {
+
   clear
   banner
   informationPackages
@@ -442,4 +443,41 @@ function main() {
   changeSHELL
   welcomeTermux
   alert
+
+}
+
+function screenSize() {
+  
+  if [[ -n ${COLS} && -n ${ROWS} ]]; then
+
+    if (( ${COLS} == 101 && ${ROWS} == 39 )); then
+    
+      execute
+    
+    elif (( ${COLS} <= 101 & ${ROWS} <= 39 )); then
+
+      echo -e "[${COLOR_DANGER} ERROR ${COLOR_BASED}] > Please ${COLOR_WARNING}zoom out${COLOR_BASED} your terminal screen"
+    
+    elif (( ${COLS} >= 101 & ${ROWS} >= 39 )); then
+
+      echo -e "[${COLOR_DANGER} ERROR ${COLOR_BASED}] > Please ${COLOR_WARNING}zoom in${COLOR_BASED} your terminal screen"
+
+    else
+
+      echo -e "[${COLOR_DANGER} ABORT ${COLOR_BASED}] > Unknown ${COLOR_WARNING}Error${COLOR_BASED}"
+
+    fi
+
+  else
+
+    echo -e "[${COLOR_DANGER} ERROR ${COLOR_BASED}] > Please run '${COLOR_WARNING}export COLUMNS LINES${COLOR_BASED}'"
+
+  fi
+
+}
+
+function main() {
+
+  screenSize
+
 }
