@@ -11,6 +11,9 @@ VERSION="0.5.0"
 BUILD_DATE="01 August 2021"
 AUTHOR="xShin"
 
+COLS=$(echo $COLUMNS)
+ROWS=$(echo $LINES)
+
 DEPENDENCY_PACKAGES=(
   bat curl clang exa git imagemagick
   inotify-tools lf mpd mpc neovim
