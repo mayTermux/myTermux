@@ -450,15 +450,15 @@ function screenSize() {
   
   if [[ -n ${COLS} && -n ${ROWS} ]]; then
 
-    if (( ${COLS} == 101 && ${ROWS} == 39 )); then
+    if (( ${COLS} == 101 && ${ROWS} == 42 )); then
     
       execute
     
-    elif (( ${COLS} <= 101 & ${ROWS} <= 39 )); then
+    elif (( ${COLS} <= 101 & ${ROWS} <= 42 )); then
 
       echo -e "[${COLOR_DANGER} ERROR ${COLOR_BASED}] > Please ${COLOR_WARNING}zoom out${COLOR_BASED} your terminal screen"
     
-    elif (( ${COLS} >= 101 & ${ROWS} >= 39 )); then
+    elif (( ${COLS} >= 101 & ${ROWS} >= 42 )); then
 
       echo -e "[${COLOR_DANGER} ERROR ${COLOR_BASED}] > Please ${COLOR_WARNING}zoom in${COLOR_BASED} your terminal screen"
 
