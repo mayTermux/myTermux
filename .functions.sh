@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 source $(pwd)/.variables.sh
+source $(pwd)/.animation/ghost.sh
 
 function logDate() {
   echo -e "    [${COLOR_WARNING}$(date +'%A, %d %B %Y %r')${COLOR_BASED}] > $@"
@@ -81,24 +82,23 @@ function installDependencyPackages() {
 
   for DEPENDENCY_PACKAGE in "${DEPENDENCY_PACKAGES[@]}"; do
 
-    logDate Installing $DEPENDENCY_PACKAGE ...
+    start_ghost "       Installing ${DEPENDENCY_PACKAGE}..."
+
     pkg i -y $DEPENDENCY_PACKAGE &>/dev/null
     THIS_PACKAGE=$(pkg list-installed $DEPENDENCY_PACKAGE 2> /dev/null | tail -n 1)
     CHECK_PACKAGE=${THIS_PACKAGE%/*}
 
     if [[ $CHECK_PACKAGE == $DEPENDENCY_PACKAGE ]]; then
 
-      logDate Status $DEPENDENCY_PACKAGE [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
-      # echo -e "$(date +'%A, %d %B %Y %r') Status $DEPENDENCY_PACKAGE [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}])" >> $(pwd)/.log
+      stop_ghost $? || exit 1
       echo -e "$(date +'%A, %d %B %Y %r') Status $DEPENDENCY_PACKAGE [SUCCESS]" >> $(pwd)/.log
 
     else
 
-      logDate Status $DEPENDENCY_PACKAGE [${COLOR_DANGER}FAILED${COLOR_BASED}]
+      stop_ghost $?
       echo -e "$(date +'%A, %d %B %Y %r') Status $DEPENDENCY_PACKAGE [FAILED]" >> $(pwd)/.log
-    fi
 
-    echo -e ""
+    fi
 
   done
 
@@ -200,19 +200,21 @@ function cloneRepository() {
 
   for ((i=0; i<${#REPOSITORY_LINKS[@]}; i++)); do
 
-    logDate Installing ${REPOSITORY_FULL_NAME[i]} ... 
+    start_ghost "       Installing ${REPOSITORY_FULL_NAME[i]}..."
+
     git clone ${REPOSITORY_LINKS[i]} ${REPOSITORY_PATH[i]} 2> /dev/null
 
     if [ -d ${REPOSITORY_PATH[i]} ]; then
 
-      logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+      stop_ghost $? || exit 1
+      # logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
       echo -e "$(date +'%A, %d %B %Y %r') Status ${REPOSITORY_LINKS[i]} [SUCCESS]" >> $(pwd)/.log
       sleep 2s
       # logDate Repository PATH ${REPOSITORY_PATH[i]}
 
     else
 
-      logDate Status ${REPOSITORY_LINKS[i]} [${COLOR_DANGER}FAILED${COLOR_BASED}]
+      stop_ghost $?
       echo -e "$(date +'%A, %d %B %Y %r') Status ${REPOSITORY_LINKS[i]} [FAILED]" >> $(pwd)/.log
 
     fi
@@ -258,30 +260,48 @@ function backupDotFiles() {
 
     for BACKUP_DOTFILE in "${BACKUP_DOTFILES[@]}"; do
       echo -e ""
-      logDate Backup $BACKUP_DOTFILE ...
+
+      start_ghost "       Backup ${BACKUP_DOTFILE}..."
+      sleep 2s
+
       if [[ -d "$HOME/$BACKUP_DOTFILE" || -f "$HOME/$BACKUP_DOTFILE" ]]; then
+
         mv ${HOME}/${BACKUP_DOTFILE} ${HOME}/${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S);
+
         if [[ -d ${HOME}/${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) || -f ${HOME}/${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) ]]; then
-          logDate Status $BACKUP_DOTFILE to ${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+
+          # logDate Status $BACKUP_DOTFILE to ${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S)]
+          stop_ghost $? || exit 1
           echo -e "$(date +'%A, %d %B %Y %r') Status $BACKUP_DOTFILE to ${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) [SUCCESS]" >> $(pwd)/.log
-          echo -e ""
+          # echo -e ""
+
         else
-          logDate Status $BACKUP_DOTFILE to ${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) [${COLOR_DANGER}FAILED${COLOR_BASED}]
+
+          stop_ghost $?
+          # logDate Status $BACKUP_DOTFILE to ${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) [${COLOR_DANGER}FAILED${COLOR_BASED}]
           echo -e "$(date +'%A, %d %B %Y %r') Status $BACKUP_DOTFILE to ${BACKUP_DOTFILE}.$(date +%Y.%m.%d-%H.%M.%S) [FAILED]" >> $(pwd)/.log
-          echo -e ""
+          # echo -e ""
+
         fi
+
       else
-        logDate Status $BACKUP_DOTFILE [${COLOR_WARNING}NOT FOUND${COLOR_BASED}]
+
+        # logDate Status $BACKUP_DOTFILE [${COLOR_WARNING}NOT FOUND${COLOR_BASED}]
+        stop_ghost $?
         echo -e "$(date +'%A, %d %B %Y %r') Status $BACKUP_DOTFILE [NOT FOUND]" >> $(pwd)/.log
-        echo -e ""
+        # echo -e ""
+
       fi
+
     done
     echo -e "" >> $(pwd)/.log
+
   }
 
   echo -e ""
   backupExec
   installDotFiles
+
 }
 
 function installDotFiles() {
@@ -291,25 +311,29 @@ function installDotFiles() {
 
   for DOTFILE in "${DOTFILES[@]}"; do
 
-    logDate Installing $DOTFILE ...
+    # logDate Installing $DOTFILE ...
+    start_ghost "       Installing ${DOTFILE}..."
     cp -R $DOTFILE $HOME
 
     if [[ -d $HOME/$DOTFILE || -f $HOME/$DOTFILE ]]; then
 
-      logDate Status $DOTFILE [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+      # logDate Status $DOTFILE [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+      stop_ghost $? || exit 1
       echo -e "$(date +'%A, %d %B %Y %r') Status $DOTFILE [SUCCESS]" >> $(pwd)/.log
 
     else
 
-      logDate Status $DOTFILE [${COLOR_DANGER}FAILED${COLOR_BASED}]
+      # logDate Status $DOTFILE [${COLOR_DANGER}FAILED${COLOR_BASED}]
+      stop_ghost $?
       echo -e "$(date +'%A, %d %B %Y %r') Status $DOTFILE [FAILED]" >> $(pwd)/.log
 
     fi
 
-    echo -e ""
+    # echo -e ""
 
   done
 
+  echo -e ""
   echo -e "" >> $(pwd)/.log
   
 }
@@ -379,26 +403,32 @@ function zshThemes() {
 
   for ZSH_CUSTOM_THEME in "${ZSH_CUSTOM_THEMES[@]}"; do
 
-    logDate $ZSH_CUSTOM_THEME
+    # logDate $ZSH_CUSTOM_THEME
+    start_ghost "       ${ZSH_CUSTOM_THEME}"
+    sleep 2s
     cp $(pwd)/${PATHDIR}/${ZSH_CUSTOM_THEME} $HOME/${PATHDIR}/${ZSH_CUSTOM_THEME}
 
     if [ -f $HOME/$PATHDIR/$ZSH_CUSTOM_THEME ]; then
 
-      logDate Status $ZSH_CUSTOM_THEME [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+      # logDate Status $ZSH_CUSTOM_THEME [${COLOR_SUCCESS}SUCCESS${COLOR_BASED}]
+      stop_ghost $? || exit 1
       echo -e "$(date +'%A, %d %B %Y %r') Status $ZSH_CUSTOM_THEME [SUCCESS]" >> $(pwd)/.log
 
     else
 
-      logDate Status $ZSH_CUSTOM_THEME [${COLOR_DANGER}FAILED${COLOR_BASED}]
+      # logDate Status $ZSH_CUSTOM_THEME [${COLOR_DANGER}FAILED${COLOR_BASED}]
+      stop_ghost $?
       echo -e "$(date +'%A, %d %B %Y %r') Status $ZSH_CUSTOM_THEME [FAILED]" >> $(pwd)/.log
 
     fi
 
-    echo -e ""
+    # echo -e ""
 
   done
 
+  echo -e ""
   echo -e "" >> $(pwd)/.log
+  
 }
 
 function reloadSettings() {
