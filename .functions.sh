@@ -228,7 +228,7 @@ function cloneRepository() {
 function dotFiles() {
 
   sed -i 's/ICON="•"/ICON=" "/g' .animation/ghost.sh
-  source ghost.sh
+  source .animation/ghost.sh
 
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Getting Information Dotfiles"
   sleep 2s
