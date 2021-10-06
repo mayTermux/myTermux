@@ -50,11 +50,11 @@ ghost() {
 
       while true; do
         for i in {0..4}; do
-          printf "\b\r\033[2K${2} ${ARRAY_ANIMATION[i]}"
+          printf "\b\r\033[2K${COLOR_DEFAULT}${2} ${ARRAY_ANIMATION[i]}"
           sleep 0.15
         done
         for i in {4..0}; do
-          printf "\b\r\033[2K${2} ${ARRAY_ANIMATION[i]}"
+          printf "\b\r\033[2K${COLOR_DEFAULT}${2} ${ARRAY_ANIMATION[i]}"
           sleep 0.15
         done
       done
