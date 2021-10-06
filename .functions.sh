@@ -19,7 +19,7 @@ function banner() {
               ┃                ${COLOR_BASED}(____/                                          ${COLOR_SKY}┃
               ┃                                                                ┃
               ┃                  ${COLOR_BASED}🚀 Version    : ${VERSION}                     ${COLOR_SKY}    ┃
-              ┃                  ${COLOR_BASED}📅 Build Date : ${BUILD_DATE}                ${COLOR_SKY}┃
+              ┃                  ${COLOR_BASED}📅 Build Date : ${BUILD_DATE}               ${COLOR_SKY}┃
               ┃                  ${COLOR_BASED}⚙️ Author      : ${AUTHOR}                         ${COLOR_SKY}┃
               ┃                                                                ┃
               ╰────────────────────────────────────────────────────────────────╯${COLOR_BASED}"
@@ -219,8 +219,6 @@ function cloneRepository() {
 
     fi
 
-    echo -e ""
-
   done
 
   echo -e "" >> $(pwd)/.log
@@ -256,10 +254,10 @@ function backupDotFiles() {
 
     echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Backup dotfiles"
     echo -e "Backup dotfile:" >> $(pwd)/.log
+    echo -e ""
     sleep 2s
 
     for BACKUP_DOTFILE in "${BACKUP_DOTFILES[@]}"; do
-      echo -e ""
 
       start_ghost "       Backup ${BACKUP_DOTFILE}..."
       sleep 2s
@@ -298,7 +296,6 @@ function backupDotFiles() {
 
   }
 
-  echo -e ""
   backupExec
   installDotFiles
 
@@ -347,7 +344,7 @@ function neovimPlugins() {
 
     logDate Status NvChad [${COLOR_SUCCESS}FOUND${COLOR_BASED}]
 
-    logDate Preparing to install Plugin [Move NvChad to .config/nvim]
+    logDate Move NvChad to .config/nvim
     mv $HOME/NvChad $HOME/.config/nvim
     if [ -d $HOME/.config/nvim ]; then
     
@@ -404,7 +401,7 @@ function zshThemes() {
   for ZSH_CUSTOM_THEME in "${ZSH_CUSTOM_THEMES[@]}"; do
 
     # logDate $ZSH_CUSTOM_THEME
-    start_ghost "       ${ZSH_CUSTOM_THEME}"
+    start_ghost "       Installing ${ZSH_CUSTOM_THEME}..."
     sleep 2s
     cp $(pwd)/${PATHDIR}/${ZSH_CUSTOM_THEME} $HOME/${PATHDIR}/${ZSH_CUSTOM_THEME}
 
