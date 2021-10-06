@@ -172,8 +172,8 @@ function repoSize() {
 
 function informationRepository() {
 
-    sed -i 's/ICON="•"/ICON=" "/g' $(pwd)/.animation/ghost.sh
-    source $(pwd)/.animation/ghost.sh
+    sed -i 's/ICON="•"/ICON=" "/g' .animation/ghost.sh
+    source .animation/ghost.sh
 
     echo -e "‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Getting Information Repository"
     sleep 2s
