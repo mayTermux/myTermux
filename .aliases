@@ -44,7 +44,7 @@ alias myipall="~/.scripts/ip.sh all"
 alias n="ncmpcpp"
 alias mkill="mpd --kill"
 alias m="music"
-alias ncmpcpp-compile="~/myTermux/compile/armv7l/install/ncmpcpp-compile.sh"
+alias ncmpcpp-compile="~/myTermux/compile/install/ncmpcpp-compile.sh"
 
 #Color Toys
 alias 256colors2="~/.color-toys/256colors2.pl"
