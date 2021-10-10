@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/env bash
+#!/usr/bin/env bash
 #
 # colorbars - smpte color bars in sh
 # http://git.io/colorbars 

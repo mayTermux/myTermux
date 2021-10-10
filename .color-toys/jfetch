@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+
+art="
+\\033c\\033[31m  .--.---.
+ ( \\'--'/ )
+( '..-...' )
+ '.'-._.'.'
+ \\033[34m <'-.,.->
+     \`\\(   _
+     < \\ / \\
+     __ \\\\|_/
+    /  \\ \\\\
+     '--'.\\ >
+           \\\\\\033[0m
+"
+
+## read system info
+read -r host < /proc/sys/kernel/hostname
+
+# Get Memory usage
+get_mem () {
+  free --mega | sed -n -E '2s/^[^0-9]*([0-9]+) *([0-9]+).*/'"${space}"'\2 \/ \1 /p'
+}
+
+## storage
+storage_info() {
+    storageused=$(df -h / | grep "/" | awk '{print $3}')
+    storageavail=$(df -h / | grep "/" | awk '{print $2}')
+}
+
+#getting the init
+get_init() {
+    os="$(uname -o)"
+    if [ "$os" = "Android" ]; then
+       echo "init.rc"
+    elif [ ! $(pidof systemd) ]; then
+        if [ -f "/sbin/openrc" ]; then
+            echo "openrc"
+        else
+         echo $(cat /proc/1/comm)
+        fi
+    else
+        echo "systemD"
+    fi
+}
+
+## os
+for os in /etc/os-release /usr/lib/os-release; do
+	[ -f $os ] && . $os && break
+done
+
+ ## wm (took from https://github.com/unixporn/trup/blob/master/fetcher.sh#L55)
+  [ ! "$wm" ] && [ "$DISPLAY" ] && command -v xprop >/dev/null && {
+    id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
+    id=${id##* }
+    wm=$(xprop -id "$id" -notype -len 100 -f _NET_WM_NAME 8t |
+      grep '^_NET_WM_NAME' | cut -d\" -f 2)
+  }
+
+
+  [ ! "$wm" ] || [ "$wm" = "LG3D" ] &&
+    wm=$(
+      ps -e | grep -m 1 -o \
+        -e "sway" \
+        -e "kiwmi" \
+        -e "wayfire" \
+        -e "sowm" \
+        -e "catwm" \
+        -e "fvwm" \
+        -e "dwm" \
+        -e "2bwm" \
+        -e "monsterwm" \
+        -e "tinywm" \
+        -e "xmonad"
+    )
+
+## kernel	
+	read -r _ _ version _ < /proc/version
+	ke=${version%%-*}
+        kernel="$(uname -r)"
+	
+# colors and palette method stolen from dylanaraps pfetch
+# https://github.com/dylanaraps/pfetch
+
+c0='[0m';
+c1='[31m'; c2='[32m'
+c3='[33m'; c4='[34m'
+c5='[35m'; c6='[36m'
+c7='[37m'; c8='[38m'
+palette="[7m$c1 $c1 $c1 $c1 $c2 $c2 $c2 $c2 $c3 $c3 $c3 $c3 $c4 $c4 $c4 $c4 $c5 $c5 $c5 $c5 $c6 $c6 $c6 $c6 [m"
+white="[7m$c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 $c7 [m"
+
+# output
+    printf "		$art"
+    printf "
+${c5} ${c5}${host}
+${c5} ${c3}wm${c0} ~ ${wm}
+${c5} ${c3}sh${c0} ~ ${SHELL##*/}
+${c5} ${c3}ram${c0} ~ $(get_mem)
+${c5} ${c3}init${c0} ~ $(get_init)
+${c5} ${c3}os${c0} ~ ${PRETTY_NAME}
+${c5} ${c3}ker${c0} ~ ${kernel}
+    
+"
