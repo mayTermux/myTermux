@@ -57,6 +57,13 @@ alias panes="~/.color-toys/panes"
 alias pipes1="~/.color-toys/pipes1"
 alias pipes2="~/.color-toys/pipes2"
 alias pipes2-slim="~/.color-toys/pipes2-slim"
+alias dna="~/.color-toys/dna"
+alias ghost="~/.color-toys/ghost"
+alias jfetch="~/.color-toys/jfetch"
+alias pacman="~/.color-toys/pacman"
+alias pipesx="~/.color-toys/pipesx"
+alias rains="~/.color-toys/rains"
+alias spacey="~/.color-toys/spacey"
 
 #archives .deb
 alias archives="cd /data/data/com.termux/cache/apt/archives/"
