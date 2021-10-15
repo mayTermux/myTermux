@@ -35,7 +35,6 @@ follow_now_playing_lyrics                           = "yes"
 locked_screen_width_part                            = "50"
 ask_for_locked_screen_width_part                    = "yes"
 display_bitrate                                     = "no"
-external_editor                                     = "nano"
 main_window_color                                   = "default"
 startup_screen                                      = "playlist"
 
@@ -66,5 +65,5 @@ song_window_title_format                            = "Ncmpcpp > { %b }|{ %a - %
 
 # Alternative UI
 alternative_ui_separator_color 		            = "black"
-alternative_header_first_line_format                = "$b$5$/b  $b$8{%t}|{%f}$/b $/b"
-alternative_header_second_line_format               = "{$b{$2  %a$9}{ - $7  %b$9}{ ($2%y$9)}}|{%D}"
+alternative_header_first_line_format                = "$b$5$/b $b$8{%t}|{%f}$/b $/b"
+alternative_header_second_line_format               = "{$b{$2 %a$9}{ - $7  %b$9}{ ($2%y$9)}}|{%D}"
