@@ -37,6 +37,7 @@ ask_for_locked_screen_width_part                    = "yes"
 display_bitrate                                     = "no"
 main_window_color                                   = "default"
 startup_screen                                      = "playlist"
+startup_slave_screen                                = "visualizer"
 
 progressbar_look                                    = "━━"
 #progressbar_look                                   = "▃▃▃"
