@@ -40,23 +40,45 @@
 
 
 ### :camera_flash: Screenshots
-<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/tokyonight-1.png" target="_blank" rel="noopener">
-  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/tokyonight-1.png"/>
+- System Fetch
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/rxfetc/penguin.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/rxfetch/penguin.png"/>
 </a>
-<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/tokyonight-2.png" target="_blank" rel="noopener">
-  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/tokyonight-2.png"/>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/rxfetc/hydra.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/rxfetch/hydra.png"/>
 </a>
-<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/chadracula-1.png" target="_blank" rel="noopener">
-  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/chadracula-1.png"/>
+
+- Music
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/ncmpcpp/ncmpcpp-alternative.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/ncmpcpp/ncmpcpp-alternative.png"/>
 </a>
-<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/chadracula-2.png" target="_blank" rel="noopener">
-  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/chadracula-2.png"/>
+
+- Coding
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/coding/neovim-compile-cpp.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/coding/neovim-compile-cpp.png"/>
 </a>
-<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/everforest-1.png" target="_blank" rel="noopener">
-  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/everforest-1.png"/>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/coding/compile-gpp.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/coding/compile-gpp.png"/>
 </a>
-<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/everforest-2.png" target="_blank" rel="noopener">
-  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/everforest-2.png"/>
+
+
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/neovim/tokyonight-1.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/neovim/tokyonight-1.png"/>
+</a>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/neovim/tokyonight-2.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/neovim/tokyonight-2.png"/>
+</a>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/neovim/chadracula-1.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/neovim/chadracula-1.png"/>
+</a>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/neovim/chadracula-2.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/neovim/chadracula-2.png"/>
+</a>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/neovim/everforest-1.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/neovim/everforest-1.png"/>
+</a>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/neovim/everforest-2.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/neovim/everforest-2.png"/>
 </a>
 
 
