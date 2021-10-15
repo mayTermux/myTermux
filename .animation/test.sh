@@ -2,6 +2,6 @@
 
 source $(pwd)/ghost.sh
 
-start_ghost "[ TEST ] > bash-animation"
-sleep 2s
+start_ghost "Bash Animation "
+sleep 10000s
 stop_ghost $?

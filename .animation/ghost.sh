@@ -25,7 +25,7 @@ export COLOR_GREEN="\033[1;32m"
 export COLOR_RED="\033[1;31m"
 export COLOR_YELLOW="\033[1;33m"
 
-ICON="•" #  •
+ICON="● " #  •
 OK="SUCCESS"
 NO="FAILED"
 
@@ -51,11 +51,11 @@ ghost() {
       while true; do
         for i in {0..4}; do
           printf "\b\r\033[2K${COLOR_DEFAULT}${2} ${ARRAY_ANIMATION[i]}"
-          sleep 0.05
+          sleep 0.12
         done
         for i in {4..0}; do
           printf "\b\r\033[2K${COLOR_DEFAULT}${2} ${ARRAY_ANIMATION[i]}"
-          sleep 0.05
+          sleep 0.12
         done
       done
 
