@@ -110,6 +110,6 @@ function stop_ghost() {
 
 }
 
-# start_ghost "test"
-# sleep 2s
+# start_ghost "ncmpcpp"
+# sleep 10s
 # stop_ghost $?
