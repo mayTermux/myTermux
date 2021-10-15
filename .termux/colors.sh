@@ -3,7 +3,10 @@ DIR=`cd $(dirname $0); pwd`
 COLORS_DIR=$DIR/colors
 count=0
 
-echo -e "The default color theme is siduck-onedark.\nYou can choose another one from the list below";
+COLOR_BASED="\e[39m"
+COLOR_YELLOW="\e[93m"
+
+echo -e "The default color theme is ${COLOR_YELLOW}ayu.dark.colors${COLOR_BASED}\nYou can choose another one from the list below";
 
 for colors in "$COLORS_DIR"/*; do
   colors_name[count]=$( echo $colors | awk -F'/' '{print $NF}' )
