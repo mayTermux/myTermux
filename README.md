@@ -54,13 +54,14 @@
 </a>
 
 - Coding
-<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/coding/neovim-compile-cpp.png" target="_blank" rel="noopener">
-  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/coding/neovim-compile-cpp.png"/>
+<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/coding/neovim-coding-cpp.png" target="_blank" rel="noopener">
+  <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/coding/neovim-coding-cpp.png"/>
 </a>
 <a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/coding/compile-gpp.png" target="_blank" rel="noopener">
   <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/coding/compile-gpp.png"/>
 </a>
 
+- More
 
 <a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/awesomeshot/neovim/tokyonight-1.png" target="_blank" rel="noopener">
   <img alt="myTermux rxfetch" src="/assets/images/README/awesomeshot/neovim/tokyonight-1.png"/>
