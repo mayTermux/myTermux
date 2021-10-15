@@ -96,7 +96,7 @@ function magickrounded() {
     \( \
         +clone \
         -alpha extract -draw \
-        'fill black polygon 0,0 0,20 20,0 fill white circle 20,20 20,0' \
+        'fill black polygon 0,0 0,10 10,0 fill white circle 10,10 10,0' \
         \( +clone -flip \) \
         -compose Multiply -composite \
         \( +clone -flop \) \
