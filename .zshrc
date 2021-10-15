@@ -1,5 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="rounded-custom"
+ZSH_THEME="archcraft" #rounded #rounded-custom #etc
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting bgnotify)
 
 PATH="$PREFIX/bin:$HOME/.local/bin:$PATH"
