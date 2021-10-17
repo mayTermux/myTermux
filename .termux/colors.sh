@@ -6,7 +6,7 @@ count=0
 COLOR_BASED="\e[39m"
 COLOR_YELLOW="\e[93m"
 
-echo -e "The default color theme is ${COLOR_YELLOW}ayu.dark.colors${COLOR_BASED}\nYou can choose another one from the list below";
+echo -e "The default color theme is ${COLOR_YELLOW}owl4ce.dark.colors${COLOR_BASED}\nYou can choose another one from the list below";
 
 for colors in "$COLORS_DIR"/*; do
   colors_name[count]=$( echo $colors | awk -F'/' '{print $NF}' )
