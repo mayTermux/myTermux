@@ -65,6 +65,7 @@ REPOSITORY_PATH=(
 )
 
 ZSH_CUSTOM_THEMES=(
+  osx.zsh-theme
   archcraft.zsh-theme
   ar-round.zsh-theme
   la-round.zsh-theme
