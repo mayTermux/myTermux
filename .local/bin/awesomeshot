@@ -31,7 +31,8 @@ SHADOW_COLOR_LIGHT="#FFFFFF"
 ### Border
 BORDER_COLOR=""
 BORDER_COLOR_DARK="#373E4D"
-BORDER_COLOR_LIGHT="#ABB2BF"
+BORDER_COLOR_LIGHT="#A8D7FE"
+BORDER_ROUNDED=15
 
 ### Footer
 FOOTER_FOREGROUND_COLOR=""
@@ -96,7 +97,7 @@ function magickrounded() {
     \( \
         +clone \
         -alpha extract -draw \
-        'fill black polygon 0,0 0,10 10,0 fill white circle 10,10 10,0' \
+        "fill black polygon 0,0 0,${BORDER_ROUNDED} ${BORDER_ROUNDED},0 fill white circle ${BORDER_ROUNDED},${BORDER_ROUNDED} ${BORDER_ROUNDED},0" \
         \( +clone -flip \) \
         -compose Multiply -composite \
         \( +clone -flop \) \
