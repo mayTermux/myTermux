@@ -37,7 +37,7 @@ ARRAY_ANIMATION=(
   "    ${COLOR_BLUE}${ICON}${COLOR_GREEN}${ICON}${COLOR_RED}${ICON}${COLOR_YELLOW}${ICON}${COLOR_MAGENTA}${ICON}"
 )
 
-ghost() {
+function animation() {
 
  case $1 in
 
@@ -64,7 +64,7 @@ ghost() {
    stop )
 
      if [[ -z ${3} ]]; then
-       echo "ghost not running"
+       echo "Animation not running"
        exit 1
      fi
 
@@ -93,23 +93,19 @@ ghost() {
   esac
 }
 
-function start_ghost() {
+function start_animation() {
 
-  setterm -cursor off
-  ghost "start" "${1}" &
-  ghost_pid=${!}
+  setCursor off
+  animation "start" "${1}" &
+  animation_pid=${!}
   disown
 
 }
 
-function stop_ghost() {
+function stop_animation() {
 
-  ghost "stop" $1 $ghost_pid
-  unset $ghost_pid
-  setterm -cursor on
+  animation "stop" $1 $animation_pid
+  unset $animation_pid
+  setCursor on
 
 }
-
-# start_ghost "ncmpcpp"
-# sleep 10s
-# stop_ghost $?
