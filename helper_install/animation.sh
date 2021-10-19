@@ -70,7 +70,7 @@ function animation() {
 
      kill ${3} > /dev/null 2>&1
 
-     echo -en "\b${COLOR_DEFAULT}  --> ["
+     echo -en "\b${COLOR_DEFAULT}  ──> ["
 
      if [[ $2 -eq 0 ]]; then
        echo -en " ${COLOR_GREEN}${OK}${COLOR_DEFAULT} "
