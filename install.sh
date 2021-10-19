@@ -3,7 +3,7 @@
 HELPERS=(
   colors animation banner package switchcase
   dotfiles clone themes nvchad utility
-  stat signal cursor finish
+  stat signal screen cursor finish
 )
 
 for HELPER in ${HELPERS[@]}; do
@@ -37,23 +37,4 @@ function main() {
 
 }
 
-COLS=$(echo $COLUMNS)
-ROWS=$(echo $LINES)
-
-if [[ -n ${COLS} && -n ${ROWS} ]]; then
-  
-  if (( ${COLS} >= 101 & ${ROWS} >= 39 )); then
-
-    main
-  
-  else
-
-    stat "ERROR" "Warning" "Please zoom out your Terminal Screen!"
-
-  fi
-
-else
-
-  stat "ERROR" "Danger" "Please run 'export COLUMNS LINES' first and then run again!"
-
-fi
+screenSize main
