@@ -7,7 +7,7 @@ HELPERS=(
 )
 
 for HELPER in ${HELPERS[@]}; do
-  source $(pwd)/helper-install/${HELPER}.sh
+  source $(pwd)/helper_install/${HELPER}.sh
 done
 
 # # Done
