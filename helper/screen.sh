@@ -19,7 +19,7 @@ function screenSize() {
 
   else
 
-    echo -e "[ ${COLOR_WARNING}ERROR${COLOR_BASED} ] > Please run '${COLOR_WARNING}export COLUMNS LINES${COLOR_BASED}' first and then run again!"
+    echo -e "[ ${COLOR_DANGER}ERROR${COLOR_BASED} ] > Please run '${COLOR_WARNING}export COLUMNS LINES${COLOR_BASED}' first and then run again!"
 
   fi
 
