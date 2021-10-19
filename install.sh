@@ -3,39 +3,47 @@
 HELPERS=(
   colors animation banner package switchcase
   dotfiles clone themes nvchad utility
-  stat signal screen cursor finish
+  stat signal cursor finish
 )
 
 for HELPER in ${HELPERS[@]}; do
   source $(pwd)/helper_install/${HELPER}.sh
 done
 
-# # Done
-# banner
-# packages
-# caseInstallPackage
-# dotFiles
+COLS=$(echo $COLUMNS)
+ROWS=$(echo $LINES)
 
-# # Error Array
-# #caseBackupDotFiles
+function screenSize() {
 
-# # Done
-# backupDotFiles
-# caseInstallDotfiles
+  if [[ -n ${COLS} && -n ${ROWS} ]]; then
 
-# cloneRepositories
-# caseCloneRepository
+    if (( ${COLS} >= 101 && ${ROWS} >= 39 )); then
 
-# zshTheme
-# caseInstallZshTheme
+      ${1}
 
-# NvChad
-# utility
+    elif (( ${COLS} <= 101 && ${ROWS} <= 39 )); then
+
+      stat "ERROR" "Warning" "Please zoom out your Terminal Screen!"
+
+    else
+
+      stat "ERROR" "Danger" "Unknown ERROR!!!"
+
+    fi
+
+  else
+
+    stat "ERROR" "Danger" "Please run 'export COLUMNS LINES' first and then run again!"
+  
+  fi
+
+}
 
 function main() {
 
   trap 'handleInterruptByUser "Interrupt by User"' 2
 
+  clear
   banner
 
   packages
