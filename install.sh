@@ -10,31 +10,28 @@ for HELPER in ${HELPERS[@]}; do
   source $(pwd)/helper/${HELPER}.sh
 done
 
-COLS=$(echo $COLUMNS)
-ROWS=$(echo $LINES)
 
 function screenSize() {
+  
+  COLS=$(echo $COLUMNS)
+  ROWS=$(echo $LINES)
 
   if [[ -n ${COLS} && -n ${ROWS} ]]; then
-
-    if (( ${COLS} >= 101 && ${ROWS} >= 39 )); then
+    
+    if (( ${COLS} >= 101 & ${ROWS} >= 39 )); then
 
       ${1}
-
-    elif (( ${COLS} <= 101 && ${ROWS} <= 39 )); then
-
-      stat "ERROR" "Warning" "Please zoom out your Terminal Screen!"
-
+    
     else
 
-      stat "ERROR" "Danger" "Unknown ERROR!!!"
+      stat "ERROR" "Warning" "Please zoom out your Terminal Screen!"
 
     fi
 
   else
 
     stat "ERROR" "Danger" "Please run 'export COLUMNS LINES' first and then run again!"
-  
+
   fi
 
 }
