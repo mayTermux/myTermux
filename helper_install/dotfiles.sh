@@ -50,7 +50,7 @@ function backupDotFiles() {
 
   for BACKUP_DOTFILE in "${BACKUP_DOTFILES[@]}"; do
 
-    start_animation "       Backup ${COLOR_SUCCESS}${BACKUP_DOTFILE}${COLOR_BASED} ..."
+    start_animation "       Backup ${COLOR_WARNING}'${COLOR_SUCCESS}${BACKUP_DOTFILE}${COLOR_WARNING}'${COLOR_BASED} ..."
     sleep 1s
 
     if [[ -d "$HOME/$BACKUP_DOTFILE" || -f "$HOME/$BACKUP_DOTFILE" ]]; then

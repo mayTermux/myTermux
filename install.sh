@@ -62,6 +62,8 @@ function main() {
   NvChad
   utility
 
+  alertFinish
+
 }
 
 screenSize main
