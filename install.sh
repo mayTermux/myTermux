@@ -7,7 +7,7 @@ HELPERS=(
 )
 
 for HELPER in ${HELPERS[@]}; do
-  source $(pwd)/helper_install/${HELPER}.sh
+  source $(pwd)/helper/${HELPER}.sh
 done
 
 COLS=$(echo $COLUMNS)
