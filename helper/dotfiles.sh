@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
 
+BACKUP_DOTFILES=(
+  .autostart .aliases
+  .config .colorscheme
+  .local .scripts
+  .termux .tmux.conf
+  .zshrc .oh-my-zsh
+)
+
 DOTFILES=(
   .autostart .aliases
-  .config .color-toys
+  .config .colorscheme
   .local .scripts
   .termux .tmux.conf
   .zshrc
 )
 
-BACKUP_DOTFILES=(
-  .autostart .aliases
-  .config .color-toys
-  .local .scripts
-  .termux .tmux.conf
-  .zshrc .oh-my-zsh
-)
 
 function dotFiles() {
 
