@@ -148,9 +148,9 @@ function penguin() {
   echo -e "     ${c3}•${c8}_${c3}•${c0}       ${c5}${c3} : $(basename "${SHELL}")"
   echo -e "     ${c8}${c0}${c9}oo${c0}${c8}|${c0}       ${c6}${c3} : $(get_mem)"
   echo -e "    ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}      ${c7}${c3} :$(uptime -p | sed 's/up//')"
-  echo -e "   ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}      ${c1}${c3} : $(bash $HOME/.scripts/fetch.sh music)"
-  echo -e "               $(bash $HOME/.scripts/fetch.sh storage -n)"
-  echo -e "               $(bash $HOME/.scripts/fetch.sh battery)"
+  echo -e "   ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}      ${c1}${c3} : $(bash $HOME/.scripts/system/fetch.sh music)"
+  echo -e "               $(bash $HOME/.scripts/system/fetch.sh storage -n)"
+  echo -e "               $(bash $HOME/.scripts/system/fetch.sh battery)"
   echo -e "               
                ${black} ${red} ${green} ${yellow} ${blue} ${magenta} ${cyan} ${white} ${reset}\n
                 
@@ -172,9 +172,9 @@ function hydra() {
   ${yellow}⢠⣧⣶⣥⡤⢄${reset} ${red}⣸⣿⣿⠘${reset}  ${white}⢀⣴⣿⣿⡿⠛${green}⣿⣿⣧⠈${white}⢿⠿⠟⠛⠻⠿⠄   ${white} ${reset}: $(basename "${SHELL}")
  ${yellow}⣰⣿⣿⠛⠻⣿⣿⡦${reset}${red}⢹⣿⣷${reset}   ${white}⢊⣿⣿⡏  ${green}⢸⣿⣿⡇${blue} ⢀⣠⣄⣾⠄    ${yellow} ${reset}: $(get_mem)
  ${yellow}⣠⣿⠿⠛ ⢀⣿⣿⣷${reset}${red}⠘⢿⣿⣦⡀${reset} ${white}⢸⢿⣿⣿⣄ ${green}⣸⣿⣿⡇${blue}⣪⣿⡿⠿⣿⣷⡄  ${red} ${reset}:$(uptime -p | sed 's/up//')
-${yellow}⠙⠃   ⣼⣿⡟${reset}  ${red}⠈⠻⣿⣿⣦${white}⣌⡇⠻⣿⣿⣷${green}⣿⣿⣿ ${blue}⣿⣿⡇ ⠛⠻⢷⣄  ${prurple} ${reset}: $(bash $HOME/.scripts/fetch.sh music)
-   ${yellow}⢻⣿⣿⣄${reset}   ${red}⠈⠻⣿⣿⣿⣷${white}⣿⣿⣿${green}⣿⣿⡟ ${blue}⠫⢿⣿⡆        $(bash $HOME/.scripts/fetch.sh storage -n)
-   ${yellow}⠻⣿⣿⣿⣿⣶⣶${reset}${red}⣾⣿⣿⣿⣿${white}⣿⣿${green}⣿⣿⡟${blue}⢀⣀⣤⣾⡿⠃         $(bash $HOME/.scripts/fetch.sh battery)  
+${yellow}⠙⠃   ⣼⣿⡟${reset}  ${red}⠈⠻⣿⣿⣦${white}⣌⡇⠻⣿⣿⣷${green}⣿⣿⣿ ${blue}⣿⣿⡇ ⠛⠻⢷⣄  ${prurple} ${reset}: $(bash $HOME/.scripts/system/fetch.sh music)
+   ${yellow}⢻⣿⣿⣄${reset}   ${red}⠈⠻⣿⣿⣿⣷${white}⣿⣿⣿${green}⣿⣿⡟ ${blue}⠫⢿⣿⡆        $(bash $HOME/.scripts/system/fetch.sh storage -n)
+   ${yellow}⠻⣿⣿⣿⣿⣶⣶${reset}${red}⣾⣿⣿⣿⣿${white}⣿⣿${green}⣿⣿⡟${blue}⢀⣀⣤⣾⡿⠃         $(bash $HOME/.scripts/system/fetch.sh battery)  
 
                                    ${black} ${red} ${green} ${yellow} ${blue} ${magenta} ${cyan} ${white} ${reset}
   

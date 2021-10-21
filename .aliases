@@ -13,7 +13,7 @@ alias awesomeshot-manual-borderlight-footerdark="awesomeshot -f --border-light -
 alias awesomeshot-manual-borderdark-footerlight="awesomeshot -f --border-dark --footer-light $2"
 
 #Change
-alias chcolor="/data/data/com.termux/files/home/.termux/colors.sh"
+alias chcolor="~/.scripts/colorscheme/colors.sh"
 alias chfont="/data/data/com.termux/files/home/.termux/fonts.sh"
 
 #System    
@@ -34,11 +34,11 @@ alias convi="ffmpeg -i $1 -c:v libx264 -crf 25 $2"
 alias pg="ping google.com"
 
 #MyIP (Local) Pre
-alias myip="bash ~/.scripts/ip.sh simcard"
-alias myipwifi="bash ~/.scripts/ip.sh wifi"
-alias myiphotspot="~/.scripts/ip.sh hotspot"
-alias myipvpn="~/.scripts/ip.sh vpn"
-alias myipall="~/.scripts/ip.sh all"
+alias myip="bash ~/.scripts/system/ip.sh simcard"
+alias myipwifi="bash ~/.scripts/system/ip.sh wifi"
+alias myiphotspot="~/.scripts/system/ip.sh hotspot"
+alias myipvpn="~/.scripts/system/ip.sh vpn"
+alias myipall="~/.scripts/system/ip.sh all"
 
 #Music    
 alias n="ncmpcpp"
@@ -47,23 +47,23 @@ alias m="music"
 alias ncmpcpp-compile="~/myTermux/compile/install/ncmpcpp-compile.sh"
 
 #Color Toys
-alias 256colors2="~/.color-toys/256colors2.pl"
-alias bloks="~/.color-toys/bloks"
-alias colortest="~/.color-toys/colortest"
-alias colortest-slim="~/.color-toys/colortest-slim"
-alias colorview="~/.color-toys/colorview"
-alias colorbars="~/.color-toys/colorbars"
-alias panes="~/.color-toys/panes"
-alias pipes1="~/.color-toys/pipes1"
-alias pipes2="~/.color-toys/pipes2"
-alias pipes2-slim="~/.color-toys/pipes2-slim"
-alias dna="~/.color-toys/dna"
-alias ghost="~/.color-toys/ghost"
-alias jfetch="~/.color-toys/jfetch"
-alias pacman="~/.color-toys/pacman"
-alias pipesx="~/.color-toys/pipesx"
-alias rains="~/.color-toys/rains"
-alias spacey="~/.color-toys/spacey"
+alias 256colors2="~/.scripts/toys/256colors2.pl"
+alias bloks="~/.scripts/toys/bloks"
+alias colortest="~/.scripts/toys/colortest"
+alias colortest-slim="~/.scripts/toys/colortest-slim"
+alias colorview="~/.scripts/toys/colorview"
+alias colorbars="~/.scripts/toys/colorbars"
+alias panes="~/.scripts/toys/panes"
+alias pipes1="~/.scripts/toys/pipes1"
+alias pipes2="~/.scripts/toys/pipes2"
+alias pipes2-slim="~/.scripts/toys/pipes2-slim"
+alias dna="~/.scripts/toys/dna"
+alias ghost="~/.scripts/toys/ghost"
+alias jfetch="~/.scripts/toys/jfetch"
+alias pacman="~/.scripts/toys/pacman"
+alias pipesx="~/.scripts/toys/pipesx"
+alias rains="~/.scripts/toys/rains"
+alias spacey="~/.scripts/toys/spacey"
 
 #archives .deb
 alias archives="cd /data/data/com.termux/cache/apt/archives/"
@@ -128,8 +128,8 @@ alias zshconf="nvim ~/.zshrc"
 alias neoconf="nvim ~/.config/neofetch/config.conf"
 alias rxconf="nvim ~/.local/bin/rxfetch"
 alias neoscript="nvim ~/.config/neofetch/script.sh"
-alias fetch="~/.scripts/fetch.sh $@"
-alias fetchconf="nvim ~/.scripts/fetch.sh"
+alias fetch="~/.scripts/system/fetch.sh $@"
+alias fetchconf="nvim ~/.scripts/system/fetch.sh"
 
 #git
 alias gitgraph="git log --all --decorate --oneline --graph"

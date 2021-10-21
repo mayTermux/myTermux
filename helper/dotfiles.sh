@@ -2,7 +2,7 @@
 
 DOTFILES=(
   .autostart .aliases
-  .config .color-toys
+  .config .colorscheme
   .local .scripts
   .termux .tmux.conf
   .zshrc
@@ -10,7 +10,7 @@ DOTFILES=(
 
 BACKUP_DOTFILES=(
   .autostart .aliases
-  .config .color-toys
+  .config .colorscheme
   .local .scripts
   .termux .tmux.conf
   .zshrc .oh-my-zsh
