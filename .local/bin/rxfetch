@@ -133,7 +133,7 @@ get_color() {
 }
 
 # fetch output
-distro_detect
+#distro_detect
 get_user
 get_color
 get_node_name
