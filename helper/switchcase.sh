@@ -18,6 +18,7 @@ function switchCase() {
 
     n|N )
       stat "ERROR" "Warning" "Abort."
+      exit 1
     ;;
 
     * )
