@@ -45,7 +45,7 @@ function listColorScheme() {
 
     if [ "${THEME_USED}" == "${COLORSCHEME_FILE_NAME[INDEX_LOOP]}" ]; then
 
-      printf "[${COLOR_WARNING}%2s${COLOR_BASED}]  ${COLOR_SUCCESS}%-23s${COLOR_BASED}     \
+      printf "[${COLOR_WARNING}%2s${COLOR_BASED}]  ${COLOR_SUCCESS}%-23s -->${COLOR_BASED} \
              ${COLOR_SUCCESS}%-4s${COLOR_BASED}\n" ${INDEX_LOOP} ${COLORSCHEME_LIST_NAME[INDEX_LOOP]} "USED"
 
     else

@@ -14,7 +14,7 @@ alias awesomeshot-manual-borderdark-footerlight="awesomeshot -f --border-dark --
 
 #Change
 alias chcolor="~/.scripts/colorscheme/colors.sh"
-alias chfont="/data/data/com.termux/files/home/.termux/fonts.sh"
+alias chfont="~/.scripts/fonts/fonts.sh"
 
 #System    
 alias q="exit"

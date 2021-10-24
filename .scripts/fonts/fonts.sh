@@ -47,7 +47,7 @@ function listFonts() {
 
     if [ "${FONT_USED}" == "${FONT_FILE_NAME[INDEX_LOOP]}" ]; then
 
-      printf "[${COLOR_WARNING}%2s${COLOR_BASED}]  ${COLOR_SUCCESS}%b %-s %b %b % b %b${COLOR_BASED}       ${COLOR_SUCCESS}%-4s${COLOR_BASED}\n" ${INDEX_LOOP} ${FONT_LIST_NAME[INDEX_LOOP]} "USED"
+      printf "[${COLOR_WARNING}%2s${COLOR_BASED}]  ${COLOR_SUCCESS}%b %-s %b %b % b %b${COLOR_BASED}   ${COLOR_SUCCESS}%-4s${COLOR_BASED}\n" ${INDEX_LOOP} ${FONT_LIST_NAME[INDEX_LOOP]} "--> USED"
 
     else
 
