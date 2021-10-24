@@ -10,7 +10,7 @@ function stat() {
 
     echo -e "    [ ${COLOR_WARNING}${1}${COLOR_BASED} ] > ${COLOR_WARNING}${3}${COLOR_BASED}"
 
-  elif [ "${3}" == "Danger" ]; then
+  elif [ "${2}" == "Danger" ]; then
 
     echo -e "    [ ${COLOR_WARNING}${1}${COLOR_BASED} ] > ${COLOR_DANGER}${3}${COLOR_BASED}"
 
