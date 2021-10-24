@@ -33,13 +33,12 @@ function zshTheme() {
 
     FILE_SIZE=$(du -s -h .oh-my-zsh/custom/themes/$ZSH_CUSTOM_THEME | awk '{print $1}')
     # printf "    ┃      ${COLOR_SUCCESS}%-24s${COLOR_BASED}      ▎      ${COLOR_WARNING}%5s${COLOR_BASED}         ┃\n" $ZSH_CUSTOM_THEME $FILE_SIZE
-    printf "    ┃      ${COLOR_SUCCESS}%-24s${COLOR_BASED}             ${COLOR_WARNING}%5s${COLOR_BASED}        ┃\n" $ZSH_CUSTOM_THEME $FILE_SIZE
+    printf "    ┃      ${COLOR_SUCCESS}%-24s${COLOR_BASED}             ${COLOR_WARNING}%5s${COLOR_BASED}         ┃\n" $ZSH_CUSTOM_THEME $FILE_SIZE
     echo -e "    ╰─────────────────────────────────────────────────────────╯"
 
   done
 
-  # echo "    ╰─────────────────────────────────────────────────────────╯
-  # "
+  # echo "    ╰─────────────────────────────────────────────────────────╯"
   echo ""
 
 }

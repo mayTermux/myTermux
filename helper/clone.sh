@@ -63,7 +63,7 @@ function repositories() {
 
     REPOSITORY_NAME=$(curl https://api.github.com/${REPOSITORY_API} 2> /dev/null | grep full_name | awk '{print $2}' | sed "s/,//g" | sed "s/\"//g")
     # printf "    ┃      ${COLOR_SUCCESS}%-36s${COLOR_BASED}     ▎      ${COLOR_WARNING}%8s${COLOR_BASED}      ┃\n" $REPOSITORY_NAME `repoSize $REPOSITORY_API`
-    printf "    ┃      ${COLOR_SUCCESS}%-36s${COLOR_BASED}            ${COLOR_WARNING}%8s${COLOR_BASED}     ┃\n" $REPOSITORY_NAME `repoSize $REPOSITORY_API`
+    printf "    ┃      ${COLOR_SUCCESS}%-36s${COLOR_BASED}            ${COLOR_WARNING}%8s${COLOR_BASED}      ┃\n" $REPOSITORY_NAME `repoSize $REPOSITORY_API`
     echo -e "    ╰────────────────────────────────────────────────────────────────────╯"
 
   done

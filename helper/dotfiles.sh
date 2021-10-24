@@ -42,13 +42,12 @@ function dotFiles() {
 
     FOLDER_SIZE=$(du -s -h $DOTFILE | awk '{print $1}')
     # printf "    ┃        ${COLOR_SUCCESS}%-12s${COLOR_BASED}     ▎        ${COLOR_WARNING}%5s${COLOR_BASED}        ┃\n" $DOTFILE $FOLDER_SIZE
-        printf "    ┃        ${COLOR_SUCCESS}%-12s${COLOR_BASED}              ${COLOR_WARNING}%5s${COLOR_BASED}       ┃\n" $DOTFILE $FOLDER_SIZE
+    printf "    ┃        ${COLOR_SUCCESS}%-12s${COLOR_BASED}              ${COLOR_WARNING}%5s${COLOR_BASED}        ┃\n" $DOTFILE $FOLDER_SIZE
     echo -e "    ╰───────────────────────────────────────────────╯"
 
   done
 
-  # echo "    ╰───────────────────────────────────────────────╯
-  # "
+  # echo "    ╰───────────────────────────────────────────────╯"
   echo ""
 
 }

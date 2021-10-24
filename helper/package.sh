@@ -17,7 +17,7 @@ function packages() {
   #   ╰─────────────────────────────────────────────────────────────────────────────────────╯
   #   ┃      Package Name     ┃        Version       ┃     Download     ┃     Installed     ┃
   #   ╰─────────────────────────────────────────────────────────────────────────────────────╯"
-    echo -e "
+  echo -e "
     ╭─────────────────────────────────────────────────────────────────────────────────────╮
     ┃                                 Information Packages                                ┃
     ╰─────────────────────────────────────────────────────────────────────────────────────╯
@@ -31,12 +31,13 @@ function packages() {
     DOWNLOAD_SIZE=$(apt show $PACKAGE 2> /dev/null | grep Download-Size: | awk '{print $2$3}')
     INSTALLED_SIZE=$(apt show $PACKAGE 2> /dev/null | grep Installed-Size: | awk '{print $2$3}')
     # printf "    ┃      ${COLOR_SUCCESS}%-13s${COLOR_BASED}    ▎     ${COLOR_WARNING}%10s${COLOR_BASED}       ▎      ${COLOR_WARNING}%6s${COLOR_BASED}       ▎      ${COLOR_WARNING}%6s${COLOR_BASED}      ┃\n" $PACKAGE_NAME $VERSION $DOWNLOAD_SIZE $INSTALLED_SIZE
-    printf "    ┃      ${COLOR_SUCCESS}%-13s${COLOR_BASED}          ${COLOR_WARNING}%10s${COLOR_BASED}              ${COLOR_WARNING}%6s${COLOR_BASED}              ${COLOR_WARNING}%6s${COLOR_BASED}     ┃\n" $PACKAGE_NAME $VERSION $DOWNLOAD_SIZE $INSTALLED_SIZE
+    printf "    ┃      ${COLOR_SUCCESS}%-13s${COLOR_BASED}          ${COLOR_WARNING}%10s${COLOR_BASED}              ${COLOR_WARNING}%6s${COLOR_BASED}              ${COLOR_WARNING}%6s${COLOR_BASED}      ┃\n" $PACKAGE_NAME $VERSION $DOWNLOAD_SIZE $INSTALLED_SIZE
     echo -e "    ╰─────────────────────────────────────────────────────────────────────────────────────╯"
     # printf "    ╰───────────────────────▎──────────────────────▎───────────────────▎──────────────────╯\n"
 
   done
 
+  # echo -e "    ╰─────────────────────────────────────────────────────────────────────────────────────╯"
   echo ""
 
 }
