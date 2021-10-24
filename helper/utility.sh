@@ -4,7 +4,7 @@ function utility() {
 
   termux-reload-settings
 
-  cp ~/.termux/fonts/NerdFonts/JetBrains/JetBrains\ Mono\ Medium\ Nerd\ Font\ Complete.ttf $PREFIX/share/fonts/TTF/ 2> /dev/null
+  cp ~/.fonts/JetBrains\ Mono\ Medium\ Nerd\ Font\ Complete.ttf $PREFIX/share/fonts/TTF/ 2> /dev/null
   
   chsh -s zsh
 

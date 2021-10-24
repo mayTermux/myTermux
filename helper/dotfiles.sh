@@ -3,7 +3,7 @@
 BACKUP_DOTFILES=(
   .autostart .aliases
   .config .colorscheme
-  .local .scripts
+  .fonts .local .scripts
   .termux .tmux.conf
   .zshrc .oh-my-zsh
 )
@@ -11,7 +11,7 @@ BACKUP_DOTFILES=(
 DOTFILES=(
   .autostart .aliases
   .config .colorscheme
-  .local .scripts
+  .fonts .local .scripts
   .termux .tmux.conf
   .zshrc
 )
