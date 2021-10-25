@@ -86,10 +86,10 @@ distro_detect() {
     case "${os}" in
 	Android)
 	   distro="Android"
-	   if [ ! -f "${HOME}"/.termux/fonts/Material.ttf ];then
-		cp fonts/* "${HOME}"/.termux/fonts/
-		termux-reload-settings
-	   fi
+#	   if [ ! -f "${HOME}"/.termux/fonts/Material.ttf ];then
+#		  cp fonts/* "${HOME}"/.termux/fonts/
+#		  termux-reload-settings
+#	   fi
 	   ;;
 	*)
 	   distro="$(source /etc/os-release && echo "${PRETTY_NAME}")"
@@ -133,7 +133,7 @@ get_color() {
 }
 
 # fetch output
-#distro_detect
+distro_detect
 get_user
 get_color
 get_node_name
