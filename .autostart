@@ -2,6 +2,8 @@
 #cursor bar or bold pipe
 #echo -e "\e[2 q"
 
+export COLUMNS LINES
+
 #cursor underline    
 echo -e "\e[4 q"
 
