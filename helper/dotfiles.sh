@@ -97,16 +97,36 @@ function installDotFiles() {
 
   for DOTFILE in "${DOTFILES[@]}"; do
 
-    start_animation "       Installing ${COLOR_WARNING}'${COLOR_SUCCESS}${DOTFILE}${COLOR_WARNING}'${COLOR_BASED} ..."
-    cp -R $DOTFILE $HOME
+    if [ "${DOTFILE}" == ".termux" ]; then
 
-    if [[ -d $HOME/$DOTFILE || -f $HOME/$DOTFILE ]]; then
+      start_animation "       Installing ${COLOR_WARNING}'${COLOR_SUCCESS}${DOTFILE}${COLOR_WARNING}'${COLOR_BASED} ..."
+      cp -R $DOTFILE $HOME
 
-      stop_animation $? || exit 1
+      if [[ -d $HOME/$DOTFILE || -f $HOME/$DOTFILE ]]; then
+
+        termux-reload-settings
+        stop_animation $? || exit 1
+
+      else
+
+        stop_animation $?
+
+      fi
 
     else
 
-      stop_animation $?
+      start_animation "       Installing ${COLOR_WARNING}'${COLOR_SUCCESS}${DOTFILE}${COLOR_WARNING}'${COLOR_BASED} ..."
+      cp -R $DOTFILE $HOME
+
+      if [[ -d $HOME/$DOTFILE || -f $HOME/$DOTFILE ]]; then
+
+        stop_animation $? || exit 1
+
+      else
+
+        stop_animation $?
+
+      fi
 
     fi
 
