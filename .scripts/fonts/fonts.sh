@@ -11,7 +11,7 @@ for LIBRARY in ${LIBRARYS[@]}; do
 done
 
 FONTS_DIR="${HOME}/.fonts"
-INDEX_LOOP=0
+INDEX_LOOP=1
 
 FONT_USED_PATH="${HOME}/.config/mytermux/fonts"
 FONT_USED_FILE_NAME="used.log"
@@ -88,7 +88,7 @@ function selectFont() {
 
       break;
 
-    elif ! [[ ${INDEX_FONT} =~ ^[0-9]+$ ]]; then
+    elif ! [[ ${INDEX_FONT} =~ ^[1-9]+$ ]]; then
 
       stat "ERROR" "Danger" "Unknown number, please enter the right number!\n"
 
