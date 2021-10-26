@@ -11,7 +11,7 @@ for LIBRARY in ${LIBRARYS[@]}; do
 done
 
 COLORSCHEMES_DIR="$HOME/.colorscheme"
-INDEX_LOOP=0
+INDEX_LOOP=1
 
 THEME_USED_PATH="${HOME}/.config/mytermux/colorscheme"
 THEME_USED_FILE_NAME="used.log"
@@ -76,7 +76,7 @@ function selectTheme() {
 
       break;
 
-    elif ! [[ ${INDEX_THEME} =~ ^[0-9]+$ ]]; then
+    elif ! [[ ${INDEX_THEME} =~ ^[1-9]+$ ]]; then
 
       stat "ERROR" "Danger" "Unknown number, please enter the right number!\n"
 
