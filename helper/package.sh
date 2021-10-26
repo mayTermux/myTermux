@@ -16,8 +16,8 @@ function packages() {
   KB_INSTALLED_SIZE=0
   MB_INSTALLED_SIZE=0
 
-  TOTAL_DOWNLOAD_SIZE=0
-  TOTAL_INSTALLED_SIZE=0
+  # TOTAL_DOWNLOAD_SIZE=0
+  # TOTAL_INSTALLED_SIZE=0
 
   echo -e "‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Getting Information Packages"
   # echo -e "
@@ -47,20 +47,40 @@ function packages() {
     printf "    ┃      ${COLOR_SUCCESS}%-13s${COLOR_BASED}          ${COLOR_WARNING}%10s${COLOR_BASED}              ${COLOR_WARNING}%-4s${COLOR_BASED} %-2s             ${COLOR_WARNING}%-4s${COLOR_BASED} %-2s     ┃\n" $PACKAGE_NAME $VERSION ${DOWNLOAD_SIZE} "${UNIT_DOWNLOAD_SIZE}" ${INSTALLED_SIZE} "${UNIT_INSTALLED_SIZE}"
     echo -e "    ╰─────────────────────────────────────────────────────────────────────────────────────╯"
 
-    if [[ "${UNIT_DOWNLOAD_SIZE}" == "kB" && "${UNIT_INSTALLED_SIZE}" == "kB" ]]; then
-      KB_DOWNLOAD_SIZE=$(echo -e "${KB_DOWNLOAD_SIZE}+${DOWNLOAD_SIZE}/1000" | bc )
-      KB_INSTALLED_SIZE=$(echo -e "${KB_INSTALLED_SIZE}+${INSTALLED_SIZE}/1000" | bc )
+    # echo -e "Unit Download: ${UNIT_DOWNLOAD_SIZE} Unit Installed: ${UNIT_INSTALLED_SIZE}"
+
+    if [[ "${UNIT_DOWNLOAD_SIZE}" == "kB" && "${UNIT_INSTALLED_SIZE}" == "MB" ]]; then
+
+      KB_DOWNLOAD_SIZE=$(echo "${KB_DOWNLOAD_SIZE} + ${DOWNLOAD_SIZE} / 1024" | bc -l | xargs -i printf "%'.1f" {})
+      MB_INSTALLED_SIZE=$(echo "${MB_INSTALLED_SIZE} + ${INSTALLED_SIZE}" | bc -l | xargs -i printf "%'.1f" {})
+      # echo -e "\n[ ${COLOR_WARNING}KB Download${COLOR_BASED} ]  > ${KB_DOWNLOAD_SIZE} \n[ ${COLOR_CYAN}MB Installed${COLOR_BASED} ] > ${MB_INSTALLED_SIZE}"
+
+    elif [[ "${UNIT_DOWNLOAD_SIZE}" == "MB" && "${UNIT_INSTALLED_SIZE}" == "kB" ]]; then
+
+      MB_DOWNLOAD_SIZE=$(echo "${MB_DOWNLOAD_SIZE} + ${DOWNLOAD_SIZE}" | bc -l | xargs -i printf "%'.1f" {})
+      KB_INSTALLED_SIZE=$(echo "${KB_INSTALLED_SIZE} + ${INSTALLED_SIZE} / 1024" | bc -l | xargs -i printf "%'.1f" {})
+      # echo -e "\n[ ${COLOR_WARNING}MB Download${COLOR_BASED} ]  > ${MB_DOWNLOAD_SIZE} \n[ ${COLOR_CYAN}KB Installed${COLOR_BASED} ] > ${KB_INSTALLED_SIZE}"
+
+    elif [[ "${UNIT_DOWNLOAD_SIZE}" == "kB" && "${UNIT_INSTALLED_SIZE}" == "kB" ]]; then
+
+      KB_DOWNLOAD_SIZE=$(echo "${KB_DOWNLOAD_SIZE} + ${DOWNLOAD_SIZE} / 1024" | bc -l | xargs -i printf "%'.1f" {})
+      KB_INSTALLED_SIZE=$(echo "${KB_INSTALLED_SIZE} + ${INSTALLED_SIZE} / 1024" | bc -l | xargs -i printf "%'.1f" {})
+      # echo -e "\n[ ${COLOR_WARNING}KB Download${COLOR_BASED} ]  > ${KB_DOWNLOAD_SIZE} \n[ ${COLOR_CYAN}KB Installed${COLOR_BASED} ] > ${KB_INSTALLED_SIZE}"
+
     elif [[ "${UNIT_DOWNLOAD_SIZE}" == "MB" && "${UNIT_INSTALLED_SIZE}" == "MB" ]]; then
-      MB_DOWNLOAD_SIZE=$(echo -e "${MB_DOWNLOAD_SIZE}+${DOWNLOAD_SIZE}" | bc )
-      MB_INSTALLED_SIZE=$(echo -e "${MB_INSTALLED_SIZE}+${INSTALLED_SIZE}" | bc )
+
+      MB_DOWNLOAD_SIZE=$(echo "${MB_DOWNLOAD_SIZE} + ${DOWNLOAD_SIZE}" | bc -l | xargs -i printf "%'.1f" {})
+      MB_INSTALLED_SIZE=$(echo "${MB_INSTALLED_SIZE} + ${INSTALLED_SIZE}" | bc -l | xargs -i printf "%'.1f" {})
+      # echo -e "\n[ ${COLOR_WARNING}MB Download${COLOR_BASED} ]  > ${MB_DOWNLOAD_SIZE} \n[ ${COLOR_CYAN}MB Installed${COLOR_BASED} ] > ${MB_INSTALLED_SIZE}"
+
     fi
 
   done
 
-  TOTAL_DOWNLOAD_SIZE=$(echo -e "${TOTAL_DOWNLOAD_SIZE}+${KB_DOWNLOAD_SIZE}+${MB_DOWNLOAD_SIZE}" | bc )
-  TOTAL_INSTALLED_SIZE=$(echo -e "${TOTAL_INSTALLED_SIZE}+${KB_INSTALLED_SIZE}+${MB_INSTALLED_SIZE}" | bc )
+  TOTAL_DOWNLOAD_SIZE=$(echo "${KB_DOWNLOAD_SIZE} + ${MB_DOWNLOAD_SIZE}" | bc -l | xargs -i printf "%'.1f" {})
+  TOTAL_INSTALLED_SIZE=$(echo "${KB_INSTALLED_SIZE} + ${MB_INSTALLED_SIZE}" | bc -l | xargs -i printf "%'.1f" {})
 
-  printf "    ┃     [ ${COLOR_WARNING}%5s${COLOR_BASED} ]                                     ${COLOR_WARNING}%6s${COLOR_BASED} %-2s          ${COLOR_WARNING}%6s${COLOR_BASED}  %-2s     ┃" "TOTAL" ${TOTAL_DOWNLOAD_SIZE} "MB" ${TOTAL_INSTALLED_SIZE} "MB"
+  printf "    ┃     [ ${COLOR_WARNING}%5s${COLOR_BASED} ]  ─────────────────────────────────> ${COLOR_WARNING}%6s${COLOR_BASED} %-2s           ${COLOR_WARNING}%6s${COLOR_BASED} %-2s     ┃" "TOTAL" ${TOTAL_DOWNLOAD_SIZE} "MB" ${TOTAL_INSTALLED_SIZE} "MB"
   echo -e "\n    ╰─────────────────────────────────────────────────────────────────────────────────────╯"
 
   echo ""
