@@ -15,6 +15,7 @@ alias awesomeshot-manual-borderdark-footerlight="awesomeshot -f --border-dark --
 #Change
 alias chcolor="~/.scripts/colorscheme/colors.sh"
 alias chfont="~/.scripts/fonts/fonts.sh"
+alias chzsh="~/.scripts/zsh/changetheme.sh"
 
 #System    
 alias q="exit"
