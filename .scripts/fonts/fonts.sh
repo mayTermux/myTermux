@@ -90,7 +90,7 @@ function selectFont() {
 
     elif ! [[ ${INDEX_FONT} =~ ^[1-9]+$ ]]; then
 
-      stat "ERROR" "Danger" "Unknown number, please enter the right number!\n"
+      stat "ERROR" "Danger" "Unknown '${COLOR_DANGER}number${COLOR_BASED}', please enter the right number!\n"
 
     elif (( ${INDEX_FONT} >= 0 && ${INDEX_FONT} <= ${INDEX_LOOP} )); then
 
@@ -123,7 +123,7 @@ function selectFont() {
 
     else
 
-      stat "ERROR" "Danger" "Unknown number, please enter the right number!\n"
+      stat "ERROR" "Danger" "Unknown '${COLOR_DANGER}number${COLOR_BASED}', please enter the right number!\n"
 
     fi
 
