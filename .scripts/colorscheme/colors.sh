@@ -78,7 +78,7 @@ function selectTheme() {
 
     elif ! [[ ${INDEX_THEME} =~ ^[1-9]+$ ]]; then
 
-      stat "ERROR" "Danger" "Unknown number, please enter the right number!\n"
+      stat "ERROR" "Danger" "Unknown '${COLOR_DANGER}number${COLOR_BASED}', please enter the right number!\n"
 
     elif (( ${INDEX_THEME} >= 0 && ${INDEX_THEME} <= ${INDEX_LOOP} )); then
 
@@ -113,7 +113,7 @@ function selectTheme() {
 
     else
 
-      stat "ERROR" "Danger" "Unknown number, please enter the right number!\n"
+      stat "ERROR" "Danger" "Unknown '${COLOR_DANGER}number${COLOR_BASED}', please enter the right number!\n"
 
     fi
 
