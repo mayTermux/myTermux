@@ -38,7 +38,7 @@ function listZshTheme() {
   clear
   setCursor off
   banner
-  printf " %3s  %10s                              %4s\n\n" "No." "List Color" "Status"
+  printf " %3s  %10s                              %4s\n\n" "No." "List Theme" "Status"
 
   for ZSHTHEME in ${ZSH_CUSTOM_THEME_DIR}/*; do
 
