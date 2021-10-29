@@ -7,6 +7,7 @@ ZSH_CUSTOM_THEMES=(
   la-round.zsh-theme
   rounded-custom.zsh-theme
   rounded.zsh-theme
+  simple.zsh-theme
 )
 
 function zshTheme() {
