@@ -14,9 +14,9 @@ function fetchMusic() {
 
   MPD_HOST=127.0.0.1 # or localhost
   MPD_PORT=8000 # Depend your MPD configuration
-  MPC_CONNECT_MPD=$(mpc --host=${MPD_HOST} --port=${MPD_PORT} &> /dev/null)
+  #MPC_CONNECT_MPD=$(mpc --host=${MPD_HOST} --port=${MPD_PORT} &> /dev/null)
 
-  if ${MPC_CONNECT_MPD}; then
+  if mpc --host=${MPD_HOST} --port=${MPD_PORT} &> /dev/null; then
 
     GET_MUSIC_ARTIST=$(mpc --host=${MPD_HOST} --port=${MPD_PORT} --format '[%artist%]' current 2> /dev/null)
     GET_MUSIC_TITLE=$(mpc --host=${MPD_HOST} --port=${MPD_PORT} --format '[%title%]' current 2> /dev/null)
