@@ -45,7 +45,8 @@
   <img alt="myTermux Music" src="https://i.ibb.co/bPRrbyD/final-music.png"/>
 </a>
 
-<br>
+<br />
+<br />
 
 <a href="https://i.ibb.co/6DqyPqT/final-text-editor.png" target="_blank" rel="noopener">
   <img alt="myTermux Text Editor" src="https://i.ibb.co/6DqyPqT/final-text-editor.png"/>
