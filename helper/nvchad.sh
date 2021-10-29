@@ -4,33 +4,33 @@ function NvChad() {
 
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Installing Neovim Plugins with Packer\n"
 
-  stat "CHECK" "Warning" "NvChad Folder"
+  stat "CHECK" "Warning" "'${COLOR_WARNING}NvChad${COLOR_BASED}' Folder"
   
   if [ -d $HOME/NvChad ]; then
 
-    stat "RESULT" "Success" "NvChad exist"
+    stat "RESULT" "Success" "'${COLOR_SUCCESS}NvChad${COLOR_BASED}' exist"
 
-    stat "RUN" "Warning" "Move NvChad Folder to .config/nvim ..."
+    stat "RUN" "Warning" "Move '${COLOR_WARNING}NvChad${COLOR_BASED}' Folder to '${COLOR_WARNING}.config/nvim${COLOR_BASED}' ..."
 
     mv $HOME/NvChad $HOME/.config/nvim
 
     if [ -d $HOME/.config/nvim ]; then
 
-      stat "RESULT" "Success" "NvChad success move to .config/nvim"
+      stat "RESULT" "Success" "'${COLOR_SUCCESS}NvChad${COLOR_BASED}' success move to '${COLOR_SUCCESS}.config/nvim${COLOR_BASED}'"
 
-      stat "RUN" "Warning" "Installing NvChad"
+      stat "RUN" "Warning" "Installing '${COLOR_WARNING}NvChad${COLOR_BASED}' ..."
 
       nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
 
     else
 
-      stat "RESULT" "Danger" "NvChad failed move to .config/nvim"
+      stat "RESULT" "Danger" "'${COLOR_DANGER}NvChad${COLOR_BASED}' failed move to '${COLOR_DANGER}.config/nvim${COLOR_BASED}'"
 
     fi
 
   else
 
-    stat "RESULT" "Danger" "NvChad No such directory"
+    stat "RESULT" "Danger" "'${COLOR_DANGER}NvChad${COLOR_BASED}' No such directory"
 
   fi
 
