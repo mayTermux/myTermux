@@ -1,28 +1,27 @@
 #!/usr/bin/env bash
 
-# Author      : xShin (https://github.com/xshin404)
-# Contributor : Ann   (https://github.com/annzc)
+LIBRARYS=(
+  colors signal stat
+)
 
-COLOR_BASED="\e[39m"
-COLOR_DANGER="\e[91m"
-COLOR_WARNING="\e[93m"
-COLOR_SUCCESS="\e[92m"
-COLOR_SKY="\e[34m"
+LIBRARY_PATH="${HOME}/.scripts/library"
 
-function Error() {
+for LIBRARY in ${LIBRARYS[@]}; do
+  source ${LIBRARY_PATH}/${LIBRARY}.sh
+done
 
-  echo -e "[${COLOR_DANGER}ERROR${COLOR_BASED}] > $@"
+function fetchMusic() {
 
-}
+  MPD_HOST=127.0.0.1 # or localhost
+  MPD_PORT=8000 # Depend your MPD configuration
+  MPC_CONNECT_MPD=$(mpc --host=${MPD_HOST} --port=${MPD_PORT} &> /dev/null)
 
-function get_music() {
+  if ${MPC_CONNECT_MPD}; then
 
-  ARTIST=$(mpc --host=127.0.0.1 --port=8000 --format '[%artist%]' current 2> /dev/null)
-  TITLE=$(mpc --host=127.0.0.1 --port=8000 --format '[%title%]' current 2> /dev/null)
+    GET_MUSIC_ARTIST=$(mpc --host=${MPD_HOST} --port=${MPD_PORT} --format '[%artist%]' current 2> /dev/null)
+    GET_MUSIC_TITLE=$(mpc --host=${MPD_HOST} --port=${MPD_PORT} --format '[%title%]' current 2> /dev/null)
 
-  if mpc --host=127.0.0.1 --port=8000 &> /dev/null; then
-
-    echo -e "${ARTIST} - ${TITLE}"
+    echo -e "${GET_MUSIC_ARTIST} - ${GET_MUSIC_TITLE}"
 
   else
 
@@ -32,8 +31,7 @@ function get_music() {
 
 }
 
-# Fetch storage
-function storage() {
+function fetchStorage() {
 
   MOUNTED_ON="/storage/emulated"
   GREP_ONE_ROW=$(df -h | grep ${MOUNTED_ON})
@@ -95,14 +93,12 @@ function storage() {
   }
 
   function help() {
-    # Usage Help
+
     echo -e "Usage:
     ./fetch storage [options]
     "
     
-    # Option Help
     echo -e "Options:
-    ''        Show default output fetch storage
     -a        Show fetch storage with all output
     -f        Show fetch storage with free space available
     -m        Show fetch storage mounted path
@@ -110,13 +106,15 @@ function storage() {
     -u        Show fetch storage total used
     -n        Show fetch storage for neofetch output
     -p        Show fetch storage percentage
+    -h        Print help message
     "
   }
 
   case $1 in
 
     "" )
-      echo -e "[ ${COLOR_WARNING}${ICON} ${MOUNTED}${COLOR_BASED} ] > ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      # echo -e "[ ${COLOR_WARNING}${ICON} ${MOUNTED}${COLOR_BASED} ] > ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
+      stat "${ICON} ${MOUNTED}" "Warning" "${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
     ;;
 
     -a )
@@ -147,6 +145,10 @@ function storage() {
       echo -e "${USE}"
     ;;
 
+    -h )
+      help
+    ;;
+
     * )
       help
     ;;
@@ -155,200 +157,205 @@ function storage() {
 
 }
 
-function battery() {
+function fetchBattery() {
 
-  if [ -f ${PREFIX}/bin/termux-battery-status ]; then
+  COMMAND="termux-battery-status"
+  GET_BATTERY_PERCENTAGE=$(${COMMAND} 2> /dev/null | grep percentage | awk '{print $2}' | sed "s/,//g")
+  GET_BATTERY_STATE=$(${COMMAND} 2> /dev/null | grep status | awk '{print $2}' | sed "s/,//g" | sed "s/\"//g")
 
-    PERCENTAGE=$(termux-battery-status | grep percentage | awk '{print $2}' | sed "s/,//g")
-    STATUS=$(termux-battery-status | grep status | awk '{print $2}' | sed "s/,//g" | sed "s/\"//g")
+  function checkingCommand() {
 
-    function execute() {
+    if [ -x "$(command -v ${COMMAND})" ]; then
 
-      if [ ${STATUS} == "CHARGING" ]; then
+      ${1}
 
-        if [ ${PERCENTAGE} -ge 0 ] && [ ${PERCENTAGE} -le 10 ]; then
+    else
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+      stat "ERROR" "Danger" "Can't fetch battery, command '${COLOR_DANGER}${COMMAND}${COLOR_BASED}' not found. 
+            Make sure you installed '${COLOR_WARNING}Termux:API${COLOR_BASED}' on '${COLOR_WARNING}Playstore${COLOR_BASED}' or 
+            '${COLOR_SUCCESS}F-Droid${COLOR_BASED}' and the package '${COLOR_SUCCESS}termux-api${COLOR_BASED}' with '${COLOR_WARNING}pkg install${COLOR_BASED}'"
 
-        elif [ ${PERCENTAGE} -ge 11 ] && [ ${PERCENTAGE} -le 20 ]; then
+    fi
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+  }
 
-        elif [ ${PERCENTAGE} -ge 21 ] && [ ${PERCENTAGE} -le 30 ]; then
+  function executeFetch() {
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+    if [ ${GET_BATTERY_STATE} == "CHARGING" ]; then
 
-        elif [ ${PERCENTAGE} -ge 31 ] && [ ${PERCENTAGE} -le 40 ]; then
+      if [ ${GET_BATTERY_PERCENTAGE} -ge 0 ] && [ ${GET_BATTERY_PERCENTAGE} -le 10 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${GET_BATTERY_PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 41 ] && [ ${PERCENTAGE} -le 50 ]; then
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 11 ] && [ ${GET_BATTERY_PERCENTAGE} -le 20 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${GET_BATTERY_PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 51 ] && [ ${PERCENTAGE} -le 60 ]; then
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 21 ] && [ ${GET_BATTERY_PERCENTAGE} -le 30 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${GET_BATTERY_PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 61 ] && [ ${PERCENTAGE} -le 70 ]; then
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 31 ] && [ ${GET_BATTERY_PERCENTAGE} -le 40 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${GET_BATTERY_PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 71 ] && [ ${PERCENTAGE} -le 80 ]; then
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 41 ] && [ ${GET_BATTERY_PERCENTAGE} -le 50 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${GET_BATTERY_PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 81 ] && [ ${PERCENTAGE} -le 90 ]; then
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 51 ] && [ ${GET_BATTERY_PERCENTAGE} -le 60 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${GET_BATTERY_PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 91 ] && [ ${PERCENTAGE} -le 99 ]; then
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 61 ] && [ ${GET_BATTERY_PERCENTAGE} -le 70 ]; then
 
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${GET_BATTERY_PERCENTAGE}%)"
 
-        fi
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 71 ] && [ ${GET_BATTERY_PERCENTAGE} -le 80 ]; then
 
-      elif [ ${STATUS} == "DISCHARGING" ]; then
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${GET_BATTERY_PERCENTAGE}%)"
 
-        if [ ${PERCENTAGE} -ge 0 ] && [ ${PERCENTAGE} -le 10 ]; then
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 81 ] && [ ${GET_BATTERY_PERCENTAGE} -le 90 ]; then
 
-          echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${GET_BATTERY_PERCENTAGE}%)"
 
-        elif [ ${PERCENTAGE} -ge 11 ] && [ ${PERCENTAGE} -le 20 ]; then
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 91 ] && [ ${GET_BATTERY_PERCENTAGE} -le 99 ]; then
 
-          echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 21 ] && [ ${PERCENTAGE} -le 30 ]; then
-
-          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 31 ] && [ ${PERCENTAGE} -le 40 ]; then
-
-          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 41 ] && [ ${PERCENTAGE} -le 50 ]; then
-
-          echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 51 ] && [ ${PERCENTAGE} -le 60 ]; then
-
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 61 ] && [ ${PERCENTAGE} -le 70 ]; then
-
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 71 ] && [ ${PERCENTAGE} -le 80 ]; then
-
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 81 ] && [ ${PERCENTAGE} -le 90 ]; then
-
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} -ge 91 ] && [ ${PERCENTAGE} -le 99 ]; then
-
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        elif [ ${PERCENTAGE} == 100 ]; then
-        
-          echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${PERCENTAGE}%)"
-
-        fi
-
-      elif [ ${STATUS} == "FULL" ]; then
-
-        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${PERCENTAGE}%)"
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${GET_BATTERY_PERCENTAGE}%)"
 
       fi
 
-    }
+    elif [ ${GET_BATTERY_STATE} == "DISCHARGING" ]; then
 
-    function help() {
-      # Usage Help
-      echo -e "Usage:
-      ./fetch battery [options]
-      "
+      if [ ${GET_BATTERY_PERCENTAGE} -ge 0 ] && [ ${GET_BATTERY_PERCENTAGE} -le 10 ]; then
+
+        echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${GET_BATTERY_PERCENTAGE}%)"
+
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 11 ] && [ ${GET_BATTERY_PERCENTAGE} -le 20 ]; then
+
+        echo -e "${COLOR_DANGER}${COLOR_BASED} : Discharging, (${GET_BATTERY_PERCENTAGE}%)"
+
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 21 ] && [ ${GET_BATTERY_PERCENTAGE} -le 30 ]; then
+
+        echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${GET_BATTERY_PERCENTAGE}%)"
+
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 31 ] && [ ${GET_BATTERY_PERCENTAGE} -le 40 ]; then
+
+        echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${GET_BATTERY_PERCENTAGE}%)"
+
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 41 ] && [ ${GET_BATTERY_PERCENTAGE} -le 50 ]; then
+
+        echo -e "${COLOR_WARNING}${COLOR_BASED} : Discharging, (${GET_BATTERY_PERCENTAGE}%)"
+
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 51 ] && [ ${GET_BATTERY_PERCENTAGE} -le 60 ]; then
+
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${GET_BATTERY_PERCENTAGE}%)"
+
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 61 ] && [ ${GET_BATTERY_PERCENTAGE} -le 70 ]; then
+
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${GET_BATTERY_PERCENTAGE}%)"
+
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 71 ] && [ ${GET_BATTERY_PERCENTAGE} -le 80 ]; then
+
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${GET_BATTERY_PERCENTAGE}%)"
+
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 81 ] && [ ${GET_BATTERY_PERCENTAGE} -le 90 ]; then
+
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${GET_BATTERY_PERCENTAGE}%)"
+
+      elif [ ${GET_BATTERY_PERCENTAGE} -ge 91 ] && [ ${GET_BATTERY_PERCENTAGE} -le 99 ]; then
+
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${GET_BATTERY_PERCENTAGE}%)"
+
+      elif [ ${GET_BATTERY_PERCENTAGE} == 100 ]; then
       
-      # Option Help
-      echo -e "Options:
-      ''        Show default output fetch battery
-      -h        Print help message
-      -p        Show fetch battery percentage
-      -s        Show fetch battery status state
-      "
-    }
+        echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Discharging, (${GET_BATTERY_PERCENTAGE}%)"
 
-    case $1 in
+      fi
 
-      "" )
-        execute $1
-      ;;
+    elif [ ${GET_BATTERY_STATE} == "FULL" ]; then
 
-      -h )
-        help
-      ;;
+      echo -e "${COLOR_SUCCESS}${COLOR_BASED} : Charging, (${GET_BATTERY_PERCENTAGE}%)"
 
-      -p )
-        echo -e "${PERCENTAGE}"
-      ;;
+    fi
 
-      -s )
-        echo -e "${STATUS}"
-      ;;
+  }
 
-      * )
-        help
-      ;;
-
-    esac
-
-  else
-
-    Error "Fetching battery error, ${COLOR_WARNING}termux-battery-status ${COLOR_DANGER}not found${COLOR_BASED}. Make sure you installed ${COLOR_WARNING}Termux:API${COLOR_BASED} on ${COLOR_WARNING}Playstore${COLOR_BASED} or ${COLOR_SUCCESS}F-Droid${COLOR_BASED} and package ${COLOR_SUCCESS}termux-api${COLOR_BASED} with pkg"
+  function help() {
     
-  fi
-  
+    echo -e "Usage:
+    ./fetch battery [option]
+    "
+    
+    echo -e "Options:
+    percentage    Fetch Battery Percentage
+    state         Fetch Battery State (Charging / Discharging / FULL)
+    help          Print help message
+    "
+
+  }
+
+  case ${1} in
+
+    "" )
+      checkingCommand executeFetch
+    ;;
+
+    percentage )
+      echo -e "${GET_BATTERY_PERCENTAGE}"
+    ;;
+
+    state )
+      echo -e "${GET_BATTERY_STATE}"
+    ;;
+
+    help )
+      help
+    ;;
+
+    * )
+      help
+    ;;
+
+  esac
 
 }
 
-function help() {
+function fetchHelp() {
 
-  # Usage Help
-  echo -e "Usage:
+  echo -e "\nUsage:
   ./fetch [option1] [option2]
   "
   
-  # Option Help
   echo -e "Options:
-  music     Run fetch script music
-  battery   Run fetch script battery (require option2)
+  music     Fetch script music
+  battery   Fetch script battery (${COLOR_WARNING}require option2${COLOR_BASED})
+  storage   Fetch script storage (${COLOR_WARNING}require option2${COLOR_BASED})
   help      Print help message
-  storage   Run fetch script storage (require option2)
   "  
 
 }
 
-case $1 in
-
-  music )
-    get_music
-  ;;
+case ${1} in
 
   battery )
-    battery $2
+    fetchBattery ${2}
   ;;
 
-  help )
-    help
+  music )
+    fetchMusic
   ;;
 
   storage )
-    storage $2
+    fetchStorage ${2}
+  ;;
+
+  help )
+    fetchHelp
   ;;
 
   * )
-    help
+    fetchHelp
   ;;
 
 esac
