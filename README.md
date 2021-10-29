@@ -41,10 +41,15 @@
   <img alt="myTermux Colorscheme" src="https://i.ibb.co/wQs1f57/final-colorscheme.png"/>
 </a>
 
+<br />
+<br />
+<br />
+
 <a href="https://i.ibb.co/bPRrbyD/final-music.png" target="_blank" rel="noopener">
   <img alt="myTermux Music" src="https://i.ibb.co/bPRrbyD/final-music.png"/>
 </a>
 
+<br />
 <br />
 <br />
 
