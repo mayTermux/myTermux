@@ -2,34 +2,40 @@
 
 function screenSize() {
 
-  COLS=$(echo $COLUMNS)
-  ROWS=$(echo $LINES)
+  REQUIRE_COLS=101
+  REQUIRE_ROWS=39
 
-  if [[ -n ${COLS} && -n ${ROWS} ]]; then
+  CURRENT_COLS=$(echo $COLUMNS)
+  CURRENT_ROWS=$(echo $LINES)
+
+  if [[ -n ${CURRENT_COLS} && -n ${CURRENT_ROWS} ]]; then
     
-    if (( ${COLS} >= 101 & ${ROWS} >= 39 )); then
+    if (( ${CURRENT_COLS} >= ${REQUIRE_COLS} & ${CURRENT_ROWS} >= ${REQUIRE_ROWS} )); then
 
       ${1}
     
     else
 
-      echo -e "[ ${COLOR_WARNING}INFO${COLOR_BASED} ]  > Your Screen Size
-            Column: '${COLOR_WARNING}${COLS}${COLOR_BASED}'
-            Lines : '${COLOR_WARNING}${ROWS}${COLOR_BASED}'
-            "
+      stat "INFO" "Warning" "Your Screen Size
+               Column: '${COLOR_WARNING}${CURRENT_COLS}${COLOR_BASED}'
+               Lines : '${COLOR_WARNING}${CURRENT_ROWS}${COLOR_BASED}'
+      "
 
-      echo -e "[ ${COLOR_SUCCESS}INFO${COLOR_BASED} ]  > Require Screen Size
-            Column: '${COLOR_SUCCESS}101${COLOR_BASED}'
-            Lines : '${COLOR_SUCCESS}39${COLOR_BASED}'
-            "
+      stat "INFO" "Success" "Require Screen Size
+               Column: '${COLOR_SUCCESS}${REQUIRE_COLS}${COLOR_BASED}'
+               Lines : '${COLOR_SUCCESS}${REQUIRE_ROWS}${COLOR_BASED}'
+      "
 
-      echo -e "[ ${COLOR_WARNING}ERROR${COLOR_BASED} ] > Please ${COLOR_WARNING}zoom out${COLOR_BASED} your Terminal Screen!"
+      stat "ERROR" "Danger" "Please '${COLOR_WARNING}Zoom Out${COLOR_BASED}' your Terminal Screen! then run again."
 
     fi
 
   else
 
-    echo -e "[ ${COLOR_DANGER}ERROR${COLOR_BASED} ] > Please run '${COLOR_WARNING}export COLUMNS LINES${COLOR_BASED}' first and then run again!"
+    stat "INFO" "Warning" "Can't get number '${COLOR_WARNING}COLUMNS${COLOR_BASED} & ${COLOR_WARNING}LINES${COLOR_BASED}' your terminal screen size
+    "
+
+    stat "ERROR" "Danger" "Please run '${COLOR_WARNING}export COLUMNS LINES${COLOR_BASED}' first and then run again."
 
   fi
 
