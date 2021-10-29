@@ -116,7 +116,7 @@ function storage() {
   case $1 in
 
     "" )
-      echo -e "[ ${COLOR_WARNING}${ICON} ${MOUNTED}${COLOR_BASED} ] > ${USED}B / ${SIZE}B = ${AVAIL}B (${USE})"
+      echo -e "[ ${COLOR_WARNING}${ICON} ${MOUNTED}${COLOR_BASED} ] > ${USED}B / ${SIZE}B = ${AVAIL}B (${USE}%)"
     ;;
 
     -a )
