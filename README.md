@@ -37,13 +37,15 @@
 
 ### :camera_flash: Screenshots
 
-<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/edit/termcolor/final2.png" target="_blank" rel="noopener">
-  <img alt="myTermux rxfetch" src="/assets/images/README/edit/termcolor/final2.png"/>
+<a href="https://i.ibb.co/wQs1f57/final-colorscheme.png" target="_blank" rel="noopener">
+  <img alt="myTermux Colorscheme" src="https://i.ibb.co/wQs1f57/final-colorscheme.png"/>
 </a>
 
-<a href="https://raw.githubusercontent.com/xshin404/myTermux/main/assets/images/README/edit/music/final.png" target="_blank" rel="noopener">
-  <img alt="myTermux rxfetch" src="/assets/images/README/edit/music/final.png"/>
+<a href="https://i.ibb.co/bPRrbyD/final-music.png" target="_blank" rel="noopener">
+  <img alt="myTermux Music" src="https://i.ibb.co/bPRrbyD/final-music.png"/>
 </a>
+
+<br>
 
 <a href="https://i.ibb.co/6DqyPqT/final-text-editor.png" target="_blank" rel="noopener">
   <img alt="myTermux Text Editor" src="https://i.ibb.co/6DqyPqT/final-text-editor.png"/>
