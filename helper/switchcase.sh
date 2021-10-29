@@ -17,12 +17,12 @@ function switchCase() {
     ;;
 
     n|N )
-      stat "ERROR" "Warning" "Abort."
+      stat "ERROR" "Warning" "${COLOR_DANGER}Abort.${COLOR_BASED}"
       exit 1
     ;;
 
     * )
-      stat "ERROR" "Warning" "Unknown '${SWITCH_CASE}'"
+      stat "ERROR" "Warning" "Unknown '${COLOR_DANGER}${SWITCH_CASE}${COLOR_BASED}'"
       switchCase ${1} ${2} ${3}
     ;;
 
