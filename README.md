@@ -59,7 +59,7 @@
 
 ## Credits
 
-- [siduck76](https://github.com/siduck76) Neovim Setup (NvChad), Colorscheme (onedark-siduck)
+- [siduck](https://github.com/siduck) Neovim Setup (NvChad), Colorscheme (onedark-siduck)
 - [owl4ce](https://github.com/owl4ce) First time getting to know dotfiles
 - [adi1090x](https://github.com/adi1090x) Termux Setup
 - [bandithijo](https://github.com/bandithijo) Awesome screenshot like MacOS using imagemagick script
