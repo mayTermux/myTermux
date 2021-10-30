@@ -57,24 +57,14 @@
   <img alt="myTermux Text Editor" src="https://i.ibb.co/6DqyPqT/final-text-editor.png"/>
 </a>
 
-### :hearts:  Credits / Big Thanks
-- **Inspiration**
-  - [owl4ce](https://github.com/owl4ce)
-  - [adi1090x](https://github.com/adi1090x)
-  - [siduck76](https://github.com/siduck76)
+## Credits
 
-- **Neovim Setup**
-  - [NvChad](https://github.com/NvChad/NvChad)
-
-- **Awesomeshot with Imagemagick**
-  - [bandithijo (Dekstop Version)](https://github.com/bandithijo)
-  - [Annzc (Android Version)](https://github.com/annzc)
-
-- **Colorscheme**
-  - [siduck76 (onedark-siduck)](https://github.com/siduck76)
-  - [owl4ce (owl4ce-dark, owl4ce-light)](https://github.com/owl4ce)
-  - [nekonako (djancoeg, hue, om-mar)](https://github.com/nekonako)
-
-- **Other**
-  - [Dotfiles Indonesia](https://t.me/dotfiles_id)
-  - [Vim Indonesia](https://t.me/VimID)
+- [siduck76](https://github.com/siduck76) Neovim Setup (NvChad), Colorscheme (onedark-siduck)
+- [owl4ce](https://github.com/owl4ce) First time getting to know dotfiles
+- [adi1090x](https://github.com/adi1090x) Termux Setup
+- [bandithijo](https://github.com/bandithijo) Awesome screenshot like MacOS using imagemagick script
+- [lwotcynna](https://github.com/lwotcynna) Contibutor
+- [nekonako](https://github.com/nekonako) Colorscheme nekonako-djancoeg, nekonako-hue, nekonako-om-mar
+- [Dotfiles Indonesia](https://t.me/dotfiles_id)
+- [Vim Indonesia](https://t.me/VimID)
+- [Bashid.org](https://t.me/bashidorg)
