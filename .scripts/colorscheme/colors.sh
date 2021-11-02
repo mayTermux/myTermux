@@ -11,7 +11,7 @@ for LIBRARY in ${LIBRARYS[@]}; do
 done
 
 COLORSCHEMES_DIR="$HOME/.colorscheme"
-INDEX_LOOP=1
+INDEX_LOOP=0
 
 THEME_USED_PATH="${HOME}/.config/mytermux/colorscheme"
 THEME_USED_FILE_NAME="used.log"
@@ -45,7 +45,7 @@ function listColorScheme() {
 
     if [ "${THEME_USED}" == "${COLORSCHEME_FILE_NAME[INDEX_LOOP]}" ]; then
 
-      printf "[${COLOR_WARNING}%2s${COLOR_BASED}]  ${COLOR_SUCCESS}%-23s -->${COLOR_BASED} \
+      printf "[${COLOR_SUCCESS}%2s${COLOR_BASED}]  ${COLOR_SUCCESS}%-23s -->${COLOR_BASED} \
              ${COLOR_SUCCESS}%-4s${COLOR_BASED}\n" ${INDEX_LOOP} ${COLORSCHEME_LIST_NAME[INDEX_LOOP]} "USED"
 
     else
@@ -76,7 +76,7 @@ function selectTheme() {
 
       break;
 
-    elif ! [[ ${INDEX_THEME} =~ ^[1-9]+$ ]]; then
+    elif ! [[ ${INDEX_THEME} =~ ^[0-9]+$ ]]; then
 
       stat "ERROR" "Danger" "Unknown '${COLOR_DANGER}number${COLOR_BASED}', please enter the right number!\n"
 
