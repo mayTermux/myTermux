@@ -108,7 +108,7 @@ function penguin() {
   echo -e "               $(bash $HOME/.scripts/system/fetch.sh storage -n)"
   echo -e "               $(bash $HOME/.scripts/system/fetch.sh battery)"
   echo -e "               
-               ${COLOR_BLACK} ${COLOR_BOLD_RED} ${COLOR_GREEN} ${COLOR_BOLD_YELLOW} ${COLOR_BOLD_BLUE} ${COLOR_BOLD_MAGENTA} ${COLOR_BOLD_CYAN} ${COLOR_BOLD_WHITE} ${COLOR_DEFAULT}\n
+               ${COLOR_BLACK}  ${COLOR_BOLD_RED}  ${COLOR_GREEN}  ${COLOR_BOLD_YELLOW}  ${COLOR_BOLD_BLUE}  ${COLOR_BOLD_MAGENTA}  ${COLOR_BOLD_CYAN}  ${COLOR_BOLD_WHITE}  ${COLOR_DEFAULT}\n
                 
                 "
 
@@ -132,7 +132,7 @@ ${COLOR_BOLD_YELLOW}⠙⠃   ⣼⣿⡟${COLOR_DEFAULT}  ${COLOR_BOLD_RED}⠈⠻�
    ${COLOR_BOLD_YELLOW}⢻⣿⣿⣄${COLOR_DEFAULT}   ${COLOR_BOLD_RED}⠈⠻⣿⣿⣿⣷${COLOR_BOLD_WHITE}⣿⣿⣿${COLOR_GREEN}⣿⣿⡟ ${COLOR_BOLD_BLUE}⠫⢿⣿⡆        $(bash $HOME/.scripts/system/fetch.sh storage -n)
    ${COLOR_BOLD_YELLOW}⠻⣿⣿⣿⣿⣶⣶${COLOR_DEFAULT}${COLOR_BOLD_RED}⣾⣿⣿⣿⣿${COLOR_BOLD_WHITE}⣿⣿${COLOR_GREEN}⣿⣿⡟${COLOR_BOLD_BLUE}⢀⣀⣤⣾⡿⠃         $(bash $HOME/.scripts/system/fetch.sh battery)  
 
-                                   ${COLOR_BLACK} ${COLOR_BOLD_RED} ${COLOR_GREEN} ${COLOR_BOLD_YELLOW} ${COLOR_BOLD_BLUE} ${COLOR_BOLD_MAGENTA} ${COLOR_BOLD_CYAN} ${COLOR_BOLD_WHITE} ${COLOR_DEFAULT}
+                                   ${COLOR_BLACK}  ${COLOR_BOLD_RED}  ${COLOR_GREEN}  ${COLOR_BOLD_YELLOW}  ${COLOR_BOLD_BLUE}  ${COLOR_BOLD_MAGENTA}  ${COLOR_BOLD_CYAN} ${COLOR_BOLD_WHITE}  ${COLOR_DEFAULT}
   
   
   "
