@@ -11,7 +11,7 @@ for LIBRARY in ${LIBRARYS[@]}; do
 done
 
 FONTS_DIR="${HOME}/.fonts"
-INDEX_LOOP=1
+INDEX_LOOP=0
 
 FONT_USED_PATH="${HOME}/.config/mytermux/fonts"
 FONT_USED_FILE_NAME="used.log"
@@ -47,24 +47,13 @@ function listFonts() {
 
     if [ "${FONT_USED}" == "${FONT_FILE_NAME[INDEX_LOOP]}" ]; then
 
-      printf "[${COLOR_WARNING}%2s${COLOR_BASED}]  ${COLOR_SUCCESS}%b %-s %b %b % b %b${COLOR_BASED}   ${COLOR_SUCCESS}%-4s${COLOR_BASED}\n" ${INDEX_LOOP} ${FONT_LIST_NAME[INDEX_LOOP]} "--> USED"
+      printf "[${COLOR_SUCCESS}%2s${COLOR_BASED}]  ${COLOR_SUCCESS}%b %-s %b %b % b %b${COLOR_BASED}   ${COLOR_SUCCESS}%-4s${COLOR_BASED}\n" ${INDEX_LOOP} ${FONT_LIST_NAME[INDEX_LOOP]} "--> USED"
 
     else
 
       echo -e "[ ${COLOR_WARNING}${INDEX_LOOP}${COLOR_BASED}]  ${FONT_LIST_NAME[INDEX_LOOP]}"
-      # printf "[${COLOR_WARNING}%2s${COLOR_BASED}]  %b %-s %b %b % b %b\n" ${INDEX_LOOP} ${FONT_LIST_NAME[INDEX_LOOP]}
 
     fi
-
-    # if [ "${FONT_USED}" == "${FONT_FILE_NAME[INDEX_LOOP]}" ]; then
-
-    #   echo -e "[${COLOR_WARNING}${INDEX_LOOP}${COLOR_BASED}] ${COLOR_SUCCESS}${FONT_LIST_NAME[INDEX_LOOP]}${COLOR_BASED} ${COLOR_SUCCESS}USED${COLOR_BASED}"
-
-    # else
-
-    #   echo -e "[${COLOR_WARNING}${INDEX_LOOP}${COLOR_BASED}] ${FONT_LIST_NAME[INDEX_LOOP]}"
-
-    # fi
 
     INDEX_LOOP=$(( ${INDEX_LOOP} + 1 ));
 
@@ -88,7 +77,7 @@ function selectFont() {
 
       break;
 
-    elif ! [[ ${INDEX_FONT} =~ ^[1-9]+$ ]]; then
+    elif ! [[ ${INDEX_FONT} =~ ^[0-9]+$ ]]; then
 
       stat "ERROR" "Danger" "Unknown '${COLOR_DANGER}number${COLOR_BASED}', please enter the right number!\n"
 
