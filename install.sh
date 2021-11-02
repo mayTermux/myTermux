@@ -33,7 +33,7 @@ function main() {
   NvChad
   utility
 
-  alertFinish
+  mainAlert
 
 }
 
