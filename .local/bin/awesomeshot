@@ -1,580 +1,79 @@
 #!/usr/bin/env bash
-#/data/data/com.termux/usr/bin/env bash
 
-# Variable Color
-COLOR_BASED="\e[39m"
-COLOR_DANGER="\e[91m"
-COLOR_WARNING="\e[93m"
-COLOR_SUCCESS="\e[92m"
+LIBRARY_PATH="${HOME}/.scripts/library"
 
-# Variable Information Awesomeshot
-VERSION="0.1.0"
-PROGRAM_NAME="awesomeshot"
-REPOSITORY_URL="https://github.com/xshin404/awesomeshot"
-BUILD_DATE="Sunday, 25 July 2021"
-LAST_UPDATE="Sunday, 29 August 2021"
+LIBRARYS=(
+  animation signal cursor colors stat
+)
 
-# Variable Imagemagick
+for LIBRARY in ${LIBRARYS[@]}; do
+  source ${LIBRARY_PATH}/${LIBRARY}.sh
+done
 
-## Imagemagick Color
+HELPER_PATH="${HOME}/.scripts/screenshot"
 
-### Background
-BACKGROUND_COLOR=""
-BACKGROUND_COLOR_DARK="#000000"
-BACKGROUND_COLOR_LIGHT="#FFFFFF"
+HELPERS=(
+  backup border footer rounded shadow
+  utility autorun manualrun output
+)
 
-### Shadow
-SHADOW_COLOR="#000000"
-SHADOW_COLOR_DARK="#000000"
-SHADOW_COLOR_LIGHT="#FFFFFF"
+for HELPER in ${HELPERS[@]}; do
+  source ${HELPER_PATH}/${HELPER}.sh
+done
 
-### Border
-BORDER_COLOR=""
-BORDER_COLOR_DARK="#373E4D"
-BORDER_COLOR_LIGHT="#A8D7FE"
-BORDER_ROUNDED=15
+function main() {
 
-### Footer
-FOOTER_FOREGROUND_COLOR=""
-FOOTER_FOREGROUND_COLOR_DARK="#000000"
-FOOTER_FOREGROUND_COLOR_LIGHT="#FFFFFF"
-FOOTER_BACKGROUND_COLOR="none"
+  trap "handleInterruptByUser 'Interrupt By User'" 2
 
-## Imagemagick Size
-SHADOW_SIZE="80x10+0+10"
-BORDER_SIZE=35
-FOOTER_FONT_SIZE="16"
+  setCursor off
 
-## Imagemagick Footer
-FOOTER_POSITION="South"
-FOOTER_XY="+0+30"
-FOOTER_TEXT=" Shot by Awesomeshot"
-# Font PATH "/data/data/com.termux/files/usr/share/fonts/TTF/"
-# See font available "magick convert -list font | grep -iE 'font:.*' " or "listfont" (listfont is alias from command magick convert ...)
-FOOTER_FONT="JetBrains-Mono-Medium-Nerd-Font-Complete"
-
-## Screeshot PATH
-SCREENSHOT_PATH="/sdcard/Pictures/Screenshots"
-
-## Log Message
-LOG_SUCCESS="${COLOR_SUCCESS}${COLOR_BASED}"
-LOG_FAILED="[${COLOR_DANGER}FAILED${COLOR_BASED}]"
-LOG_DONE="[${COLOR_SUCCESS}DONE${COLOR_BASED}]"
-LOG_OK="[${COLOR_SUCCESS}OK${COLOR_BASED}]"
-LOG_ERROR="[${COLOR_DANGER}ERROR${COLOR_BASED}]"
-
-# Function Log Date
-function logdate() {
-  echo -e "[${COLOR_WARNING}$(date +'%A, %d %B %Y %r')${COLOR_BASED}] > $@"
-}
-
-# Function ERROR
-function errorMessage() {
-  echo -e "\n[${COLOR_DANGER}ERROR${COLOR_BASED}] > Can't get option ${COLOR_WARNING}$1${COLOR_BASED}\n"
-}
-
-function header() {
-  echo ""
-  echo ""
-  echo ""
-  echo ""
-  echo ""
-  echo ""
-  echo ""
-  echo ""
-  echo ""
-  echo -e "╭─────────────────────────────────────────────────────────────╮"
-  echo -e "│                                                             │"
-  echo -e "│  Execute awesomeshot:                                       │"
-  echo -e "│                                                             │"
-}
-
-# Function Magick
-
-## Function magickrounded
-function magickrounded() {
-  convert $1 \
-    \( \
-        +clone \
-        -alpha extract -draw \
-        "fill black polygon 0,0 0,${BORDER_ROUNDED} ${BORDER_ROUNDED},0 fill white circle ${BORDER_ROUNDED},${BORDER_ROUNDED} ${BORDER_ROUNDED},0" \
-        \( +clone -flip \) \
-        -compose Multiply -composite \
-        \( +clone -flop \) \
-        -compose Multiply -composite \
-    \) \
-    -alpha off -compose CopyOpacity -composite $1
-}
-
-## Function magickshadow
-function magickshadow() {
-  convert $1 \
-    \( \
-      +clone \
-      -background "$SHADOW_COLOR" \
-      -shadow $SHADOW_SIZE \
-    \) \
-    +swap \
-    -background none \
-    -layers merge \
-    +repage $1
-}
-
-## Function magickborder
-function magickborder() {
-  convert $1 -bordercolor "$BORDER_COLOR" -border $BORDER_SIZE $1
-}
-
-## Function magickfooter
-function magickfooter() {
-  echo -n "$FOOTER_TEXT" |
-  convert $1 \
-  -gravity $FOOTER_POSITION \
-  -pointsize $FOOTER_FONT_SIZE \
-  -fill $FOOTER_FOREGROUND_COLOR \
-  -undercolor $FOOTER_BACKGROUND_COLOR \
-  -font $FOOTER_FONT \
-  -annotate $FOOTER_XY \
-  @- $1
-}
-
-# Option Execute
-
-## Function autoshot (with package inotify-tools)
-function autoshot() {
-
-    inotifywait -m -e create $SCREENSHOT_PATH | \
-    while read FILENAME; do
-      clear
-      main
-      echo -e "│   Result: ${SCREENSHOT_FILE_NAME} ${LOG_DONE}     │"
-      echo -e "│                                                             │"
-      echo -e "╰─────────────────────────────────────────────────────────────╯"
-      termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
-    done
+  ${1} ${2}
 
 }
 
-function autoshotFooter() {
-  inotifywait -m -e create $SCREENSHOT_PATH | \
-  while read FILENAME; do
-    clear
-    main
-    footer "$SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME"
-    echo -e "│   Result: ${SCREENSHOT_FILE_NAME} ${LOG_DONE}     │"
-    echo -e "│                                                             │"
-    echo -e "╰─────────────────────────────────────────────────────────────╯"
-    termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
-  done
-}
+case "${1}" in
 
-function magickexec() {
+  -a|--auto )
 
-  if $($1 $3); then
-    logdate "$2 image ${LOG_SUCCESS} \n"
-  else
-    logdate "$2 image ${LOG_FAILED} \n"
-  fi
+    main autorun
 
-}
+  ;;
 
-function footer() {
-  #logdate "Add footer to image ..."
-  echo -e "│   Add Footer                                               │"
-  #magickexec "magickfooter" "Footer" $1
-  if magickfooter $1; then
-    echo -e "│     Status: Footer ${LOG_SUCCESS}                                        │"
-  else
-    echo -e "│     Status: Shadow ${LOG_FAILED}                                │"
-  fi
-}
+  -i|--info )
 
-function execute() {
-  #logdate "Add rounded to image ..."
-  echo -e "│   Add Rounded                                              │"
-  #magickexec "magickrounded" "Rounded" $1
-  if magickrounded $1; then
-    echo -e "│     Status: Rounded ${LOG_SUCCESS}                                       │"
-  else
-    echo -e "│     Status: Rounded ${LOG_FAILED}                               │"
-  fi
+    about
 
-  #logdate "Add shadow to image ..."
-  echo -e "│   Add Shadow                                               │"
-  #magickexec "magickshadow" "Shadow" $1
-  if magickshadow $1; then
-    echo -e "│     Status: Shadow ${LOG_SUCCESS}                                        │"
-  else
-    echo -e "│     Status: Shadow ${LOG_FAILED}                                │"
-  fi
+  ;;
 
-  #logdate "Add border to image ..."
-  echo -e "│   Add Border                                               │"
-  #magickexec "magickborder" "Border" $1
-  if magickborder $1; then
-    echo -e "│     Status: Border ${LOG_SUCCESS}                                        │"
-  else
-    echo -e "│     Status: Shadow ${LOG_FAILED}                                │"
-  fi
-}
+  -m|--manual )
 
-function backupOriginalFile() {
+    if [ ${2} ]; then
 
-    #logdate "Backup original file ..."
-    if [ ! -d $HOME/.awesomeshot/ ]; then
-
-      logdate "Creating directory $HOME/.awesomeshot"
-
-      if mkdir $HOME/.awesomeshot; then
-
-        logdate "Creating directory ${LOG_SUCCESS}"
-
-      else
-
-        logdate "Creating directory ${LOG_FAILED}"
-
-      fi
-
-      cp $1 $HOME/.awesomeshot
-
-      if [ -f $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ]; then
-
-        #logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
-        echo -e "│   BACKUP PATH: /home/.awesomeshot                        │"
-        echo -e "│     ${SCREENSHOT_FILE_NAME} ${LOG_SUCCESS}           │"
-        execute "$1"
-
-      else
-
-        logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_FAILED} \n"
-        execute "$1"
-
-      fi
+      main manualrun ${2}
 
     else
 
-      cp $1 $HOME/.awesomeshot
-
-      if [ -f $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ]; then
-
-        #logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_SUCCESS} \n"
-        echo -e "│   BACKUP PATH: /home/.awesomeshot                          │"
-        echo -e "│     ${SCREENSHOT_FILE_NAME} ${LOG_SUCCESS}                 │"
-        execute "$1"
-
-      else
-
-        logdate "Original file on $HOME/.awesomeshot/$SCREENSHOT_FILE_NAME ${LOG_FAILED} \n"
-        execute "$1"
-
-      fi
+      stat "ERROR" "Danger" "Require file name"
+      help
+      exit 1
 
     fi
 
-    #logdate "$1 ${LOG_DONE} \n"
-#   echo -e "│   Result: ${SCREENSHOT_FILE_NAME} ${LOG_DONE}     │" 
-#   echo -e "│                                                             │"
-#   echo -e "╰─────────────────────────────────────────────────────────────╯"
-}
-
-function main() {
-  
-#  echo -e "╭─────────────────────────────────────────────────────────────╮"
-#  echo -e "│                                                             │"
-#  echo -e "│  Execute awesomeshot:                                       │"
-#  echo -e "│                                                             │"
-  header
-  #logdate "Searching newest file on ${SCREENSHOT_PATH} ..."
-  echo -e "│   PATH: ${SCREENSHOT_PATH}                       │"
-  if [ $(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ' 2> /dev/null) ]; then
-
-    SCREENSHOT_FILE_NAME=$(find $SCREENSHOT_PATH | sort -r | head | sed -n 1p | sed 's .\{29\}  ')
-    #logdate "${SCREENSHOT_FILE_NAME} ${LOG_OK} \n"
-    echo -e "│   File: ${SCREENSHOT_FILE_NAME} ${LOG_OK}         │"
-
-    backupOriginalFile "$SCREENSHOT_PATH/$SCREENSHOT_FILE_NAME"
-
-  else
-
-    error "Can't get newest file on working directory"
-
-  fi
-
-}
-
-function manual() {
-
-  SCREENSHOT_FILE_NAME="$1"
-#  echo -e "╭─────────────────────────────────────────────────────────────╮"
-#  echo -e "│                                                             │"
-#  echo -e "│  Execute awesomeshot:                                       │"
-#  echo -e "│                                                             │"
-  header
-  #logdate "Searching newest file on ${SCREENSHOT_PATH} ..."
-  echo -e "│   PATH: ${SCREENSHOT_PATH}                       │"
-  if [ -f ./$1 ]; then
-    echo -e "│   File: ${1} ${LOG_OK}         │"
-  else
-    echo -e "blok"
-  fi
-  backupOriginalFile "$SCREENSHOT_FILE_NAME"
-  echo -e "│   Result: ${SCREENSHOT_FILE_NAME} ${LOG_DONE}     │"
-  echo -e "│                                                             │"
-  echo -e "╰─────────────────────────────────────────────────────────────╯"
-  # execute "$SCREENSHOT_FILE_NAME"
-
-}
-
-function manualFooter() {
-  SCREENSHOT_FILE_NAME="$1"
-  header
-  backupOriginalFile "$SCREENSHOT_FILE_NAME"
-  footer $1
-  echo -e "│   Result: ${SCREENSHOT_FILE_NAME} ${LOG_DONE}     │"
-  echo -e "│                                                             │"
-  echo -e "╰─────────────────────────────────────────────────────────────╯"
-}
-
-## Function Information
-function information() {
-  echo -e "Program Name   : $PROGRAM_NAME"
-  echo -e "Version        : v$VERSION"
-  echo -e "Repository URL : $REPOSITORY_URL"
-  echo -e "Build Date     : $BUILD_DATE"
-  echo -e "Last Update    : $LAST_UPDATE"
-}
-
-## Function Help
-function help() {
-  
-  # Usage Help
-  echo -e "Usage:
-  awesomeshot [option1] [option2] [option3] [filename]
-  
-Options1:
-  -d                  Default mode (${COLOR_WARNING}Require Option2${COLOR_BASED})
-  -a                  Automatic mode (${COLOR_WARNING}Require Option2${COLOR_BASED})
-  -af                 Automatic mode awesomeshot with footer text (${COLOR_WARNING}Require Option2 & Option3${COLOR_BASED})
-  -m                  Manual mode awesomeshot (${COLOR_WARNING}Require Option2 & Filename${COLOR_BASED})
-  -f                  Manual mode awesomeshot with footer text (${COLOR_WARNING}Require Option2, Option3 & Filename${COLOR_BASED})
-
-Option2:
-
-  --border-light      Border color Light Mode
-  --border-dark       Border color Dark Mode
-
-Option3:
-
-  --footer-light      Footer color Light Mode
-  --footer-dark       Footer color Dark Mode
-
-Other:
-
-  -h                  Print this help message
-  -i                  Print information about this program
-  -v                  Print version awesomeshot
-  "
-}
-
-case $1 in
-
-  -d )
-    case $2 in
-      --border-dark )
-        BORDER_COLOR+="${BORDER_COLOR_DARK}"
-        main
-        termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME}
-      ;;
-      --border-light )
-        BORDER_COLOR+="${BORDER_COLOR_LIGHT}"
-        main
-        termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
-      ;;
-      * )
-        errorMessage $2
-        help
-      ;;
-    esac
   ;;
 
-  -a )
-    case $2 in
-      --border-dark )
-        BORDER_COLOR+="${BORDER_COLOR_DARK}"
-        autoshot
-      ;;
-      --border-light )
-        BORDER_COLOR+="${BORDER_COLOR_LIGHT}"
-        autoshot
-      ;;
-      * )
-        errorMessage $2
-        help
-      ;;
-    esac
-  ;;
+  -h|--help )
 
-  -f )
-    case $2 in
-      --border-dark )
-        BORDER_COLOR+="${BORDER_COLOR_DARK}"
-        case $3 in
-          --footer-dark )
-            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_DARK}"
-            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_LIGHT}"
-            if [ "$4" != "" ]; then
-              manualFooter $4
-              termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
-            else
-              errorMessage "[Require Filename]"
-              help
-            fi
-          ;;
-          --footer-light )
-            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_LIGHT}"
-            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_DARK}"
-            if [ "$4" != "" ]; then
-              manualFooter $4
-              termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
-            else
-              errorMessage "[Require Filename]"
-              help
-            fi
-          ;;
-          * )
-            errorMessage $3
-            help
-          ;;
-        esac
-      ;;
-      --border-light )
-        BORDER_COLOR+="${BORDER_COLOR_LIGHT}"
-        case $3 in
-          --footer-dark )
-            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_DARK}"
-            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_LIGHT}"
-            if [ "$4" != "" ]; then
-              manualFooter $4
-              termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
-            else
-              errorMessage "[Require Filename]"
-              help
-            fi
-          ;;
-          --footer-light )
-            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_LIGHT}"
-            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_DARK}"
-            if [ "$4" != "" ]; then
-              manualFooter $4
-              termux-open ${SCREENSHOT_PATH}/${SCREENSHOT_FILE_NAME} 
-            else
-              errorMessage "[Require Filename]"
-              help
-            fi
-          ;;
-          * )
-            errorMessage $3
-            help
-          ;;
-        esac
-      ;;
-      * )
-        errorMessage $2
-        help
-      ;;
-    esac
-  ;;
-
-  -af )
-    case $2 in
-      --border-dark )
-        BORDER_COLOR+="${BORDER_COLOR_DARK}"
-        case $3 in
-          --footer-dark )
-            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_DARK}"
-            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_LIGHT}"
-            autoshotFooter
-          ;;
-          --footer-light )
-            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_LIGHT}"
-            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_DARK}"
-            autoshotFooter
-          ;;
-          * )
-            errorMessage $3
-            help
-          ;;
-        esac
-      ;;
-      --border-light )
-        BORDER_COLOR+="${BORDER_COLOR_LIGHT}"
-        case $3 in
-          --footer-dark )
-            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_DARK}"
-            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_LIGHT}"
-            autoshotFooter
-          ;;
-          --footer-light )
-            FOOTER_FOREGROUND_COLOR+="${FOOTER_FOREGROUND_COLOR_LIGHT}"
-            FOOTER_BACKGROUND_COLOR+="${FOOTER_BACKGROUND_COLOR_DARK}"
-            autoshotFooter
-          ;;
-          * )
-            errorMessage $3
-            help
-          ;;
-        esac
-      ;;
-      * )
-        errorMessage $2
-        help
-      ;;
-    esac
-  ;;
-
-  -h )
     help
+
   ;;
 
-  -i )
-    information
-  ;;
+  -v|--version )
 
-  -m )
-    case $2 in
-      --border-dark )
-        BORDER_COLOR+="${BORDER_COLOR_DARK}"
-        if [ "$3" != "" ]; then
-          manual $3
-          termux-open $3
-        else
-          errorMessage "[Require Filename]"
-          help
-        fi
-      ;;
-      --border-light )
-        BORDER_COLOR+="${BORDER_COLOR_LIGHT}"
-        if [ "$3" != "" ]; then
-          manual $3
-          termux-open $3
-        else
-          errorMessage "[Require Filename]"
-          help
-        fi
-      ;;
-      * )
-        errorMessage $2
-        help
-      ;;
-    esac
-  ;;
+    version
 
-  -v )
-    echo -e "$PROGRAM_NAME v$VERSION"
   ;;
 
   * )
-    errorMessage $1
     help
   ;;
 
