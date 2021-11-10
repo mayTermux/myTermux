@@ -4,7 +4,7 @@ mpd_port                                            = "8000"
 mpd_crossfade_time                                  = "2"
 mpd_music_dir                                       = "/sdcard/Music"
 lyrics_directory                                    = "~/.config/ncmpcpp/lyrics"
-allow_to_physical_item_deletion                     = "yes"
+allow_for_physical_item_deletion                     = "yes"
 
 # Text Editor lyrics
 external_editor                                     = "nvim"
