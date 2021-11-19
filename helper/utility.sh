@@ -12,4 +12,5 @@ function utility() {
     mv $PREFIX/etc/motd $HOME/motd/motd.backup
 
   fi
+
 }
