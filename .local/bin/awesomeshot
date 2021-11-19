@@ -99,7 +99,7 @@ function shadow() {
 
 function border() {
 
-  BORDER_COLOR="#FFFFFF" # Blue Sky: #A8D7FE
+  BORDER_COLOR="#ABB2BF" # Blue Sky: #A8D7FE # Gray: #ABB2BF
   BORDER_SIZE=70
 
   subtitle "[+]*Set*Image*Border*Color*"
