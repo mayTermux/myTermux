@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-VERSION="0.6.0"
-BUILD_DATE="19 October 2021"
+VERSION="0.6.1"
+BUILD_DATE="19 November 2021"
 AUTHOR="xShin"
 
 function banner() {
@@ -17,7 +17,7 @@ function banner() {
     │                (____/                                          │
     │                                                                │
     │                  🚀 Version    : ${VERSION}                         │
-    │                  📅 Build Date : ${BUILD_DATE}               │
+    │                  📅 Build Date : ${BUILD_DATE}              │
     │                  ⚙️ Author     : ${AUTHOR}                          │
     │                                                                │
     ╰────────────────────────────────────────────────────────────────╯

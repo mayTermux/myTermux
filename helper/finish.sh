@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MYTERMUX_VERSION="0.6.0"
+MYTERMUX_VERSION="0.6.1"
 
 function alertFinish() {
 
