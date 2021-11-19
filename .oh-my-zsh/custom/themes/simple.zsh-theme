@@ -14,7 +14,7 @@ RPROMPT='$BACKGROUND_JOBS $NON_ZERO_RETURN_VALUE $(git_prompt_info)'
 PROMPT='$DIR_PATH $USER_SYMBOL '
 zle_highlight=(default:bold)
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}שׂ [ %{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%} [ %{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%} ] %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%} ]"

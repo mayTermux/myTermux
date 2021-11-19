@@ -1,0 +1,6 @@
+#!/data/data/com.termux/files/usr/bin/env bash
+
+SONG=$(mpc --host=127.0.0.1 --port=8000 current)
+
+#A8D7FE
+termux-toast -b "#ABB2BF" -c "#000000" -g middle "Now Playing: ${SONG}"
