@@ -7,7 +7,7 @@
   <span> • </span>
 	      <a href="https://mytermux-xshin404.vercel.app/docs/screenshot/colorscheme" target="_blank">Screenshot</a>
   <span> • </span>
-	<a href="https://xshin404.github.io/awesomeshot/index.html" target="_blank">Awesomeshot</a>
+	<a href="https://someonewhoknowsnothing.github.io/awesomeshot/index.html" target="_blank">Awesomeshot</a>
   <span> • </span>
       	<a href="https://xshin404.github.io/credits/index.html" target="_blank">Credits or Big Thanks</a>
   <p></p>
