@@ -25,5 +25,5 @@ echo -e "\e[4 q"
 #fi
 
 #neo
-clear
+#clear
 rxfetch
