@@ -37,8 +37,8 @@
 
 ### :camera_flash: Screenshots
 
-<a href="https://i.ibb.co/wQs1f57/final-colorscheme.png" target="_blank" rel="noopener">
-  <img alt="myTermux Colorscheme" src="https://i.ibb.co/1qznRfK/final.png"/>
+<a href="https://i.ibb.co/4Vjdk89/out2.png" target="_blank" rel="noopener">
+  <img alt="myTermux Colorscheme" src="https://i.ibb.co/4Vjdk89/out2.png"/>
 </a>
 
 <br />
