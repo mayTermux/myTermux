@@ -13,6 +13,8 @@ done
 function main() {
 
   trap 'handleInterruptByUser "Interrupt by User"' 2
+  zshTheme
+  exit 1
 
   clear
   banner
