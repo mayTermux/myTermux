@@ -1,5 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="osx2" #rounded #rounded-custom #etc
+ZSH_THEME="osx2"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting bgnotify)
 
 PATH="$PREFIX/bin:$HOME/.local/bin:$PATH"
