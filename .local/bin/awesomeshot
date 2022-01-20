@@ -78,7 +78,7 @@ function rounded() {
 function shadow() {
 
   SHADOW_COLOR="#000000"
-  SHADOW_SIZE="80x10+0+10"
+  SHADOW_SIZE="75x30+0+30"
 
   subtitle "[+]*Set*Image*Shadow*"
 
