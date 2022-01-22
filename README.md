@@ -68,3 +68,7 @@
 - [Dotfiles Indonesia](https://t.me/dotfiles_id)
 - [Vim Indonesia](https://t.me/VimID)
 - [Bashid.org](https://t.me/bashidorg)
+
+## Colorscheme
+
+- [catppuccin/termux](https://github.com/catppuccin/termux)
