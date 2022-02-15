@@ -83,6 +83,10 @@ function getUser() {
 
 }
 
+function getModel() {
+  model="$(getprop ro.product.brand) $(getprop ro.product.model)"
+}
+
 function getNodeName() {
 
   node_name=$(uname -n)
@@ -91,6 +95,7 @@ function getNodeName() {
 
 distroDetect
 getUser
+getModel
 getNodeName
 
 function penguin() {
@@ -98,6 +103,7 @@ function penguin() {
   echo -e "
 
 \n               ${COLOR_DEFAULT}xshin${COLOR_LIGHT_RED}@${COLOR_DEFAULT}android ${COLOR_LIGHT_RED}${COLOR_DEFAULT}\n"
+  echo -e "               ${COLOR_BOLD_BLUE}${COLOR_DEFAULT} : ${model}"
   echo -e "               ${COLOR_LIGHT_GREEN}${COLOR_DEFAULT} : ${distro} $(uname -m)"
   echo -e "               ${COLOR_LIGHT_RED}${COLOR_DEFAULT} : $(uname -r)"
   echo -e "               ${COLOR_BOLD_YELLOW}${COLOR_DEFAULT} : $(netPkg) Packages"
@@ -119,9 +125,9 @@ function hydra() {
   echo -e "
   
   
-  ${COLOR_LIGHT_RED}
-  ${COLOR_BOLD_RED}⣴⣶⣤⡤⠦⣤⣀⣤⠆${COLOR_DEFAULT}     ${COLOR_GREEN}⣈⣭⣿⣶⣿⣦⣼⣆           ${COLOR_DEFAULT}xshin${COLOR_LIGHT_RED}@${COLOR_DEFAULT}android ${COLOR_LIGHT_RED}${COLOR_DEFAULT}
-   ${COLOR_BOLD_RED}⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄${COLOR_DEFAULT}${COLOR_GREEN}⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       
+  ${COLOR_LIGHT_RED}                                 ${COLOR_DEFAULT}xshin${COLOR_LIGHT_RED}@${COLOR_DEFAULT}android ${COLOR_LIGHT_RED}${COLOR_DEFAULT}
+  ${COLOR_BOLD_RED}⣴⣶⣤⡤⠦⣤⣀⣤⠆${COLOR_DEFAULT}     ${COLOR_GREEN}⣈⣭⣿⣶⣿⣦⣼⣆           
+   ${COLOR_BOLD_RED}⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄${COLOR_DEFAULT}${COLOR_GREEN}⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦        ${COLOR_BOLD_BLUE}${COLOR_DEFAULT} : ${model}
          ${COLOR_BOLD_RED}⠈⢿⣿⣟⠦${COLOR_DEFAULT} ${COLOR_GREEN}⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄      ${COLOR_GREEN} ${COLOR_DEFAULT}: ${distro} $(uname -m)
           ${COLOR_BOLD_RED}⣸⣿⣿⢧${COLOR_DEFAULT} ${COLOR_GREEN}⢻⠻⣿⣿⣷⣄⣀⠄${COLOR_BOLD_WHITE}⠢⣀${COLOR_GREEN}⠈⠙⠿⠄      ${COLOR_BOLD_YELLOW} ${COLOR_DEFAULT}: $(uname -r)
   ${COLOR_BOLD_YELLOW}     ${COLOR_DEFAULT}  ${COLOR_BOLD_RED}⢠⣿⣿⣿⠈${COLOR_DEFAULT}    ${COLOR_GREEN}⣻⣿⣿⣿⣿${COLOR_BOLD_WHITE}⣿⣿⣿⣛⣳⣤⣀⣀    ${COLOR_BOLD_RED} ${COLOR_DEFAULT}: $(netPkg) Packages
