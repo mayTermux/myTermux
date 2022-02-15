@@ -113,8 +113,7 @@ function penguin() {
   echo -e "   ${COLOR_BACKGROUND_YELLOW}(${COLOR_RESET}${COLOR_BACKGROUND_BLACK}\_;/${COLOR_RESET}${COLOR_BACKGROUND_YELLOW})${COLOR_RESET}      ${COLOR_BOLD_MAGENTA}${COLOR_DEFAULT} : $(bash $HOME/.scripts/system/fetch.sh music)"
   echo -e "               $(bash $HOME/.scripts/system/fetch.sh storage -n)"
   echo -e "               $(bash $HOME/.scripts/system/fetch.sh battery)"
-  echo -e "               
-               ${COLOR_BLACK}  ${COLOR_BOLD_RED}  ${COLOR_GREEN}  ${COLOR_BOLD_YELLOW}  ${COLOR_BOLD_BLUE}  ${COLOR_BOLD_MAGENTA}  ${COLOR_BOLD_CYAN}  ${COLOR_BOLD_WHITE}  ${COLOR_DEFAULT}\n
+  echo -e "               ${COLOR_LIGHT_RED}${COLOR_DEFAULT} : ${COLOR_BLACK}  ${COLOR_BOLD_RED}  ${COLOR_GREEN}  ${COLOR_BOLD_YELLOW}  ${COLOR_BOLD_BLUE}  ${COLOR_BOLD_MAGENTA}  ${COLOR_BOLD_CYAN}  ${COLOR_BOLD_WHITE}  ${COLOR_DEFAULT}\n
                 
                 "
 
@@ -137,8 +136,7 @@ function hydra() {
 ${COLOR_BOLD_YELLOW}⠙⠃   ⣼⣿⡟${COLOR_DEFAULT}  ${COLOR_BOLD_RED}⠈⠻⣿⣿⣦${COLOR_BOLD_WHITE}⣌⡇⠻⣿⣿⣷${COLOR_GREEN}⣿⣿⣿ ${COLOR_BOLD_BLUE}⣿⣿⡇ ⠛⠻⢷⣄  ${prurple} ${COLOR_DEFAULT}: $(bash $HOME/.scripts/system/fetch.sh music)
    ${COLOR_BOLD_YELLOW}⢻⣿⣿⣄${COLOR_DEFAULT}   ${COLOR_BOLD_RED}⠈⠻⣿⣿⣿⣷${COLOR_BOLD_WHITE}⣿⣿⣿${COLOR_GREEN}⣿⣿⡟ ${COLOR_BOLD_BLUE}⠫⢿⣿⡆        $(bash $HOME/.scripts/system/fetch.sh storage -n)
    ${COLOR_BOLD_YELLOW}⠻⣿⣿⣿⣿⣶⣶${COLOR_DEFAULT}${COLOR_BOLD_RED}⣾⣿⣿⣿⣿${COLOR_BOLD_WHITE}⣿⣿${COLOR_GREEN}⣿⣿⡟${COLOR_BOLD_BLUE}⢀⣀⣤⣾⡿⠃         $(bash $HOME/.scripts/system/fetch.sh battery)  
-
-                                   ${COLOR_BLACK}  ${COLOR_BOLD_RED}  ${COLOR_GREEN}  ${COLOR_BOLD_YELLOW}  ${COLOR_BOLD_BLUE}  ${COLOR_BOLD_MAGENTA}  ${COLOR_BOLD_CYAN} ${COLOR_BOLD_WHITE}  ${COLOR_DEFAULT}
+                                   ${COLOR_LIGHT_RED}${COLOR_DEFAULT} : ${COLOR_BLACK}  ${COLOR_BOLD_RED}  ${COLOR_GREEN}  ${COLOR_BOLD_YELLOW}  ${COLOR_BOLD_BLUE}  ${COLOR_BOLD_MAGENTA}  ${COLOR_BOLD_CYAN} ${COLOR_BOLD_WHITE}  ${COLOR_DEFAULT}
   
   
   "
