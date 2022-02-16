@@ -116,10 +116,13 @@
 
 - System Fetch
 
+  > rxfetch
   ![rxfetch](https://i.postimg.cc/SRxmSBd1/Screenshot-20220216-203051-Termux.png)
 
-  ![rxfetch hydra](https://i.postimg.cc/k4fdpjCQ/Screenshot-20220216-203306-Termux.png)
+  > rxfetch hydra
+  ![rxfetch hydra](https://i.postimg.cc/QCDVDYKH/Screenshot-20220216-205938-Termux.png)
 
+  > neofetch
   ![neofetch](https://i.postimg.cc/xCsWRcGg/Screenshot-20220216-203404-Termux.png)
 
 - Colorscheme (Theme)
