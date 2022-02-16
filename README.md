@@ -44,18 +44,18 @@
   <summary><strong>Update Repository & Upgrade Package</strong></summary>
 
   ```bash
-    pkg update && pkg upgrade
+  pkg update && pkg upgrade
   ```
   </details>
 
-  <details open>
+  <details>
   <summary><strong>git & bc</strong></summary>
 
   - Package `git` for cloning or downloading repository
   - Package `bc` for calculate repository size which will be cloning or downloading
 
   ```bash
-    pkg i -y git bc
+  pkg i -y git bc
   ```
 
   </details>
@@ -66,46 +66,47 @@
   <summary><strong>Clone or Download This Repository</strong></summary>
 
   ```bash
-    git clone --depth=1 https://github.com/nihsx/myTermux.git
+  git clone --depth=1 https://github.com/nihsx/myTermux.git
   ```
 
   </details>
 
-  <details open>
+  <details>
   <summary><strong>Run Script Installer</strong></summary>
 
   - Move to Folder
 
   ```bash
-    cd myTermux
+  cd myTermux
   ```
 
   - export variable `COLUMNS` and `LINES`
-    > This variable function so that the installer script can read the
-    > `column` and `row` widths of Termux Application so that later it
-    > matches the output during the installation process.
+
+  > This variable function so that the installer script can read the
+  > `column` and `row` widths of Termux Application so that later it
+  > matches the output during the installation process.
 
   ```bash
-    export COLUMNS LINES
+  export COLUMNS LINES
   ```
 
   - Execute Installer
 
   ```bash
-    ./install.sh
+  ./install.sh
   ```
 
   ![Error](https://i.ibb.co/mDV3hd0/Screenshot-20220216-200813-Termux.png)
 
-    > If you get error like this `Please Zoom Out`
-    > Do Zoom Out of Termux Application then run again the script
+  > If you get error like this `Please Zoom Out`
+  > Do Zoom Out of Termux Application then run again the script
 
   ![Running](https://i.ibb.co/w7drM8f/Screenshot-20220126-145616-Termux.png)
 
-    > If the row and column widths of the application are correct,
-    > the script will automatically run, like this:
+  > If the row and column widths of the application are correct,
+  > the script will automatically run, like this:
 
-    > Then follow the installation until it's finished
+  > Then follow the installation until it's finished
 
   </details>
 
