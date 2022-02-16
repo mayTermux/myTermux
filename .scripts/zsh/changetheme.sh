@@ -11,6 +11,7 @@ for LIBRARY in ${LIBRARYS[@]}; do
 done
 
 ZSH_CUSTOM_THEME_DIR="${HOME}/.oh-my-zsh/custom/themes"
+GET_ZSH_THEME_USED=$(cat ${HOME}/.zshrc | grep ZSH_THEME | sed 's .\{10\}  ' | sed 's/"//g')
 INDEX_LOOP=0
 
 THEME_USED_PATH="${HOME}/.config/mytermux/zsh"
@@ -39,6 +40,10 @@ function listZshTheme() {
   setCursor off
   banner
   printf " %3s  %10s                              %4s\n\n" "No." "List Theme" "Status"
+
+  if [ "${THEME_USED}" == "powerlevel10k/powerlevel10k" ]; then
+    THEME_USED="powerlevel10k"
+  fi
 
   for ZSHTHEME in ${ZSH_CUSTOM_THEME_DIR}/*; do
 
@@ -139,8 +144,27 @@ function main() {
 
   trap 'handleInterruptByUser "Interrupt by User"' 2
 
-  listZshTheme
-  selectZshTheme
+  if [ "${GET_ZSH_THEME_USED}" == "powerlevel10k/powerlevel10k" ]; then
+    THEME_USED+="/powerlevel10k"
+  else
+    GET_ZSH_THEME_USED+=".zsh-theme"
+  fi
+
+  if [ "${GET_ZSH_THEME_USED}" == "${THEME_USED}" ]; then
+
+    listZshTheme
+    selectZshTheme
+
+  else
+
+    stat "ERROR" "Danger" "Configuration ${COLOR_DANGER}Failure${COLOR_BASED}!"
+    stat "INFO" "Warning" "Please check file:"
+    echo -e "   • '${COLOR_WARNING}${THEME_USED_PATH}/${THEME_USED_FILE_NAME}${COLOR_BASED}'"
+    echo -e "   • '${COLOR_WARNING}${ZSH_CONFIGURATION_PATH}${COLOR_BASED}'"
+
+    exit 1
+
+  fi
 
 }
 
