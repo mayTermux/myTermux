@@ -114,25 +114,47 @@
 
 ### :camera_flash: Screenshots
 
-<a href="https://i.ibb.co/4Vjdk89/out2.png" target="_blank" rel="noopener">
-  <img alt="myTermux Colorscheme" src="https://i.ibb.co/4Vjdk89/out2.png"/>
-</a>
+- System Fetch
 
-<br />
-<br />
-<br />
+  ![rxfetch](https://i.postimg.cc/SRxmSBd1/Screenshot-20220216-203051-Termux.png)
 
-<a href="https://i.ibb.co/bPRrbyD/final-music.png" target="_blank" rel="noopener">
-  <img alt="myTermux Music" src="https://i.ibb.co/bPRrbyD/final-music.png"/>
-</a>
+  ![rxfetch hydra](https://i.postimg.cc/k4fdpjCQ/Screenshot-20220216-203306-Termux.png)
 
-<br />
-<br />
-<br />
+  ![neofetch](https://i.postimg.cc/xCsWRcGg/Screenshot-20220216-203404-Termux.png)
 
-<a href="https://i.ibb.co/6DqyPqT/final-text-editor.png" target="_blank" rel="noopener">
-  <img alt="myTermux Text Editor" src="https://i.ibb.co/6DqyPqT/final-text-editor.png"/>
-</a>
+- Colorscheme (Theme)
+
+  ![chcolor](https://i.postimg.cc/BvjY0M25/Screenshot-20220216-203436-Termux.png)
+
+  <details>
+  <summary>Show Preview</summary>
+
+  ![colorscheme](https://i.ibb.co/4Vjdk89/out2.png)
+
+  </details>
+
+- Fonts
+
+  ![chfont](https://i.postimg.cc/cHMQynkM/Screenshot-20220216-203506-Termux.png)
+
+- ZSH Theme
+
+  ![chzsh](https://i.postimg.cc/1RvqGPkt/Screenshot-20220216-203529-Termux.png)
+
+- Text Editor
+
+  ![NvChad](https://i.postimg.cc/43R7f398/Screenshot-20220216-203928-Termux.png)
+
+  <details>
+  <summary>Show Theme</summary>
+
+  ![NvChad Theme](https://i.ibb.co/6DqyPqT/final-text-editor.png)
+
+  </details>
+
+- Music
+
+  ![ncmpcpp](https://i.ibb.co/bPRrbyD/final-music.png)
 
 ## Credits
 
