@@ -82,8 +82,8 @@
 
   - export variable `COLUMNS` and `LINES`
 
-  > This variable function so that the installer script can read the<br>
-  > `column` and `row` widths of Termux Application so that later it<br>
+  > This variable function so that the installer script can read the
+  > `column` and `row` widths of Termux Application so that later it
   > matches the output during the installation process.
 
   ```bash
@@ -98,13 +98,13 @@
 
   ![Error](https://i.ibb.co/mDV3hd0/Screenshot-20220216-200813-Termux.png)
 
-  > If you get error message `Please Zoom Out`<br>
+  > If you get error message `Please Zoom Out`.
   > Zoom Out on Termux Application then run again the script
 
-  ![Running](https://i.ibb.co/w7drM8f/Screenshot-20220126-145616-Termux.png)
+  > If the row and column widths of the application are correct,
+  > the script will automatically run, like this:
 
-  > If the row and column widths of the application are correct,<br>
-  > the script will automatically run, like this:<br>
+  ![Running](https://i.ibb.co/hMbzWxx/Screenshot-20220216-202655-Termux.png)
 
   > Then follow the installation until it's finished
 
