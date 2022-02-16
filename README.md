@@ -130,6 +130,12 @@
 
 - Colorscheme (Theme)
 
+  > Change colorscheme or theme with command:
+
+  ```bash
+  chcolor
+  ```
+
   ![chcolor](https://i.postimg.cc/BvjY0M25/Screenshot-20220216-203436-Termux.png)
 
   <details>
@@ -141,9 +147,21 @@
 
 - Fonts
 
+  > Change font used with command:
+
+  ```bash
+  chfont
+  ```
+
   ![chfont](https://i.postimg.cc/cHMQynkM/Screenshot-20220216-203506-Termux.png)
 
 - ZSH Theme
+
+  > Change ZSH Theme with command:
+
+  ```bash
+  chzsh
+  ```
 
   ![chzsh](https://i.postimg.cc/1RvqGPkt/Screenshot-20220216-203529-Termux.png)
 
