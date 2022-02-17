@@ -1,12 +1,11 @@
 <div align="center">
 	
-  [![Linux](https://img.shields.io/badge/my%20Termux-gray.svg?style=for-the-badge&logo=android)]
+  [![Linux](https://img.shields.io/badge/my%20Termux-gray.svg?style=for-the-badge&logo=android)]()
 	
 </div>
 
 
 ## Installation Dependecies
-<hr>
 
 > **Attention!**
 > - [Termux must be **F-Droid** Version](https://f-droid.org/en/packages/com.termux/) because Termux from Playstore no longer maintained because there are some problems with the Playstore publishing
@@ -33,7 +32,6 @@
   </details>
 
 ## Installation myTermux
-<hr>
 
   <details open>
   <summary><strong>Clone or Download This Repository</strong></summary>
@@ -85,8 +83,7 @@
 
 
 
-### :camera_flash: Screenshots
-<hr>
+## :camera_flash: Screenshots
 
 - System Fetch
 
@@ -155,7 +152,6 @@
   ![ncmpcpp](https://i.ibb.co/bPRrbyD/final-music.png)
 
 ## Credits
-<hr>
 
 - [siduck](https://github.com/siduck) Neovim Setup (NvChad), Colorscheme (onedark-siduck)
 - [owl4ce](https://github.com/owl4ce) First time getting to know dotfiles
@@ -168,6 +164,5 @@
 - [Bashid.org](https://t.me/bashidorg)
 
 ## Colorscheme
-<hr>
 
 - [catppuccin/termux](https://github.com/catppuccin/termux)
