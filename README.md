@@ -37,7 +37,7 @@
   <summary><strong>Clone or Download This Repository</strong></summary>
 
   ```bash
-  git clone --depth=1 https://github.com/nihsx/myTermux.git
+  git clone --depth=1 https://github.com/mayTermux/myTermux.git
   ```
 
   </details>
