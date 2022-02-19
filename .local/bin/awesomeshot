@@ -133,9 +133,8 @@ function autoRun() {
 
       echo -e ""
 
-      title "${COLOR_SKY}[+] BACKUP${COLOR_DEFAULT}"
-
       if [ "${backup}" == "yes" ]; then
+        title "${COLOR_SKY}[+] BACKUP${COLOR_DEFAULT}"
         backupOriginalPhoto "${get_file_name}"
       fi
 
