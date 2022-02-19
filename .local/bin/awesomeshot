@@ -28,13 +28,16 @@ read -rd '' config <<'EOF'
 # you can edit this variable value
 screenshot_result_path="/sdcard/Pictures/Screenshots"
 
+# Change this value to "" or whatever for disable function
+backup="yes"
+
 # PATH backup original photo or screenshot
 path_backup="${HOME}/.config/awesomeshot/backup"
 
-# Border radius
 # Change this value to "" or whatever for disable convert
 convert_rounded="yes"
 
+# Border radius
 border_radius=15
 
 # Change this value to "" or whatever for disable convert
@@ -131,7 +134,10 @@ function autoRun() {
       echo -e ""
 
       title "${COLOR_SKY}[+] BACKUP${COLOR_DEFAULT}"
-      backupOriginalPhoto "${get_file_name}"
+
+      if [ "${backup}" == "yes" ]; then
+        backupOriginalPhoto "${get_file_name}"
+      fi
 
       title "${COLOR_SKY}[+] CONVERTING${COLOR_DEFAULT}"
 
