@@ -85,6 +85,8 @@
 
 ## :camera_flash: Screenshots
 
+> This screenshot take by [**Awesomeshot**](https://github.com/mayTermux/awesomeshot)
+
 - System Fetch
 
   > rxfetch
