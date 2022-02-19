@@ -123,6 +123,8 @@ alias neoscript="nvim ~/.config/neofetch/script.sh"
 alias fetch="bash ~/.scripts/system/fetch.sh $@"
 alias fetchconf="nvim ~/.scripts/system/fetch.sh"
 
+alias awesomeconf="nvim ~/.config/awesomeshot/awesomeshot.conf"
+
 #git
 alias gitgraph="git log --all --decorate --oneline --graph"
 alias gitupdate="git fetch && git pull"
