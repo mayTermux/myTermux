@@ -274,6 +274,7 @@ function convertToPng() {
 
     convert ${file_name} "${file_name%.*}.png"
     rm ${file_name}
+    termux-media-scan ${file_name} &> /dev/null
     file_name=${file_name%.*}.png
     check
   fi
