@@ -155,9 +155,8 @@ function autoRun() {
 
         echo -e ""
 
-        title "${COLOR_SKY}[+] CONVERTING EXTENSION IMAGE${COLOR_DEFAULT}"
-
         if [ "${convert_to_png}" == "yes" ]; then
+          title "${COLOR_SKY}[+] CONVERTING EXTENSION IMAGE${COLOR_DEFAULT}"
           convertToPng "${get_file_name}"
         fi
 
@@ -204,9 +203,9 @@ function manualRun() {
   subtitle "[+]*Set*Status*File*"
   if [ -f ${file_name} ]; then
     check
-    title "${COLOR_SKY}[+] CONVERTING EXTENSION IMAGE${COLOR_DEFAULT}"
 
     if [ "${convert_to_png}" == "yes" ]; then
+      title "${COLOR_SKY}[+] CONVERTING EXTENSION IMAGE${COLOR_DEFAULT}"
       convertToPng "${get_file_name}"
     fi
 
