@@ -156,7 +156,6 @@ function autoRun() {
         echo -e ""
 
         if [ "${convert_to_png}" == "yes" ]; then
-          title "${COLOR_SKY}[+] CONVERTING EXTENSION IMAGE${COLOR_DEFAULT}"
           convertToPng "${get_file_name}"
         fi
 
@@ -205,7 +204,6 @@ function manualRun() {
     check
 
     if [ "${convert_to_png}" == "yes" ]; then
-      title "${COLOR_SKY}[+] CONVERTING EXTENSION IMAGE${COLOR_DEFAULT}"
       convertToPng "${get_file_name}"
     fi
 
@@ -267,6 +265,7 @@ function backupOriginalPhoto() {
 }
 
 function convertToPng() {
+  title "${COLOR_SKY}[+] CONVERTING EXTENSION IMAGE${COLOR_DEFAULT}"
   extension="${file_name##*.}"
   if [ "${extension}" != "png" ]; then
     subtitle "[+]*Convert*.${extension}*To*.png*"
