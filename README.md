@@ -1,9 +1,4 @@
-<div align="center">
-	
-  [![Linux](https://img.shields.io/badge/my%20Termux-gray.svg?style=for-the-badge&logo=android)]()
-	
-</div>
-
+<h1 align="center">myTermux</h1>
 
 ## Installation Dependecies
 
