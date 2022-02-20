@@ -5,7 +5,7 @@
 #
 # Copyright (c) 2021 - 2022 xShin
 
-version=1.0.0
+version=1.0.1
 
 XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-${HOME}/.config}
 config_file="${XDG_CONFIG_HOME}/awesomeshot/awesomeshot.conf"
@@ -93,6 +93,27 @@ function getUserConfig() {
 
 }
 
+function generateDefaultConfig() {
+  if [ ! -f "${config_file}" ]; then
+    printf '%s\n' "$config" > "$config_file"
+    stat "SUCCESS" "Success" "Default config has been generated"
+    exit
+  fi
+
+  if [ -f "${config_file}" ]; then
+    read -p "  Config '~/.config/awesomeshot/awesomeshot.conf' already exists, do you want to generate default config [y/N] : " ask
+    case "${ask}" in
+      y|Y )
+        printf '%s\n' "$config" > "$config_file"
+        stat "SUCCESS" "Success" "Default config has been re-generated"
+      ;;
+      n|N )
+        exit
+      ;;
+    esac
+  fi
+}
+
 function header() {
   printf "\n\n                      %-18s\n\n" "AWESOMESHOT v${version}"
 }
@@ -120,55 +141,108 @@ function check() {
 }
 
 function autoRun() {
-  setterm -cursor off 
+  getUserConfig
   count=1
   header
   title "${COLOR_SKY}[?] WAITING TO TAKE SCREENSHOT${COLOR_DEFAULT}             [${COLOR_WARNING}${count}${COLOR_DEFAULT}]"
 
   inotifywait -m -e create ${screenshot_result_path} 2> /dev/null | \
     while read get_file_name_result; do
-      subtitle "[+]*Execute*Program*"
       get_file_name=$(echo -e "${get_file_name_result}" | awk '{print $3}')
-      file_name+="${screenshot_result_path}/${get_file_name}"
+      if [[ "${screenshot_result_path}/${get_file_name}" != "${file_name}" || -z ${file_name} ]]; then
+        subtitle "[+]*Execute*Program*"
+        file_name="${screenshot_result_path}/${get_file_name}"
 
-      echo -e ""
+        echo -e ""
 
-      if [ "${backup}" == "yes" ]; then
-        title "${COLOR_SKY}[+] BACKUP${COLOR_DEFAULT}"
-        backupOriginalPhoto "${get_file_name}"
-      fi
+        title "${COLOR_SKY}[+] CONVERTING EXTENSION IMAGE${COLOR_DEFAULT}"
 
-      title "${COLOR_SKY}[+] CONVERTING${COLOR_DEFAULT}"
+        if [ "${convert_to_png}" == "yes" ]; then
+          convertToPng "${get_file_name}"
+        fi
 
-      if [ "${convert_to_png}" == "yes" ]; then
-        convertToPng
-      fi
+        if [ "${backup}" == "yes" ]; then
+          title "${COLOR_SKY}[+] BACKUP${COLOR_DEFAULT}"
+          backupOriginalPhoto "${get_file_name}"
+        fi
+
+        title "${COLOR_SKY}[+] EDTING IMAGE${COLOR_DEFAULT}"
       
-      if [ "${convert_rounded}" == "yes" ]; then
-        convertRounded
-      fi
+        if [ "${convert_rounded}" == "yes" ]; then
+          convertRounded
+        fi
 
-      if [ "${convert_shadow}" == "yes" ]; then
-        convertShadow
-      fi
+        if [ "${convert_shadow}" == "yes" ]; then
+          convertShadow
+        fi
 
-      if [ "${convert_border}" == "yes" ]; then
-        convertBorder
-      fi
+        if [ "${convert_border}" == "yes" ]; then
+          convertBorder
+        fi
       
-      if [ "${convert_footer}" == "yes" ]; then
-        convertFooter
+        if [ "${convert_footer}" == "yes" ]; then
+          convertFooter
+        fi
+
+        termux-media-scan "${file_name}" &> /dev/null
+
+        if [ "${open_image}" == "yes" ]; then
+          termux-open "${file_name}"
+        fi
+
+        count=$(( ${count} + 1 ))
+
+        title "${COLOR_SKY}[?] WAITING TO TAKE SCREENSHOT${COLOR_DEFAULT}             [${COLOR_WARNING}${count}${COLOR_DEFAULT}]"
       fi
-
-      if [ "${open_image}" == "yes" ]; then
-        termux-open "${file_name}"
-      fi
-
-      count=$(( ${count} + 1 ))
-
-      title "${COLOR_SKY}[?] WAITING TO TAKE SCREENSHOT${COLOR_DEFAULT}             [${COLOR_WARNING}${count}${COLOR_DEFAULT}]"
-      unset file_name
     done
+}
+
+function manualRun() {
+  getUserConfig
+  header
+  title "${COLOR_SKY}[?] CHECKING FILE${COLOR_DEFAULT}"
+  subtitle "[+]*Set*Status*File*"
+  if [ -f ${file_name} ]; then
+    check
+    title "${COLOR_SKY}[+] CONVERTING EXTENSION IMAGE${COLOR_DEFAULT}"
+
+    if [ "${convert_to_png}" == "yes" ]; then
+      convertToPng "${get_file_name}"
+    fi
+
+    if [ "${backup}" == "yes" ]; then
+      title "${COLOR_SKY}[+] BACKUP${COLOR_DEFAULT}"
+      backupOriginalPhoto "${get_file_name}"
+    fi
+
+    title "${COLOR_SKY}[+] EDTING IMAGE${COLOR_DEFAULT}"
+      
+    if [ "${convert_rounded}" == "yes" ]; then
+      convertRounded
+    fi
+
+    if [ "${convert_shadow}" == "yes" ]; then
+      convertShadow
+    fi
+
+    if [ "${convert_border}" == "yes" ]; then
+      convertBorder
+    fi
+      
+    if [ "${convert_footer}" == "yes" ]; then
+      convertFooter
+    fi
+
+    termux-media-scan "${file_name}" &> /dev/null
+    setterm -cursor on
+
+    if [ "${open_image}" == "yes" ]; then
+      termux-open "${file_name}"
+    fi
+  else
+    echo -e "\n"
+    stat "ERROR" "Danger" "${COLOR_DANGER}${file_name}${COLOR_DEFAULT}: file not found"
+  fi
 }
 
 function backupOriginalPhoto() {
@@ -196,9 +270,10 @@ function backupOriginalPhoto() {
 function convertToPng() {
   extension="${file_name##*.}"
   if [ "${extension}" != "png" ]; then
-    subtitle "[+]*Convert*to*PNG*"
+    subtitle "[+]*Convert*.${extension}*To*.png*"
 
     convert ${file_name} "${file_name%.*}.png"
+    rm ${file_name}
     file_name=${file_name%.*}.png
     check
   fi
@@ -254,5 +329,93 @@ function convertFooter() {
   check
 }
 
-getUserConfig
-autoRun
+function handleInterruptByUser() {
+
+  pkill com.termux
+
+  echo -e "
+    \n   [ ${COLOR_WARNING}ERROR${COLOR_DEFAULT} ] > ${COLOR_DANGER}${1}${COLOR_DEFAULT}\n"
+
+  setterm -cursor on
+
+  read -n 1 -s -r -p "   Press any key to exit "
+
+  exit 1
+
+}
+
+function stat() {
+
+  if [ "${2}" == "Success" ]; then
+
+    echo -e "  [ ${COLOR_SUCCESS}${1}${COLOR_DEFAULT} ] > ${3}"
+
+  elif [ "${2}" == "Warning" ]; then
+
+    echo -e "  [ ${COLOR_WARNING}${1}${COLOR_DEFAULT} ] > ${3}"
+
+  elif [ "${2}" == "Danger" ]; then
+
+    echo -e "  [ ${COLOR_DANGER}${1}${COLOR_DEFAULT} ] > ${3}"
+
+  fi
+  
+}
+
+function main() {
+  trap "handleInterruptByUser 'Interrupt By User'" 2
+  setterm -cursor off 
+  ${1} ${2}
+}
+
+function help() {
+  echo -e "
+  $(version)
+  A command-line screenshot tool written in bash 5.1.16+
+
+  Usage:
+    awesomeshot [args] [file]
+
+  META OPTIONS:
+    -h, --help          Show list of command-line options
+    -v, --version       Show version of awesomeshot
+
+  RUN OPTIONS:
+    -a, --auto          Run awesomeshot with automatic while take screenshot
+    -m, --manual        Run awesomeshot with manual (this option require filename)
+    -c, --config        Generate default config awesomeshot.conf
+  "
+}
+
+function version() {
+  echo -e "awesomeshot v.${version}"
+}
+
+case "${1}" in
+  -a|--auto )
+    main autoRun
+  ;;
+  -c|--config )
+    generateDefaultConfig
+  ;;
+  -m|--manual )
+    if [ ${2} ]; then
+      file_name="${2}"
+      main manualRun
+    else
+      echo ""
+      stat "ERROR" "Danger" "This option require filename"
+      help
+      exit 1
+    fi
+  ;;
+  -h|--help )
+    help
+  ;;
+  -v|--version )
+    version
+  ;;
+  *)
+    help
+  ;;
+esac
