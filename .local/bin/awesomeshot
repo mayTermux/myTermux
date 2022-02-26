@@ -71,7 +71,7 @@ footer_text=" Shot by Awesomeshot"
 footer_position="South"
 footer_xy="+0+45"
 footer_font="JetBrains-Mono-Medium-Nerd-Font-Complete"
-footer_font_size=30
+footer_font_size=25
 footer_foreground="${hex_color[1]}"
 footer_background="none"
 
