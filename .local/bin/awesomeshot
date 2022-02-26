@@ -34,25 +34,33 @@ backup="yes"
 # PATH backup original photo or screenshot
 path_backup="${HOME}/.config/awesomeshot/backup"
 
+# Array Hex Color
+hex_color=(
+  "#F8F9FA" # white
+  "#000000" # black
+  "#333333" # gray
+  "#A8D7FE" # blue sky
+)
+
 # Change this value to "" or whatever for disable convert
 convert_rounded="yes"
 
 # Border radius
-border_radius=15
+border_radius=10
 
 # Change this value to "" or whatever for disable convert
 convert_border="yes"
 
 # Change this value to "none" for transparent background
-border_color="#F8F9FA"
+border_color="${hex_color[0]}"
 
-border_size=70
+border_size=15
 
 # Shadow
 # Change this value to "" or whatever for disable convert
 convert_shadow="yes"
 
-shadow_color="#000000"
+shadow_color="${hex_color[1]}"
 shadow_size="75x30+0+30"
 
 # Footer
@@ -64,14 +72,14 @@ footer_position="South"
 footer_xy="+0+45"
 footer_font="JetBrains-Mono-Medium-Nerd-Font-Complete"
 footer_font_size=30
-footer_foreground="#000000"
+footer_foreground="${hex_color[1]}"
 footer_background="none"
 
 # Convert to PNG if file not PNG
 convert_to_png="yes"
 
 # Open Image when convert done
-open_image="yes"
+open_image=""
 EOF
 
 # init file_name
@@ -95,13 +103,16 @@ function getUserConfig() {
 
 function generateDefaultConfig() {
   if [ ! -f "${config_file}" ]; then
+    if [ ! -d "~/.config/awesomeshot" ]; then
+      mkdir ~/.config/awesomeshot
+    fi
     printf '%s\n' "$config" > "$config_file"
     stat "SUCCESS" "Success" "Default config has been generated"
     exit
   fi
 
   if [ -f "${config_file}" ]; then
-    read -p "  Config '~/.config/awesomeshot/awesomeshot.conf' already exists, do you want to generate default config [y/N] : " ask
+    read -p "  Config '~/.config/awesomeshot/awesomeshot.conf' already exists, do you want to generate default config [y/N] " ask
     case "${ask}" in
       y|Y )
         printf '%s\n' "$config" > "$config_file"
@@ -183,6 +194,7 @@ function autoRun() {
         fi
 
         termux-media-scan "${file_name}" &> /dev/null
+        termux-toast -b "${hex_color[3]}" -c "${hex_color[1]}" -g middle "${file_name} done"
 
         if [ "${open_image}" == "yes" ]; then
           termux-open "${file_name}"
@@ -246,10 +258,10 @@ function backupOriginalPhoto() {
   change_filename_backup=$(echo $1 | sed 's/.png/_backup.png/g')
 
   if [ ! -d ${path_backup} ]; then
-    mkdir -p ${path_backup}
+    mkdir -p "${path_backup}"
   fi
 
-  cp ${file_name} ${path_backup}/${change_filename_backup}
+  cp "${file_name}" "${path_backup}/${change_filename_backup}"
 
   if [ -f ${path_backup}/${change_filename_backup} ]; then
 
@@ -270,9 +282,9 @@ function convertToPng() {
   if [ "${extension}" != "png" ]; then
     subtitle "[+]*Convert*.${extension}*To*.png*"
 
-    convert ${file_name} "${file_name%.*}.png"
-    rm ${file_name}
-    termux-media-scan ${file_name} &> /dev/null
+    convert "${file_name}" "${file_name%.*}.png"
+    rm "${file_name}"
+    termux-media-scan "${file_name}" &> /dev/null
     file_name=${file_name%.*}.png
     check
   fi
@@ -281,50 +293,50 @@ function convertToPng() {
 function convertRounded() {
   subtitle "[+]*Set*Rounded*Corner*"
 
-  convert $file_name \
+  convert "$file_name" \
     \( +clone -alpha extract -draw \
       "fill black polygon 0,0,0,${border_radius} ${border_radius},0 fill white circle ${border_radius},${border_radius},${border_radius},0" \
       \( +clone -flip \) -compose Multiply -composite \
       \( +clone -flop \) -compose Multiply -composite \
     \) \
-    -alpha off -compose CopyOpacity -composite $file_name
+    -alpha off -compose CopyOpacity -composite "$file_name"
   check
 }
 
 function convertShadow() {
   subtitle "[+]*Set*Image*Shadow*"
 
-  convert $file_name \
+  convert "$file_name" \
     \( \
       +clone \
       -background "${shadow_color}" \
-      -shadow ${shadow_size} \
+      -shadow "${shadow_size}" \
     \) \
     +swap \
     -background none \
     -layers merge \
-    +repage $file_name
+    +repage "$file_name"
   check
 }
 
 function convertBorder() {
   subtitle "[+]*Set*Image*Border*Color*"
 
-  convert $file_name -bordercolor "${border_color}" -border ${border_size} $file_name
+  convert "$file_name" -bordercolor "${border_color}" -border ${border_size} "$file_name"
   check
 }
 
 function convertFooter() {
   subtitle "[+]*Set*Image*Footer"
   echo -n "${footer_text}" |
-  convert $file_name \
+  convert "$file_name" \
     -gravity ${footer_position} \
     -pointsize ${footer_font_size} \
     -fill ${footer_foreground} \
     -undercolor ${footer_background} \
     -font ${footer_font} \
     -annotate ${footer_xy} \
-    @- $file_name
+    @- "$file_name"
   check
 }
 
