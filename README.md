@@ -1,6 +1,6 @@
 <h1 align="center">myTermux</h1>
 
-<p align="center">This is my **personal configuration** for my favorite Termux</p>
+<p align="center">This is my personal configuration for my favorite Termux</p>
 
 <p align="center">
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-GPL-blue.svg"></a>
