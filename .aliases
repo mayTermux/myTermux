@@ -78,7 +78,6 @@ alias largefile="du -h -x -s -- * | sort -r -h | head -20"
 #System Information
 #alias neo="bash ~/.config/neofetch/debug-logo.sh --randomsmall"
 alias neo="neofetch"
-alias rx="rxfetch hydra"
 alias neodebug="bash ~/.config/neofetch/debug-logo.sh $1"
 alias disk="bash ~/.scripts/system/fetch.sh storage"
 alias battery="bash ~/.scripts/fetch.sh battery"
