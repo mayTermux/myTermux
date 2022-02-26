@@ -80,21 +80,17 @@
 
 ## :camera_flash: Screenshots
 
-> This screenshot take by [**Awesomeshot**](https://github.com/mayTermux/awesomeshot)
+> This screenshot take by [**Awesomeshot**](https://github.com/mayTermux/awesomeshot) and system fetch by [**rxfetch-termux**](https://github.com/mayTermux/rxfetch-termux)
 
 - System Fetch
 
   > rxfetch
 
-  ![rxfetch](https://i.postimg.cc/SRxmSBd1/Screenshot-20220216-203051-Termux.png)
-
-  > rxfetch hydra
-
-  ![rxfetch hydra](https://i.postimg.cc/QCDVDYKH/Screenshot-20220216-205938-Termux.png)
+  ![rxfetch](https://i.ibb.co/yQCxR0B/Screenshot-20220226-114102-Termux.png)
 
   > neofetch
 
-  ![neofetch](https://i.postimg.cc/xCsWRcGg/Screenshot-20220216-203404-Termux.png)
+  ![neofetch](https://i.ibb.co/kGXZNv1/Screenshot-20220226-114507-Termux.png)
 
 - Colorscheme (Theme)
 
