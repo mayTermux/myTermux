@@ -1,190 +1,126 @@
 #!/usr/bin/env bash
 
-LIBRARYS=(
- cursor colors
-)
+magenta="\033[1;35m"
+green="\033[1;32m"
+white="\033[1;37m"
+blue="\033[1;34m"
+red="\033[1;31m"
+black="\033[1;40;30m"
+yellow="\033[1;33m"
+cyan="\033[1;36m"
+reset="\033[0m"
+bgyellow="\033[1;43;33m"
+bgwhite="\033[1;47;37m"
+c0=${reset}
+c1=${magenta}
+c2=${green}
+c3=${white}
+c4=${blue}
+c5=${red}
+c6=${yellow}
+c7=${cyan}
+c8=${black}
+c9=${bgyellow}
+c10=${bgwhite}
 
-LIBRARY_PATH="${HOME}/.scripts/library"
-
-for LIBRARY in ${LIBRARYS[@]}; do
-  source ${LIBRARY_PATH}/${LIBRARY}.sh
-done
-
-function getInit() {
-    os="$(uname -o)"
-    if [[ "$os" = "Android" ]]; then
-       echo "init.rc"
-    elif [[ ! $(pidof systemd) ]]; then
-        if [[ -f "/sbin/openrc" ]]; then
-            echo "openrc"
-        else
-         echo $(cat /proc/1/comm)
-        fi
-    else
-        echo "systemD"
-    fi
+function getCodeName() {
+  codename="$(getprop ro.product.board)"
 }
 
-function netPkg() {
-
-  pack="$(which {apt,dpkg} 2>/dev/null | grep -v "not found" | awk -F/ 'NR==1{print $NF}')"
-
-  case "${pack}" in
-
-    "apt")
-	    total=$(apt list --installed 2>/dev/null | wc -l)
-	  ;;
-
-    "dpkg")
-	    total=$(dpkg-query -l | wc -l)
-	  ;;
-
-    "")
-	    total="Unknown"
-	  ;;
-
-  esac
-
-  echo $total
-  
-}
-
-function distroDetect() {
-
-    os="$(uname -o)"
-    case "${os}" in
-
-      Android )
-        distro="Android"
-      ;;
-
-	    *)
-	      distro="$(source /etc/os-release && echo "${PRETTY_NAME}")"
-        if [ ! -d $HOME/.local/share/fonts ]; then
-          mkdir -p $HOME/.local/share/fonts
-        fi
-        if [ ! -f $HOME/.local/share/fonts/Material.ttf ] && [ ! -f /usr/share/fonts/Material.ttf ]; then
-          cp -r ttf-material-design-icons/* $HOME/.local/share/fonts
-          fc-cache -vf &>/dev/null
-        fi
-	    ;;
-
-    esac
-
-}
-
-function getMemoryUsage() {
-  free --mega | sed -n -E '2s/^[^0-9]*([0-9]+) *([0-9]+).*/'"${space}"'\2 \/ \1 MB/p'
-}
-
-function getUser() {
-
-  user=$(whoami)
-
+function getClientBase() {
+  client_base="$(getprop ro.com.google.clientidbase)"
 }
 
 function getModel() {
   model="$(getprop ro.product.brand) $(getprop ro.product.model)"
 }
 
-function getNodeName() {
-
-  node_name=$(uname -n)
-
+function getDistro() {
+  os="$(uname -o) $(uname -m)"
 }
 
-distroDetect
-getUser
-getModel
-getNodeName
-
-function penguin() {
-
-  echo -e "
-
-\n               ${COLOR_DEFAULT}xshin${COLOR_LIGHT_RED}@${COLOR_DEFAULT}android ${COLOR_LIGHT_RED}${COLOR_DEFAULT}\n"
-  echo -e "               ${COLOR_BOLD_BLUE}${COLOR_DEFAULT} : ${model}"
-  echo -e "               ${COLOR_LIGHT_GREEN}${COLOR_DEFAULT} : ${distro} $(uname -m)"
-  echo -e "               ${COLOR_LIGHT_RED}${COLOR_DEFAULT} : $(uname -r)"
-  echo -e "               ${COLOR_BOLD_YELLOW}${COLOR_DEFAULT} : $(netPkg) Packages"
-  echo -e "     ${COLOR_DEFAULT}•${COLOR_BACKGROUND_BLACK}_${COLOR_DEFAULT}•${COLOR_RESET}       ${COLOR_LIGHT_RED}${COLOR_DEFAULT} : $(basename "${SHELL}")"
-  echo -e "     ${COLOR_BACKGROUND_BLACK}${COLOR_RESET}${COLOR_BACKGROUND_YELLOW}oo${COLOR_RESET}${COLOR_BACKGROUND_BLACK}|${COLOR_RESET}       ${COLOR_BOLD_YELLOW}${COLOR_DEFAULT} : $(getMemoryUsage)"
-  echo -e "    ${COLOR_BACKGROUND_BLACK}/${COLOR_RESET}${COLOR_BACKGROUND_WHITE} ${COLOR_RESET}${COLOR_BACKGROUND_BLACK}'\'${COLOR_RESET}      ${COLOR_BOLD_CYAN}${COLOR_DEFAULT} :$(uptime -p | sed 's/up//')"
-  echo -e "   ${COLOR_BACKGROUND_YELLOW}(${COLOR_RESET}${COLOR_BACKGROUND_BLACK}\_;/${COLOR_RESET}${COLOR_BACKGROUND_YELLOW})${COLOR_RESET}      ${COLOR_BOLD_MAGENTA}${COLOR_DEFAULT} : $(bash $HOME/.scripts/system/fetch.sh music)"
-  echo -e "               $(bash $HOME/.scripts/system/fetch.sh storage -n)"
-  echo -e "               $(bash $HOME/.scripts/system/fetch.sh battery)"
-  echo -e "               
-               ${COLOR_BLACK}  ${COLOR_BOLD_RED}  ${COLOR_GREEN}  ${COLOR_BOLD_YELLOW}  ${COLOR_BOLD_BLUE}  ${COLOR_BOLD_MAGENTA}  ${COLOR_BOLD_CYAN}  ${COLOR_BOLD_WHITE}  ${COLOR_DEFAULT}
-                
-                "
-
+function getKernel() {
+  kernel="$(uname -r)"
 }
 
-function hydra() {
-
-  echo -e "
-  
-  
-  ${COLOR_LIGHT_RED}                                 ${COLOR_DEFAULT}xshin${COLOR_LIGHT_RED}@${COLOR_DEFAULT}android ${COLOR_LIGHT_RED}${COLOR_DEFAULT}
-  ${COLOR_BOLD_RED}⣴⣶⣤⡤⠦⣤⣀⣤⠆${COLOR_DEFAULT}     ${COLOR_GREEN}⣈⣭⣿⣶⣿⣦⣼⣆           
-   ${COLOR_BOLD_RED}⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄${COLOR_DEFAULT}${COLOR_GREEN}⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦        ${COLOR_BOLD_BLUE}${COLOR_DEFAULT} : ${model}
-         ${COLOR_BOLD_RED}⠈⢿⣿⣟⠦${COLOR_DEFAULT} ${COLOR_GREEN}⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄      ${COLOR_GREEN} ${COLOR_DEFAULT}: ${distro} $(uname -m)
-          ${COLOR_BOLD_RED}⣸⣿⣿⢧${COLOR_DEFAULT} ${COLOR_GREEN}⢻⠻⣿⣿⣷⣄⣀⠄${COLOR_BOLD_WHITE}⠢⣀${COLOR_GREEN}⠈⠙⠿⠄      ${COLOR_BOLD_YELLOW} ${COLOR_DEFAULT}: $(uname -r)
-  ${COLOR_BOLD_YELLOW}     ${COLOR_DEFAULT}  ${COLOR_BOLD_RED}⢠⣿⣿⣿⠈${COLOR_DEFAULT}    ${COLOR_GREEN}⣻⣿⣿⣿⣿${COLOR_BOLD_WHITE}⣿⣿⣿⣛⣳⣤⣀⣀    ${COLOR_BOLD_RED} ${COLOR_DEFAULT}: $(netPkg) Packages
-  ${COLOR_BOLD_YELLOW}⢠⣧⣶⣥⡤⢄${COLOR_DEFAULT} ${COLOR_BOLD_RED}⣸⣿⣿⠘${COLOR_DEFAULT}  ${COLOR_BOLD_WHITE}⢀⣴⣿⣿⡿⠛${COLOR_GREEN}⣿⣿⣧⠈${COLOR_BOLD_WHITE}⢿⠿⠟⠛⠻⠿⠄   ${COLOR_BOLD_WHITE} ${COLOR_DEFAULT}: $(basename "${SHELL}")
- ${COLOR_BOLD_YELLOW}⣰⣿⣿⠛⠻⣿⣿⡦${COLOR_DEFAULT}${COLOR_BOLD_RED}⢹⣿⣷${COLOR_DEFAULT}   ${COLOR_BOLD_WHITE}⢊⣿⣿⡏  ${COLOR_GREEN}⢸⣿⣿⡇${COLOR_BOLD_BLUE} ⢀⣠⣄⣾⠄    ${COLOR_BOLD_YELLOW} ${COLOR_DEFAULT}: $(getMemoryUsage)
- ${COLOR_BOLD_YELLOW}⣠⣿⠿⠛ ⢀⣿⣿⣷${COLOR_DEFAULT}${COLOR_BOLD_RED}⠘⢿⣿⣦⡀${COLOR_DEFAULT} ${COLOR_BOLD_WHITE}⢸⢿⣿⣿⣄ ${COLOR_GREEN}⣸⣿⣿⡇${COLOR_BOLD_BLUE}⣪⣿⡿⠿⣿⣷⡄  ${COLOR_BOLD_RED} ${COLOR_DEFAULT}:$(uptime -p | sed 's/up//')
-${COLOR_BOLD_YELLOW}⠙⠃   ⣼⣿⡟${COLOR_DEFAULT}  ${COLOR_BOLD_RED}⠈⠻⣿⣿⣦${COLOR_BOLD_WHITE}⣌⡇⠻⣿⣿⣷${COLOR_GREEN}⣿⣿⣿ ${COLOR_BOLD_BLUE}⣿⣿⡇ ⠛⠻⢷⣄  ${prurple} ${COLOR_DEFAULT}: $(bash $HOME/.scripts/system/fetch.sh music)
-   ${COLOR_BOLD_YELLOW}⢻⣿⣿⣄${COLOR_DEFAULT}   ${COLOR_BOLD_RED}⠈⠻⣿⣿⣿⣷${COLOR_BOLD_WHITE}⣿⣿⣿${COLOR_GREEN}⣿⣿⡟ ${COLOR_BOLD_BLUE}⠫⢿⣿⡆        $(bash $HOME/.scripts/system/fetch.sh storage -n)
-   ${COLOR_BOLD_YELLOW}⠻⣿⣿⣿⣿⣶⣶${COLOR_DEFAULT}${COLOR_BOLD_RED}⣾⣿⣿⣿⣿${COLOR_BOLD_WHITE}⣿⣿${COLOR_GREEN}⣿⣿⡟${COLOR_BOLD_BLUE}⢀⣀⣤⣾⡿⠃         $(bash $HOME/.scripts/system/fetch.sh battery)  
-                                   
-                                   ${COLOR_BLACK}  ${COLOR_BOLD_RED}  ${COLOR_GREEN}  ${COLOR_BOLD_YELLOW}  ${COLOR_BOLD_BLUE}  ${COLOR_BOLD_MAGENTA}  ${COLOR_BOLD_CYAN}  ${COLOR_BOLD_WHITE}  ${COLOR_DEFAULT}
-  
-  
-  "
-
+function getTotalPackages() {
+  package_manager="$(which {apt,dpkg} 2>/dev/null | grep -v "not found" | awk -F/ 'NR==1{print $NF}')"
+  case "${package_manager}" in
+    "apt" )
+      packages=$(apt list --installed 2>/dev/null | wc -l)
+    ;;
+    
+    "dpkg" )
+      packages=$(dpkg-query -l | wc -l)
+    ;;
+    
+    "" )
+      packages="Unknown"
+    ;;
+  esac
 }
 
-function help() {
-
-  # Usage Help
-  echo -e "Usage:
-  rxfetch [option]
-  "
-  
-  # Option Help
-  echo -e "Options:
-  ''        Run fetch script default (Logo Penguin)
-  penguin   Run fetch script with Logo Penguin
-  hydra     Run fetch script with Logo Hydra
-  help      Print help message
-  "  
-
+function getShell() {
+  shell="$(basename $SHELL)"
 }
 
-case $1 in
+function getUptime() {
+  uptime="$(uptime --pretty | sed 's/up//')"
+}
 
-  "" )
-    setCursor off
-    penguin
-    setCursor on
-  ;;
+function getMemoryUsage() {
+  #memory="$(free --mega | sed -n -E '2s/^[^0-9]*([0-9]+) *([0-9]+).*/'"${space}"'\2 \/ \1MB/p')"
+  _MEM="Mem:"
+  _GREP_ONE_ROW="$(free --mega | grep "${_MEM}")"
+  _TOTAL="$(echo ${_GREP_ONE_ROW} | awk '{print $2}')"
+  _USED="$(echo ${_GREP_ONE_ROW} | awk '{print $3}')"
 
-  penguin )
-    setCursor off
-    penguin
-    setCursor on
-  ;;
+  memory="${_USED}MB / ${_TOTAL}MB"
+}
 
-  hydra )
-    setCursor off
-    hydra
-    setCursor on
-  ;;
+function getDiskUsage() {
+  _MOUNTED_ON="/data"
+  _GREP_ONE_ROW="$(df -h | grep ${_MOUNTED_ON})"
+  _SIZE="$(echo ${_GREP_ONE_ROW} | awk '{print $2}')"
+  _USED="$(echo ${_GREP_ONE_ROW} | awk '{print $3}')"
+  _AVAIL="$(echo ${_GREP_ONE_ROW} | awk '{print $4}')"
+  _USE="$(echo ${_GREP_ONE_ROW} | awk '{print $5}' | sed 's/%//')"
+  _MOUNTED="$(echo ${_GREP_ONE_ROW} | awk '{print $6}')"
 
-  * )
-    help
-    exit 1
-  ;;
+  storage="${_USED}B / ${_SIZE}B = ${_AVAIL}B (${_USE}%)"
+}
 
-esac
+function main() {
+  getCodeName
+  getClientBase
+  getModel
+  getDistro
+  getKernel
+  getTotalPackages
+  getShell
+  getUptime
+  getMemoryUsage
+  getDiskUsage
+}
+
+main
+
+echo -e "  ┏━━━━━━━━━━━━━━━━━━━━━━┓"
+echo -e "  ┃ ${c1}r${c2}x${c7}f${c4}e${c5}t${c6}${c7}c${c1}h${c0}      ${c5}${c0}  ${c6}${c0}  ${c7}${c0} ┃  ${codename}${c5}@${c0}${client_base}"
+echo -e "  ┠━━━━━━━━━━━━━━━━━━━━━━┫"
+echo -e "  ┃                      ┃  ${c1}phone${c0}  ${model}"
+echo -e "  ┃          ${c3}•${c8}_${c3}•${c0}         ┃  ${c2}os${c0}     ${os}"
+echo -e "  ┃          ${c8}${c0}${c9}oo${c0}${c8}|${c0}         ┃  ${c7}ker${c0}    ${kernel}"
+echo -e "  ┃         ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}        ┃  ${c4}pkgs${c0}   ${packages}"
+echo -e "  ┃        ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}        ┃  ${c5}sh${c0}     ${shell}"
+echo -e "  ┃                      ┃  ${c6}up${c0}    ${uptime}"
+echo -e "  ┃   android ${c1}${c0} termux   ┃  ${c1}ram${c0}    ${memory}"
+echo -e "  ┃                      ┃  ${c2}disk${c0}   ${storage}"
+echo -e "  ┗━━━━━━━━━━━━━━━━━━━━━━┛  ${c1}━━━${c2}━━━${c3}━━━${c4}━━━${c5}━━━${c6}━━━${c7}━━━"
+
+#echo -e "     •_•       "
+#echo -e "     oo|       "
+#echo -e "    / '\'"
+#echo -e "   (\_;/)"
+
+
