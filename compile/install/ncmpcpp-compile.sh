@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DEPENDENCY_PACKAGES=(
-  git clang autoconf automake 
+  git clang autoconf automake binutils
   libtool pkg-config boost taglib
 )
 
@@ -9,7 +9,7 @@ for DEPENDENCY_PACKAGE in ${DEPENDENCY_PACKAGES[@]}; do
   pkg i -y $DEPENDENCY_PACKAGE
 done
 
-git clone https://github.com/ncmpcpp/ncmpcpp $HOME/ncmpcpp
+git clone --depth=1 https://github.com/ncmpcpp/ncmpcpp $HOME/ncmpcpp
 cd $HOME/ncmpcpp
 libtoolize && aclocal && autoheader && autoconf && automake --add-missing
 autoupdate
