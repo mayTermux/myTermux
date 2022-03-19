@@ -93,11 +93,11 @@
 
   > rxfetch
 
-  ![rxfetch](https://i.ibb.co/yQCxR0B/Screenshot-20220226-114102-Termux.png)
+  ![rxfetch](https://i.ibb.co/c6YLPNV/Screenshot-20220319-192552-Termux.png)
 
   > neofetch
 
-  ![neofetch](https://i.ibb.co/kGXZNv1/Screenshot-20220226-114507-Termux.png)
+  ![neofetch](https://i.ibb.co/pLcSBLx/Screenshot-20220319-193758-Termux.png)
 
 - Colorscheme (Theme)
 
@@ -107,7 +107,7 @@
   chcolor
   ```
 
-  ![chcolor](https://i.postimg.cc/BvjY0M25/Screenshot-20220216-203436-Termux.png)
+  ![chcolor](https://i.ibb.co/zFQhNZD/Screenshot-20220319-194003-Termux.png)
 
   <details>
   <summary>Show Preview</summary>
@@ -124,7 +124,7 @@
   chfont
   ```
 
-  ![chfont](https://i.postimg.cc/cHMQynkM/Screenshot-20220216-203506-Termux.png)
+  ![chfont](https://i.ibb.co/vDWZ5k1/Screenshot-20220319-194026-Termux.png)
 
 - ZSH Theme
 
@@ -134,7 +134,7 @@
   chzsh
   ```
 
-  ![chzsh](https://i.postimg.cc/1RvqGPkt/Screenshot-20220216-203529-Termux.png)
+  ![chzsh](https://i.ibb.co/km77gcw/Screenshot-20220319-194129-Termux.png)
 
 - Text Editor
 
