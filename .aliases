@@ -85,6 +85,7 @@ alias ls="exa --icons"
 alias la="exa --icons -lgha --group-directories-first"
 alias lt="exa --icons --tree"
 alias lta="exa --icons --tree -lgha"
+alias bat="bat --theme Dracula"
 
 #proot-distro
 alias prot="cd $PREFIX/var/lib/proot-distro"
