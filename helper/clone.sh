@@ -5,7 +5,7 @@ REPOSITORY_LINKS=(
   https://github.com/zsh-users/zsh-syntax-highlighting
   https://github.com/zsh-users/zsh-autosuggestions
   https://github.com/jimeh/tmux-themepack
-  https://github.com/NvChad/NvChad
+  https://github.com/mayTermux/NvChad
 )
 
 REPOSITORY_APIS=(
@@ -13,7 +13,7 @@ REPOSITORY_APIS=(
   repos/zsh-users/zsh-syntax-highlighting
   repos/zsh-users/zsh-autosuggestions
   repos/jimeh/tmux-themepack
-  repos/NvChad/NvChad
+  repos/mayTermux/NvChad
 )
 
 REPOSITORY_FULL_NAME=(
@@ -21,7 +21,7 @@ REPOSITORY_FULL_NAME=(
   zsh-users/zsh-syntax-highlighting
   zsh-users/zsh-autosuggestions
   jimeh/tmux-themepack
-  siduck76/NvChad
+  mayTermux/NvChad
 )
 
 REPOSITORY_PATH=(
@@ -46,12 +46,6 @@ function repositories() {
   echo -e "‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Getting Information Repository"
   sleep 2s
 
-  # echo -e "
-  #   ╭────────────────────────────────────────────────────────────────────╮
-  #   ┃                         Information Repository                     ┃
-  #   ╰────────────────────────────────────────────────────────────────────╯
-  #   ┃              Repository Name                 ┃    Repository Size  ┃
-  #   ╰────────────────────────────────────────────────────────────────────╯"
   echo -e "
     ╭────────────────────────────────────────────────────────────────────╮
     ┃                         Information Repository                     ┃
@@ -62,13 +56,11 @@ function repositories() {
   for REPOSITORY_API in "${REPOSITORY_APIS[@]}"; do
 
     REPOSITORY_NAME=$(curl https://api.github.com/${REPOSITORY_API} 2> /dev/null | grep full_name | awk '{print $2}' | sed "s/,//g" | sed "s/\"//g")
-    # printf "    ┃      ${COLOR_SUCCESS}%-36s${COLOR_BASED}     ▎      ${COLOR_WARNING}%8s${COLOR_BASED}      ┃\n" $REPOSITORY_NAME `repoSize $REPOSITORY_API`
     printf "    ┃      ${COLOR_SUCCESS}%-36s${COLOR_BASED}            ${COLOR_WARNING}%8s${COLOR_BASED}      ┃\n" $REPOSITORY_NAME `repoSize $REPOSITORY_API`
     echo -e "    ╰────────────────────────────────────────────────────────────────────╯"
 
   done
 
-  # echo "    ╰────────────────────────────────────────────────────────────────────╯"
   echo -e ""
 
 }
