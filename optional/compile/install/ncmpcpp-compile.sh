@@ -20,5 +20,6 @@ make
 strip src/ncmpcpp
 cp $HOME/myTermux/optional/compile/config/ncmpcpp/config-0.9\^ ~/.config/ncmpcpp/config
 cp src/ncmpcpp $PREFIX/bin/ncmpcpp
+echo -e "Compile & Install done!"
 mpd
 ncmpcpp
