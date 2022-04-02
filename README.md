@@ -136,9 +136,9 @@
 
   ![chzsh](https://i.ibb.co/km77gcw/Screenshot-20220319-194129-Termux.png)
 
-- Text Editor
+- [NVIM] - Text Editor
 
-  ![NvChad](https://i.postimg.cc/43R7f398/Screenshot-20220216-203928-Termux.png)
+  ![NvChad](https://i.ibb.co/VBv57nX/Screenshot-20220403-014722-Termux.png)
 
   <details>
   <summary>Show Theme</summary>
@@ -147,9 +147,9 @@
 
   </details>
 
-- Music
+- [NCMPCPP] - Music Player
 
-  ![ncmpcpp](https://i.ibb.co/bPRrbyD/final-music.png)
+  ![ncmpcpp](https://i.ibb.co/Q6kmR2B/68747470733a2f2f692e6962622e636f2f625052726279442f66696e616c2d6d757369632e706e67.png)
 
 ## Credits
 
