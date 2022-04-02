@@ -151,6 +151,18 @@
 
   ![ncmpcpp](https://i.ibb.co/Q6kmR2B/68747470733a2f2f692e6962622e636f2f625052726279442f66696e616c2d6d757369632e706e67.png)
 
+- [COLORTOYS] - Pipes
+
+  ![pipes](https://i.ibb.co/gVbrDRR/Screenshot-20220403-020756-Termux.png)
+
+- [COLORTOYS] - Panes, Bar, Bloks
+
+  ![panes-bar-bloks](https://i.ibb.co/NCF16gX/Screenshot-20220403-022601-Termux.png)
+
+- [NYANCAT]
+
+  ![nyancat](https://i.ibb.co/rfKPpk3/Screenshot-20220403-021843-Termux.png)
+
 ## Credits
 
 - [siduck](https://github.com/siduck) Neovim Setup (NvChad), Colorscheme (onedark-siduck)
