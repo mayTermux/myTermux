@@ -24,30 +24,21 @@ function dotFiles() {
   echo -e "\n‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Getting Information Dotfiles"
   sleep 2s
 
-  # echo -e "
-  #   ╭───────────────────────────────────────────────╮
-  #   ┃             Information Dotfiles              ┃
-  #   ╰───────────────────────────────────────────────╯
-  #   ┃        Folder Name      ┃     Folder Size     ┃
-  #   ╰───────────────────────────────────────────────╯"
-
-    echo -e "
-    ╭───────────────────────────────────────────────╮
+  echo -e "
+    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
     ┃             Information Dotfiles              ┃
-    ╰───────────────────────────────────────────────╯
+    ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
     ┃        Folder Name            Folder Size     ┃
-    ╰───────────────────────────────────────────────╯"
+    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
 
   for DOTFILE in "${DOTFILES[@]}"; do
 
     FOLDER_SIZE=$(du -s -h $DOTFILE | awk '{print $1}')
-    # printf "    ┃        ${COLOR_SUCCESS}%-12s${COLOR_BASED}     ▎        ${COLOR_WARNING}%5s${COLOR_BASED}        ┃\n" $DOTFILE $FOLDER_SIZE
-    printf "    ┃        ${COLOR_SUCCESS}%-12s${COLOR_BASED}              ${COLOR_WARNING}%5s${COLOR_BASED}        ┃\n" $DOTFILE $FOLDER_SIZE
-    echo -e "    ╰───────────────────────────────────────────────╯"
+    printf  "    ┃        ${COLOR_SUCCESS}%-12s${COLOR_BASED}              ${COLOR_WARNING}%5s${COLOR_BASED}        ┃\n" $DOTFILE $FOLDER_SIZE
+    echo -e "    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
 
   done
 
-  # echo "    ╰───────────────────────────────────────────────╯"
   echo ""
 
 }
