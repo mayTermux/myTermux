@@ -5,7 +5,7 @@
 #
 # Copyright (c) 2021 - 2022 xShin
 
-version=1.0.1
+version=1.0.2
 
 XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-${HOME}/.config}
 config_file="${XDG_CONFIG_HOME}/awesomeshot/awesomeshot.conf"
@@ -28,10 +28,12 @@ read -rd '' config <<'EOF'
 # you can edit this variable value
 screenshot_result_path="/sdcard/Pictures/Screenshots"
 
-# Change this value to "" or whatever for disable function
+# This variable serves to function to backup original photo
+# (screenshot result), change this value to blank or whatever for disable 
+# function and "yes" for enable function
 backup="yes"
 
-# PATH backup original photo or screenshot
+# This variable serves to set the original photo backup PATH
 path_backup="${HOME}/.config/awesomeshot/backup"
 
 # Array Hex Color
@@ -42,43 +44,112 @@ hex_color=(
   "#A8D7FE" # blue sky
 )
 
-# Change this value to "" or whatever for disable convert
+# This variable serves to convert title bar when editing the image, change this value
+# to blank or whatever for disable convert and "yes" for enable function
+convert_titlebar="yes"
+
+# This variable serves to set where the title bar place, if "yes" the title bar add on image,
+# if blank or whatever the title bar will be added at out of image
+add_on_img=""
+
+# This variable serves to set the width and height size of title bar.
+# NOTE (Bug Found):
+# - Sometimes the title bar result is too big or too small
+#
+# width_img=$(magick ${file_name} - format "%w" info:)
+# height_img=$(magick ${file_name} - format "%h" info:)
+# if (( ${width_img} > ${height_img} )); then
+#   height_img=${width_img}
+# elif (( ${width_img} < ${height_img} )); then
+#   width_img=${height_img}
+# fi
+width_img=500
+height_img=1000
+
+# This variable serves to convert rounded corner, change this value
+# to blank or whatever for disable convert and "yes" for enable function
 convert_rounded="yes"
 
-# Border radius
+# This variable serves to set how many rounded corners
 border_radius=10
 
-# Change this value to "" or whatever for disable convert
+# This variable serves to convert border (background image) when editing the image,
+# change this value to blank or whatever for disable convert and "yes" for enable function
 convert_border="yes"
 
-# Change this value to "none" for transparent background
+# This variable serves to set border color (background image), change this value
+# to "none" for transparent background, if you want to custom the color, you can
+# change this value with hex color or use the one in the array list.
 border_color="${hex_color[0]}"
 
-border_size=15
+# This variable serves to set how many size of the border
+border_size=50
 
-# Shadow
-# Change this value to "" or whatever for disable convert
+# This variable serves to convert the shadow of image, change this value
+# to blank or whatever for disable function and "yes" for enable function.
 convert_shadow="yes"
 
+# This variable serves to set shadow color, if you want to custom the color, you can
+# change this value with hex color or use the one in the array list.
 shadow_color="${hex_color[1]}"
+
+# This variable serves to set shadow size, this variable has four values:
+# shadow_size="75x30+0+30"
+# that mean:
+# - bottom shadow is x75
+# - right shadow is +30
+# - top shadow is +0
+# - left shadow is +30
 shadow_size="75x30+0+30"
 
-# Footer
-# Change this value to "" or whatever for disable convert
+# This variable serves to convert the footer text, change this value
+# to blank or whatever for disable function and "yes" for enable function.
 convert_footer="yes"
 
+# This variable serves to set text of footer, if you want to use icon
+# you can search on Nerd Fonts Website (https://www.nerdfonts.com/cheat-sheet)
+# NOTE: if you use icon from Nerd Fonts, make sure "footer_font" using nerd fonts to!
 footer_text=" Shot by Awesomeshot"
+
+# This variable serves to set text position of footer, the value contain 8 wind direction:
+# - NorthWest
+# - North
+# - West
+# - Center
+# - East
+# - SouthWest
+# - South
+# - SouthEast
+# NOTE: Default value is "South"
 footer_position="South"
+
+# This variable serves to set position of "X" and "Y"
 footer_xy="+0+45"
+
+# This variable serves to set the font used when converting, you can check the list font
+# available to use for ImageMagick by command: 
+# - magick convert -list font | grep -iE 'font:.*'
 footer_font="JetBrains-Mono-Medium-Nerd-Font-Complete"
+
+# This variable serves to set font size
 footer_font_size=25
+
+# This variable serves to set the text color, if you want to custom the color, you can
+# change this value with hex color or use the one in the array list.
 footer_foreground="${hex_color[1]}"
+
+# This variable serves to set footer background color (background text), change this value
+# to "none" for transparent background, if you want to custom the color, you can
+# change this value with hex color or use the one in the array list.
 footer_background="none"
 
+# This variable serves to set the convert image with file type non PNG, change this value
+# to blank or whatever for disable function and "yes" for enable function.
 # Convert to PNG if file not PNG
 convert_to_png="yes"
 
-# Open Image when convert done
+# This variable serves to open the result of image (when editing finished), change this value
+# to blank or whatever for disable function and "yes" for enable function.
 open_image=""
 EOF
 
@@ -175,8 +246,12 @@ function autoRun() {
           backupOriginalPhoto "${get_file_name}"
         fi
 
-        title "${COLOR_SKY}[+] EDTING IMAGE${COLOR_DEFAULT}"
-      
+        title "${COLOR_SKY}[+] EDITING IMAGE${COLOR_DEFAULT}"
+         
+        if [ "${convert_titlebar}" == "yes" ]; then
+          convertTitleBar
+        fi
+
         if [ "${convert_rounded}" == "yes" ]; then
           convertRounded
         fi
@@ -224,8 +299,12 @@ function manualRun() {
       backupOriginalPhoto "${get_file_name}"
     fi
 
-    title "${COLOR_SKY}[+] EDTING IMAGE${COLOR_DEFAULT}"
+    title "${COLOR_SKY}[+] EDITING IMAGE${COLOR_DEFAULT}"
       
+    if [ "${convert_titlebar}" == "yes" ]; then
+      convertTitleBar
+    fi
+
     if [ "${convert_rounded}" == "yes" ]; then
       convertRounded
     fi
@@ -277,9 +356,9 @@ function backupOriginalPhoto() {
 }
 
 function convertToPng() {
-  title "${COLOR_SKY}[+] CONVERTING EXTENSION IMAGE${COLOR_DEFAULT}"
   extension="${file_name##*.}"
   if [ "${extension}" != "png" ]; then
+    title "${COLOR_SKY}[+] CONVERTING EXTENSION IMAGE${COLOR_DEFAULT}"
     subtitle "[+]*Convert*.${extension}*To*.png*"
 
     convert "${file_name}" "${file_name%.*}.png"
@@ -288,6 +367,54 @@ function convertToPng() {
     file_name=${file_name%.*}.png
     check
   fi
+}
+
+function convertTitleBar(){
+  subtitle "[+]*Set*Title*Bar*"
+
+  g="#27C93F" #green
+  y="#FFBD2E" #yellow
+  r="#FF5F56" #red
+  b="#282C34" #black
+
+  rad=$( echo "0.0025 * ${width_img} * ${height_img} / 100" | bc )
+  br=$( echo "${rad} * 5" | bc )
+  x0=$( echo "${rad} * 3" | bc )
+  y0=$( echo "${br} * 0.5" | bc )
+  x1=$( echo "${x0} + ${rad}" | bc )
+
+  declare -A arr=()
+  for i in {0..2}; do
+    arr[$i,0]=$x0
+    arr[$i,1]=$y0
+    arr[$i,2]=$x1
+    arr[$i,3]=$y0
+    x0=$( echo "${x0} + ${rad} * 3" | bc )
+    x1=$( echo "${x0} + ${rad}" | bc)
+  done
+
+  #1520x720
+  #760x360
+  if [[ "${add_on_img}" == "yes" ]]; then  
+    magick $file_name -fill $b \
+      -background $b \
+      -gravity north \
+      -chop 0x$br \
+      -splice 0x$br \
+      -draw "fill ${r}   circle ${arr[0,0]},${arr[0,1]} ${arr[0,2]},${arr[0,3]}
+      fill ${y}   circle ${arr[1,0]},${arr[1,1]} ${arr[1,2]},${arr[1,3]} 
+      fill ${g}   circle ${arr[2,0]},${arr[2,1]} ${arr[2,2]},${arr[2,3]}" \
+      $file_name
+  else
+    magick $file_name -fill $b \
+      -background $b \
+      -gravity north -splice 0x$br\
+      -draw "fill ${r}   circle ${arr[0,0]},${arr[0,1]} ${arr[0,2]},${arr[0,3]}
+      fill ${y}   circle ${arr[1,0]},${arr[1,1]} ${arr[1,2]},${arr[1,3]} 
+      fill ${g}   circle ${arr[2,0]},${arr[2,1]} ${arr[2,2]},${arr[2,3]}" \
+      $file_name
+  fi
+  check
 }
 
 function convertRounded() {
