@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+COLOR_BASED="\e[39m"
+COLOR_DANGER="\e[91m"
+COLOR_WARNING="\e[93m"
+COLOR_SUCCESS="\e[92m"
+COLOR_SKY="\e[34m"
+
+function show() {
+  ip -br -c $1 $2
+}
+
+echo -e "\n"
+echo -e "           ${COLOR_SUCCESS}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
+echo -e "           ┃  ${COLOR_WARNING}Information Address Show${COLOR_SUCCESS}  ┃"
+echo -e "           ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${COLOR_BASED}\n"
+
+echo -e "Interface Name   Status         IPv4/netmask & IPv6/netmask"
+echo -e "━━━━━━━━━━━━━━   ━━━━━━         ━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+show ad sh
+
+echo -e ""
+
+echo -e "           ${COLOR_SUCCESS}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
+echo -e "           ┃    ${COLOR_WARNING}Information Link Show${COLOR_SUCCESS}   ┃"
+echo -e "           ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${COLOR_BASED}\n"
+
+echo -e "Interface Name   Status         MAC Address"
+echo -e "━━━━━━━━━━━━━━   ━━━━━━         ━━━━━━━━━━━"
+show li sh
+
+echo -e ""
+
+echo -e "           ${COLOR_SUCCESS}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
+echo -e "           ┃  ${COLOR_WARNING}Information Neighbour Show${COLOR_SUCCESS}  ┃"
+echo -e "           ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${COLOR_BASED}\n"
+
+echo -e "IP Address                              Interface Name   MAC Address"
+echo -e "━━━━━━━━━━                              ━━━━━━━━━━━━━━   ━━━━━━━━━━━"
+show ne sh
+
+echo -e "\n"
