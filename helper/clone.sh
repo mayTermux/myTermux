@@ -46,29 +46,21 @@ function repositories() {
   echo -e "‏‏‎‏‏‎ ‎ ‎‏‏‎  ‎📦 Getting Information Repository"
   sleep 2s
 
-  # echo -e "
-  #   ╭────────────────────────────────────────────────────────────────────╮
-  #   ┃                         Information Repository                     ┃
-  #   ╰────────────────────────────────────────────────────────────────────╯
-  #   ┃              Repository Name                 ┃    Repository Size  ┃
-  #   ╰────────────────────────────────────────────────────────────────────╯"
   echo -e "
-    ╭────────────────────────────────────────────────────────────────────╮
-    ┃                         Information Repository                     ┃
-    ╰────────────────────────────────────────────────────────────────────╯
+    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+    ┃                         Information Repository                     ┃ 
+    ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
     ┃      Repository Name                          Repository Size      ┃
-    ╰────────────────────────────────────────────────────────────────────╯"
+    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
 
   for REPOSITORY_API in "${REPOSITORY_APIS[@]}"; do
 
     REPOSITORY_NAME=$(curl https://api.github.com/${REPOSITORY_API} 2> /dev/null | grep full_name | sed -n 1p | awk '{print $2}' | sed "s/,//g" | sed "s/\"//g")
-    # printf "    ┃      ${COLOR_SUCCESS}%-36s${COLOR_BASED}     ▎      ${COLOR_WARNING}%8s${COLOR_BASED}      ┃\n" $REPOSITORY_NAME `repoSize $REPOSITORY_API`
-    printf "    ┃      ${COLOR_SUCCESS}%-36s${COLOR_BASED}       ${COLOR_WARNING}%8s${COLOR_BASED}           ┃\n" $REPOSITORY_NAME `repoSize $REPOSITORY_API`
-    echo -e "    ╰────────────────────────────────────────────────────────────────────╯"
+    printf  "    ┃      ${COLOR_SUCCESS}%-36s${COLOR_BASED}       ${COLOR_WARNING}%8s${COLOR_BASED}           ┃\n" $REPOSITORY_NAME `repoSize $REPOSITORY_API`
+    echo -e "    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
 
   done
 
-  # echo "    ╰────────────────────────────────────────────────────────────────────╯"
   echo -e ""
 
 }
