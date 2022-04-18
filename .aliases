@@ -166,3 +166,7 @@ alias repocek="node ~/.scripts/js/repochecker.js"
 alias schemeconf="nvim ~/.scripts/colorscheme/colors.sh"
 alias fontsconf="nvim ~/.scripts/fonts/fonts.sh"
 alias zshthemeconf="nvim ~/.scripts/zsh/changetheme.sh"
+
+# Termux:API
+alias scan="termux-media-scan"
+alias open="termux-open"
