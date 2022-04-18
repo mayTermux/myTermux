@@ -3,4 +3,5 @@
 SONG=$(mpc --host=127.0.0.1 --port=8000 current)
 
 #A8D7FE
-termux-toast -b "#ABB2BF" -c "#000000" -g middle "Now Playing: ${SONG}"
+termux-toast -b "#F8F9FA" -c "#000000" -g top "♫ Now Playing: ${SONG}"
+termux-notification --priority "high" --title "♫ Now Playing: ${SONG}"
