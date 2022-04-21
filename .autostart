@@ -27,3 +27,25 @@ echo -e "\e[4 q"
 #neo
 #clear
 rxfetch
+
+# SSH for Git & GitHub!
+#SSH_ENV="${HOME}/.ssh/agent-environment"
+
+#function start_agent {
+#  termux-toast -b "#FFFFFF" -c "#000000" -g top "Initialising new SSH Agent" &> /dev/null
+#  ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+
+#  termux-toast -b "#FFFFFF" -c "#000000" -g top "Succeeded" &> /dev/null
+#  chmod 600 "${SSH_ENV}"
+#  . "${SSH_ENV}" > /dev/null
+#  ssh-add;
+#}
+
+#if [ -f "${SSH_ENV}" ]; then
+#  . "${SSH_ENV}" > /dev/null
+#  ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+#    start_agent;
+#  }
+#else
+#  start_agent
+#fi
