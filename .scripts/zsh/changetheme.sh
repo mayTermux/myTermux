@@ -118,7 +118,9 @@ function selectZshTheme() {
 
         echo ""
 
-        stat "INFO" "Success" "Please run '${COLOR_SUCCESS}refresh${COLOR_BASED}' or '${COLOR_SUCCESS}source ~/.zshrc${COLOR_BASED}' to apply theme!\n"
+        exec $(which zsh)
+
+        #stat "INFO" "Success" "Please run '${COLOR_SUCCESS}refresh${COLOR_BASED}' or '${COLOR_SUCCESS}source ~/.zshrc${COLOR_BASED}' to apply theme!\n"
 
         # source ${ZSH_CONFIGURATION_PATH}
 
