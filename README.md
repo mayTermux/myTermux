@@ -69,7 +69,7 @@
   ./install.sh
   ```
 
-  ![Error](https://i.ibb.co/mDV3hd0/Screenshot-20220216-200813-Termux.png)
+  ![Error](https://user-images.githubusercontent.com/64394320/170210843-a4ee5203-2892-4083-81a8-fe89981cac80.png)
 
   > If you get error message `Please Zoom Out`.
   > Zoom Out on Termux Application then run again the script
@@ -77,7 +77,7 @@
   > If the row and column widths of the application are correct,
   > the script will automatically run, like this:
 
-  ![Running](https://i.ibb.co/hMbzWxx/Screenshot-20220216-202655-Termux.png)
+  ![banner_out](https://user-images.githubusercontent.com/64394320/170211059-9d740d4f-b657-4da5-a319-a3e09af0be3b.png)
 
   > Then follow the installation until it's finished
 
@@ -93,11 +93,11 @@
 
   > rxfetch
 
-  ![rxfetch](https://i.ibb.co/c6YLPNV/Screenshot-20220319-192552-Termux.png)
+  ![rxfetch](https://user-images.githubusercontent.com/64394320/170211137-554dfd78-8424-4699-876c-7483b45de068.png)
 
   > neofetch
 
-  ![neofetch](https://i.ibb.co/pLcSBLx/Screenshot-20220319-193758-Termux.png)
+  ![neofetch_out](https://user-images.githubusercontent.com/64394320/170211168-9e44dab1-7047-4f12-985c-3608b93ee033.png)
 
 - Colorscheme (Theme)
 
@@ -107,7 +107,7 @@
   chcolor
   ```
 
-  ![chcolor](https://i.ibb.co/zFQhNZD/Screenshot-20220319-194003-Termux.png)
+  ![chcolor_out](https://user-images.githubusercontent.com/64394320/170211188-69f6317f-31e5-4feb-8422-3b0912ec3f8d.png)
 
   <details>
   <summary>Show Preview</summary>
@@ -124,7 +124,7 @@
   chfont
   ```
 
-  ![chfont](https://i.ibb.co/vDWZ5k1/Screenshot-20220319-194026-Termux.png)
+  ![chfont_out](https://user-images.githubusercontent.com/64394320/170211200-74ffac55-3181-4b43-9faa-a076ba847a70.png)
 
 - ZSH Theme
 
@@ -134,11 +134,11 @@
   chzsh
   ```
 
-  ![chzsh](https://i.ibb.co/km77gcw/Screenshot-20220319-194129-Termux.png)
+  ![zsh_out](https://user-images.githubusercontent.com/64394320/170211230-059d59be-376b-440c-9fb9-ea3750c983b9.png)
 
 - [NVIM] - Text Editor
 
-  ![NvChad](https://i.ibb.co/VBv57nX/Screenshot-20220403-014722-Termux.png)
+  ![nvim_out](https://user-images.githubusercontent.com/64394320/170211252-e11d41cf-7674-40e5-b1f8-11ac3320a83f.png)
 
   <details>
   <summary>Show Theme</summary>
@@ -149,7 +149,7 @@
 
 - [NCMPCPP] - Music Player
 
-  ![ncmpcpp](https://i.ibb.co/Q6kmR2B/68747470733a2f2f692e6962622e636f2f625052726279442f66696e616c2d6d757369632e706e67.png)
+  ![music_out](https://user-images.githubusercontent.com/64394320/170211279-a26d0f0e-1cf8-4b8b-ae21-8a1a79515574.png)
 
 - [COLORTOYS] - Pipes
 
@@ -161,7 +161,7 @@
 
 - [NYANCAT]
 
-  ![nyancat](https://i.ibb.co/rfKPpk3/Screenshot-20220403-021843-Termux.png)
+  ![nyancat_out](https://user-images.githubusercontent.com/64394320/170211265-40e42967-1aee-40ad-9a39-11e9a45139ee.png)
 
 ## Credits
 
