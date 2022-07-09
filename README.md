@@ -10,26 +10,28 @@
 ## Installation Dependecies
 
 > **Attention!**
+>
 > - [Termux must be **F-Droid** Version](https://f-droid.org/en/packages/com.termux/) because Termux from Playstore no longer maintained because there are some problems with the Playstore publishing
 > - [Termux:API must be installed](https://f-droid.org/en/packages/com.termux.api/) myTermux use API command from Termux:API like fetch `termux-battery-status`
 
   <details open>
   <summary><strong>Update Repository & Upgrade Package</strong></summary>
 
-  ```bash
-  pkg update && pkg upgrade
-  ```
+```bash
+pkg update && pkg upgrade
+```
+
   </details>
 
   <details>
   <summary><strong>git & bc</strong></summary>
 
-  - Package `git` for cloning or downloading repository
-  - Package `bc` for calculate repository size which will be cloning or downloading
+- Package `git` for cloning or downloading repository
+- Package `bc` for calculate repository size which will be cloning or downloading
 
-  ```bash
-  pkg i -y git bc
-  ```
+```bash
+pkg i -y git bc
+```
 
   </details>
 
@@ -38,52 +40,50 @@
   <details open>
   <summary><strong>Clone or Download This Repository</strong></summary>
 
-  ```bash
-  git clone --depth=1 https://github.com/mayTermux/myTermux.git
-  ```
+```bash
+git clone --depth=1 https://github.com/mayTermux/myTermux.git
+```
 
   </details>
 
   <details>
   <summary><strong>Run Script Installer</strong></summary>
 
-  - Move to Folder
+- Move to Folder
 
-  ```bash
-  cd myTermux
-  ```
+```bash
+cd myTermux
+```
 
-  - export variable `COLUMNS` and `LINES`
+- export variable `COLUMNS` and `LINES`
 
-  > This variable function so that the installer script can read the
-  > `column` and `row` widths of Termux Application so that later it
-  > matches the output during the installation process.
+> This variable function so that the installer script can read the
+> `column` and `row` widths of Termux Application so that later it
+> matches the output during the installation process.
 
-  ```bash
-  export COLUMNS LINES
-  ```
+```bash
+export COLUMNS LINES
+```
 
-  - Execute Installer
+- Execute Installer
 
-  ```bash
-  ./install.sh
-  ```
+```bash
+./install.sh
+```
 
-  ![Error](https://user-images.githubusercontent.com/64394320/170210843-a4ee5203-2892-4083-81a8-fe89981cac80.png)
+![Error](https://user-images.githubusercontent.com/64394320/170210843-a4ee5203-2892-4083-81a8-fe89981cac80.png)
 
-  > If you get error message `Please Zoom Out`.
-  > Zoom Out on Termux Application then run again the script
+> If you get error message `Please Zoom Out`.
+> Zoom Out on Termux Application then run again the script
 
-  > If the row and column widths of the application are correct,
-  > the script will automatically run, like this:
+> If the row and column widths of the application are correct,
+> the script will automatically run, like this:
 
-  ![banner_out](https://user-images.githubusercontent.com/64394320/170211059-9d740d4f-b657-4da5-a319-a3e09af0be3b.png)
+![banner_out](https://user-images.githubusercontent.com/64394320/170211059-9d740d4f-b657-4da5-a319-a3e09af0be3b.png)
 
-  > Then follow the installation until it's finished
+> Then follow the installation until it's finished
 
   </details>
-
-
 
 ## :camera_flash: Screenshots
 
@@ -153,11 +153,11 @@
 
 - [COLORTOYS] - Pipes
 
-  ![pipes](https://i.ibb.co/gVbrDRR/Screenshot-20220403-020756-Termux.png)
+  ![pipes](https://user-images.githubusercontent.com/66439853/178114136-25a80169-2413-4a92-ac4b-e0df649da5f2.png)
 
 - [COLORTOYS] - Panes, Bar, Bloks
 
-  ![panes-bar-bloks](https://i.ibb.co/NCF16gX/Screenshot-20220403-022601-Termux.png)
+  ![panes-bar-bloks](https://user-images.githubusercontent.com/66439853/178114094-1e1a9956-46f9-446b-a527-86b61e9c77e0.png)
 
 - [NYANCAT]
 
