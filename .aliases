@@ -1,3 +1,6 @@
+# fzf
+alias preview="fzf --preview='bat --color=always --style=numbers --theme OneHalfDark {}' --preview-window=down"
+
 #Change
 alias chcolor="~/.scripts/colorscheme/colors.sh"
 alias chfont="~/.scripts/fonts/fonts.sh"
