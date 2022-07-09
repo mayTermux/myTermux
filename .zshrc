@@ -5,6 +5,7 @@ plugins=(
   zsh-autosuggestions 
   zsh-syntax-highlighting 
   bgnotify
+  zsh-fzf-history-search
 )
 
 PATH="$PREFIX/bin:$HOME/.local/bin:$PATH"
