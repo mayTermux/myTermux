@@ -20,7 +20,7 @@ function NvChad() {
 
       stat "RUN" "Warning" "Installing '${COLOR_WARNING}NvChad${COLOR_BASED}' ..."
 
-      nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
+	  nvim
 
     else
 
