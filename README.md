@@ -9,6 +9,8 @@
 
 ## Video Installation
 
+> Click this thumbnail below to see video installation
+
 [![myTermux Thumbnail](https://user-images.githubusercontent.com/64394320/170211137-554dfd78-8424-4699-876c-7483b45de068.png)](https://www.youtube.com/watch?v=sYkNxK_44Zg "myTermux - Installation")
 
 ## Installation Dependecies
