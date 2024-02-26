@@ -57,26 +57,16 @@ git clone --depth=1 https://github.com/kryptobolt200528/myTermux.git
 
 - Move to Folder
 
-```bash
-cd myTermux
-```
-
 - export variable `COLUMNS` and `LINES`
-
 > This variable function so that the installer script can read the
 > `column` and `row` widths of Termux Application so that later it
 > matches the output during the installation process.
 
-```bash
-export COLUMNS LINES
-```
-
 - Execute Installer
 
 ```bash
-./install.sh
+cd myTermux;export COLUMNS LINES;./install.sh
 ```
-
 ![Error](https://user-images.githubusercontent.com/64394320/170210843-a4ee5203-2892-4083-81a8-fe89981cac80.png)
 
 > If you get error message `Please Zoom Out`.
