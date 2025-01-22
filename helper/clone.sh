@@ -6,7 +6,7 @@ REPOSITORY_LINKS=(
   https://github.com/zsh-users/zsh-autosuggestions
   https://github.com/joshskidmore/zsh-fzf-history-search
   https://github.com/jimeh/tmux-themepack
-  https://github.com/NvChad/NvChad
+  https://github.com/NvChad/starter
 )
 
 REPOSITORY_APIS=(
@@ -15,7 +15,7 @@ REPOSITORY_APIS=(
   repos/zsh-users/zsh-autosuggestions
   repos/joshskidmore/zsh-fzf-history-search
   repos/jimeh/tmux-themepack
-  repos/NvChad/NvChad
+  repos/NvChad/starter
 )
 
 REPOSITORY_FULL_NAME=(
@@ -24,7 +24,7 @@ REPOSITORY_FULL_NAME=(
   zsh-users/zsh-autosuggestions
   joshskidmore/zsh-fzf-history-search
   jimeh/tmux-themepack
-  NvChad/NvChad
+  NvChad/starter
 )
 
 REPOSITORY_PATH=(
