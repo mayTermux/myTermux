@@ -5,6 +5,7 @@ REPOSITORY_LINKS=(
   https://github.com/zsh-users/zsh-syntax-highlighting
   https://github.com/zsh-users/zsh-autosuggestions
   https://github.com/joshskidmore/zsh-fzf-history-search
+  https://github.com/marlonrichert/zsh-autocomplete
   https://github.com/jimeh/tmux-themepack
   https://github.com/NvChad/starter
 )
@@ -14,6 +15,7 @@ REPOSITORY_APIS=(
   repos/zsh-users/zsh-syntax-highlighting
   repos/zsh-users/zsh-autosuggestions
   repos/joshskidmore/zsh-fzf-history-search
+  repos/marlonrichert/zsh-autocomplete
   repos/jimeh/tmux-themepack
   repos/NvChad/starter
 )
@@ -23,6 +25,7 @@ REPOSITORY_FULL_NAME=(
   zsh-users/zsh-syntax-highlighting
   zsh-users/zsh-autosuggestions
   joshskidmore/zsh-fzf-history-search
+  marlonrichert/zsh-autocomplete
   jimeh/tmux-themepack
   NvChad/starter
 )
@@ -32,6 +35,7 @@ REPOSITORY_PATH=(
   $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   $HOME/.oh-my-zsh/custom/plugins/zsh-fzf-history-search
+  $HOME/.oh-my-zsh/custom/plugins/zsh-autocomplete
   $HOME/.tmux-themepack
   $HOME/NvChad
 )
