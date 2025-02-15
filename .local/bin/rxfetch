@@ -46,16 +46,16 @@ function getKernel() {
 function getTotalPackages() {
   package_manager="$(which {apt,dpkg} 2>/dev/null | grep -v "not found" | awk -F/ 'NR==1{print $NF}')"
   case "${package_manager}" in
-    "apt" )
-      packages=$(apt list --installed 2>/dev/null | wc -l)
+  "apt")
+    packages=$(apt list --installed 2>/dev/null | wc -l)
     ;;
-    
-    "dpkg" )
-      packages=$(dpkg-query -l | wc -l)
+
+  "dpkg")
+    packages=$(dpkg-query -l | wc -l)
     ;;
-    
-    "" )
-      packages="Unknown"
+
+  "")
+    packages="Unknown"
     ;;
   esac
 }
@@ -124,5 +124,3 @@ echo -e "\n\n"
 #echo -e "     oo|       "
 #echo -e "    / '\'"
 #echo -e "   (\_;/)"
-
-
