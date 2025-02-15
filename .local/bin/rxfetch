@@ -79,7 +79,13 @@ function getMemoryUsage() {
 }
 
 function getDiskUsage() {
-  _MOUNTED_ON="/data"
+  dir=$(df -h | grep '/data' | grep -v 'overlay' | awk '{print $6}')
+
+  if [ -z "$dir" ]; then
+      dir="storage/emulated"
+  fi
+
+  _MOUNTED_ON="$dir"
   _GREP_ONE_ROW="$(df -h | grep ${_MOUNTED_ON})"
   _SIZE="$(echo ${_GREP_ONE_ROW} | awk '{print $2}')"
   _USED="$(echo ${_GREP_ONE_ROW} | awk '{print $3}')"
