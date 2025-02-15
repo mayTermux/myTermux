@@ -46,16 +46,16 @@ function getKernel() {
 function getTotalPackages() {
   package_manager="$(which {apt,dpkg} 2>/dev/null | grep -v "not found" | awk -F/ 'NR==1{print $NF}')"
   case "${package_manager}" in
-    "apt" )
-      packages=$(apt list --installed 2>/dev/null | wc -l)
+  "apt")
+    packages=$(apt list --installed 2>/dev/null | wc -l)
     ;;
-    
-    "dpkg" )
-      packages=$(dpkg-query -l | wc -l)
+
+  "dpkg")
+    packages=$(dpkg-query -l | wc -l)
     ;;
-    
-    "" )
-      packages="Unknown"
+
+  "")
+    packages="Unknown"
     ;;
   esac
 }
@@ -79,7 +79,13 @@ function getMemoryUsage() {
 }
 
 function getDiskUsage() {
-  _MOUNTED_ON="/data"
+  dir=$(df -h | grep '/data' | grep -v 'overlay' | awk '{print $6}')
+
+  if [ -z "$dir" ]; then
+      dir="storage/emulated"
+  fi
+
+  _MOUNTED_ON="$dir"
   _GREP_ONE_ROW="$(df -h | grep ${_MOUNTED_ON})"
   _SIZE="$(echo ${_GREP_ONE_ROW} | awk '{print $2}')"
   _USED="$(echo ${_GREP_ONE_ROW} | awk '{print $3}')"
@@ -124,5 +130,3 @@ echo -e "\n\n"
 #echo -e "     oo|       "
 #echo -e "    / '\'"
 #echo -e "   (\_;/)"
-
-
